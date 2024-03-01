@@ -8,19 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		2E6124582B9025B100494DF6 /* DreamControlAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124572B9025B100494DF6 /* DreamControlAppApp.swift */; };
-		2E61245A2B9025B100494DF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124592B9025B100494DF6 /* ContentView.swift */; };
-		2E61245C2B9025B300494DF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E61245B2B9025B300494DF6 /* Assets.xcassets */; };
 		2E61245F2B9025B300494DF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */; };
 		2E6124662B9025CD00494DF6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124652B9025CD00494DF6 /* MockData.swift */; };
+		2EA20C832B908FC2000AAEC2 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA20C822B908FC2000AAEC2 /* OnboardingView.swift */; };
+		2EA20C852B919924000AAEC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E61245B2B9025B300494DF6 /* Assets.xcassets */; };
+		2EA20C872B919B0B000AAEC2 /* MainFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EA20C862B919AC7000AAEC2 /* MainFont.ttf */; };
+		2EA20C882B919B24000AAEC2 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124592B9025B100494DF6 /* SplashView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2E6124542B9025B100494DF6 /* DreamControlApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamControlApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E6124572B9025B100494DF6 /* DreamControlAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamControlAppApp.swift; sourceTree = "<group>"; };
-		2E6124592B9025B100494DF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2E6124592B9025B100494DF6 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		2E61245B2B9025B300494DF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2E6124652B9025CD00494DF6 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		2EA20C822B908FC2000AAEC2 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		2EA20C862B919AC7000AAEC2 /* MainFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MainFont.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +59,10 @@
 			children = (
 				2E6124652B9025CD00494DF6 /* MockData.swift */,
 				2E6124572B9025B100494DF6 /* DreamControlAppApp.swift */,
-				2E6124592B9025B100494DF6 /* ContentView.swift */,
+				2E6124592B9025B100494DF6 /* SplashView.swift */,
+				2EA20C822B908FC2000AAEC2 /* OnboardingView.swift */,
 				2E61245B2B9025B300494DF6 /* Assets.xcassets */,
+				2EA20C862B919AC7000AAEC2 /* MainFont.ttf */,
 				2E61245D2B9025B300494DF6 /* Preview Content */,
 			);
 			path = DreamControlApp;
@@ -128,8 +134,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EA20C852B919924000AAEC2 /* Assets.xcassets in Resources */,
+				2EA20C872B919B0B000AAEC2 /* MainFont.ttf in Resources */,
 				2E61245F2B9025B300494DF6 /* Preview Assets.xcassets in Resources */,
-				2E61245C2B9025B300494DF6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +147,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E61245A2B9025B100494DF6 /* ContentView.swift in Sources */,
+				2EA20C832B908FC2000AAEC2 /* OnboardingView.swift in Sources */,
+				2EA20C882B919B24000AAEC2 /* SplashView.swift in Sources */,
 				2E6124662B9025CD00494DF6 /* MockData.swift in Sources */,
 				2E6124582B9025B100494DF6 /* DreamControlAppApp.swift in Sources */,
 			);
@@ -278,6 +286,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"DreamControlApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DreamControlApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -306,6 +315,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"DreamControlApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DreamControlApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
