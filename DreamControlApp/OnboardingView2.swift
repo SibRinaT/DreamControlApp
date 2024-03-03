@@ -1,24 +1,24 @@
 //
-//  OnboardingView.swift
+//  OnboardingView2.swift
 //  DreamControlApp
 //
-//  Created by Ainur on 29.02.2024.
+//  Created by Ainur on 03.03.2024.
 //
 
 import SwiftUI
 
-struct OnboardingView: View {
+struct OnboardingView2: View {
     var body: some View {
-        Image("onboardingImage1")
+        Image("onboardingImage2")
             .frame(width: 354, height: 354)
             .clipShape(Circle())
             .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
         VStack {
-            Text("Мечты")
+            Text("Желания")
                 .font(.title)
                 .foregroundColor(Color("mainOrange"))
                 .bold()
-            Text("Отмечай свои самые желанные достижения и достигай высот вместе с нами!")
+            Text("Достигайте, всё что нужно - желание!")
                 .font(.custom("mineFont", size: 20))
                 .multilineTextAlignment(.center)
             Rectangle()
@@ -39,5 +39,5 @@ struct OnboardingView: View {
 }
 
 #Preview {
-    OnboardingView()
+    OnboardingView2()
 }
