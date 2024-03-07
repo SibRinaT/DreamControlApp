@@ -11,6 +11,8 @@
 		2E61245F2B9025B300494DF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */; };
 		2E6124662B9025CD00494DF6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124652B9025CD00494DF6 /* MockData.swift */; };
 		2E8F49022B9489DF00414354 /* OnboardingView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8F49012B9489DF00414354 /* OnboardingView2.swift */; };
+		2E912D3A2B970CD600664140 /* MainOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E912D392B970CD600664140 /* MainOnboarding.swift */; };
+		2E912D3C2B970D6600664140 /* OnboardingView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E912D3B2B970D6600664140 /* OnboardingView3.swift */; };
 		2EA20C832B908FC2000AAEC2 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA20C822B908FC2000AAEC2 /* OnboardingView.swift */; };
 		2EA20C852B919924000AAEC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E61245B2B9025B300494DF6 /* Assets.xcassets */; };
 		2EA20C872B919B0B000AAEC2 /* MainFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EA20C862B919AC7000AAEC2 /* MainFont.ttf */; };
@@ -29,6 +31,8 @@
 		2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2E6124652B9025CD00494DF6 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		2E8F49012B9489DF00414354 /* OnboardingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView2.swift; sourceTree = "<group>"; };
+		2E912D392B970CD600664140 /* MainOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOnboarding.swift; sourceTree = "<group>"; };
+		2E912D3B2B970D6600664140 /* OnboardingView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView3.swift; sourceTree = "<group>"; };
 		2EA20C822B908FC2000AAEC2 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		2EA20C862B919AC7000AAEC2 /* MainFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MainFont.ttf; sourceTree = "<group>"; };
 		2EA20C892B91A3CE000AAEC2 /* Zapfino.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zapfino.ttf; sourceTree = "<group>"; };
@@ -70,8 +74,7 @@
 				2E6124652B9025CD00494DF6 /* MockData.swift */,
 				2E6124572B9025B100494DF6 /* DreamControlAppApp.swift */,
 				2E6124592B9025B100494DF6 /* SplashView.swift */,
-				2EA20C822B908FC2000AAEC2 /* OnboardingView.swift */,
-				2E8F49012B9489DF00414354 /* OnboardingView2.swift */,
+				2E912D382B970CBA00664140 /* Onboarding */,
 				2E61245B2B9025B300494DF6 /* Assets.xcassets */,
 				2EA20C932B91EF3F000AAEC2 /* Fonts */,
 				2E61245D2B9025B300494DF6 /* Preview Content */,
@@ -85,6 +88,17 @@
 				2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2E912D382B970CBA00664140 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				2EA20C822B908FC2000AAEC2 /* OnboardingView.swift */,
+				2E8F49012B9489DF00414354 /* OnboardingView2.swift */,
+				2E912D3B2B970D6600664140 /* OnboardingView3.swift */,
+				2E912D392B970CD600664140 /* MainOnboarding.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		2EA20C932B91EF3F000AAEC2 /* Fonts */ = {
@@ -175,8 +189,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EA20C832B908FC2000AAEC2 /* OnboardingView.swift in Sources */,
+				2E912D3C2B970D6600664140 /* OnboardingView3.swift in Sources */,
 				2EA20C882B919B24000AAEC2 /* SplashView.swift in Sources */,
 				2E6124662B9025CD00494DF6 /* MockData.swift in Sources */,
+				2E912D3A2B970CD600664140 /* MainOnboarding.swift in Sources */,
 				2E6124582B9025B100494DF6 /* DreamControlAppApp.swift in Sources */,
 				2E8F49022B9489DF00414354 /* OnboardingView2.swift in Sources */,
 			);
