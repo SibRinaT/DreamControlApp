@@ -38,6 +38,7 @@ struct OnboardingView: View {
             }
         }
         .padding(.horizontal, 30)
+
     }
 }
 

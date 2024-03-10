@@ -32,7 +32,7 @@ struct OnboardingView3: View {
                     .cornerRadius(100)
                     .frame(height: 55)
                     .overlay(
-                        Text("Next")
+                        Text("Start")
                             .font(.title2)
                             .foregroundColor(.white)
                     )
