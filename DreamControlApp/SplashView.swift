@@ -15,13 +15,13 @@ struct SplashView: View {
     
     var body: some View {
         if isActive {
-            OnboardingView()
+            MainOnboarding()
         } else {
             VStack {
                 VStack {
                     Image("morningImg")
                     Text("Утро начинается не с кофе а с мечтаний...")
-                        .font(.custom("MainFont", size: 40))
+                        .font(.custom("pixelFont.ttf", size: 40))
                         .multilineTextAlignment(.center)
                         .shadow(color: Color.black.opacity(0.25), radius: 1, x: 2, y: 4) // Добавьте тень
                 }

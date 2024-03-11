@@ -4,7 +4,11 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>MainFont</string>
+		<string>mineFont</string>
+		<string>pixelFont</string>
+		<string>MainFont.ttf</string>
+		<string>Zapfino</string>
+		<string>CustomMainFont2</string>
 	</array>
 </dict>
 </plist>
