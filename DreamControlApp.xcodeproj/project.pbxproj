@@ -71,6 +71,8 @@
 		2E6124562B9025B100494DF6 /* DreamControlApp */ = {
 			isa = PBXGroup;
 			children = (
+				2E63DC862B9F5C87000B13C6 /* SignUp */,
+				2E63DC852B9F5C7E000B13C6 /* LogIn */,
 				2E6124652B9025CD00494DF6 /* MockData.swift */,
 				2E6124572B9025B100494DF6 /* DreamControlAppApp.swift */,
 				2E6124592B9025B100494DF6 /* SplashView.swift */,
@@ -88,6 +90,20 @@
 				2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2E63DC852B9F5C7E000B13C6 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		2E63DC862B9F5C87000B13C6 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		2E912D382B970CBA00664140 /* Onboarding */ = {
