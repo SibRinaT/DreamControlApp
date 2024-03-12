@@ -10,6 +10,8 @@
 		2E6124582B9025B100494DF6 /* DreamControlAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124572B9025B100494DF6 /* DreamControlAppApp.swift */; };
 		2E61245F2B9025B300494DF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */; };
 		2E6124662B9025CD00494DF6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124652B9025CD00494DF6 /* MockData.swift */; };
+		2E784F432BA0BE7700AA58F9 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E784F422BA0BE7700AA58F9 /* LogInView.swift */; };
+		2E784F452BA0BE8200AA58F9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E784F442BA0BE8200AA58F9 /* SignUpView.swift */; };
 		2E8F49022B9489DF00414354 /* OnboardingView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8F49012B9489DF00414354 /* OnboardingView2.swift */; };
 		2E912D3A2B970CD600664140 /* MainOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E912D392B970CD600664140 /* MainOnboarding.swift */; };
 		2E912D3C2B970D6600664140 /* OnboardingView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E912D3B2B970D6600664140 /* OnboardingView3.swift */; };
@@ -30,6 +32,8 @@
 		2E61245B2B9025B300494DF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2E6124652B9025CD00494DF6 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		2E784F422BA0BE7700AA58F9 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		2E784F442BA0BE8200AA58F9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		2E8F49012B9489DF00414354 /* OnboardingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView2.swift; sourceTree = "<group>"; };
 		2E912D392B970CD600664140 /* MainOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOnboarding.swift; sourceTree = "<group>"; };
 		2E912D3B2B970D6600664140 /* OnboardingView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView3.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 		2E63DC852B9F5C7E000B13C6 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
+				2E784F422BA0BE7700AA58F9 /* LogInView.swift */,
 			);
 			path = LogIn;
 			sourceTree = "<group>";
@@ -102,6 +107,7 @@
 		2E63DC862B9F5C87000B13C6 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				2E784F442BA0BE8200AA58F9 /* SignUpView.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -210,6 +216,8 @@
 				2E6124662B9025CD00494DF6 /* MockData.swift in Sources */,
 				2E912D3A2B970CD600664140 /* MainOnboarding.swift in Sources */,
 				2E6124582B9025B100494DF6 /* DreamControlAppApp.swift in Sources */,
+				2E784F432BA0BE7700AA58F9 /* LogInView.swift in Sources */,
+				2E784F452BA0BE8200AA58F9 /* SignUpView.swift in Sources */,
 				2E8F49022B9489DF00414354 /* OnboardingView2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
