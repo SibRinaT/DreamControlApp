@@ -16,7 +16,8 @@ struct MainOnboarding: View {
 
         }
         .tabViewStyle(.page)
-        .indexViewStyle(.page(backgroundDisplayMode: .always))
+    
+//        .indexViewStyle(.page(backgroundDisplayMode: .always))
     }
 }
 
