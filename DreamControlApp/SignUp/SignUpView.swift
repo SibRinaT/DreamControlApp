@@ -9,11 +9,15 @@ import SwiftUI
 
 struct SignUpView: View {
     var body: some View {
-        VStack {
-            Text("Регистрация")
-            Image("onboardingImage3")
-            
-//            TextField()
+        ZStack {
+            Image("registrImage")
+            Rectangle()
+                .frame(height: 100) // Задаем размеры прямоугольника
+                .cornerRadius(20)
+                .overlay(
+                    Text("Регистрация")
+                )
+                .foregroundColor(.white)
         }
     }
 }

@@ -19,8 +19,7 @@ struct InputFieldView: View {
                 .font(.caption)
             ZStack(alignment: .trailing) {
                 Group {
-    
-                        SecureField(placeholder, text: $fieldValue)
+                            SecureField(placeholder, text: $fieldValue)
                     }
                 }
                 .font(.caption2)
