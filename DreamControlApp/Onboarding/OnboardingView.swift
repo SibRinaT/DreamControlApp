@@ -10,9 +10,8 @@ import SwiftUI
 struct OnboardingView: View {
     var body: some View {
         VStack {
-            Image("onboardingImage1")
+            Image("onbImage1")
                 .frame(width: 354, height: 354)
-                .clipShape(Circle())
             .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             
             VStack {
@@ -20,7 +19,7 @@ struct OnboardingView: View {
                     .font(.title)
                     .foregroundColor(Color("mainOrange"))
                     .bold()
-                Text("Отмечай свои самые желанные достижения и достигай высот вместе с нами!")
+                Text("Совершенствуйся и достигай!")
                     .font(.custom("mineFont", size: 20))
                     .multilineTextAlignment(.center)
                 Rectangle()

@@ -10,16 +10,15 @@ import SwiftUI
 struct OnboardingView2: View {
     var body: some View {
         VStack {
-            Image("onboardingImage2")
+            Image("onbImage2")
                 .frame(width: 354, height: 354)
-                .clipShape(Circle())
                 .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             VStack {
                 Text("Желания")
                     .font(.title)
                     .foregroundColor(Color("mainOrange"))
                     .bold()
-                Text("Достигайте, всё что нужно - желание!")
+                Text("Теряешь мотивацию?Получи её тут!")
                     .font(.custom("mineFont", size: 20))
                     .multilineTextAlignment(.center)
                 Rectangle()

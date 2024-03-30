@@ -23,7 +23,7 @@ struct OnboardingView3: View {
                     .foregroundColor(Color("mainOrange"))
                     .bold()
                 Spacer()
-                Text("Начните идти к своей мечте уже сегодня вместе с Dream Control!")
+                Text("Создай свою историю успеха")
                     .font(.custom("mineFont", size: 20))
                     .multilineTextAlignment(.center)
                 Spacer()
