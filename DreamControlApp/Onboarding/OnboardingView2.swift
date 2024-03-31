@@ -14,13 +14,12 @@ struct OnboardingView2: View {
                 .frame(width: 354, height: 354)
                 .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             VStack {
-                Text("Желания")
+                Text("Теряешь мотивацию?Получи её тут!")
                     .font(.title)
                     .foregroundColor(Color("mainOrange"))
-                    .bold()
-                Text("Теряешь мотивацию?Получи её тут!")
-                    .font(.custom("mineFont", size: 20))
                     .multilineTextAlignment(.center)
+                    .bold()
+
                 Rectangle()
                     .foregroundColor(Color("mainOrange"))
                     .cornerRadius(100)
@@ -30,9 +29,6 @@ struct OnboardingView2: View {
                             .font(.title2)
                             .foregroundColor(.white)
                     )
-                Text("Skip")
-                    .foregroundColor(Color("mainOrange"))
-                    .font(.title2)
             }
         }
         .padding(.horizontal, 30)

@@ -15,15 +15,12 @@ struct OnboardingView: View {
             .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             
             VStack {
-                Text("Мечты")
-                    .font(.title)
-                    .foregroundColor(Color("mainOrange"))
-                    .bold()
                 Text("Совершенствуйся и достигай!")
-                    .font(.custom("mineFont", size: 20))
+                    .font(.title)
+                    .foregroundColor(Color(.black))
+                    .bold()
                     .multilineTextAlignment(.center)
                 Rectangle()
-                    .foregroundColor(Color("mainOrange"))
                     .cornerRadius(100)
                     .frame(height: 55)
                     .overlay(
@@ -31,9 +28,6 @@ struct OnboardingView: View {
                             .font(.title2)
                             .foregroundColor(.white)
                     )
-                Text("Skip")
-                    .foregroundColor(Color("mainOrange"))
-                    .font(.title2)
             }
         }
         .padding(.horizontal, 30)

@@ -2,7 +2,7 @@
 //  OnboardingView3.swift
 //  DreamControlApp
 //
-//  Created by Ainur on 05.03.2024.
+//  Created by Ainur on 31.03.2024.
 //
 
 import SwiftUI
@@ -10,39 +10,28 @@ import SwiftUI
 struct OnboardingView3: View {
     var body: some View {
         VStack {
-            Image("onboardingImage4")
+            Image("onbImage2")
+                .frame(width: 354, height: 354)
                 .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-            Rectangle()
-                .foregroundColor(Color("mainOrange"))
-                .frame(height: 19)
-                .offset(y: -8)
             VStack {
-                Spacer()
-                Text("Желания")
+                Text("Создай свою историю успеха!")
                     .font(.title)
                     .foregroundColor(Color("mainOrange"))
-                    .bold()
-                Spacer()
-                Text("Создай свою историю успеха")
-                    .font(.custom("mineFont", size: 20))
                     .multilineTextAlignment(.center)
-                Spacer()
+                    .bold()
+
                 Rectangle()
                     .foregroundColor(Color("mainOrange"))
                     .cornerRadius(100)
                     .frame(height: 55)
                     .overlay(
-                        Text("Start")
+                        Text("Next")
                             .font(.title2)
                             .foregroundColor(.white)
                     )
-//                Text("Skip")
-//                    .foregroundColor(Color("mainOrange"))
-//                    .font(.title2)
-                Spacer()
             }
-            .padding(.horizontal, 30)
         }
+        .padding(.horizontal, 30)
     }
 }
 
