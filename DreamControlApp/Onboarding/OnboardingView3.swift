@@ -24,7 +24,8 @@ struct OnboardingView3: View {
             VStack {
                 Text("Создай свою историю успеха!")
                     .font(.title)
-                    .foregroundColor(Color("mainOrange"))
+                    .font(.custom("MontserratAlternates", size: 14))
+                    .foregroundColor(Color("TextColor"))
                     .multilineTextAlignment(.center)
                     .bold()
 

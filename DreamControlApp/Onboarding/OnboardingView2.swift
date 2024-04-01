@@ -23,7 +23,7 @@ struct OnboardingView2: View {
             VStack {
                 Text("Совершенствуйся и достигай!")
                     .font(.title)
-                    .foregroundColor(Color(.black))
+                    .foregroundColor(Color("TextColor"))
                     .bold()
                     .multilineTextAlignment(.center)
                 Rectangle()

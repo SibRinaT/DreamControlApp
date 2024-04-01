@@ -23,10 +23,11 @@ struct OnboardingView1: View {
             
             VStack {
                 Text("Теряешь мотивацию?Получи её тут!")
+//                    .font(.custom("MontserratAlternates", size: 24))
                     .font(.title)
-                    .foregroundColor(Color("mainOrange"))
-                    .multilineTextAlignment(.center)
                     .bold()
+                    .foregroundColor(Color("TextColor"))
+                    .multilineTextAlignment(.center)
                 Rectangle()
                     .foregroundColor(Color("mainOrange"))
                     .cornerRadius(100)
