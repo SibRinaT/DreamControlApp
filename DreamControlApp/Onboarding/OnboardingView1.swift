@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OnboardingView1: View {
+    @State private var isActive: Bool = false
     var body: some View {
         VStack {
             Spacer()
@@ -23,22 +24,27 @@ struct OnboardingView1: View {
             }
             
             VStack {
+                Image("pageImage1")
+                    .offset(y: -40)
                 Text("Теряешь мотивацию?Получи её тут!")
 //                    .font(.custom("MontserratAlternates", size: 24))
                     .font(.title)
                     .bold()
                     .foregroundColor(Color("TextColor"))
                     .multilineTextAlignment(.center)
-                Rectangle()
-                    .foregroundColor(Color("PrimaryColor"))
-                    .cornerRadius(100)
-                    .frame(height: 40)
-                    .shadow(radius: 5)
-                    .overlay(
-                        Text("Начать")
-                            .font(.title2)
-                            .foregroundColor(.white)
-                    )
+                NavigationLink(destination: OnboardingView2(), isActive: $isActive) {
+                    Rectangle()
+                        .foregroundColor(Color("PrimaryColor"))
+                        .cornerRadius(100)
+                        .frame(height: 40)
+                        .shadow(radius: 5)
+                        .overlay(
+                            Text("Начать")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                        )
+                }
+                .navigationBarHidden(true) // Скрываем навигационную панель
             }
             Spacer()
         }
@@ -47,5 +53,7 @@ struct OnboardingView1: View {
 }
 
 #Preview {
-    OnboardingView1()
+    NavigationView {
+        OnboardingView1()
+    }
 }

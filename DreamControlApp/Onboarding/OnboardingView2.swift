@@ -23,21 +23,27 @@ struct OnboardingView2: View {
                     .shadow(radius: 4, x: 0, y: 4)
             }
             VStack {
+                Image("pageImage2")
+                    .offset(y: -40)
                 Text("Совершенствуйся и достигай!")
                     .font(.title)
                     .foregroundColor(Color("TextColor"))
                     .bold()
                     .multilineTextAlignment(.center)
-                Rectangle()
-                    .foregroundColor(Color("PrimaryColor"))
-                    .cornerRadius(100)
-                    .frame(height: 40)
-                    .shadow(radius: 5)
-                    .overlay(
-                        Text("Начать")
-                            .font(.title2)
-                            .foregroundColor(.white)
-                    )
+                NavigationLink(destination: OnboardingView3()) {
+                    Rectangle()
+                        .foregroundColor(Color("PrimaryColor"))
+                        .cornerRadius(100)
+                        .frame(height: 40)
+                        .shadow(radius: 5)
+                        .overlay(
+                            Text("Начать")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                        )
+                }
+                    .navigationBarHidden(true) // Скрываем навигационную панель
+
             }
             Spacer()
         }
