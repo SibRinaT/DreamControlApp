@@ -1,13 +1,13 @@
 //
-//  OnboardingView.swift
+//  OnboardingView2.swift
 //  DreamControlApp
 //
-//  Created by Ainur on 29.02.2024.
+//  Created by Ainur on 03.03.2024.
 //
 
 import SwiftUI
 
-struct OnboardingView2: View {
+struct OnboardingView1: View {
     var body: some View {
         VStack {
             ZStack {
@@ -15,18 +15,20 @@ struct OnboardingView2: View {
                     .frame(width: 500, height: 500)
                     .offset(y: -160)
                     .blur(radius: 70)
-                    .foregroundColor(Color("SuccessColor"))
-                Image("onbImage1")
+                    .foregroundColor(Color("PrimaryColor"))
+                Image("onbImage2")
                     .frame(width: 354, height: 354)
-                    .shadow(radius: 4, x: 0, y: 4)
+                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             }
+            
             VStack {
-                Text("Совершенствуйся и достигай!")
+                Text("Теряешь мотивацию?Получи её тут!")
                     .font(.title)
-                    .foregroundColor(Color(.black))
-                    .bold()
+                    .foregroundColor(Color("mainOrange"))
                     .multilineTextAlignment(.center)
+                    .bold()
                 Rectangle()
+                    .foregroundColor(Color("mainOrange"))
                     .cornerRadius(100)
                     .frame(height: 55)
                     .overlay(
@@ -37,10 +39,9 @@ struct OnboardingView2: View {
             }
         }
         .padding(.horizontal, 30)
-
     }
 }
 
 #Preview {
-    OnboardingView2()
+    OnboardingView1()
 }

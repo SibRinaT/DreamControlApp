@@ -10,7 +10,7 @@ import SwiftUI
 struct MainOnboarding: View {
     var body: some View {
         TabView {
-            OnboardingView()
+            OnboardingView1()
             OnboardingView2()
             OnboardingView3()
 

@@ -14,10 +14,10 @@
 		2E784F432BA0BE7700AA58F9 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E784F422BA0BE7700AA58F9 /* LogInView.swift */; };
 		2E784F452BA0BE8200AA58F9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E784F442BA0BE8200AA58F9 /* SignUpView.swift */; };
 		2E85787B2BBA030000BEA1ED /* OnboardingView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E85787A2BBA030000BEA1ED /* OnboardingView3.swift */; };
-		2E8F49022B9489DF00414354 /* OnboardingView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8F49012B9489DF00414354 /* OnboardingView2.swift */; };
+		2E8F49022B9489DF00414354 /* OnboardingView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8F49012B9489DF00414354 /* OnboardingView1.swift */; };
 		2E912D3A2B970CD600664140 /* MainOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E912D392B970CD600664140 /* MainOnboarding.swift */; };
 		2E9BD10F2BA35DDF0055566F /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9BD10E2BA35DDF0055566F /* InputFieldView.swift */; };
-		2EA20C832B908FC2000AAEC2 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA20C822B908FC2000AAEC2 /* OnboardingView.swift */; };
+		2EA20C832B908FC2000AAEC2 /* OnboardingView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA20C822B908FC2000AAEC2 /* OnboardingView2.swift */; };
 		2EA20C852B919924000AAEC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E61245B2B9025B300494DF6 /* Assets.xcassets */; };
 		2EA20C872B919B0B000AAEC2 /* MainFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EA20C862B919AC7000AAEC2 /* MainFont.ttf */; };
 		2EA20C882B919B24000AAEC2 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124592B9025B100494DF6 /* SplashView.swift */; };
@@ -38,10 +38,10 @@
 		2E784F422BA0BE7700AA58F9 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		2E784F442BA0BE8200AA58F9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		2E85787A2BBA030000BEA1ED /* OnboardingView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView3.swift; sourceTree = "<group>"; };
-		2E8F49012B9489DF00414354 /* OnboardingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView2.swift; sourceTree = "<group>"; };
+		2E8F49012B9489DF00414354 /* OnboardingView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView1.swift; sourceTree = "<group>"; };
 		2E912D392B970CD600664140 /* MainOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOnboarding.swift; sourceTree = "<group>"; };
 		2E9BD10E2BA35DDF0055566F /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
-		2EA20C822B908FC2000AAEC2 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		2EA20C822B908FC2000AAEC2 /* OnboardingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView2.swift; sourceTree = "<group>"; };
 		2EA20C862B919AC7000AAEC2 /* MainFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MainFont.ttf; sourceTree = "<group>"; };
 		2EA20C892B91A3CE000AAEC2 /* Zapfino.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zapfino.ttf; sourceTree = "<group>"; };
 		2EA20C8B2B91A40E000AAEC2 /* CustomMainFont2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CustomMainFont2.ttf; sourceTree = "<group>"; };
@@ -129,8 +129,8 @@
 		2E912D382B970CBA00664140 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				2EA20C822B908FC2000AAEC2 /* OnboardingView.swift */,
-				2E8F49012B9489DF00414354 /* OnboardingView2.swift */,
+				2E8F49012B9489DF00414354 /* OnboardingView1.swift */,
+				2EA20C822B908FC2000AAEC2 /* OnboardingView2.swift */,
 				2E85787A2BBA030000BEA1ED /* OnboardingView3.swift */,
 				2E912D392B970CD600664140 /* MainOnboarding.swift */,
 			);
@@ -226,7 +226,7 @@
 			files = (
 				2E9BD10F2BA35DDF0055566F /* InputFieldView.swift in Sources */,
 				2E85787B2BBA030000BEA1ED /* OnboardingView3.swift in Sources */,
-				2EA20C832B908FC2000AAEC2 /* OnboardingView.swift in Sources */,
+				2EA20C832B908FC2000AAEC2 /* OnboardingView2.swift in Sources */,
 				2EA20C882B919B24000AAEC2 /* SplashView.swift in Sources */,
 				2E6124662B9025CD00494DF6 /* MockData.swift in Sources */,
 				2E912D3A2B970CD600664140 /* MainOnboarding.swift in Sources */,
@@ -234,7 +234,7 @@
 				2E784F432BA0BE7700AA58F9 /* LogInView.swift in Sources */,
 				2E784F452BA0BE8200AA58F9 /* SignUpView.swift in Sources */,
 				2E12B5312BA2152800F44234 /* InputFieldViewPassword.swift in Sources */,
-				2E8F49022B9489DF00414354 /* OnboardingView2.swift in Sources */,
+				2E8F49022B9489DF00414354 /* OnboardingView1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,9 +10,17 @@ import SwiftUI
 struct OnboardingView3: View {
     var body: some View {
         VStack {
-            Image("onbImage2")
-                .frame(width: 354, height: 354)
-                .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+            ZStack {
+                Circle()
+                    .frame(width: 500, height: 500)
+                    .offset(y: -170)
+                    .blur(radius: 70)
+                    .foregroundColor(Color("SecondaryColor"))
+                Image("onbImage3")
+                    .frame(width: 354, height: 354)
+                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+            }
+            .edgesIgnoringSafeArea(.top)
             VStack {
                 Text("Создай свою историю успеха!")
                     .font(.title)
