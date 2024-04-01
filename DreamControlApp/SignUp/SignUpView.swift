@@ -10,7 +10,11 @@ import SwiftUI
 struct SignUpView: View {
     var body: some View {
         ZStack {
-            Image("registrImage")
+            VStack {
+                Image("registrImage")
+                Image("registrImage")
+                Image("registrImage")
+            }
             Rectangle()
                 .frame(height: 100) // Задаем размеры прямоугольника
                 .cornerRadius(20)

@@ -43,15 +43,15 @@ struct OnboardingView2: View {
                         )
                 }
                     .navigationBarHidden(true) // Скрываем навигационную панель
-
             }
             Spacer()
         }
         .padding(.horizontal, 30)
-
     }
 }
 
 #Preview {
-    OnboardingView2()
+    NavigationView {
+        OnboardingView2()
+    }
 }

@@ -34,7 +34,7 @@ struct OnboardingView3: View {
                     .foregroundColor(Color("TextColor"))
                     .multilineTextAlignment(.center)
                     .bold()
-                NavigationLink(destination: OnboardingView1()) {
+                NavigationLink(destination: MainOnboarding()) {
                     Rectangle()
                         .foregroundColor(Color("PrimaryColor"))
                         .cornerRadius(100)
@@ -55,5 +55,7 @@ struct OnboardingView3: View {
 }
 
 #Preview {
-    OnboardingView3()
+    NavigationView {
+        OnboardingView3()
+    }
 }

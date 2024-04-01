@@ -22,7 +22,6 @@ struct OnboardingView1: View {
                     .frame(width: 354, height: 354)
                     .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             }
-            
             VStack {
                 Image("pageImage1")
                     .offset(y: -40)
