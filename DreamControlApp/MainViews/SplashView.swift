@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SplashView: View {
     @State private var isActive = false
-    @State private var opacity = 0.5
+    @State private var opacity = 0.9
     @State private var size = 0.8
     
     
@@ -18,17 +18,22 @@ struct SplashView: View {
             MainOnboarding()
         } else {
             VStack {
-                VStack {
-                    Image("morningImg")
-                    Text("Утро начинается не с кофе а с мечтаний...")
-                        .font(.custom("pixelFont.ttf", size: 40))
-                        .multilineTextAlignment(.center)
-                        .shadow(color: Color.black.opacity(0.25), radius: 1, x: 2, y: 4) // Добавьте тень
+                ZStack {
+                    Image("DImage")
+                    Image("StarImage")
+                        .scaleEffect(size)
+                        .opacity(opacity)
+                        .onAppear() {
+                            withAnimation(.easeIn(duration: 0.7)) {
+                                self.size = 10
+                                self.opacity = 1.0
+                            }
+                        }
                 }
                 .scaleEffect(size)
                 .opacity(opacity)
                 .onAppear() {
-                    withAnimation(.easeIn(duration: 1.5)) {
+                    withAnimation(.easeIn(duration: 2)) {
                         self.size = 1
                         self.opacity = 1.0
                     }
