@@ -12,7 +12,9 @@ struct MainOnboarding: View {
         ZStack {
             VStack {
                 Image("registrImage")
+                
                 Image("registrImage")
+                
                 Image("registrImage")
             }
             Rectangle()
@@ -25,42 +27,56 @@ struct MainOnboarding: View {
                             .font(.largeTitle)
                             .bold()
                             .foregroundColor(Color("TextColor"))
-                        Rectangle()
-                            .foregroundColor(Color("PrimaryColor"))
-                            .frame(width: 302 ,height: 40)
-                            .cornerRadius(25)
-                            .overlay(
+                        
+                        NavigationLink(destination: LogInView()) {
+                            Rectangle()
+                                .foregroundColor(Color("PrimaryColor"))
+                                .frame(width: 302 ,height: 40)
+                                .cornerRadius(25)
+                                .overlay(
                                     Text("Войти")
                                         .bold()
                                 )
+                        }
+                        .navigationBarHidden(true) // Скрываем навигационную панель
+
                         Rectangle()
                             .frame(height: 5)
+                        
                         HStack {
                             Rectangle()
                                 .frame(width: 133, height: 1)
                                 .foregroundColor(Color("PrimaryColor"))
                                 .shadow(radius: 15)
+                            
                             Text("OR")
                                 .foregroundColor(Color("PrimaryColor"))
                                 .bold()
+                            
                             Rectangle()
                                 .frame(width: 133, height: 1)
                                 .foregroundColor(Color("PrimaryColor"))
                         }
+                        
                         Rectangle()
                             .frame(height: 5)
-                        ZStack {
-                            Text("Зарегистрироваться")
-                                .foregroundColor(Color("PrimaryColor"))
-                                .bold()
-                            Capsule()
-                                .stroke(Color("PrimaryColor"), lineWidth: 2) // Цвет и толщина границы
-                                .background(Color.clear) // Прозрачный фон
-                                .frame(width: 302, height: 40)
-                                .shadow(radius: 15)
+                        NavigationLink(destination: SignUpView()){
+                            ZStack {
+                                Text("Зарегистрироваться")
+                                    .foregroundColor(Color("PrimaryColor"))
+                                    .bold()
+                                Capsule()
+                                    .stroke(Color("PrimaryColor"), lineWidth: 2) // Цвет и толщина границы
+                                    .background(Color.clear) // Прозрачный фон
+                                    .frame(width: 302, height: 40)
+                                    .shadow(radius: 15)
+                            }
                         }
+                        .navigationBarHidden(true) // Скрываем навигационную панель
+
                         Rectangle()
                             .frame(height: 50)
+                        
                         Image("FullLogo")
                         Rectangle()
                             .frame(height: 30)
@@ -73,5 +89,7 @@ struct MainOnboarding: View {
 }
 
 #Preview {
-    MainOnboarding()
+    NavigationView {
+        MainOnboarding()
+    }
 }
