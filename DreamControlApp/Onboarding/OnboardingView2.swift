@@ -10,6 +10,8 @@ import SwiftUI
 struct OnboardingView2: View {
     var body: some View {
         VStack {
+            Spacer()
+
             ZStack {
                 Circle()
                     .frame(width: 500, height: 500)
@@ -27,14 +29,17 @@ struct OnboardingView2: View {
                     .bold()
                     .multilineTextAlignment(.center)
                 Rectangle()
+                    .foregroundColor(Color("PrimaryColor"))
                     .cornerRadius(100)
-                    .frame(height: 55)
+                    .frame(height: 40)
+                    .shadow(radius: 5)
                     .overlay(
-                        Text("Next")
+                        Text("Начать")
                             .font(.title2)
                             .foregroundColor(.white)
                     )
             }
+            Spacer()
         }
         .padding(.horizontal, 30)
 
