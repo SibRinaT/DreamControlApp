@@ -29,14 +29,7 @@ struct MainOnboarding: View {
                             .foregroundColor(Color("TextColor"))
                         
                         NavigationLink(destination: LogInView()) {
-                            Rectangle()
-                                .foregroundColor(Color("PrimaryColor"))
-                                .frame(width: 302 ,height: 40)
-                                .cornerRadius(25)
-                                .overlay(
-                                    Text("Войти")
-                                        .bold()
-                                )
+                            YellowButton(isActive: true, text: "Войти")
                         }
                         .navigationBarHidden(true) // Скрываем навигационную панель
 
@@ -61,16 +54,7 @@ struct MainOnboarding: View {
                         Rectangle()
                             .frame(height: 5)
                         NavigationLink(destination: SignUpView()){
-                            ZStack {
-                                Text("Зарегистрироваться")
-                                    .foregroundColor(Color("PrimaryColor"))
-                                    .bold()
-                                Capsule()
-                                    .stroke(Color("PrimaryColor"), lineWidth: 2) // Цвет и толщина границы
-                                    .background(Color.clear) // Прозрачный фон
-                                    .frame(width: 302, height: 40)
-                                    .shadow(radius: 15)
-                            }
+                            ClearYellowButton(text: "Зарегистрироваться")
                         }
                         .navigationBarHidden(true) // Скрываем навигационную панель
 
