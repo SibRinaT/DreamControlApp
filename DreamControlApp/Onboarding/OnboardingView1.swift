@@ -1,40 +1,37 @@
 //
-//  OnboardingView3.swift
+//  OnboardingView2.swift
 //  DreamControlApp
 //
-//  Created by Ainur on 31.03.2024.
+//  Created by Ainur on 03.03.2024.
 //
 
 import SwiftUI
 
-struct OnboardingView3: View {
+struct OnboardingView1: View {
+    @State private var isActive: Bool = false
     var body: some View {
         VStack {
             Spacer()
             ZStack {
                 Circle()
                     .frame(width: 500, height: 500)
-                    .offset(y: -170)
+                    .offset(y: -160)
                     .blur(radius: 70)
-                    .foregroundColor(Color("SecondaryColor"))
-                VStack{
-                    Image("onbImage3")
-                        .frame(width: 354, height: 354)
-                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                }
-       
+                    .foregroundColor(Color("PrimaryColor"))
+                Image("onbImage2")
+                    .frame(width: 354, height: 354)
+                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             }
-            .edgesIgnoringSafeArea(.top)
             VStack {
-                Image("pageImage3")
+                Image("pageImage1")
                     .offset(y: -40)
-                Text("Создай свою историю успеха!")
+                Text("Теряешь мотивацию?Получи её тут!")
+//                    .font(.custom("MontserratAlternates", size: 24))
                     .font(.title)
-                    .font(.custom("MontserratAlternates", size: 14))
+                    .bold()
                     .foregroundColor(Color("TextColor"))
                     .multilineTextAlignment(.center)
-                    .bold()
-                NavigationLink(destination: MainOnboarding()) {
+                NavigationLink(destination: OnboardingView2(), isActive: $isActive) {
                     Rectangle()
                         .foregroundColor(Color("PrimaryColor"))
                         .cornerRadius(100)
@@ -56,6 +53,6 @@ struct OnboardingView3: View {
 
 #Preview {
     NavigationView {
-        OnboardingView3()
+        OnboardingView1()
     }
 }
