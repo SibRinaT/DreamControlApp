@@ -19,6 +19,7 @@
 		2E8578822BBBF07300BEA1ED /* YellowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8578812BBBF07300BEA1ED /* YellowButton.swift */; };
 		2E8578842BBBF07F00BEA1ED /* ClearYellowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8578832BBBF07F00BEA1ED /* ClearYellowButton.swift */; };
 		2E8578862BBBF76800BEA1ED /* OrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8578852BBBF76800BEA1ED /* OrView.swift */; };
+		2E8578882BBBFAF400BEA1ED /* CustomCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8578872BBBFAF400BEA1ED /* CustomCheckBoxView.swift */; };
 		2E8F49022B9489DF00414354 /* OnboardingView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8F49012B9489DF00414354 /* OnboardingView1.swift */; };
 		2E912D3A2B970CD600664140 /* MainOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E912D392B970CD600664140 /* MainOnboarding.swift */; };
 		2E9BD10F2BA35DDF0055566F /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9BD10E2BA35DDF0055566F /* InputFieldView.swift */; };
@@ -43,6 +44,7 @@
 		2E8578812BBBF07300BEA1ED /* YellowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowButton.swift; sourceTree = "<group>"; };
 		2E8578832BBBF07F00BEA1ED /* ClearYellowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearYellowButton.swift; sourceTree = "<group>"; };
 		2E8578852BBBF76800BEA1ED /* OrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrView.swift; sourceTree = "<group>"; };
+		2E8578872BBBFAF400BEA1ED /* CustomCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckBoxView.swift; sourceTree = "<group>"; };
 		2E8F49012B9489DF00414354 /* OnboardingView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView1.swift; sourceTree = "<group>"; };
 		2E912D392B970CD600664140 /* MainOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOnboarding.swift; sourceTree = "<group>"; };
 		2E9BD10E2BA35DDF0055566F /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				2E8578812BBBF07300BEA1ED /* YellowButton.swift */,
 				2E8578832BBBF07F00BEA1ED /* ClearYellowButton.swift */,
 				2E8578852BBBF76800BEA1ED /* OrView.swift */,
+				2E8578872BBBFAF400BEA1ED /* CustomCheckBoxView.swift */,
 			);
 			path = HelpViews;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E9BD10F2BA35DDF0055566F /* InputFieldView.swift in Sources */,
+				2E8578882BBBFAF400BEA1ED /* CustomCheckBoxView.swift in Sources */,
 				2E85787B2BBA030000BEA1ED /* OnboardingView3.swift in Sources */,
 				2EA20C832B908FC2000AAEC2 /* OnboardingView2.swift in Sources */,
 				2E8578822BBBF07300BEA1ED /* YellowButton.swift in Sources */,

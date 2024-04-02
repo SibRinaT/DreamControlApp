@@ -53,10 +53,10 @@ struct SignUpView: View {
                                 }
                                 InputFieldViewPassword(title: "Повторите пароль", placeholder: "****************")
                                 
-                                
-                                
+
+    
                                 NavigationLink(destination: LogInView()) {
-                                    YellowButton(isActive: false, text: "Зарегистрироваться ")
+                                    YellowButton(isActive: false, text: "Зарегистрироваться")
                                 }
                             }
                             .navigationBarHidden(true)
