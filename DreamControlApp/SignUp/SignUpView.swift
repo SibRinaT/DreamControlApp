@@ -33,39 +33,38 @@ struct SignUpView: View {
 
                             VStack(alignment: .leading) {
                                 InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com")
+                                
                                 InputFieldView(title: "Имя аккаунта", placeholder: "DreamControl")
+                                
                                 InputFieldViewPassword(title: "Пароль", placeholder: "****************")
+                                HStack {
+                                    Rectangle()
+                                        .foregroundColor(Color("InactiveColor"))
+                                        .frame(width: 70, height: 2)
+                                    Rectangle()
+                                        .foregroundColor(Color("InactiveColor"))
+                                        .frame(width: 70, height: 2)
+                                    Rectangle()
+                                        .foregroundColor(Color("InactiveColor"))
+                                        .frame(width: 70, height: 2)
+                                    Rectangle()
+                                        .foregroundColor(Color("InactiveColor"))
+                                        .frame(width: 70, height: 2)
+                                }
                                 InputFieldViewPassword(title: "Повторите пароль", placeholder: "****************")
                                 
+                                
+                                
                                 NavigationLink(destination: LogInView()) {
-                                    Rectangle()
-                                        .foregroundColor(Color("PrimaryColor"))
-                                        .frame(width: 302 ,height: 40)
-                                        .cornerRadius(25)
-                                        .overlay(
-                                            Text("Зарегистрироваться")
-                                                .bold()
-                                        )
+                                    YellowButton(isActive: false, text: "Зарегистрироваться ")
                                 }
                             }
                             .navigationBarHidden(true)
                             
-                            HStack {
-                                Rectangle()
-                                    .frame(width: 133, height: 1)
-                                    .foregroundColor(Color("PrimaryColor"))
-                                    .shadow(radius: 15)
-                                
-                                Text("OR")
-                                    .foregroundColor(Color("PrimaryColor"))
-                                    .bold()
-                                
-                                Rectangle()
-                                    .frame(width: 133, height: 1)
-                                    .foregroundColor(Color("PrimaryColor"))
-                            }
-                            
+                            OrView()
+            
                             ClearYellowButton(text: "Войти")
+                            
                             NavigationLink(destination: LogInView()) {
                                 Text("Есть аккаунт? Войдите тут!")
                                     .foregroundColor(Color("SecondaryColor"))
@@ -82,5 +81,7 @@ struct SignUpView: View {
 }
 
 #Preview {
-    SignUpView()
+    NavigationView {
+        SignUpView()
+    }
 }

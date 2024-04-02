@@ -9,7 +9,20 @@ import SwiftUI
 
 struct OrView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Rectangle()
+                .frame(width: 133, height: 1)
+                .foregroundColor(Color("PrimaryColor"))
+                .shadow(radius: 15)
+            
+            Text("OR")
+                .foregroundColor(Color("PrimaryColor"))
+                .bold()
+            
+            Rectangle()
+                .frame(width: 133, height: 1)
+                .foregroundColor(Color("PrimaryColor"))
+        }
     }
 }
 
