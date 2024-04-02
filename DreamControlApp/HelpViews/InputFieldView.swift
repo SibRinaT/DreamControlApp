@@ -10,18 +10,28 @@ import SwiftUI
 struct InputFieldView: View {
     let title: String
     let placeholder: String
+    @State private var text = ""
     @Binding var fieldValue: String
     
     var body: some View {
         VStack(alignment: .leading) {
             Text(title)
-                .foregroundColor(.gray)
-                .font(.caption)
-            ZStack(alignment: .trailing) {
+                .foregroundColor(Color("TextColor"))
+                .font(.custom("MontserratAlternates", size: 20)) // need to fix a font
+            ZStack {
                 Group {
-                            SecureField(placeholder, text: $fieldValue)
-                    }
+                    Capsule()
+                        .stroke(Color("PrimaryColor"), lineWidth: 2)
+                        .background(Color.clear)
+                        .frame(width: 302, height: 40)
+                    TextField(placeholder, text: $text)
+                        .foregroundColor(Color("InactiveColor"))
+                        .font(.custom("MontserratAlternates", size: 16)) // need to fix a font
+                        .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                        .textFieldStyle(PlainTextFieldStyle())
+                        .frame(width: 302, height: 40)
                 }
+            }
                 .font(.caption2)
                 .textFieldStyle(.roundedBorder)
         }
@@ -30,8 +40,8 @@ struct InputFieldView: View {
 }
 
 #Preview {
-    InputFieldView(title: "Full name",
-                   placeholder: "Ivanov Ivan",
+    InputFieldView(title: "Email",
+                   placeholder: "DreamControl@gmail.com",
                    fieldValue:  Binding(
                     get: { "" },
                     set: { _ in }
