@@ -19,7 +19,7 @@ struct SignUpView: View {
             }
             VStack {
                 Rectangle()
-                    .frame(height: 700)
+                    .frame(height: 800)
                     .cornerRadius(50)
                     .shadow(radius: 30, y: -4)
                     .overlay(
@@ -53,7 +53,20 @@ struct SignUpView: View {
                                 }
                                 InputFieldViewPassword(title: "Повторите пароль", placeholder: "****************")
                                 
+                                HStack {
+                                    CustomCheckBoxView(text: "")
+                                    VStack (alignment: .leading) {
+                                        HStack {
+                                            Text("Cоглащаюсь с ")
+                                                .foregroundColor(Color("TextColor"))
 
+                                            Text("политикой ")
+                                                .foregroundColor(Color("SecondaryColor"))
+                                        }
+                                        Text("конфиденциальности")
+                                            .foregroundColor(Color("SecondaryColor"))
+                                    }
+                                }
     
                                 NavigationLink(destination: LogInView()) {
                                     YellowButton(isActive: false, text: "Зарегистрироваться")
@@ -70,10 +83,13 @@ struct SignUpView: View {
                                     .foregroundColor(Color("SecondaryColor"))
                             }
                             Spacer()
+                            Spacer()
+                            Spacer()
+
                         }
                     )
                     .foregroundColor(.white)
-                    .offset(y: 100)
+                    .offset(y: 40)
 
             }
         }

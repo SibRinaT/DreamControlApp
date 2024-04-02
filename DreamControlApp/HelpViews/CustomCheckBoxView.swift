@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomCheckBoxView: ToggleStyle {
+struct CustomCheckBoxViewStyle: ToggleStyle {
     func makeBody(configuration: Configuration) -> some View {
            Button {
                configuration.isOn.toggle()
@@ -33,7 +33,7 @@ struct CustomCheckBoxView: ToggleStyle {
        }
    }
 
-   struct ContentView: View {
+   struct CustomCheckBoxView: View {
        @State private var isChecked = false
        @State var text: String
 
@@ -42,13 +42,13 @@ struct CustomCheckBoxView: ToggleStyle {
                Text(text)
                    .foregroundColor(Color("TextColor"))
            }
-           .toggleStyle(CustomCheckBoxView())
+           .toggleStyle(CustomCheckBoxViewStyle())
            .padding()
        }
    }
 
    struct ContentView_Previews: PreviewProvider {
        static var previews: some View {
-           ContentView(text: "Cоглащаюсь с политикой конфиденциальности")
+           CustomCheckBoxView(text: "")
        }
    }
