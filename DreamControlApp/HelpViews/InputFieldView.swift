@@ -11,7 +11,6 @@ struct InputFieldView: View {
     let title: String
     let placeholder: String
     @State private var text = ""
-    @Binding var fieldValue: String
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -21,7 +20,7 @@ struct InputFieldView: View {
             ZStack {
                 Group {
                     Capsule()
-                        .stroke(Color("PrimaryColor"), lineWidth: 2)
+                        .stroke(Color("PrimaryColor"), lineWidth: 1)
                         .background(Color.clear)
                         .frame(width: 302, height: 40)
                     TextField(placeholder, text: $text)
@@ -41,9 +40,6 @@ struct InputFieldView: View {
 
 #Preview {
     InputFieldView(title: "Email",
-                   placeholder: "DreamControl@gmail.com",
-                   fieldValue:  Binding(
-                    get: { "" },
-                    set: { _ in }
-                ))
+                   placeholder: "DreamControl@gmail.com"
+                )
 }

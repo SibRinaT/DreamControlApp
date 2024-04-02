@@ -12,30 +12,41 @@ struct InputFieldViewPassword: View {
     let placeholder: String
     @State var isSecured = false
     @State private var isPasswordHidden = true
-    @Binding var fieldValue: String
+    @State private var text = ""
+
     
     var body: some View {
         VStack(alignment: .leading) {
             Text(title)
-                .foregroundColor(.gray)
-                .font(.caption)
+                .foregroundColor(Color("TextColor"))
+                .font(.custom("", size: 20))
             ZStack(alignment: .trailing) {
                 Group {
+                    Capsule()
+                        .stroke(Color("PrimaryColor"), lineWidth: 1)
+                        .background(Color.clear)
+                        .frame(width: 302, height: 40)
                     if isSecured && isPasswordHidden {
-                        SecureField(placeholder, text: $fieldValue)
-                    }
-                    else {
-                        TextField(placeholder, text: $fieldValue)
+                        SecureField(placeholder, text: $text)
+                            .foregroundColor(Color("InactiveColor"))
+                            .font(.custom("MontserratAlternates", size: 16)) // need to fix a font
+                            .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                            .textFieldStyle(PlainTextFieldStyle())
+                            .frame(width: 302, height: 40)
+                    } else {
+                        TextField(placeholder, text:  $text)
+                            .foregroundColor(Color("InactiveColor"))
+                            .font(.custom("MontserratAlternates", size: 16)) // need to fix a font
+                            .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                            .textFieldStyle(PlainTextFieldStyle())
+                            .frame(width: 302, height: 40)
                     }
                 }
-                .font(.caption2)
-                .textFieldStyle(.roundedBorder)
-                                
                 Button(action: {
                     isPasswordHidden.toggle()
                 }) {
-                    Image(systemName: self.isPasswordHidden ? "eye" : "eye.slash")
-                        .accentColor(.gray)
+                    Image(self.isPasswordHidden ? "EyeSlashIcon" : "EyeIcon")
+                        .accentColor(Color("PrimaryColor"))
                 }
                 .padding(.trailing, 5)
                 .opacity(isSecured ? 1: 0)
@@ -46,11 +57,8 @@ struct InputFieldViewPassword: View {
 }
 
 #Preview {
-    InputFieldViewPassword(title: "Full name",
-                   placeholder: "Ivanov Ivan",
-                   isSecured: true,
-                   fieldValue:  Binding(
-                    get: { "" },
-                    set: { _ in }
-                ))
+    InputFieldViewPassword(title: "Пароль",
+                   placeholder: "*******",
+                   isSecured: true
+                           )
 }
