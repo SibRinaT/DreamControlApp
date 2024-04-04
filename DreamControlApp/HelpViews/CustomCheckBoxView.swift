@@ -14,7 +14,7 @@ struct CustomCheckBoxViewStyle: ToggleStyle {
            } label: {
                HStack {
                    if configuration.isOn {
-                       Image(systemName: "star.fill")
+                       Image("CheckBoxStar")
                            .foregroundColor(.yellow)
                            .frame(width: 20, height: 20)
                    } else {
