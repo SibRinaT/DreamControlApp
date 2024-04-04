@@ -23,13 +23,12 @@ struct AuthenticationView: View {
                 .shadow(radius: 30, y: -4)
                 .overlay(
                     VStack {
-                 
                         Text("Подтвердите почту")
                             .font(.largeTitle)
                             .bold()
                             .foregroundColor(Color("TextColor"))
-                            .offset(y: 40)
-                        
+//                        Rectangle()
+//                            .frame(height: 10)
                         HStack {
                             Image("AuthCircle")
                                 .overlay(
