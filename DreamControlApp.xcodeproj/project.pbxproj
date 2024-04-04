@@ -27,6 +27,7 @@
 		2EA20C832B908FC2000AAEC2 /* OnboardingView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA20C822B908FC2000AAEC2 /* OnboardingView2.swift */; };
 		2EA20C852B919924000AAEC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E61245B2B9025B300494DF6 /* Assets.xcassets */; };
 		2EA20C882B919B24000AAEC2 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124592B9025B100494DF6 /* SplashView.swift */; };
+		2EC4DBFD2BBE7FFF00DE1B43 /* PasswordResetView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC4DBFC2BBE7FFF00DE1B43 /* PasswordResetView .swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		2E912D392B970CD600664140 /* MainOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOnboarding.swift; sourceTree = "<group>"; };
 		2E9BD10E2BA35DDF0055566F /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
 		2EA20C822B908FC2000AAEC2 /* OnboardingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView2.swift; sourceTree = "<group>"; };
+		2EC4DBFC2BBE7FFF00DE1B43 /* PasswordResetView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PasswordResetView .swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				2E6124592B9025B100494DF6 /* SplashView.swift */,
 				2E85787C2BBAA7AB00BEA1ED /* TestPageView.swift */,
 				2E8578892BBD82F700BEA1ED /* AuthenticationView.swift */,
+				2EC4DBFC2BBE7FFF00DE1B43 /* PasswordResetView .swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				2E8578842BBBF07F00BEA1ED /* ClearYellowButton.swift in Sources */,
 				2E6124662B9025CD00494DF6 /* MockData.swift in Sources */,
 				2E912D3A2B970CD600664140 /* MainOnboarding.swift in Sources */,
+				2EC4DBFD2BBE7FFF00DE1B43 /* PasswordResetView .swift in Sources */,
 				2E6124582B9025B100494DF6 /* DreamControlAppApp.swift in Sources */,
 				2E784F432BA0BE7700AA58F9 /* LogInView.swift in Sources */,
 				2E784F452BA0BE8200AA58F9 /* SignUpView.swift in Sources */,
