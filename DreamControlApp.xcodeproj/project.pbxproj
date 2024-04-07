@@ -143,7 +143,6 @@
 			children = (
 				2E92C9292BC04EC1005E4DB9 /* Password */,
 				2E6124652B9025CD00494DF6 /* MockData.swift */,
-				2E6124572B9025B100494DF6 /* DreamControlAppApp.swift */,
 				2E6124592B9025B100494DF6 /* SplashView.swift */,
 				2E85787C2BBAA7AB00BEA1ED /* TestPageView.swift */,
 				2E8578892BBD82F700BEA1ED /* AuthenticationView.swift */,
@@ -165,6 +164,7 @@
 		2E92C9292BC04EC1005E4DB9 /* Password */ = {
 			isa = PBXGroup;
 			children = (
+				2E6124572B9025B100494DF6 /* DreamControlAppApp.swift */,
 				2EC4DBFC2BBE7FFF00DE1B43 /* PasswordResetView .swift */,
 				2E92C9252BC04DA7005E4DB9 /* CreateNewPasswordView.swift */,
 				2E92C9272BC04EBA005E4DB9 /* PasswordCreatedView.swift */,

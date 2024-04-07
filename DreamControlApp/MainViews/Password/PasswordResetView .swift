@@ -35,7 +35,7 @@ struct PasswordResetView_: View {
                             .foregroundColor(Color("TextColor"))
                             .padding(.horizontal, 40)
                         
-                        InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com")
+                        InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com", text: "")
                         
                         Rectangle()
                             .frame(height: 20)

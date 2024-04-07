@@ -29,9 +29,9 @@ struct LogInView: View {
                             .foregroundColor(Color("TextColor"))
                         Rectangle()
                             .frame(height: 10) // spacer :)
-                        InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com")
+                        InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com", text: "")
                         
-                        InputFieldViewPassword(title: "Пароль", placeholder: "Пароль", isSecured: false)
+                        InputFieldViewPassword(title: "Пароль", placeholder: "Пароль", isSecured: false, text: "")
                         
                         YellowButton(isActive: false, text: "Войти")
                         

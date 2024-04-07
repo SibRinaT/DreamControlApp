@@ -30,8 +30,8 @@ struct CreateNewPasswordView: View {
                             .multilineTextAlignment(.center)
                         Rectangle()
                             .frame(height: 10)
-                        InputFieldViewPassword(title: "Пароль", placeholder: "Пароль")
-                        InputFieldViewPassword(title: "Подтвердите пароль", placeholder: "Пароль")
+                        InputFieldViewPassword(title: "Пароль", placeholder: "Пароль", text: "")
+                        InputFieldViewPassword(title: "Подтвердите пароль", placeholder: "Пароль", text: "")
                      
                         
                         NavigationLink(destination: LogInView()) {
