@@ -12,7 +12,7 @@ struct InputFieldViewPassword: View {
     let placeholder: String
     @State var isSecured = false
     @State private var isPasswordHidden = true
-    @State private var text = ""
+    @State var text: String
 
     
     var body: some View {
@@ -59,6 +59,6 @@ struct InputFieldViewPassword: View {
 #Preview {
     InputFieldViewPassword(title: "Пароль",
                    placeholder: "*******",
-                   isSecured: true
+                           isSecured: true, text: ""
                            )
 }
