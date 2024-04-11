@@ -35,37 +35,52 @@ struct AuthPasswordInputFIeld: View {
                         }
                         .focused($pinFocusState, equals: .pinOne)
                 )
+            
             Image("AuthCircle")
                 .overlay(
-                    TextField("", text: $pinTwo)
+                    TextField("", text:  $pinTwo)
                         .modifier(OtpModifer(pin:$pinTwo))
-                        .onChange(of:pinOne) { newVal in
+                        .onChange(of:pinTwo){newVal in
                             if (newVal.count == 1) {
-                                pinFocusState = .pinTwo
+                                pinFocusState = .pinThree
+                            } else {
+                                if (newVal.count == 0) {
+                                    pinFocusState = .pinOne
+                                }
+                            }
+                            sendPin()
+                        }
+                        .focused($pinFocusState, equals: .pinTwo)
+                    )
+            
+            Image("AuthCircle")
+                .overlay(
+                    TextField("", text:$pinThree)
+                        .modifier(OtpModifer(pin:$pinThree))
+                        .onChange(of:pinThree){newVal in
+                            if (newVal.count == 1) {
+                                pinFocusState = .pinFour
+                            } else {
+                                if (newVal.count == 0) {
+                                    pinFocusState = .pinTwo
+                                }
                             }
                             sendPin()
                         }
                         .focused($pinFocusState, equals: .pinThree)
                 )
+            
             Image("AuthCircle")
                 .overlay(
-                    TextField("", text: $pinThree)
-                        .modifier(OtpModifer(pin:$pinThree))
-                        .onChange(of:pinOne) { newVal in
-                            if (newVal.count == 1) {
-                                pinFocusState = .pinThree
-                            }
-                            sendPin()
-                        }
-                        .focused($pinFocusState, equals: .pinFour)
-                )
-            Image("AuthCircle")
-                .overlay(
-                    TextField("", text: $pinFour)
+                    TextField("", text:$pinFour)
                         .modifier(OtpModifer(pin:$pinFour))
-                        .onChange(of:pinOne) { newVal in
+                        .onChange(of:pinFour){newVal in
                             if (newVal.count == 1) {
-                                pinFocusState = .pinFour
+                                pinFocusState = .pinFive
+                            } else {
+                                if (newVal.count == 0) {
+                                    pinFocusState = .pinThree
+                                }
                             }
                             sendPin()
                         }
