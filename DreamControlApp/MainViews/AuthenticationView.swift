@@ -33,6 +33,8 @@ struct AuthenticationView: View {
                         Text("Поможем восстановить вашу мечту")
                             .foregroundColor(Color("TextColor"))
                         
+                        AuthPasswordInputField()
+                        
                         Rectangle()
                             .frame(height: 20)
                         
