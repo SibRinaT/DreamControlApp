@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AuthPasswordInputFIeld: View {
+struct AuthPasswordInputField: View {
     enum FocusPin {
         case  pinOne, pinTwo, pinThree, pinFour, pinFive, pinSix
     }
@@ -95,5 +95,5 @@ struct AuthPasswordInputFIeld: View {
 }
 
 #Preview {
-    AuthPasswordInputFIeld()
+    AuthPasswordInputField()
 }
