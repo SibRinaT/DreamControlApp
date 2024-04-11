@@ -32,24 +32,7 @@ struct AuthenticationView: View {
                         
                         Text("Поможем восстановить вашу мечту")
                             .foregroundColor(Color("TextColor"))
-                        HStack {
-                            Image("AuthCircle")
-                                .overlay(
-                                    Text("asdsd")
-                                )
-                            Image("AuthCircle")
-                                .overlay(
-                                    Text("asdsd")
-                                )
-                            Image("AuthCircle")
-                                .overlay(
-                                    Text("asdsd")
-                                )
-                            Image("AuthCircle")
-                                .overlay(
-                                    Text("asdsd")
-                                )
-                        }
+                        
                         Rectangle()
                             .frame(height: 20)
                         
