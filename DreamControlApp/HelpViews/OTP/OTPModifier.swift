@@ -23,10 +23,10 @@ struct OtpModifer: ViewModifier {
             .keyboardType(.numberPad)
             .onReceive(Just(pin)) {_ in limitText()}
             .frame(width: 32, height: 32)
-            .background(Color.white)
+            .background(Color("InactiveColor"))
             .background(
                 Rectangle()
-                    .stroke(Color.gray, lineWidth: 2)
+//                    .stroke(Color.gray, lineWidth: 2)
             )
     }
 }

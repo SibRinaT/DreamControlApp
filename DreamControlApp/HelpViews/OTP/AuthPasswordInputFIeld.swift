@@ -25,7 +25,7 @@ struct AuthPasswordInputFIeld: View {
             Image("AuthCircle")
                 .overlay(
                     TextField("", text: $pinOne)
-                        .background(Color("InactiveColor")) // Установка прозрачности
+
                         .modifier(OtpModifer(pin:$pinOne))
                         .onChange(of:pinOne) { newVal in
                             if (newVal.count == 1) {
@@ -38,38 +38,38 @@ struct AuthPasswordInputFIeld: View {
             Image("AuthCircle")
                 .overlay(
                     TextField("", text: $pinTwo)
-                        .modifier(OtpModifer(pin:$pinOne))
+                        .modifier(OtpModifer(pin:$pinTwo))
                         .onChange(of:pinOne) { newVal in
                             if (newVal.count == 1) {
                                 pinFocusState = .pinTwo
                             }
                             sendPin()
                         }
-                        .focused($pinFocusState, equals: .pinOne)              
+                        .focused($pinFocusState, equals: .pinThree)
                 )
             Image("AuthCircle")
                 .overlay(
                     TextField("", text: $pinThree)
-                        .modifier(OtpModifer(pin:$pinOne))
+                        .modifier(OtpModifer(pin:$pinThree))
                         .onChange(of:pinOne) { newVal in
                             if (newVal.count == 1) {
-                                pinFocusState = .pinTwo
+                                pinFocusState = .pinThree
                             }
                             sendPin()
                         }
-                        .focused($pinFocusState, equals: .pinOne)               
+                        .focused($pinFocusState, equals: .pinFour)
                 )
             Image("AuthCircle")
                 .overlay(
                     TextField("", text: $pinFour)
-                        .modifier(OtpModifer(pin:$pinOne))
+                        .modifier(OtpModifer(pin:$pinFour))
                         .onChange(of:pinOne) { newVal in
                             if (newVal.count == 1) {
-                                pinFocusState = .pinTwo
+                                pinFocusState = .pinFour
                             }
                             sendPin()
                         }
-                        .focused($pinFocusState, equals: .pinOne)
+                        .focused($pinFocusState, equals: .pinFour)
                 )
         }
     }
