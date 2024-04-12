@@ -17,26 +17,32 @@ struct AuthPasswordInputField: View {
     @State var pinTwo: String = ""
     @State var pinThree: String = ""
     @State var pinFour: String = ""
+    @State private var isImageColored1 = false
+    @State private var isImageColored2 = false
+    @State private var isImageColored3 = false
+    @State private var isImageColored4 = false
+
 
     var completionHandler: ((String) -> ())?
     
     var body: some View {
         HStack {
-            Image("AuthCircle")
+            Image(isImageColored1 ? "AuthCircleYellow" : "AuthCircle")
                 .overlay(
                     TextField("", text: $pinOne)
-
+                        .foregroundColor(Color("PrimaryColor"))
                         .modifier(OtpModifer(pin:$pinOne))
                         .onChange(of:pinOne) { newVal in
                             if (newVal.count == 1) {
                                 pinFocusState = .pinTwo
+                                isImageColored1 = true
                             }
                             sendPin()
                         }
                         .focused($pinFocusState, equals: .pinOne)
                 )
             
-            Image("AuthCircle")
+            Image(isImageColored2 ? "AuthCircleYellow" : "AuthCircle")
                 .overlay(
                     TextField("", text:  $pinTwo)
                         .modifier(OtpModifer(pin:$pinTwo))
@@ -46,6 +52,7 @@ struct AuthPasswordInputField: View {
                             } else {
                                 if (newVal.count == 0) {
                                     pinFocusState = .pinOne
+                                    isImageColored2 = true
                                 }
                             }
                             sendPin()
@@ -53,7 +60,7 @@ struct AuthPasswordInputField: View {
                         .focused($pinFocusState, equals: .pinTwo)
                     )
             
-            Image("AuthCircle")
+            Image(isImageColored3 ? "AuthCircleYellow" : "AuthCircle")
                 .overlay(
                     TextField("", text:$pinThree)
                         .modifier(OtpModifer(pin:$pinThree))
@@ -63,6 +70,7 @@ struct AuthPasswordInputField: View {
                             } else {
                                 if (newVal.count == 0) {
                                     pinFocusState = .pinTwo
+                                    isImageColored3 = true
                                 }
                             }
                             sendPin()
@@ -70,7 +78,7 @@ struct AuthPasswordInputField: View {
                         .focused($pinFocusState, equals: .pinThree)
                 )
             
-            Image("AuthCircle")
+            Image(isImageColored4 ? "AuthCircleYellow" : "AuthCircle")
                 .overlay(
                     TextField("", text:$pinFour)
                         .modifier(OtpModifer(pin:$pinFour))
@@ -80,6 +88,7 @@ struct AuthPasswordInputField: View {
                             } else {
                                 if (newVal.count == 0) {
                                     pinFocusState = .pinThree
+                                    isImageColored4 = true
                                 }
                             }
                             sendPin()
