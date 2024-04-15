@@ -22,7 +22,7 @@ struct OtpModifer: ViewModifier {
             .multilineTextAlignment(.center)
             .keyboardType(.numberPad)
             .onReceive(Just(pin)) {_ in limitText()}
-            .frame(width: 32, height: 32)
+            .frame(width: 15, height: 15)
             .background(Color("InactiveColor"))
             .background(
                 Rectangle()
