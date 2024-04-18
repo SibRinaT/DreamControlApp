@@ -49,6 +49,8 @@ struct SignUpView: View {
                                             Text("Пароль должен содержать минимум 6 символов и хотя бы одну цифру")
                                                 .foregroundColor(.red)
                                                 .font(.caption)
+                                        } else {
+                                            Text("")
                                         }
                                     }
                                     .padding(.horizontal, 40)
