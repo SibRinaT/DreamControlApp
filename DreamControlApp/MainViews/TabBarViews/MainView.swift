@@ -60,6 +60,19 @@ struct MainView: View {
                     .frame(height: 60)
                     .foregroundColor(Color("SuccessColor"))
                     .cornerRadius(10)
+                    .overlay(
+                        VStack {
+                            Text("14") //mock
+                                .bold()
+                                .font(.title)
+                                .foregroundColor(.white)
+                            Text("Идей")
+                                .bold()
+                                .font(.title)
+                                .foregroundColor(.white)
+                        }
+                            .padding(.vertical)
+                    )
             }
         }
         .padding(.horizontal)
