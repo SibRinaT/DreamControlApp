@@ -19,7 +19,7 @@ struct MainView: View {
                         Image("IllustrationHome")
                         VStack {
                             Text("Привет Айнур")
-                                .font(.title2)
+                                .font(.title)
                                 .foregroundColor(.white)
                                 .bold()
                             Rectangle()
@@ -29,11 +29,38 @@ struct MainView: View {
                                 .overlay(
                                     Text("”Все имеет свою красоту, но не каждый ее видит”")
                                 )
-                            Text("sfgsfgsfg")
+                            Text("Гипократ")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .bold()
                         }
                         .padding(.horizontal)
                     }
                     )
+            HStack {
+                Rectangle()
+                    .frame(height: 60)
+                    .foregroundColor(Color("PrimaryColor"))
+                    .cornerRadius(10)
+                    .overlay(
+                        VStack {
+                            Text("3") //mock
+                                .bold()
+                                .font(.title)
+                                .foregroundColor(.white)
+                            Text("Мечт")
+                                .bold()
+                                .font(.title)
+                                .foregroundColor(.white)
+                        }
+                            .padding(.vertical)
+                    )
+                    .padding(.vertical, 20)
+                Rectangle()
+                    .frame(height: 60)
+                    .foregroundColor(Color("SuccessColor"))
+                    .cornerRadius(10)
+            }
         }
         .padding(.horizontal)
     }

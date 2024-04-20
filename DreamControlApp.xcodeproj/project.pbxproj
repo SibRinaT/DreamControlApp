@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E12B5312BA2152800F44234 /* InputFieldViewPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E12B5302BA2152800F44234 /* InputFieldViewPassword.swift */; };
+		2E19785B2BD3DEED000AD527 /* HelpProfileRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E19785A2BD3DEED000AD527 /* HelpProfileRectangle.swift */; };
 		2E6124582B9025B100494DF6 /* DreamControlAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124572B9025B100494DF6 /* DreamControlAppApp.swift */; };
 		2E61245F2B9025B300494DF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */; };
 		2E6124662B9025CD00494DF6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124652B9025CD00494DF6 /* MockData.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		2E12B5302BA2152800F44234 /* InputFieldViewPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldViewPassword.swift; sourceTree = "<group>"; };
+		2E19785A2BD3DEED000AD527 /* HelpProfileRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpProfileRectangle.swift; sourceTree = "<group>"; };
 		2E6124542B9025B100494DF6 /* DreamControlApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamControlApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E6124572B9025B100494DF6 /* DreamControlAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamControlAppApp.swift; sourceTree = "<group>"; };
 		2E6124592B9025B100494DF6 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		2E12B52F2BA2150800F44234 /* HelpViews */ = {
 			isa = PBXGroup;
 			children = (
+				2E19785C2BD3DF12000AD527 /* MainView */,
 				2E66C4542BC79F5100FC2E49 /* OTP */,
 				2E12B5302BA2152800F44234 /* InputFieldViewPassword.swift */,
 				2E9BD10E2BA35DDF0055566F /* InputFieldView.swift */,
@@ -90,6 +93,14 @@
 				2E8578872BBBFAF400BEA1ED /* CustomCheckBoxView.swift */,
 			);
 			path = HelpViews;
+			sourceTree = "<group>";
+		};
+		2E19785C2BD3DF12000AD527 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				2E19785A2BD3DEED000AD527 /* HelpProfileRectangle.swift */,
+			);
+			path = MainView;
 			sourceTree = "<group>";
 		};
 		2E61244B2B9025B100494DF6 = {
@@ -283,6 +294,7 @@
 				2E8578882BBBFAF400BEA1ED /* CustomCheckBoxView.swift in Sources */,
 				2E85787B2BBA030000BEA1ED /* OnboardingView3.swift in Sources */,
 				2EA06B9F2BD18F9A0056E9F7 /* CustomTabBarView.swift in Sources */,
+				2E19785B2BD3DEED000AD527 /* HelpProfileRectangle.swift in Sources */,
 				2EA20C832B908FC2000AAEC2 /* OnboardingView2.swift in Sources */,
 				2E8578822BBBF07300BEA1ED /* YellowButton.swift in Sources */,
 				2EA20C882B919B24000AAEC2 /* SplashView.swift in Sources */,
