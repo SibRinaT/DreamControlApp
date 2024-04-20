@@ -17,20 +17,23 @@ struct OtherViewsRectangle: View {
             .foregroundColor(.white)
             .cornerRadius(15)
             .frame(width: 159, height: 130)
-            .shadow(radius: 30, y: -4)
+            .shadow(radius: 10, y: -4)
             .overlay(
-                VStack(alignment: .leading, spacing: 10){
+                VStack(alignment: .leading, spacing: 5){
                     Image(image)
                     Text(title)
-                        .bold()
+                        .font(Font.custom("Название вашего шрифта", size: 14).bold())
                         .foregroundColor(Color("TextColor"))
                     Text(text)
                         .foregroundColor(Color("TextColor"))
+                        .font(.custom("", size: 12))
                 }
+                    .padding(.horizontal)
+                    .padding(.vertical)
             )
     }
 }
 
 #Preview {
-    OtherViewsRectangle(image: "", title: "Ваши мечты", text: "Пусть ваша звезда всегда горит ярко")
+    OtherViewsRectangle(image: "IdeaIcon", title: "Ваши мечты", text: "Пусть ваша звезда всегда горит ярко")
 }
