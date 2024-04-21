@@ -10,6 +10,7 @@
 		2E12B5312BA2152800F44234 /* InputFieldViewPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E12B5302BA2152800F44234 /* InputFieldViewPassword.swift */; };
 		2E19785B2BD3DEED000AD527 /* HelpProfileRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E19785A2BD3DEED000AD527 /* HelpProfileRectangle.swift */; };
 		2E19785E2BD3E5E7000AD527 /* OtherViewsRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E19785D2BD3E5E7000AD527 /* OtherViewsRectangle.swift */; };
+		2E1978602BD57728000AD527 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E19785F2BD57728000AD527 /* TabBar.swift */; };
 		2E6124582B9025B100494DF6 /* DreamControlAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124572B9025B100494DF6 /* DreamControlAppApp.swift */; };
 		2E61245F2B9025B300494DF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */; };
 		2E6124662B9025CD00494DF6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124652B9025CD00494DF6 /* MockData.swift */; };
@@ -42,6 +43,7 @@
 		2E12B5302BA2152800F44234 /* InputFieldViewPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldViewPassword.swift; sourceTree = "<group>"; };
 		2E19785A2BD3DEED000AD527 /* HelpProfileRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpProfileRectangle.swift; sourceTree = "<group>"; };
 		2E19785D2BD3E5E7000AD527 /* OtherViewsRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewsRectangle.swift; sourceTree = "<group>"; };
+		2E19785F2BD57728000AD527 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		2E6124542B9025B100494DF6 /* DreamControlApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamControlApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E6124572B9025B100494DF6 /* DreamControlAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamControlAppApp.swift; sourceTree = "<group>"; };
 		2E6124592B9025B100494DF6 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			children = (
 				2EA06B9C2BD18F880056E9F7 /* MainView.swift */,
 				2EA06B9E2BD18F9A0056E9F7 /* CustomTabBarView.swift */,
+				2E19785F2BD57728000AD527 /* TabBar.swift */,
 			);
 			path = TabBarViews;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E1978602BD57728000AD527 /* TabBar.swift in Sources */,
 				2E9BD10F2BA35DDF0055566F /* InputFieldView.swift in Sources */,
 				2E8578882BBBFAF400BEA1ED /* CustomCheckBoxView.swift in Sources */,
 				2E85787B2BBA030000BEA1ED /* OnboardingView3.swift in Sources */,
