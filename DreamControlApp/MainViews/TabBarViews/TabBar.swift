@@ -10,23 +10,36 @@ import SwiftUI
 struct TabBar: View {
     var body: some View {
         TabView {
+            // Вставьте ваши вкладки здесь
+            Text("Tab 1")
+                .tabItem {
+                    Image(systemName: "1.circle")
                     Text("Tab 1")
-                        .tabItem {
-                            Image(systemName: "1.square.fill")
-                            Text("Tab 1")
-                        }
-                    
-                    Text("Tab 2")
-                        .tabItem {
-                            Image(systemName: "2.square.fill")
-                            Text("Tab 2")
-                        }
                 }
-//                .shadow(radius: 10)
-                .background(Color.black)
-                .cornerRadius(30)
-                .padding()
-        
+            
+            Text("Tab 2")
+                .tabItem {
+                    Image(systemName: "2.circle")
+                    Text("Tab 2")
+                }
+            
+            Text("Tab 3")
+                .tabItem {
+                    Image(systemName: "3.circle")
+                    Text("Tab 3")
+                }
+        }
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+               .background(
+                   GeometryReader { geometry in
+                       RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                           .foregroundColor(Color.white)
+                           .shadow(radius: 10)
+                           .padding(.horizontal)
+                           .frame(width: geometry.size.width, height: 80) // Высота таб бара
+                           .offset(y: -40) // Смещение вверх, чтобы таб бар был снизу
+                   }
+                   )
     }
 }
 
