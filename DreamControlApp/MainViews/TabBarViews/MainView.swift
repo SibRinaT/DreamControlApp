@@ -14,6 +14,7 @@ struct MainView: View {
                 .foregroundColor(Color("PrimaryColor"))
                 .frame(height: 200)
                 .cornerRadius(15)
+                .shadow(radius: 20)
                 .overlay (
                     HStack {
                         Image("IllustrationHome")
@@ -57,6 +58,7 @@ struct MainView: View {
                     )
                     .padding(.vertical, 20)
                 Rectangle()
+                    .shadow(radius: 20)
                     .frame(height: 60)
                     .foregroundColor(Color("SuccessColor"))
                     .cornerRadius(10)
@@ -74,6 +76,8 @@ struct MainView: View {
                             .padding(.vertical)
                     )
             }
+            .shadow(radius: 20)
+
             VStack {
                 HStack {
                     OtherViewsRectangle(image: "StarIcon", title: "Ваши мечты", text: "Пусть ваша звезда всегда горит ярко")

@@ -32,12 +32,12 @@ struct TabBar: View {
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                .background(
                    GeometryReader { geometry in
-                       RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                       RoundedRectangle(cornerRadius: 25.0)
                            .foregroundColor(Color.white)
                            .shadow(radius: 10)
                            .padding(.horizontal)
                            .frame(width: geometry.size.width, height: 80) // Высота таб бара
-                           .offset(y: -40) // Смещение вверх, чтобы таб бар был снизу
+                           .offset(y: 720) // Смещение вверх, чтобы таб бар был снизу
                    }
                    )
     }
