@@ -11,7 +11,7 @@ struct TabBar: View {
     var body: some View {
         TabView {
             // Вставьте ваши вкладки здесь
-            Text("Tab 1")
+            MainView()
                 .tabItem {
                     Image(systemName: "1.circle")
                     Text("Tab 1")
