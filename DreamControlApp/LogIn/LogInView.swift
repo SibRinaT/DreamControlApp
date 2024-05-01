@@ -31,7 +31,7 @@ struct LogInView: View {
                             .frame(height: 10) // spacer :)
                         InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com", text: "")
                         
-                        InputFieldViewPassword(title: "Пароль", placeholder: "Пароль", isSecured: false, text: "")
+                        InputFieldViewPassword(title: "Пароль", placeholder: "Пароль", text: "")
                         
                         YellowButton(isActive: false, text: "Войти")
                         
