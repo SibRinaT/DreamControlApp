@@ -9,7 +9,25 @@ import SwiftUI
 
 struct DreamView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                HStack {
+                    Image("DCIcon")
+                    Text("Мечтания")
+                        .font(.largeTitle)
+                        .foregroundColor(Color("PrimaryColor"))
+                        .bold()
+                    Spacer()
+                }
+                
+                ScrollView {
+                    Button(action: {}, label: {
+                        
+                    })
+                }
+            }
+            .padding(.horizontal)
+        }
     }
 }
 
