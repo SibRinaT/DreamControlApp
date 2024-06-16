@@ -13,14 +13,14 @@ struct TabBar: View {
             // Вставьте ваши вкладки здесь
             MainView()
                 .tabItem {
-                    Image(systemName: "1.circle")
+                    Image("IconHome")
                     Text("Tab 1")
                 }
             
-            Text("Tab 2")
+        DreamView()
                 .tabItem {
-                    Image(systemName: "2.circle")
-                    Text("Tab 2")
+                    Image("DreamsIcon")
+                    Text("Мечтания")
                 }
             
             Text("Tab 3")
@@ -29,17 +29,6 @@ struct TabBar: View {
                     Text("Tab 3")
                 }
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-               .background(
-                   GeometryReader { geometry in
-                       RoundedRectangle(cornerRadius: 25.0)
-                           .foregroundColor(Color.white)
-                           .shadow(radius: 10)
-                           .padding(.horizontal)
-                           .frame(width: geometry.size.width, height: 80) // Высота таб бара
-                           .offset(y: 720) // Смещение вверх, чтобы таб бар был снизу
-                   }
-                   )
     }
 }
 
