@@ -14,7 +14,34 @@ struct SubscriptionView: View {
                 .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
                 .font(.system(size: 63))
                 .bold()
-            
+            VStack {
+                HStack {
+                    Image("SubImage1")
+                    VStack {
+                        Text("Неограниченное количество цитат: ")
+                            .bold()
+                        Text("читайте и делитесь вдохновляющими цитатами без ограничений.")
+                    }
+                }
+                HStack {
+                    Image("SubImage2")
+                    VStack {
+                        Text("Неограниченное количество мечт:: ")
+                            .bold()
+
+                        Text("ставьте новые цели и визуализируйте их без ограничений.")
+                    }
+                }
+                HStack {
+                    Image("SubImage3")
+                    VStack {
+                        Text("Неограниченное количество автоисторий: : ")
+                            .bold()
+                        Text("создавайте и делитесь своими историями о путешествиях на автомобиле.")
+                    }
+                }
+            }
+            .padding(.leading)
             Button(action: {}) {
                 Rectangle()
                     .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
@@ -27,6 +54,11 @@ struct SubscriptionView: View {
                             .bold()
                     )
             }
+            
+            Text("7 дней бесплатно, далее 299 руб в месяц")
+                .foregroundColor(Color("InactiveColor2"))
+                .font(.system(size: 16))
+
         }
         .padding(.horizontal, 33)
     }
