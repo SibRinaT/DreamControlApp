@@ -18,34 +18,36 @@ struct SubscriptionView: View {
                 HStack {
                     Image("SubImage1")
                     VStack {
-                        Text("Неограниченное количество цитат: ")
+                        Text("Неограниченное количество цитат:")
                             .bold()
                         Text("читайте и делитесь вдохновляющими цитатами без ограничений.")
                     }
+                    Spacer()
                 }
                 HStack {
                     Image("SubImage2")
                     VStack {
-                        Text("Неограниченное количество мечт:: ")
+                        Text("Неограниченное количество мечт:")
                             .bold()
-
                         Text("ставьте новые цели и визуализируйте их без ограничений.")
                     }
+                    Spacer()
                 }
                 HStack {
                     Image("SubImage3")
                     VStack {
-                        Text("Неограниченное количество автоисторий: : ")
+                        Text("Неограниченное количество автоисторий:")
                             .bold()
                         Text("создавайте и делитесь своими историями о путешествиях на автомобиле.")
                     }
+                    Spacer()
                 }
             }
             .padding(.leading)
             Button(action: {}) {
                 Rectangle()
                     .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
-                    .frame(height: 80)
+                    .frame(height: 60)
                     .cornerRadius(100)
                     .overlay(
                         Text("Попробовать")
