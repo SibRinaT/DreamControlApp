@@ -9,8 +9,16 @@ import SwiftUI
 
 struct SubscriptionView: View {
     var body: some View {
-        Text("Hello, World!")
-            .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
+        VStack {
+            Text("Подписка")
+                .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
+                .font(.system(size: 63))
+                .bold()
+            
+            Button(action: {}) {
+                
+            }
+        }
     }
 }
 
