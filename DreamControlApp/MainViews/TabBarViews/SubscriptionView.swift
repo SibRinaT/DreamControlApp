@@ -16,9 +16,19 @@ struct SubscriptionView: View {
                 .bold()
             
             Button(action: {}) {
-                
+                Rectangle()
+                    .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
+                    .frame(height: 80)
+                    .cornerRadius(100)
+                    .overlay(
+                        Text("Попробовать")
+                            .foregroundColor(.white)
+                            .font(.system(size: 30))
+                            .bold()
+                    )
             }
         }
+        .padding(.horizontal, 33)
     }
 }
 
