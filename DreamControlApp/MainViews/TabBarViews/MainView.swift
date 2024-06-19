@@ -30,11 +30,16 @@ struct MainView: View {
                                     .frame(height: 70)
                                     .overlay(
                                         Text("”Все имеет свою красоту, но не каждый ее видит”")
+                                            .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
+                                            .multilineTextAlignment(.center)
                                     )
-                                Text("Гипократ")
-                                    .font(.title2)
-                                    .foregroundColor(.white)
-                                    .bold()
+                                HStack {
+                                    Spacer()
+                                    Text("Гипократ")
+                                        .font(.title2)
+                                        .foregroundColor(.white)
+                                        .bold()
+                                }
                             }
                             .padding(.horizontal)
                         }
@@ -64,6 +69,7 @@ struct MainView: View {
         }
     }
 }
+
 
 #Preview {
     MainView()
