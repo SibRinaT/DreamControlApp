@@ -40,50 +40,7 @@ struct MainView: View {
                         }
                     )
                     .padding(.horizontal)
-                HStack {
-                    Rectangle()
-                        .frame(height: 60)
-                        .foregroundColor(Color("PrimaryColor"))
-                        .cornerRadius(10)
-                        .overlay(
-                            VStack {
-                                Text("3") //mock
-                                    .bold()
-                                    .font(.title2)
-                                    .foregroundColor(.white)
-                                Text("Мечты")
-                                    .bold()
-                                    .font(.title2)
-                                    .foregroundColor(.white)
-                            }
-                                .padding(.vertical)
-                        )
-                        .padding(.vertical, 20)
-                        .padding(.horizontal)
-
-                    Spacer()
-                    Rectangle()
-                        .shadow(radius: 20)
-                        .frame(height: 60)
-                        .foregroundColor(Color("SuccessColor"))
-                        .cornerRadius(10)
-                        .overlay(
-                            VStack {
-                                Text("14") //mock
-                                    .bold()
-                                    .font(.title2)
-                                    .foregroundColor(.white)
-                                Text("Идей")
-                                    .bold()
-                                    .font(.title2)
-                                    .foregroundColor(.white)
-                            }
-                                .padding(.vertical)
-                        )
-                        .padding(.horizontal)
-                }
-                .shadow(radius: 20)
-
+               DreamsCountView()
                 
                 VStack {
                     HStack {
