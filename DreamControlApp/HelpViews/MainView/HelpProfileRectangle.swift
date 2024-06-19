@@ -14,33 +14,34 @@ struct HelpProfileRectangle: View {
                 .foregroundColor(Color("PrimaryColor"))
                 .frame(height: 200)
                 .cornerRadius(15)
+                .shadow(radius: 15)
                 .overlay (
-                        HStack {
-                            ZStack {
-                                
-                            }
-                            Image("IllustrationHome")
-                            VStack {
-                                VStack {
-                                    Text("Привет Айнур!")
-                                        .font(.title)
-                                        .foregroundColor(.white)
-                                        .bold()
-                                    Rectangle()
-                                        .foregroundColor(.white)
-                                        .cornerRadius(15)
-                                        .frame(height: 70)
-                                        .overlay(
-                                            Text("”Все имеет свою красоту, но не каждый ее видит”")
-                                        )
-                                    Text("КонФуЦий")
-                                        .font(.title2)
-                                        .foregroundColor(.white)
-                                        .bold()
-                                }
-                            }
-                            .padding(.horizontal)
-                        }
+                    ZStack {
+                        Image("CloudSmallImage")
+                            .offset(CGSize(width: -150, height: -75))
+                        Image("CloudImage")
+                            .offset(CGSize(width: -140, height: -30))
+                        Image("CloudImage")
+                            .offset(CGSize(width: -50, height: -45))
+                        Image("CloudImage")
+                            .offset(CGSize(width: -150, height: 65))
+                        Image("CloudImage")
+                            .offset(CGSize(width: -30, height: 55))
+                        Image("StarSmallImage")
+                            .offset(CGSize(width: -40, height: 30))
+                        Image("StarSmallImage")
+                            .offset(CGSize(width: -165, height: 10))
+                        Image("StarSmallImage")
+                            .offset(CGSize(width: -120, height: -60))
+                        Image("StarSmallImage")
+                            .offset(CGSize(width: -40, height: -80))
+                        Image("StarImage")
+                            .offset(CGSize(width: 140, height: -70))
+                        Image("StarImage")
+                            .offset(CGSize(width: 50, height: 80))
+                        Image("IllustrationHome")
+                            .offset(CGSize(width: -100, height: 0))
+                    }
                 )
         }
         .padding(.horizontal)
