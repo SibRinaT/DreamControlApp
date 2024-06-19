@@ -36,6 +36,7 @@
 		2EA20C832B908FC2000AAEC2 /* OnboardingView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA20C822B908FC2000AAEC2 /* OnboardingView2.swift */; };
 		2EA20C852B919924000AAEC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E61245B2B9025B300494DF6 /* Assets.xcassets */; };
 		2EA20C882B919B24000AAEC2 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124592B9025B100494DF6 /* SplashView.swift */; };
+		2EB1BCB02C22C03A00DBA29F /* DreamsCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1BCAF2C22C03A00DBA29F /* DreamsCountView.swift */; };
 		2EC4DBFD2BBE7FFF00DE1B43 /* PasswordResetView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC4DBFC2BBE7FFF00DE1B43 /* PasswordResetView .swift */; };
 		2EDE21072C1F04C3006951E7 /* DreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE21062C1F04C3006951E7 /* DreamView.swift */; };
 		2EDE21092C20BE23006951E7 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE21082C20BE23006951E7 /* SubscriptionView.swift */; };
@@ -72,6 +73,7 @@
 		2EA06B9C2BD18F880056E9F7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2EA06B9E2BD18F9A0056E9F7 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 		2EA20C822B908FC2000AAEC2 /* OnboardingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView2.swift; sourceTree = "<group>"; };
+		2EB1BCAF2C22C03A00DBA29F /* DreamsCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamsCountView.swift; sourceTree = "<group>"; };
 		2EC4DBFC2BBE7FFF00DE1B43 /* PasswordResetView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PasswordResetView .swift"; sourceTree = "<group>"; };
 		2EDE21062C1F04C3006951E7 /* DreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamView.swift; sourceTree = "<group>"; };
 		2EDE21082C20BE23006951E7 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				2E19785A2BD3DEED000AD527 /* HelpProfileRectangle.swift */,
 				2E19785D2BD3E5E7000AD527 /* OtherViewsRectangle.swift */,
+				2EB1BCAF2C22C03A00DBA29F /* DreamsCountView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				2EA06B9D2BD18F880056E9F7 /* MainView.swift in Sources */,
 				2E12B5312BA2152800F44234 /* InputFieldViewPassword.swift in Sources */,
 				2E92C9282BC04EBA005E4DB9 /* PasswordCreatedView.swift in Sources */,
+				2EB1BCB02C22C03A00DBA29F /* DreamsCountView.swift in Sources */,
 				2E8F49022B9489DF00414354 /* OnboardingView1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

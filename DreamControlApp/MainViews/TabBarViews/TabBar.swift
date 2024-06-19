@@ -16,7 +16,7 @@ struct TabBar: View {
                 .tabItem {
                     VStack {
                         Image(selectedTab == 0 ? "ActiveHomeIcon" : "IconHome")
-                        Text("Tab 1")
+                        Text("Главная")
                             .foregroundColor(Color("TextColor"))
                     }
                 }
@@ -26,17 +26,17 @@ struct TabBar: View {
                 .tabItem {
                     VStack {
                         Image(selectedTab == 1 ? "ActiveDreamsIcon" : "DreamsIcon")
-                        Text("Мечтания")
+                        Text("Мечта")
                             .foregroundColor(Color("TextColor"))
                     }
                 }
                 .tag(1)
 
-            Text("Tab 3")
+            Text("Идеи")
                 .tabItem {
                     VStack {
                         Image(selectedTab == 2 ? "ActiveIdeasIcon" : "IdeasIcon")
-                        Text("Tab 3")
+                        Text("Идеи")
                             .foregroundColor(Color("TextColor"))
                     }
                 }

@@ -39,6 +39,7 @@ struct MainView: View {
                             .padding(.horizontal)
                         }
                     )
+                    .padding(.horizontal)
                 HStack {
                     Rectangle()
                         .frame(height: 60)
@@ -58,6 +59,9 @@ struct MainView: View {
                                 .padding(.vertical)
                         )
                         .padding(.vertical, 20)
+                        .padding(.horizontal)
+
+                    Spacer()
                     Rectangle()
                         .shadow(radius: 20)
                         .frame(height: 60)
@@ -76,8 +80,10 @@ struct MainView: View {
                             }
                                 .padding(.vertical)
                         )
+                        .padding(.horizontal)
                 }
                 .shadow(radius: 20)
+
                 
                 VStack {
                     HStack {
@@ -98,7 +104,6 @@ struct MainView: View {
                 }
                 .padding(.horizontal)
             }
-            .padding(.horizontal)
         }
     }
 }
