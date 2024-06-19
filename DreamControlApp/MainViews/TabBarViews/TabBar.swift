@@ -8,26 +8,39 @@
 import SwiftUI
 
 struct TabBar: View {
+    @State private var selectedTab = 0
+
     var body: some View {
-        TabView {
-            // Вставьте ваши вкладки здесь
+        TabView(selection: $selectedTab) {
             MainView()
                 .tabItem {
-                    Image("IconHome")
-                    Text("Tab 1")
+                    VStack {
+                        Image(selectedTab == 0 ? "ActiveHomeIcon" : "IconHome")
+                        Text("Tab 1")
+                            .foregroundColor(Color("TextColor"))
+                    }
                 }
-            
-        DreamView()
+                .tag(0)
+
+            DreamView()
                 .tabItem {
-                    Image("DreamsIcon")
-                    Text("Мечтания")
+                    VStack {
+                        Image(selectedTab == 1 ? "ActiveDreamsIcon" : "DreamsIcon")
+                        Text("Мечтания")
+                            .foregroundColor(Color("TextColor"))
+                    }
                 }
-            
+                .tag(1)
+
             Text("Tab 3")
                 .tabItem {
-                    Image(systemName: "3.circle")
-                    Text("Tab 3")
+                    VStack {
+                        Image(selectedTab == 2 ? "ActiveIdeasIcon" : "IdeasIcon")
+                        Text("Tab 3")
+                            .foregroundColor(Color("TextColor"))
+                    }
                 }
+                .tag(2)
         }
     }
 }
