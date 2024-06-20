@@ -51,13 +51,19 @@ struct MainView: View {
                             OtherViewsRectangle(image: "StarIcon", title: "Ваши мечты", text: "Пусть ваша звезда всегда горит ярко")
                         }
                             .padding(.horizontal)
-                        OtherViewsRectangle(image: "IdeaIcon", title: "Идеи", text: "Вдохновляйтесь и растите")
+                        NavigationLink(destination: IdeasView()) {
+                            OtherViewsRectangle(image: "IdeaIcon", title: "Идеи", text: "Вдохновляйтесь и растите")
+                        }
                             .padding(.horizontal)
                     }
                     HStack {
-                        OtherViewsRectangle(image: "SubIcon", title: "Подписка", text: "Позвольте себе большее!")
-                            .padding(.horizontal)
-                        OtherViewsRectangle(image: "SettingIcon", title: "Настройки", text: "Настройся на нужный лад")
+                        NavigationLink(destination: SubscriptionView()) {
+                            OtherViewsRectangle(image: "SubIcon", title: "Подписка", text: "Позвольте себе большее!")
+                        }
+                        .padding(.horizontal)
+                        NavigationLink(destination: SettingsView()) {
+                            OtherViewsRectangle(image: "SettingIcon", title: "Настройки", text: "Настройся на нужный лад")
+                        }
                             .padding(.horizontal)
                     }
                     .padding(.vertical)
