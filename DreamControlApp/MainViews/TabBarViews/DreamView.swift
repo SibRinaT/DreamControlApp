@@ -22,7 +22,26 @@ struct DreamView: View {
                 
                 ScrollView {
                     Button(action: {}, label: {
-                        
+                        Rectangle()
+                            .foregroundColor(.clear) // Прозрачный фон
+                            .frame(height: 85)
+                            .cornerRadius(20)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(
+                                                      style: StrokeStyle(
+                                                          lineWidth: 2,
+                                                          dash: [15] // Длина штрихов и пробелов в пунктирной линии
+                                                      )
+                                                  )
+                                    .foregroundColor(Color("PrimaryColor")) // Цвет обводки
+                            )
+                            .overlay(
+                                Text("Добавить мечту")
+                                    .foregroundColor(Color("PrimaryColor"))
+                                    .font(.largeTitle)
+                                    .bold()
+                            )
                     })
                 }
             }
