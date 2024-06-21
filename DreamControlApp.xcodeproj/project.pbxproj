@@ -13,6 +13,7 @@
 		2E1978602BD57728000AD527 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E19785F2BD57728000AD527 /* TabBar.swift */; };
 		2E23AE412C24B526003FCCC1 /* IdeasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E23AE402C24B526003FCCC1 /* IdeasView.swift */; };
 		2E23AE432C24B604003FCCC1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E23AE422C24B604003FCCC1 /* SettingsView.swift */; };
+		2E23AE462C2614D2003FCCC1 /* SubscriptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E23AE452C2614D2003FCCC1 /* SubscriptionButton.swift */; };
 		2E6124582B9025B100494DF6 /* DreamControlAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124572B9025B100494DF6 /* DreamControlAppApp.swift */; };
 		2E61245F2B9025B300494DF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */; };
 		2E6124662B9025CD00494DF6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124652B9025CD00494DF6 /* MockData.swift */; };
@@ -51,6 +52,7 @@
 		2E19785F2BD57728000AD527 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		2E23AE402C24B526003FCCC1 /* IdeasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeasView.swift; sourceTree = "<group>"; };
 		2E23AE422C24B604003FCCC1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2E23AE452C2614D2003FCCC1 /* SubscriptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionButton.swift; sourceTree = "<group>"; };
 		2E6124542B9025B100494DF6 /* DreamControlApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamControlApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E6124572B9025B100494DF6 /* DreamControlAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamControlAppApp.swift; sourceTree = "<group>"; };
 		2E6124592B9025B100494DF6 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		2E12B52F2BA2150800F44234 /* HelpViews */ = {
 			isa = PBXGroup;
 			children = (
+				2E23AE442C2614A1003FCCC1 /* DreamView */,
 				2E19785C2BD3DF12000AD527 /* MainView */,
 				2E66C4542BC79F5100FC2E49 /* OTP */,
 				2E12B5302BA2152800F44234 /* InputFieldViewPassword.swift */,
@@ -117,6 +120,14 @@
 				2EB1BCAF2C22C03A00DBA29F /* DreamsCountView.swift */,
 			);
 			path = MainView;
+			sourceTree = "<group>";
+		};
+		2E23AE442C2614A1003FCCC1 /* DreamView */ = {
+			isa = PBXGroup;
+			children = (
+				2E23AE452C2614D2003FCCC1 /* SubscriptionButton.swift */,
+			);
+			path = DreamView;
 			sourceTree = "<group>";
 		};
 		2E61244B2B9025B100494DF6 = {
@@ -326,6 +337,7 @@
 				2E8578842BBBF07F00BEA1ED /* ClearYellowButton.swift in Sources */,
 				2E6124662B9025CD00494DF6 /* MockData.swift in Sources */,
 				2E912D3A2B970CD600664140 /* MainOnboarding.swift in Sources */,
+				2E23AE462C2614D2003FCCC1 /* SubscriptionButton.swift in Sources */,
 				2E92C9262BC04DA7005E4DB9 /* CreateNewPasswordView.swift in Sources */,
 				2EC4DBFD2BBE7FFF00DE1B43 /* PasswordResetView .swift in Sources */,
 				2E6124582B9025B100494DF6 /* DreamControlAppApp.swift in Sources */,
