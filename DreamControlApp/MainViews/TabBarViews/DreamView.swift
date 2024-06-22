@@ -28,14 +28,24 @@ struct DreamView: View {
                         ForEach(buttons, id: \.self) { button in
                             Button(action: {}, label: {
                                 HStack {
-                                    Text(button)
-                                    Image("")
-                                        .font(.title)
-                                        .frame(maxWidth: .infinity, minHeight: 85)
-                                        .background(Color("PrimaryColor"))
-                                        .foregroundColor(.white)
-                                        .cornerRadius(20)
+                                    Image("Cloud2ForDream")
+                                        .padding(.leading)
+                                        .padding(.trailing, 10)
+                                    VStack(alignment: .leading) {
+                                        Text("Мечта")
+                                            .foregroundColor(Color("InactiveColor2"))
+                                            .font(.subheadline)
+                                        Text(button)
+                                            .font(.title)
+                                    }
+                                    .bold()
+                                    Spacer()
                                 }
+                                .padding()
+                                .frame(height: 85)
+                                .background(Color("PrimaryColor"))
+                                .foregroundColor(.white)
+                                .cornerRadius(20)
                             })
                         }
                         
