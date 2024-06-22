@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct DreamView: View {
+    @State private var buttons: [String] = []
+    @State private var showingAlert = false
+    @State private var newButtonName = ""
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -21,31 +25,59 @@ struct DreamView: View {
                 }
                 
                 ScrollView {
-                    Button(action: {}, label: {
-                        Rectangle()
-                            .foregroundColor(.clear) // Прозрачный фон
-                            .frame(height: 85)
-                            .cornerRadius(20)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .stroke(
-                                                      style: StrokeStyle(
-                                                          lineWidth: 2,
-                                                          dash: [15] // Длина штрихов и пробелов в пунктирной линии
-                                                      )
-                                                  )
-                                    .foregroundColor(Color("PrimaryColor")) // Цвет обводки
-                            )
-                            .overlay(
-                                Text("Добавить мечту")
-                                    .foregroundColor(Color("PrimaryColor"))
-                                    .font(.largeTitle)
-                                    .bold()
-                            )
-                    })
+                    VStack(spacing: 10) {
+                        ForEach(buttons, id: \.self) { button in
+                            Button(action: {}, label: {
+                                Text(button)
+                                    .font(.title)
+                                    .frame(maxWidth: .infinity, minHeight: 85)
+                                    .background(Color("PrimaryColor"))
+                                    .foregroundColor(.white)
+                                    .cornerRadius(20)
+                            })
+                        }
+                        
+                        Button(action: {
+                            showingAlert = true
+                        }, label: {
+                            Rectangle()
+                                .foregroundColor(.clear) // Прозрачный фон
+                                .frame(height: 85)
+                                .cornerRadius(20)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(
+                                            style: StrokeStyle(
+                                                lineWidth: 2,
+                                                dash: [15] // Длина штрихов и пробелов в пунктирной линии
+                                            )
+                                        )
+                                        .foregroundColor(Color("PrimaryColor")) // Цвет обводки
+                                )
+                                .overlay(
+                                    Text("Добавить мечту")
+                                        .foregroundColor(Color("PrimaryColor"))
+                                        .font(.largeTitle)
+                                        .bold()
+                                )
+                        })
+                    }
                 }
             }
             .padding(.horizontal)
+            .alert(isPresented: $showingAlert) {
+                Alert(
+                    title: Text("Новая мечта"),
+                    message: Text("Введите название для новой мечты:"),
+                    primaryButton: .default(Text("Ввести"), action: {
+                        if !newButtonName.isEmpty {
+                            buttons.append(newButtonName)
+                            newButtonName = ""
+                        }
+                    }),
+                    secondaryButton: .cancel(Text("Отмена"))
+                )
+            }
         }
     }
 }
