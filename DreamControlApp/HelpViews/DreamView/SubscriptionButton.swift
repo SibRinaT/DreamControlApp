@@ -16,16 +16,27 @@ struct SubscriptionButton: View {
                     .frame(height: 85)
                     .cornerRadius(20)
                     .overlay(
-                        HStack {
-                            Image("PremIcon")
-                            Spacer()
-                            Text("Оформите подписку для добавления большего количества мечтаний")
-                                .multilineTextAlignment(.leading)
-                                .bold()
-                                .foregroundColor(Color(.white))
-                                .font(.callout)
-                        }
+                        ZStack {
+                            Image("StarImage")
+                                .offset(CGSize(width: -100, height: 20))
+                            Image("StarSmallImage")
+                                .offset(CGSize(width: -5, height: -30))
+                            Image("StarSmallImage")
+                                .offset(CGSize(width: 110, height: -28))
+                            Image("StarSmallImage")
+                                .offset(CGSize(width: 50, height: 30))
+                            HStack {
+                                Image("PremIcon")
+                                Spacer()
+                                Text("Оформите подписку для добавления большего количества мечтаний")
+                                    .lineSpacing(-10) // Уменьшение расстояния между строками
+                                    .multilineTextAlignment(.leading)
+                                    .bold()
+                                    .foregroundColor(Color(.white))
+                                    .font(.subheadline)
+                            }
                             .padding(.horizontal)
+                        }
                     )
             }
                    )
