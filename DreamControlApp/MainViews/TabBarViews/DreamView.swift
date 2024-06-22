@@ -4,7 +4,6 @@
 //
 //  Created by Ainur on 16.06.2024.
 //
-
 import SwiftUI
 
 struct DreamView: View {
@@ -28,12 +27,15 @@ struct DreamView: View {
                     VStack(spacing: 10) {
                         ForEach(buttons, id: \.self) { button in
                             Button(action: {}, label: {
-                                Text(button)
-                                    .font(.title)
-                                    .frame(maxWidth: .infinity, minHeight: 85)
-                                    .background(Color("PrimaryColor"))
-                                    .foregroundColor(.white)
-                                    .cornerRadius(20)
+                                HStack {
+                                    Text(button)
+                                    Image("")
+                                        .font(.title)
+                                        .frame(maxWidth: .infinity, minHeight: 85)
+                                        .background(Color("PrimaryColor"))
+                                        .foregroundColor(.white)
+                                        .cornerRadius(20)
+                                }
                             })
                         }
                         
@@ -65,18 +67,15 @@ struct DreamView: View {
                 }
             }
             .padding(.horizontal)
-            .alert(isPresented: $showingAlert) {
-                Alert(
-                    title: Text("Новая мечта"),
-                    message: Text("Введите название для новой мечты:"),
-                    primaryButton: .default(Text("Ввести"), action: {
-                        if !newButtonName.isEmpty {
-                            buttons.append(newButtonName)
-                            newButtonName = ""
-                        }
-                    }),
-                    secondaryButton: .cancel(Text("Отмена"))
-                )
+            .alert("Новая мечта", isPresented: $showingAlert) {
+                TextField("Введите название", text: $newButtonName)
+                Button("Добавить") {
+                    if !newButtonName.isEmpty {
+                        buttons.append(newButtonName)
+                        newButtonName = ""
+                    }
+                }
+                Button("Отмена", role: .cancel) {}
             }
         }
     }
