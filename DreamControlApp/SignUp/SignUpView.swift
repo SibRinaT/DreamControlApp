@@ -38,9 +38,9 @@ struct SignUpView: View {
                             
                             VStack {
                                 VStack {
-                                    InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com", text: email)
-                                    InputFieldView(title: "Имя аккаунта", placeholder: "DreamControl", text: username)
-                                    InputFieldViewPassword(title: "Пароль", placeholder: "****************", text: password)
+                                    InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com", text: $email)
+                                    InputFieldView(title: "Имя аккаунта", placeholder: "DreamControl", text: $username)
+                                    InputFieldViewPassword(title: "Пароль", placeholder: "****************", text: $password)
                                         .onChange(of: password) { newValue in
                                             isPasswordValid = newValue.count >= 6 && newValue.rangeOfCharacter(from: .decimalDigits) != nil
                                         }
@@ -71,7 +71,7 @@ struct SignUpView: View {
                                         .frame(width: 70, height: 2)
                                 }
                                 VStack {
-                                    InputFieldViewPassword(title: "Повторите пароль", placeholder: "****************", text: repeatPassword)
+                                    InputFieldViewPassword(title: "Повторите пароль", placeholder: "****************", text: $repeatPassword)
                                     // Проверка на совпадение паролей
                                     if repeatPassword != password {
                                         Text("Пароли не совпадают")

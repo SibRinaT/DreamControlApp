@@ -100,8 +100,7 @@ struct NewDreamView: View {
     var body: some View {
         NavigationView {
             VStack {
-                TextField("Введите название", text: $newButtonName)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                InputFieldView(title: "Название мечты", placeholder: "Введите название", text: $newButtonName)
                     .padding()
                 
                 Text("Выберите изображение")
@@ -110,8 +109,6 @@ struct NewDreamView: View {
                 
                 HStack(spacing: 20) {
                     Image("StarForDream")
-                        .resizable()
-                        .frame(width: 60, height: 60)
                         .onTapGesture {
                             selectedImage = "StarForDream"
                         }
@@ -121,8 +118,6 @@ struct NewDreamView: View {
                         )
                     
                     Image("CloudForDream")
-                        .resizable()
-                        .frame(width: 60, height: 60)
                         .onTapGesture {
                             selectedImage = "CloudForDream"
                         }
@@ -132,8 +127,6 @@ struct NewDreamView: View {
                         )
                     
                     Image("Cloud2ForDream")
-                        .resizable()
-                        .frame(width: 60, height: 60)
                         .onTapGesture {
                             selectedImage = "Cloud2ForDream"
                         }
