@@ -25,7 +25,7 @@ struct DreamView: View {
                 }
                 
                 ScrollView {
-                    VStack(spacing: 10) {
+                    VStack() {
                         ForEach(buttons, id: \.name) { button in
                             Button(action: {}, label: {
                                 HStack {
@@ -39,7 +39,6 @@ struct DreamView: View {
                                             .font(.subheadline)
                                         Text(button.name)
                                             .font(.title)
-                                            .padding(.top, 5)
                                     }
                                     .bold()
                                     Spacer()
@@ -107,8 +106,14 @@ struct NewDreamView: View {
                     .font(.headline)
                     .padding()
                 
-                HStack(spacing: 20) {
-                    Image("StarForDream")
+                HStack(spacing: 40) {
+                    VStack {
+                        Image("StarForDream")
+                        Text("Звезда")
+                            .font(.caption2)
+                            .foregroundColor(Color("TextColor"))
+                            .bold()
+                    }
                         .onTapGesture {
                             selectedImage = "StarForDream"
                         }
@@ -117,16 +122,27 @@ struct NewDreamView: View {
                                 .stroke(selectedImage == "StarForDream" ? Color("PrimaryColor") : Color.clear, lineWidth: 2)
                         )
                     
-                    Image("CloudForDream")
-                        .onTapGesture {
+                    VStack {
+                        Image("CloudForDream")
+                        Text("Облако")
+                            .font(.caption2)
+                            .foregroundColor(Color("TextColor"))
+                            .bold()
+                    }                      
+                    .onTapGesture {
                             selectedImage = "CloudForDream"
                         }
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(selectedImage == "CloudForDream" ? Color("PrimaryColor") : Color.clear, lineWidth: 2)
                         )
-                    
-                    Image("Cloud2ForDream")
+                    VStack {
+                        Image("Cloud2ForDream")
+                        Text("2 облака")
+                            .font(.caption2)
+                            .foregroundColor(Color("TextColor"))
+                            .bold()
+                    }
                         .onTapGesture {
                             selectedImage = "Cloud2ForDream"
                         }
