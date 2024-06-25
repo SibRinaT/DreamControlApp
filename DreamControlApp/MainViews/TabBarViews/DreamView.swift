@@ -8,8 +8,7 @@ import SwiftUI
 
 struct DreamView: View {
     @State private var buttons: [(name: String, image: String)] = []
-    @State private var showingAlert = false
-    @State private var showingImagePicker = false
+    @State private var showingSheet = false
     @State private var newButtonName = ""
     @State private var selectedImage = "StarForDream"
     
@@ -54,7 +53,7 @@ struct DreamView: View {
                         }
                         
                         Button(action: {
-                            showingAlert = true
+                            showingSheet = true
                         }, label: {
                             Rectangle()
                                 .foregroundColor(.clear) // Прозрачный фон
@@ -81,68 +80,84 @@ struct DreamView: View {
                 }
             }
             .padding(.horizontal)
-            .alert("Новая мечта", isPresented: $showingAlert) {
-                VStack {
-                    TextField("Введите название", text: $newButtonName)
-                    Button("Выберите изображение") {
-                        showingImagePicker = true
-                    }
-                    Button("Добавить") {
-                        if !newButtonName.isEmpty {
-                            buttons.append((name: newButtonName, image: selectedImage))
-                            newButtonName = ""
-                            selectedImage = "StarForDream"
-                        }
-                        showingAlert = false
-                    }
-                    Button("Отмена", role: .cancel) {
-                        showingAlert = false
+            .sheet(isPresented: $showingSheet) {
+                NewDreamView(newButtonName: $newButtonName, selectedImage: $selectedImage, showingSheet: $showingSheet) { name, image in
+                    if !name.isEmpty {
+                        buttons.append((name: name, image: image))
                     }
                 }
-                .padding()
-            }
-            .sheet(isPresented: $showingImagePicker) {
-                ImagePicker(selectedImage: $selectedImage)
             }
         }
     }
 }
 
-struct ImagePicker: View {
+struct NewDreamView: View {
+    @Binding var newButtonName: String
     @Binding var selectedImage: String
+    @Binding var showingSheet: Bool
+    var onSave: (String, String) -> Void
     
     var body: some View {
-        VStack {
-            Text("Выберите изображение")
-                .font(.headline)
+        NavigationView {
+            VStack {
+                TextField("Введите название", text: $newButtonName)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                
+                Text("Выберите изображение")
+                    .font(.headline)
+                    .padding()
+                
+                HStack(spacing: 20) {
+                    Image("StarForDream")
+                        .resizable()
+                        .frame(width: 60, height: 60)
+                        .onTapGesture {
+                            selectedImage = "StarForDream"
+                        }
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(selectedImage == "StarForDream" ? Color("PrimaryColor") : Color.clear, lineWidth: 2)
+                        )
+                    
+                    Image("CloudForDream")
+                        .resizable()
+                        .frame(width: 60, height: 60)
+                        .onTapGesture {
+                            selectedImage = "CloudForDream"
+                        }
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(selectedImage == "CloudForDream" ? Color("PrimaryColor") : Color.clear, lineWidth: 2)
+                        )
+                    
+                    Image("Cloud2ForDream")
+                        .resizable()
+                        .frame(width: 60, height: 60)
+                        .onTapGesture {
+                            selectedImage = "Cloud2ForDream"
+                        }
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(selectedImage == "Cloud2ForDream" ? Color("PrimaryColor") : Color.clear, lineWidth: 2)
+                        )
+                }
                 .padding()
-            
-            HStack(spacing: 20) {
-                Image("StarForDream")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                    .onTapGesture {
-                        selectedImage = "StarForDream"
-                    }
-                Image("CloudForDream")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                    .onTapGesture {
-                        selectedImage = "CloudForDream"
-                    }
-                Image("Cloud2ForDream")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                    .onTapGesture {
-                        selectedImage = "Cloud2ForDream"
-                    }
+                
+                Button("Сохранить") {
+                    onSave(newButtonName, selectedImage)
+                    newButtonName = ""
+                    selectedImage = "StarForDream"
+                    showingSheet = false
+                }
+                .padding()
+                
+                Button("Отмена") {
+                    showingSheet = false
+                }
+                .padding()
             }
-            .padding()
-            
-            Button("Готово") {
-                // Close the image picker
-            }
-            .padding()
+            .navigationTitle("Новая мечта")
         }
     }
 }
