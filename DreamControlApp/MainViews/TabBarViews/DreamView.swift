@@ -99,7 +99,17 @@ struct NewDreamView: View {
             VStack {
                 InputFieldView(title: "Название мечты", placeholder: "Введите название", text: $newButtonName)
                     .padding()
-                
+                HStack {
+                    if newButtonName.count == 0 || newButtonName.count > 14 {
+                        Text("Символов: ")
+                        Text("\(newButtonName.count)")
+                            .foregroundColor(Color(.red))
+                    } else {
+                        Text("Символов: ")
+                        Text("\(newButtonName.count)")
+                            .foregroundColor(Color(.green))
+                    }
+                }
                 Text("Выберите изображение")
                     .font(.headline)
                     .padding()
