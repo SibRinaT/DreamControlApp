@@ -107,7 +107,7 @@ struct NewDreamView: View {
                     } else {
                         Text("Символов: ")
                         Text("\(newButtonName.count)")
-                            .foregroundColor(Color(.green))
+                            .foregroundColor(Color("PrimaryColor"))
                     }
                 }
                 Text("Выберите изображение")
@@ -177,12 +177,14 @@ struct NewDreamView: View {
                         selectedImage = "StarForDream"
                         showingSheet = false
                     }
+                    .foregroundColor(Color("PrimaryColor"))
                     .padding()
                 }
                             
                 Button("Отмена") {
                     showingSheet = false
                 }
+                .foregroundColor(Color("PrimaryColor"))
                 .padding()
             }
             .navigationTitle("Новая мечта")
