@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct DreamView: View {
-    @State private var buttons: [(name: String, image: String)] = []
+    @State private var buttons: [(name: String, image: String)] = UserDefaults.standard.loadDreams()
     @State private var showingSheet = false
     @State private var newButtonName = ""
     @State private var selectedImage = "StarForDream"
@@ -30,9 +30,6 @@ struct DreamView: View {
                             Button(action: {}, label: {
                                 HStack {
                                     Image(button.image)
-                                        .resizable()
-                                        .frame(width: 40, height: 40)
-                                        .padding(.leading)
                                     VStack(alignment: .leading) {
                                         Text("Мечта")
                                             .foregroundColor(Color("InactiveColor2"))
@@ -83,6 +80,7 @@ struct DreamView: View {
                 NewDreamView(newButtonName: $newButtonName, selectedImage: $selectedImage, showingSheet: $showingSheet) { name, image in
                     if !name.isEmpty {
                         buttons.append((name: name, image: image))
+                        UserDefaults.standard.saveDreams(buttons)
                     }
                 }
             }
@@ -167,6 +165,29 @@ struct NewDreamView: View {
                 .padding()
             }
             .navigationTitle("Новая мечта")
+        }
+    }
+}
+
+extension UserDefaults {
+    private enum Keys {
+        static let dreams = "dreams"
+    }
+    
+    func saveDreams(_ dreams: [(name: String, image: String)]) {
+        let data = dreams.map { ["name": $0.name, "image": $0.image] }
+        set(data, forKey: Keys.dreams)
+    }
+    
+    func loadDreams() -> [(name: String, image: String)] {
+        guard let data = array(forKey: Keys.dreams) as? [[String: String]] else {
+            return []
+        }
+        return data.compactMap { dict in
+            guard let name = dict["name"], let image = dict["image"] else {
+                return nil
+            }
+            return (name, image)
         }
     }
 }
