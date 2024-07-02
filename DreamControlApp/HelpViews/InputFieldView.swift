@@ -23,11 +23,11 @@ struct InputFieldView: View {
                         .background(Color.clear)
                         .frame(width: 302, height: 40)
                     TextField(placeholder, text: $text)
-                        .foregroundColor(Color("InactiveColor"))
+                        .foregroundColor(Color("TextColor"))
                         .font(.custom("", size: 16)) // need to fix a font
                         .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                         .textFieldStyle(PlainTextFieldStyle())
-                        .autocapitalization(.none) // Отключить автоматическое изменение р
+                        .autocapitalization(.none) // Отключить автоматическое изменение раскладки
                         .frame(width: 302, height: 40)
                 }
             }
