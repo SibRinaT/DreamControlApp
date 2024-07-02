@@ -161,14 +161,25 @@ struct NewDreamView: View {
                 }
                 .padding()
                 
-                Button("Сохранить") {
-                    onSave(newButtonName, selectedImage)
-                    newButtonName = ""
-                    selectedImage = "StarForDream"
-                    showingSheet = false
+                if newButtonName.count == 0 || newButtonName.count > 14 {
+                    Button("Сохранить") {
+                        onSave(newButtonName, selectedImage)
+                        newButtonName = ""
+                        selectedImage = "StarForDream"
+                        showingSheet = false
+                    }
+                    .disabled(true)
+                    .padding()
+                } else {
+                    Button("Сохранить") {
+                        onSave(newButtonName, selectedImage)
+                        newButtonName = ""
+                        selectedImage = "StarForDream"
+                        showingSheet = false
+                    }
+                    .padding()
                 }
-                .padding()
-                
+                            
                 Button("Отмена") {
                     showingSheet = false
                 }
