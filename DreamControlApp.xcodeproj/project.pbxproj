@@ -236,8 +236,8 @@
 				2EA06B9E2BD18F9A0056E9F7 /* CustomTabBarView.swift */,
 				2E19785F2BD57728000AD527 /* TabBar.swift */,
 				2EDE21062C1F04C3006951E7 /* DreamView.swift */,
-				2EDE21082C20BE23006951E7 /* SubscriptionView.swift */,
 				2E23AE402C24B526003FCCC1 /* IdeasView.swift */,
+				2EDE21082C20BE23006951E7 /* SubscriptionView.swift */,
 				2E23AE422C24B604003FCCC1 /* SettingsView.swift */,
 			);
 			path = TabBarViews;

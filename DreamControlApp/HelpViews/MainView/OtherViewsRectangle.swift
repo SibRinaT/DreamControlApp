@@ -19,14 +19,18 @@ struct OtherViewsRectangle: View {
             .frame(width: 159, height: 130)
             .shadow(radius: 10, y: -4)
             .overlay(
-                VStack(alignment: .leading, spacing: 5){
-                    Image(image)
-                    Text(title)
-                        .font(Font.custom("Название вашего шрифта", size: 14).bold())
-                        .foregroundColor(Color("TextColor"))
-                    Text(text)
-                        .foregroundColor(Color("TextColor"))
-                        .font(.custom("", size: 12))
+                HStack {
+                    VStack(alignment: .leading, spacing: 5){
+                        Image(image)
+                        Text(title)
+                            .font(Font.custom("Название вашего шрифта", size: 14).bold())
+                            .foregroundColor(Color("TextColor"))
+                        Text(text)
+                            .foregroundColor(Color("TextColor"))
+                            .font(.custom("", size: 12))
+                            .multilineTextAlignment(.leading)
+                    }
+                   Spacer()
                 }
                     .padding(.horizontal)
                     .padding(.vertical)
