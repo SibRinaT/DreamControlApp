@@ -25,6 +25,7 @@ struct OtherViewsRectangle: View {
                         Text(title)
                             .font(Font.custom("Название вашего шрифта", size: 14).bold())
                             .foregroundColor(Color("TextColor"))
+                            .bold()
                         Text(text)
                             .foregroundColor(Color("TextColor"))
                             .font(.custom("", size: 12))
