@@ -25,27 +25,36 @@ struct DreamView: View {
                 }
                 
                 ScrollView {
-                    VStack() {
+                    VStack {
                         ForEach(buttons, id: \.name) { button in
-                            Button(action: {}, label: {
-                                HStack {
-                                    Image(button.image)
-                                    VStack(alignment: .leading) {
-                                        Text("Мечта")
-                                            .foregroundColor(Color("InactiveColor2"))
-                                            .font(.subheadline)
-                                        Text(button.name)
-                                            .font(.title)
+                            HStack {
+                                Button(action: {}) {
+                                    HStack {
+                                        Image(button.image)
+                                        VStack(alignment: .leading) {
+                                            Text("Мечта")
+                                                .foregroundColor(Color("InactiveColor2"))
+                                                .font(.subheadline)
+                                            Text(button.name)
+                                                .font(.title)
+                                        }
+                                        .bold()
+                                        Spacer()
                                     }
-                                    .bold()
-                                    Spacer()
+                                    .padding()
+                                    .frame(height: 85)
+                                    .background(Color("PrimaryColor"))
+                                    .foregroundColor(.white)
+                                    .cornerRadius(20)
                                 }
-                                .padding()
-                                .frame(height: 85)
-                                .background(Color("PrimaryColor"))
-                                .foregroundColor(.white)
-                                .cornerRadius(20)
-                            })
+                                .swipeActions(edge: .trailing) {
+                                    Button(role: .destructive) {
+                                        deleteDream(name: button.name)
+                                    } label: {
+                                        Label("Удалить", systemImage: "trash")
+                                    }
+                                }
+                            }
                         }
                         
                         Button(action: {
@@ -84,6 +93,13 @@ struct DreamView: View {
                     }
                 }
             }
+        }
+    }
+    
+    private func deleteDream(name: String) {
+        if let index = buttons.firstIndex(where: { $0.name == name }) {
+            buttons.remove(at: index)
+            UserDefaults.standard.saveDreams(buttons)
         }
     }
 }
@@ -136,7 +152,7 @@ struct NewDreamView: View {
                             .font(.caption2)
                             .foregroundColor(Color("TextColor"))
                             .bold()
-                    }                      
+                    }
                     .onTapGesture {
                             selectedImage = "CloudForDream"
                         }
