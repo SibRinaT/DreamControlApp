@@ -68,7 +68,8 @@ struct MainView: View {
                                         VStack(alignment: .leading, spacing: 5){
                                             Image("SubIcon")
                                             Text("Подписка")
-                                                .font(Font.custom("Название вашего шрифта", size: 14).bold())
+                                                .bold()
+//                                                .font(Font.custom("Название вашего шрифта", size: 14).bold())
                                                 .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
                                             Text("Позвольте себе большее")
                                                 .foregroundColor(Color("TextColor"))
