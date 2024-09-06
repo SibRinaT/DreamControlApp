@@ -12,11 +12,38 @@ struct StoryView: View {
     
     var body: some View {
         VStack {
-            Text("Истории мечты \(dreamName)")
-                .font(.largeTitle)
-                .bold()
-                .padding()
-            
+            HStack {
+                Image("DCIcon")
+                Text("Истории")
+                    .font(.largeTitle)
+                    .bold()
+                    .foregroundColor(Color("PrimaryColor"))
+                Spacer()
+            }
+            .padding(.horizontal)
+
+            Rectangle()
+//                .shadow(radius: 10)
+                .foregroundColor(Color("PrimaryColor"))
+                .frame(height: 100)
+                .overlay(
+                    HStack {
+                        Image("CloudForDream")
+                        VStack {
+                            Text("Мечта")
+                                .foregroundColor(Color("InactiveColor2"))
+                                .bold()
+                                .font(.headline)
+                            
+                            Text("\(dreamName)")
+                                .foregroundColor(.white)
+                                .bold()
+                                .font(.title2)
+                        }
+                        .padding(.horizontal)
+                        .multilineTextAlignment(.leading)
+                    }
+                )
             List(stories) { story in
                 Text(story.title)
                     .font(.headline)
