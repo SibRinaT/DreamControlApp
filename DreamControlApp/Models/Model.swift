@@ -9,13 +9,13 @@ import SwiftUI
 import UIKit
 
 
-struct DreamStory: Codable {
+struct DreamStory: Codable, Identifiable {
     let id: UUID
     let title: String
     let content: String
 }
 
-struct Dream: Codable {
+struct Dream: Codable, Identifiable {
     let id: UUID
     let name: String
     let image: String
