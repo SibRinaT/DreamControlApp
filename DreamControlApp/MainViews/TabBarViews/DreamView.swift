@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct DreamView: View {
-    @State private var buttons: [(name: String, image: String)] = UserDefaults.standard.loadDreams()
+    @State private var buttons = [Dream]()
     @State private var showingSheet = false
     @State private var newButtonName = ""
     @State private var selectedImage = "StarForDream"
@@ -84,11 +84,15 @@ struct DreamView: View {
                     }
                 }
             }
+            .onAppear {
+               buttons = UserDefaults.standard.loadDreams()
+            }
             .padding(.horizontal)
             .sheet(isPresented: $showingSheet) {
                 NewDreamView(newButtonName: $newButtonName, selectedImage: $selectedImage, showingSheet: $showingSheet) { name, image in
                     if !name.isEmpty {
-                        buttons.append((name: name, image: image))
+                        let newDream = Dream(id: UUID(), name: name, image: image, stories: [])
+                        buttons.append(newDream)
                         UserDefaults.standard.saveDreams(buttons)
                     }
                 }
@@ -213,21 +217,26 @@ extension UserDefaults {
         static let dreams = "dreams"
     }
     
-    func saveDreams(_ dreams: [(name: String, image: String)]) {
-        let data = dreams.map { ["name": $0.name, "image": $0.image] }
-        set(data, forKey: Keys.dreams)
+    func saveDreams(_ dreams: [Dream]) {
+        do {
+            let encodedDreams = try JSONEncoder().encode(dreams)
+            set(encodedDreams, forKey: Keys.dreams)
+        } catch {
+            print(error)
+        }
     }
     
-    func loadDreams() -> [(name: String, image: String)] {
-        guard let data = array(forKey: Keys.dreams) as? [[String: String]] else {
+    func loadDreams() -> [Dream] {
+        guard let data = data(forKey: Keys.dreams) else {
             return []
         }
-        return data.compactMap { dict in
-            guard let name = dict["name"], let image = dict["image"] else {
-                return nil
-            }
-            return (name, image)
+        do {
+            return try JSONDecoder().decode([Dream].self, from: data)
+        } catch {
+            print(error)
+            return []
         }
+        
     }
 }
 
