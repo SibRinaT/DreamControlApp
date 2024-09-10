@@ -8,8 +8,10 @@
 import SwiftUI
 struct StoryView: View {
     let dreamName: String
-    @State var stories = [DreamStory]()
-    
+    @State private var stories = [DreamStory]()
+    @State private var nextStoryId = UUID() // Для генерации уникальных идентификаторов историй
+    @State private var showingNewStoryView = false // Стейт для отображения окна создания новой истории
+
     var body: some View {
         VStack {
             HStack {
@@ -23,7 +25,6 @@ struct StoryView: View {
             .padding(.horizontal)
 
             Rectangle()
-//                .shadow(radius: 10)
                 .foregroundColor(Color("PrimaryColor"))
                 .frame(height: 100)
                 .overlay(
@@ -34,7 +35,7 @@ struct StoryView: View {
                                 .foregroundColor(Color("InactiveColor2"))
                                 .bold()
                                 .font(.headline)
-                            
+
                             Text("\(dreamName)")
                                 .foregroundColor(.white)
                                 .bold()
@@ -44,16 +45,24 @@ struct StoryView: View {
                         .multilineTextAlignment(.leading)
                     }
                 )
-            
-            List(stories) { story in
-                HStack {
-                    Image("StoryIcon")
-                    Text(story.title)
-                        .font(.headline)
-                        .padding()
+
+            List {
+                ForEach(stories) { story in
+                    Button(action: {
+                        // Действие при нажатии на историю
+                        print("Story clicked: \(story.title)")
+                    }) {
+                        HStack {
+                            Image("StoryIcon")
+                            Text(story.title)
+                                .font(.headline)
+                                .padding()
+                        }
+                    }
                 }
+
                 Button(action: {
-    //                showingSheet = true
+                    showingNewStoryView = true // Открытие окна создания новой истории
                 }, label: {
                     Rectangle()
                         .foregroundColor(.clear) // Прозрачный фон
@@ -70,21 +79,25 @@ struct StoryView: View {
                                 .foregroundColor(Color("PrimaryColor")) // Цвет обводки
                         )
                         .overlay(
-                            Text("Добавить историю")
+                            Text("Создать историю")
                                 .foregroundColor(Color("PrimaryColor"))
                                 .font(.largeTitle)
                                 .bold()
                         )
                 })
+                .sheet(isPresented: $showingNewStoryView) {
+                                    NewStoryView { title, content in
+                                        // Добавляем новую историю после сохранения
+                                        let newStory = DreamStory(id: UUID(), title: title, content: content)
+                                        stories.append(newStory)
+                                    }
+                                }
             }
             .listStyle(.plain)
-            
-            
-        
         }
     }
 }
 
 #Preview {
-    StoryView(dreamName: "Dream", stories: [DreamStory(id: UUID(), title: "long story", content: "content of the long story")])
+    StoryView(dreamName: "Dream")
 }

@@ -53,7 +53,7 @@ struct DreamView: View {
                                 }
                             }
                             
-                            NavigationLink(destination: StoryView(dreamName: button.name, stories: button.stories)) {
+                            NavigationLink(destination: StoryView(dreamName: button.name/*, stories: button.stories*/)) {
                                 EmptyView()
                             }
                             .opacity(0.0)
