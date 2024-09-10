@@ -46,10 +46,12 @@ struct StoryView: View {
                 )
             
             List(stories) { story in
-                Text(story.title)
-                    .font(.headline)
-                    .padding()
-                
+                HStack {
+                    Image("StoryIcon")
+                    Text(story.title)
+                        .font(.headline)
+                        .padding()
+                }
                 Button(action: {
     //                showingSheet = true
                 }, label: {
@@ -76,6 +78,9 @@ struct StoryView: View {
                 })
             }
             .listStyle(.plain)
+            
+            
+        
         }
     }
 }
