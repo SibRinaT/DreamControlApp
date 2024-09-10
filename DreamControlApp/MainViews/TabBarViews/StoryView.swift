@@ -38,19 +38,45 @@ struct StoryView: View {
                             Text("\(dreamName)")
                                 .foregroundColor(.white)
                                 .bold()
-                                .font(.title2)
+                                .font(.title)
                         }
                         .padding(.horizontal)
                         .multilineTextAlignment(.leading)
                     }
                 )
+            
             List(stories) { story in
                 Text(story.title)
                     .font(.headline)
                     .padding()
+                
+                Button(action: {
+    //                showingSheet = true
+                }, label: {
+                    Rectangle()
+                        .foregroundColor(.clear) // Прозрачный фон
+                        .frame(height: 85)
+                        .cornerRadius(20)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(
+                                    style: StrokeStyle(
+                                        lineWidth: 2,
+                                        dash: [15] // Длина штрихов и пробелов в пунктирной линии
+                                    )
+                                )
+                                .foregroundColor(Color("PrimaryColor")) // Цвет обводки
+                        )
+                        .overlay(
+                            Text("Добавить историю")
+                                .foregroundColor(Color("PrimaryColor"))
+                                .font(.largeTitle)
+                                .bold()
+                        )
+                })
             }
+            .listStyle(.plain)
         }
-        .navigationTitle("Истории")
     }
 }
 
