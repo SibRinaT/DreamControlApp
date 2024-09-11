@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+
 struct StoryView: View {
-    let dreamName: String
-    @State private var stories = [DreamStory]()
+    @Environment(StoriesService.self) private var storiesService
+    @State var dream: Dream
+    
+    // Не используется?
     @State private var nextStoryId = UUID() // Для генерации уникальных идентификаторов историй
+    
     @State private var showingNewStoryView = false // Стейт для отображения окна создания новой истории
 
     var body: some View {
@@ -36,7 +40,7 @@ struct StoryView: View {
                                 .bold()
                                 .font(.headline)
 
-                            Text("\(dreamName)")
+                            Text(dream.name)
                                 .foregroundColor(.white)
                                 .bold()
                                 .font(.title)
@@ -47,7 +51,7 @@ struct StoryView: View {
                 )
 
             List {
-                ForEach(stories) { story in
+                ForEach(dream.stories) { story in
                     Button(action: {
                         print("Story clicked: \(story.title)")
                     }) {
@@ -88,7 +92,8 @@ struct StoryView: View {
                                     NewStoryView { title, content in
                                         // Добавляем новую историю после сохранения
                                         let newStory = DreamStory(id: UUID(), title: title, content: content)
-                                        stories.append(newStory)
+                                        dream.stories.append(newStory)
+                                        storiesService.update(dream: dream)
                                     }
                                 }
             }
@@ -98,5 +103,5 @@ struct StoryView: View {
 }
 
 #Preview {
-    StoryView(dreamName: "Dream")
+    StoryView(dream: Dream(id: UUID(), name: "test", image: "", stories: []))
 }

@@ -6,8 +6,9 @@
 //
 import SwiftUI
 
+@MainActor
 struct DreamView: View {
-    @State private var buttons = [Dream]()
+    @Environment(StoriesService.self) private var storiesService
     @State private var showingSheet = false
     @State private var newButtonName = ""
     @State private var selectedImage = "StarForDream"
@@ -25,16 +26,16 @@ struct DreamView: View {
                 }
                 
                 List {
-                    ForEach(buttons) { button in
+                    ForEach(storiesService.dreams) { dream in
                         
                         ZStack(alignment: .leading) {
                             HStack {
-                                Image(button.image)
+                                Image(dream.image)
                                 VStack(alignment: .leading) {
                                     Text("Мечта")
                                         .foregroundColor(Color("InactiveColor2"))
                                         .font(.subheadline)
-                                    Text(button.name)
+                                    Text(dream.name)
                                         .font(.title)
                                 }
                                 .bold()
@@ -47,13 +48,13 @@ struct DreamView: View {
                             .cornerRadius(20)
                             .swipeActions(edge: .trailing) {
                                 Button(role: .destructive) {
-                                    deleteDream(name: button.name)
+                                    delete(dream: dream)
                                 } label: {
                                     Label("Удалить", systemImage: "trash")
                                 }
                             }
                             
-                            NavigationLink(destination: StoryView(dreamName: button.name/*, stories: button.stories*/)) {
+                            NavigationLink(destination: StoryView(dream: dream)) {
                                 EmptyView()
                             }
                             .opacity(0.0)
@@ -89,27 +90,20 @@ struct DreamView: View {
                 }
                 .listStyle(.plain)
             }
-            .onAppear {
-                buttons = UserDefaults.standard.loadDreams()
-            }
             .padding(.horizontal)
             .sheet(isPresented: $showingSheet) {
                 NewDreamView(newButtonName: $newButtonName, selectedImage: $selectedImage, showingSheet: $showingSheet) { name, image in
                     if !name.isEmpty {
                         let newDream = Dream(id: UUID(), name: name, image: image, stories: [])
-                        buttons.append(newDream)
-                        UserDefaults.standard.saveDreams(buttons)
+                        storiesService.add(dream: newDream)
                     }
                 }
             }
         }
     }
     
-    private func deleteDream(name: String) {
-        if let index = buttons.firstIndex(where: { $0.name == name }) {
-            buttons.remove(at: index)
-            UserDefaults.standard.saveDreams(buttons)
-        }
+    private func delete(dream: Dream) {
+        storiesService.delete(dream: dream)
     }
 }
 
@@ -214,34 +208,6 @@ struct NewDreamView: View {
             }
             .navigationTitle("Новая мечта")
         }
-    }
-}
-
-extension UserDefaults {
-    private enum Keys {
-        static let dreams = "dreams"
-    }
-    
-    func saveDreams(_ dreams: [Dream]) {
-        do {
-            let encodedDreams = try JSONEncoder().encode(dreams)
-            set(encodedDreams, forKey: Keys.dreams)
-        } catch {
-            print(error)
-        }
-    }
-    
-    func loadDreams() -> [Dream] {
-        guard let data = data(forKey: Keys.dreams) else {
-            return []
-        }
-        do {
-            return try JSONDecoder().decode([Dream].self, from: data)
-        } catch {
-            print(error)
-            return []
-        }
-        
     }
 }
 

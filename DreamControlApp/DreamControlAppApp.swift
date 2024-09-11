@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct DreamControlAppApp: App {
+    private let storiesService: StoriesService
+    
+    init() {
+        storiesService = StoriesService()
+    }
+    
     var body: some Scene {
         WindowGroup {
             SplashView()
         }
+        .environment(storiesService)
     }
 }

@@ -11,15 +11,15 @@ struct NewStoryView: View {
     @Environment(\.dismiss) var dismiss // Для закрытия окна
     @State private var storyTitle: String = ""
     @State private var storyContent: String = ""
-    @State private var storyName = ""
-    @State private var storyDescription = ""
+//    @State private var storyName = ""
+//    @State private var storyDescription = ""
     
     var onSave: (String, String) -> Void
 
     var body: some View {
         NavigationView {
             Form {
-                InputFieldView(title: "Название истории", placeholder: "Введите название", text: $storyName)
+                InputFieldView(title: "Название истории", placeholder: "Введите название", text: $storyTitle)
 
                 VStack(alignment: .leading) {
                     HStack {
@@ -41,7 +41,7 @@ struct NewStoryView: View {
                             //                                .stroke(Color("PrimaryColor"), lineWidth: 1)
 //                                .background(Color.clear)
 //                                .frame(width: 302, height: 200)
-                            TextField("мама", text: $storyDescription)
+                            TextField("мама", text: $storyContent, axis: .vertical)
                                 .foregroundColor(Color("TextColor"))
                                 .font(.custom("", size: 16)) // need to fix a font
                                 .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
