@@ -49,7 +49,6 @@ struct StoryView: View {
             List {
                 ForEach(stories) { story in
                     Button(action: {
-                        // Действие при нажатии на историю
                         print("Story clicked: \(story.title)")
                     }) {
                         HStack {
