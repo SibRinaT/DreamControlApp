@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PasswordResetView_: View {
+    @State var email = ""
+
     var body: some View {
         ZStack {
             VStack {
@@ -35,7 +37,7 @@ struct PasswordResetView_: View {
                             .foregroundColor(Color("TextColor"))
                             .padding(.horizontal, 40)
                         
-                        InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com", text: "")
+                        InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com", text: $email)
                         
                         Rectangle()
                             .frame(height: 20)

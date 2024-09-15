@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LogInView: View {
+    @State var email = ""
+    @State var password = ""
+
     var body: some View {
         ZStack {
             VStack {
@@ -29,9 +32,9 @@ struct LogInView: View {
                             .foregroundColor(Color("TextColor"))
                         Rectangle()
                             .frame(height: 10) // spacer :)
-                        InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com", text: "")
+                        InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com", text: $email)
                         
-                        InputFieldViewPassword(title: "Пароль", placeholder: "Пароль", isSecured: false, text: "")
+                        InputFieldViewPassword(title: "Пароль", placeholder: "Пароль", text: $password)
                         
                         YellowButton(isActive: false, text: "Войти")
                         
