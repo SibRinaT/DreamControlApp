@@ -27,6 +27,7 @@ struct NewStoryView: View {
                 Spacer()
             }
             .padding(.horizontal)
+            .padding(.bottom, 40)
             
             InputFieldView(title: "Название истории", placeholder: "Введите название", text: $storyTitle)
             
@@ -56,14 +57,59 @@ struct NewStoryView: View {
                             .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                             .textFieldStyle(PlainTextFieldStyle())
                             .autocapitalization(.none) // Отключить автоматическое изменение раскладки
-                            .frame(width: 302, height: 200)
+                            .frame(height: 200)
+                            .padding(.horizontal)
                     }
                 }
                 .font(.caption2)
                 .textFieldStyle(.roundedBorder)
+                
+                VStack {
+                    Button(action: {     //кнопка для сохранения
+                        onSave(storyTitle, storyContent)
+                        dismiss()
+                    }, label: {
+                        Rectangle()
+                            .foregroundColor(.clear) // Прозрачный фон
+                            .frame(height: 85)
+                            .cornerRadius(20)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(lineWidth: 2)
+                            )
+                            .foregroundColor(Color("PrimaryColor")) // Цвет обводки
+                            .overlay(
+                                Text("Сохранить")
+                                    .foregroundColor(Color("PrimaryColor"))
+                                    .font(.largeTitle)
+                                    .bold()
+                            )
+                    })
+                    .padding(.bottom)
+                    
+                    Button(action: {    //кнопка для отмены
+                        dismiss()
+                    }, label: {
+                        Rectangle()
+                            .foregroundColor(.clear) // Прозрачный фон
+                            .frame(height: 85)
+                            .cornerRadius(20)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(lineWidth: 2)
+                            )
+                            .foregroundColor(Color("PrimaryColor")) // Цвет обводки
+                            .overlay(
+                                Text("Отмена")
+                                    .foregroundColor(Color("PrimaryColor"))
+                                    .font(.largeTitle)
+                                    .bold()
+                            )
+                    })
+                }
             }
+            .padding(.horizontal)
             Spacer()
-                .padding(.bottom)
         }
     }
 //            .toolbar {
