@@ -68,19 +68,14 @@ struct NewStoryView: View {
                         dismiss() // Закрываем окно
                     }, label: {
                         Rectangle()
-                            .foregroundColor(.clear) // Прозрачный фон
-                            .frame(height: 85)
-                            .cornerRadius(20)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .stroke(lineWidth: 2)
-                            )
-                            .foregroundColor(Color("PrimaryColor")) // Цвет обводки
+                            .foregroundColor(Color("PrimaryColor"))
+                            .cornerRadius(100)
+                            .frame(height: 40)
+                            .shadow(radius: 5)
                             .overlay(
                                 Text("Сохранить")
-                                    .foregroundColor(Color("PrimaryColor"))
-                                    .font(.largeTitle)
-                                    .bold()
+                                    .font(.title2)
+                                    .foregroundColor(.white)
                             )
                     })
                     .disabled(storyTitle.isEmpty || storyContent.isEmpty) // Отключить, если поля пустые
@@ -91,19 +86,14 @@ struct NewStoryView: View {
                         dismiss()
                     }, label: {
                         Rectangle()
-                            .foregroundColor(.clear) // Прозрачный фон
-                            .frame(height: 85)
-                            .cornerRadius(20)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .stroke(lineWidth: 2)
-                            )
-                            .foregroundColor(Color("PrimaryColor")) // Цвет обводки
+                            .foregroundColor(Color("PrimaryColor"))
+                            .cornerRadius(100)
+                            .frame(height: 40)
+                            .shadow(radius: 5)
                             .overlay(
                                 Text("Отмена")
-                                    .foregroundColor(Color("PrimaryColor"))
-                                    .font(.largeTitle)
-                                    .bold()
+                                    .font(.title2)
+                                    .foregroundColor(.white)
                             )
                     })
                 }

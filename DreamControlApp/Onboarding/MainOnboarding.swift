@@ -71,6 +71,7 @@ struct MainOnboarding: View {
                     .offset(y: 250)
             }
         }
+        .navigationBarHidden(true) // Скрываем навигационную панель
     }
 }
 
