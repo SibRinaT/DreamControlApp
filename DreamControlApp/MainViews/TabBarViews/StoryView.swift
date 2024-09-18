@@ -55,12 +55,20 @@ struct StoryView: View {
                     Button(action: {
                         print("Story clicked: \(story.title)")
                     }) {
-                        HStack {
-                            Image("StoryIcon")
-                            Text(story.title)
-                                .font(.headline)
-                                .padding()
-                        }
+                        RoundedRectangle(cornerRadius: 20)
+                            .foregroundColor(Color("PrimaryColor")) // Прозрачный фон
+                            .frame(height: 75)
+                            .overlay (
+                                HStack {
+                                    Image("StoryIcon")
+                                        .padding()
+                                    Text(story.title)
+                                        .bold()
+                                        .foregroundColor(.white)
+                                        .font(.title2)
+                                        .padding()
+                                }
+                            )
                     }
                 }
 
@@ -69,7 +77,7 @@ struct StoryView: View {
                 }, label: {
                     Rectangle()
                         .foregroundColor(.clear) // Прозрачный фон
-                        .frame(height: 85)
+                        .frame(height: 75)
                         .cornerRadius(20)
                         .overlay(
                             RoundedRectangle(cornerRadius: 20)
@@ -104,4 +112,5 @@ struct StoryView: View {
 
 #Preview {
     StoryView(dream: Dream(id: UUID(), name: "test", image: "", stories: []))
+        .environment(StoriesService())
 }
