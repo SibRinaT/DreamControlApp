@@ -31,8 +31,15 @@ struct StoryTextView: View {
                         .multilineTextAlignment(.leading)
                     }
                 )
-            
-            
+            RoundedRectangle(cornerRadius: 20)
+                .shadow(radius: 10)
+                .foregroundColor(.white)
+                    .overlay(
+                        Text("История вашей мечты")
+                            .font(.title)
+                            .bold()
+                    )
+                    .padding(.horizontal)
         }
     }
 }
