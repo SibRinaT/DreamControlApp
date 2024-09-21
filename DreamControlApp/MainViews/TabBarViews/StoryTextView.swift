@@ -35,29 +35,31 @@ struct StoryTextView: View {
                 .shadow(radius: 10)
                 .foregroundColor(.white)
                     .overlay(
-                        VStack {
-                            Text("История вашей мечты")
-                                .font(.title)
-                                .padding(.top, 30)
-                                .padding(.bottom)
-
-                            RoundedRectangle(cornerRadius: 25, style: .continuous)
-                                .stroke(
-                                    LinearGradient(
-                                        gradient: Gradient(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")]),
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    ),
-                                    lineWidth: 3
-                                )
-                                .background(Color.clear) // Прозрачный фон
-                                .frame(width: 300, height: 400) // Размеры прямоугольника
-
-                            Spacer()
+                        ScrollView {
+                            VStack {
+                                Text("История вашей мечты")
+                                    .font(.title)
+                                    .padding(.top, 30)
+                                    .padding(.bottom)
+                                
+                                RoundedRectangle(cornerRadius: 25, style: .continuous)
+                                    .stroke(
+                                        LinearGradient(
+                                            gradient: Gradient(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")]),
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        ),
+                                        lineWidth: 3
+                                    )
+                                    .background(Color.clear) // Прозрачный фон
+                                    .frame(width: 300, height: 400) // Размеры прямоугольника
+                                Spacer()
+                            }
                         }
                     )
                     .padding(.horizontal)
         }
+                        
     }
 }
 
