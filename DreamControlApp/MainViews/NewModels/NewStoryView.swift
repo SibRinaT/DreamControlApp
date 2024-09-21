@@ -23,6 +23,7 @@ struct NewStoryView: View {
                     .foregroundColor(Color("PrimaryColor"))
                 Spacer()
             }
+            .padding(.top)
             .padding(.horizontal)
             .padding(.bottom, 40)
             
