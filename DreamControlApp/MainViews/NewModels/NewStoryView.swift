@@ -72,7 +72,7 @@ struct NewStoryView: View {
                             .foregroundColor(Color("PrimaryColor"))
                             .cornerRadius(100)
                             .frame(height: 40)
-                            .shadow(radius: 5)
+                            .shadow(radius: 1)
                             .overlay(
                                 Text("Сохранить")
                                     .font(.title2)
@@ -90,7 +90,7 @@ struct NewStoryView: View {
                             .foregroundColor(Color("PrimaryColor"))
                             .cornerRadius(100)
                             .frame(height: 40)
-                            .shadow(radius: 5)
+                            .shadow(radius: 51)
                             .overlay(
                                 Text("Отмена")
                                     .font(.title2)

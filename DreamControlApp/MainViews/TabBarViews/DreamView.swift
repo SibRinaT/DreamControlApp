@@ -27,7 +27,6 @@ struct DreamView: View {
                 
                 List {
                     ForEach(storiesService.dreams) { dream in
-                        
                         ZStack(alignment: .leading) {
                             HStack {
                                 Image(dream.image)
