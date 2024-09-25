@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CreateNewPasswordView: View {
+    @State var password: String = ""
+    @State var repeatPassword: String = ""
     var body: some View {
         ZStack {
             VStack {
@@ -30,8 +32,8 @@ struct CreateNewPasswordView: View {
                             .multilineTextAlignment(.center)
                         Rectangle()
                             .frame(height: 10)
-                        InputFieldViewPassword(title: "Пароль", placeholder: "Пароль", text: "")
-                        InputFieldViewPassword(title: "Подтвердите пароль", placeholder: "Пароль", text: "")
+                        InputFieldViewPassword(title: "Пароль", placeholder: "Пароль", text: $password)
+                        InputFieldViewPassword(title: "Подтвердите пароль", placeholder: "Пароль", text: $repeatPassword)
                      
                         
                         NavigationLink(destination: LogInView()) {

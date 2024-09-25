@@ -10,9 +10,8 @@ import SwiftUI
 struct InputFieldViewPassword: View {
     let title: String
     let placeholder: String
-    @State var isSecured = false
     @State private var isPasswordHidden = true
-    @State var text: String
+    @Binding var text: String
 
     
     var body: some View {
@@ -26,7 +25,7 @@ struct InputFieldViewPassword: View {
                         .stroke(Color("PrimaryColor"), lineWidth: 1)
                         .background(Color.clear)
                         .frame(width: 302, height: 40)
-                    if isSecured && isPasswordHidden {
+                    if  isPasswordHidden {
                         SecureField(placeholder, text: $text)
                             .foregroundColor(Color("InactiveColor"))
                             .font(.custom("MontserratAlternates", size: 16)) // need to fix a font
@@ -49,7 +48,6 @@ struct InputFieldViewPassword: View {
                         .accentColor(Color("PrimaryColor"))
                 }
                 .padding(.trailing, 5)
-                .opacity(isSecured ? 1: 0)
             }
         }
         .padding(.bottom)
@@ -59,6 +57,6 @@ struct InputFieldViewPassword: View {
 #Preview {
     InputFieldViewPassword(title: "Пароль",
                    placeholder: "*******",
-                           isSecured: true, text: ""
+                           text: .constant("")
                            )
 }
