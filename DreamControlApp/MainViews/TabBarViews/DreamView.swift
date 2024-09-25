@@ -212,4 +212,5 @@ struct NewDreamView: View {
 
 #Preview {
     DreamView()
+        .environment(StoriesService())
 }
