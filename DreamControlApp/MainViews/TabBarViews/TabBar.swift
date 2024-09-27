@@ -23,6 +23,7 @@ struct TabBar: View {
                 .tag(0)
 
             DreamView()
+                .environment(StoriesService())
                 .tabItem {
                     VStack {
                         Image(selectedTab == 1 ? "ActiveDreamsIcon" : "DreamsIcon")
