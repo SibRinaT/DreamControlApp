@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainDayRectangle: View {
+    @State var text: String
+
     var body: some View {
         VStack {
             VStack {
@@ -27,7 +29,7 @@ struct MainDayRectangle: View {
                                     .frame(width: 200, height: 70)
                                     .offset(CGSize(width: 70, height: 10))
                                     .overlay(
-                                        Text("”Все имеет свою красоту, но не каждый ее видит”")
+                                        Text(text)
                                             .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
                                             .multilineTextAlignment(.center)
                                             .offset(CGSize(width: 70, height: 10))
@@ -48,5 +50,5 @@ struct MainDayRectangle: View {
     }
 }
 #Preview {
-    MainDayRectangle()
+    MainDayRectangle(text: "”Все имеет свою красоту, но не каждый ее видит”")
 }
