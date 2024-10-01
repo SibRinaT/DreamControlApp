@@ -246,6 +246,7 @@
 		2E92C9292BC04EC1005E4DB9 /* Password */ = {
 			isa = PBXGroup;
 			children = (
+				2EA84E1B2C901BBD00C74160 /* NewStoryView.swift */,
 				2EC4DBFC2BBE7FFF00DE1B43 /* PasswordResetView .swift */,
 				2E92C9252BC04DA7005E4DB9 /* CreateNewPasswordView.swift */,
 				2E92C9272BC04EBA005E4DB9 /* PasswordCreatedView.swift */,
@@ -280,7 +281,6 @@
 		2EA84E1D2C901BC500C74160 /* NewModels */ = {
 			isa = PBXGroup;
 			children = (
-				2EA84E1B2C901BBD00C74160 /* NewStoryView.swift */,
 			);
 			path = NewModels;
 			sourceTree = "<group>";

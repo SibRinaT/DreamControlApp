@@ -22,3 +22,8 @@ struct Dream: Codable, Identifiable {
     var stories: [DreamStory]
 }
 
+struct DailyRectangle: Codable, Identifiable {
+    let id: UUID
+    let text: String
+}
+
