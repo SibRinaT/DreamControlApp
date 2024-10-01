@@ -49,6 +49,8 @@
 		2EDE21092C20BE23006951E7 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE21082C20BE23006951E7 /* SubscriptionView.swift */; };
 		2EFB88382CABBFA90006D68E /* EveningRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB88372CABBFA90006D68E /* EveningRectangle.swift */; };
 		2EFB883A2CABC10D0006D68E /* HelpProfileRectangleEvening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB88392CABC10D0006D68E /* HelpProfileRectangleEvening.swift */; };
+		2EFB883C2CABC9050006D68E /* MorningRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB883B2CABC9050006D68E /* MorningRectangle.swift */; };
+		2EFB883E2CABC9160006D68E /* HelpProfileRectangleMorning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB883D2CABC9160006D68E /* HelpProfileRectangleMorning.swift */; };
 		AC3213602C9519DE006D4399 /* DreamControlAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */; };
 		AC3213632C9519F5006D4399 /* StoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3213612C9519F5006D4399 /* StoriesService.swift */; };
 /* End PBXBuildFile section */
@@ -97,6 +99,8 @@
 		2EDE21082C20BE23006951E7 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		2EFB88372CABBFA90006D68E /* EveningRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveningRectangle.swift; sourceTree = "<group>"; };
 		2EFB88392CABC10D0006D68E /* HelpProfileRectangleEvening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpProfileRectangleEvening.swift; sourceTree = "<group>"; };
+		2EFB883B2CABC9050006D68E /* MorningRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningRectangle.swift; sourceTree = "<group>"; };
+		2EFB883D2CABC9160006D68E /* HelpProfileRectangleMorning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpProfileRectangleMorning.swift; sourceTree = "<group>"; };
 		AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DreamControlAppApp.swift; sourceTree = "<group>"; };
 		AC3213612C9519F5006D4399 /* StoriesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +140,7 @@
 				2EFB88392CABC10D0006D68E /* HelpProfileRectangleEvening.swift */,
 				2E19785D2BD3E5E7000AD527 /* OtherViewsRectangle.swift */,
 				2EB1BCAF2C22C03A00DBA29F /* DreamsCountView.swift */,
+				2EFB883D2CABC9160006D68E /* HelpProfileRectangleMorning.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 			children = (
 				2E542A052CA8A26300338070 /* DayRectangel.swift */,
 				2EFB88372CABBFA90006D68E /* EveningRectangle.swift */,
+				2EFB883B2CABC9050006D68E /* MorningRectangle.swift */,
 			);
 			path = DailyRectangles;
 			sourceTree = "<group>";
@@ -379,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E1978602BD57728000AD527 /* TabBar.swift in Sources */,
+				2EFB883E2CABC9160006D68E /* HelpProfileRectangleMorning.swift in Sources */,
 				2E9BD10F2BA35DDF0055566F /* InputFieldView.swift in Sources */,
 				AC3213632C9519F5006D4399 /* StoriesService.swift in Sources */,
 				2EDE21072C1F04C3006951E7 /* DreamView.swift in Sources */,
@@ -402,6 +409,7 @@
 				2E23AE462C2614D2003FCCC1 /* SubscriptionButton.swift in Sources */,
 				2E92C9262BC04DA7005E4DB9 /* CreateNewPasswordView.swift in Sources */,
 				2EC4DBFD2BBE7FFF00DE1B43 /* PasswordResetView .swift in Sources */,
+				2EFB883C2CABC9050006D68E /* MorningRectangle.swift in Sources */,
 				2E66C4512BC79DD600FC2E49 /* AuthPasswordInputField.swift in Sources */,
 				2E784F432BA0BE7700AA58F9 /* LogInView.swift in Sources */,
 				2E784F452BA0BE8200AA58F9 /* SignUpView.swift in Sources */,
