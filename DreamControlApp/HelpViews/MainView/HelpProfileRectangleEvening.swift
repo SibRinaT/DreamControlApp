@@ -39,7 +39,7 @@ struct HelpProfileRectangleEvening: View {
                             .offset(CGSize(width: 140, height: -70))
                         Image("StarImage")
                             .offset(CGSize(width: 50, height: 80))
-                        Image("IllustrationHome")
+                        Image("EveningCloud")
                             .offset(CGSize(width: -100, height: 0))
                     }
                 )

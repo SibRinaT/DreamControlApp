@@ -13,7 +13,7 @@ struct MorningRectangle: View {
     var body: some View {
         VStack {
             VStack {
-                HelpProfileRectangleEvening()
+                HelpProfileRectangleMorning()
                     .overlay (
                         HStack {
                             Spacer()

@@ -22,7 +22,7 @@ struct HelpProfileRectangleMorning: View {
                         Image("CloudImage")
                             .offset(CGSize(width: -140, height: -30))
                         Image("CloudImage")
-                            .offset(CGSize(width: -50, height: -45))
+                            .offset(CGSize(width: -10, height: -80))
                         Image("CloudImage")
                             .offset(CGSize(width: -150, height: 65))
                         Image("CloudImage")
@@ -39,7 +39,7 @@ struct HelpProfileRectangleMorning: View {
                             .offset(CGSize(width: 140, height: -70))
                         Image("StarImage")
                             .offset(CGSize(width: 50, height: 80))
-                        Image("IllustrationHome")
+                        Image("MorningCloud")
                             .offset(CGSize(width: -100, height: 0))
                     }
                 )
