@@ -25,5 +25,6 @@ struct Dream: Codable, Identifiable {
 struct DailyRectangle: Codable, Identifiable {
     let id: UUID
     let text: String
+    let authorText: String
 }
 

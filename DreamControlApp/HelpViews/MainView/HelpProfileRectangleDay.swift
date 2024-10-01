@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HelpProfileRectangle: View {
+struct HelpProfileRectangleDay: View {
     var body: some View {
         VStack {
             Rectangle()
@@ -49,5 +49,5 @@ struct HelpProfileRectangle: View {
 }
 
 #Preview {
-    HelpProfileRectangle()
+    HelpProfileRectangleDay()
 }
