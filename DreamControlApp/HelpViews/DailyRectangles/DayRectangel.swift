@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainDayRectangle: View {
+struct DayRectangle: View {
     @State var text: String
 
     var body: some View {
@@ -50,5 +50,5 @@ struct MainDayRectangle: View {
     }
 }
 #Preview {
-    MainDayRectangle(text: "”Все имеет свою красоту, но не каждый ее видит”")
+    DayRectangle(text: "”Все имеет свою красоту, но не каждый ее видит”")
 }

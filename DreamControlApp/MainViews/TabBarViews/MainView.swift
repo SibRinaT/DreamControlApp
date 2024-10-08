@@ -8,10 +8,18 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var currentHour: Int = Calendar.current.component(.hour, from: Date())
+
     var body: some View {
         NavigationView {
             VStack {
-                MainDayRectangle(text: "”Все имеет свою красоту, но не каждый ее видит”")
+                if currentHour >= 6 && currentHour < 12 {
+                                MorningRectangle(text: "”Все имеет свою красоту, но не каждый ее видит”")
+                            } else if currentHour >= 12 && currentHour < 18 {
+                                DayRectangle(text: "”Все имеет свою красоту, но не каждый ее видит”")
+                            } else {
+                                EveningRectangle(text: "”Все имеет свою красоту, но не каждый ее видит”")
+                            }
                 DreamsCountView()
                 
                 VStack {
