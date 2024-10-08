@@ -13,13 +13,19 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if currentHour >= 6 && currentHour < 12 {
-                                MorningRectangle(text: "”Все имеет свою красоту, но не каждый ее видит”")
-                            } else if currentHour >= 12 && currentHour < 18 {
-                                DayRectangle(text: "”Все имеет свою красоту, но не каждый ее видит”")
-                            } else {
-                                EveningRectangle(text: "”Все имеет свою красоту, но не каждый ее видит”")
-                            }
+                VStack {
+                    if currentHour >= 6 && currentHour < 12 {
+                        MorningRectangle(text: "”Все имеет свою красоту, но не каждый ее видит”")
+                    } else if currentHour >= 12 && currentHour < 18 {
+                        DayRectangle(text: "”Все имеет свою красоту, но не каждый ее видит”")
+                    } else {
+                        EveningRectangle(text: "”Все имеет свою красоту, но не каждый ее видит”")
+                    }
+                }
+                .onAppear {
+                        // Обновляем часы каждый раз, когда отображается ContentView
+                        updateTime()
+                    }
                 DreamsCountView()
                 
                 VStack {
@@ -73,6 +79,10 @@ struct MainView: View {
             }
         }
     }
+    func updateTime() {
+          let now = Date()
+          currentHour = Calendar.current.component(.hour, from: now)
+      }
 }
 
 
