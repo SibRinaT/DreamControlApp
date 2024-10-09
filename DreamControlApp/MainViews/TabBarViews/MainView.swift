@@ -30,7 +30,8 @@ struct MainView: View {
                 
                 VStack {
                     HStack {
-                        NavigationLink(destination: DreamView()) {
+                        NavigationLink(destination: DreamView().environment(StoriesService()))
+                        {
                             OtherViewsRectangle(image: "StarIcon", title: "Ваши мечты", text: "Пусть ваша звезда всегда горит ярко")
                         }
                         .padding(.horizontal)
