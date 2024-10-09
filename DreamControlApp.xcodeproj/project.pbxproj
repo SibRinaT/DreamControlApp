@@ -153,6 +153,14 @@
 			path = DreamView;
 			sourceTree = "<group>";
 		};
+		2E252B402CB6579C006E3ACA /* IdeaViews */ = {
+			isa = PBXGroup;
+			children = (
+				2E23AE402C24B526003FCCC1 /* IdeasView.swift */,
+			);
+			path = IdeaViews;
+			sourceTree = "<group>";
+		};
 		2E34CBB12C881F850063F57F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +239,7 @@
 		2E85787E2BBAB24E00BEA1ED /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
+				2E252B402CB6579C006E3ACA /* IdeaViews */,
 				2EA84E1D2C901BC500C74160 /* NewModels */,
 				2EA06B9B2BD18F720056E9F7 /* TabBarViews */,
 				2E92C9292BC04EC1005E4DB9 /* Password */,
@@ -271,7 +280,6 @@
 				2EA06B9E2BD18F9A0056E9F7 /* CustomTabBarView.swift */,
 				2E19785F2BD57728000AD527 /* TabBar.swift */,
 				2EDE21062C1F04C3006951E7 /* DreamView.swift */,
-				2E23AE402C24B526003FCCC1 /* IdeasView.swift */,
 				2EDE21082C20BE23006951E7 /* SubscriptionView.swift */,
 				2E23AE422C24B604003FCCC1 /* SettingsView.swift */,
 				2E34CBB42C8833700063F57F /* StoryView.swift */,
