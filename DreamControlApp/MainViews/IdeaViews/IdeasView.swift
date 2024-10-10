@@ -8,9 +8,18 @@
 import SwiftUI
 
 struct IdeasView: View {
+    @State var idea: String
     var body: some View {
         VStack {
             RoundedRectangle(cornerRadius: 20)
+                .overlay(
+                    VStack {
+                        Text(idea)
+                            .bold()
+                            .font(.title3)
+                            .foregroundColor(.black)
+                    }
+                    )
                 .frame(height: 250)
                 .foregroundColor(.white)
                 .shadow(radius: 10)
@@ -27,5 +36,5 @@ struct IdeasView: View {
 }
 
 #Preview {
-    IdeasView()
+    IdeasView(idea: "Выучить новый язык")
 }
