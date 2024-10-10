@@ -99,6 +99,7 @@ struct DreamView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     private func delete(dream: Dream) {
