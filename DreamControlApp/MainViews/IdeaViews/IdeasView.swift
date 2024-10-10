@@ -12,6 +12,9 @@ struct IdeasView: View {
     var body: some View {
         VStack {
             RoundedRectangle(cornerRadius: 20)
+                .frame(height: 250)
+                .foregroundColor(.white)
+                .shadow(radius: 10)
                 .overlay(
                     VStack {
                         Text(idea)
@@ -20,15 +23,18 @@ struct IdeasView: View {
                             .foregroundColor(.black)
                     }
                     )
-                .frame(height: 250)
-                .foregroundColor(.white)
-                .shadow(radius: 10)
-            
+                .padding(.bottom, 30)
             Button(action: {}) {
                 RoundedRectangle(cornerRadius: 20)
                     .frame(height: 100)
                     .foregroundColor(Color("PrimaryColor"))
                     .shadow(radius: 10)
+                    .overlay(
+                        Text("Генерерировать")
+                            .bold()
+                            .font(.title2)
+                            .foregroundColor(.black)
+                    )
             }
         }
         .padding(.horizontal)
