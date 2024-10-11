@@ -14,10 +14,12 @@ struct SubscriptionView: View {
                 .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
                 .font(.system(size: 63))
                 .bold()
-            VStack {
+            VStack(alignment: .leading)  {
                 HStack {
                     Image("SubImage1")
-                    VStack {
+                        .resizable()
+                        .frame(width: 100, height: 110)
+                    VStack(alignment: .leading) {
                         Text("Неограниченное количество цитат:")
                             .bold()
                         Text("читайте и делитесь вдохновляющими цитатами без ограничений.")
@@ -26,7 +28,10 @@ struct SubscriptionView: View {
                 }
                 HStack {
                     Image("SubImage2")
-                    VStack {
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                    Spacer()
+                    VStack(alignment: .leading) {
                         Text("Неограниченное количество мечт:")
                             .bold()
                         Text("ставьте новые цели и визуализируйте их без ограничений.")
@@ -35,7 +40,9 @@ struct SubscriptionView: View {
                 }
                 HStack {
                     Image("SubImage3")
-                    VStack {
+                        .resizable()
+                        .frame(width: 100, height: 90)
+                    VStack(alignment: .leading) {
                         Text("Неограниченное количество автоисторий:")
                             .bold()
                         Text("создавайте и делитесь своими историями о путешествиях на автомобиле.")
