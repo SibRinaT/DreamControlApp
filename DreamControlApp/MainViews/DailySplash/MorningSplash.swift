@@ -31,15 +31,16 @@ struct MorningSplash: View {
                                        }
             }
             Text("Утро начинается \n не с кофе, а с мечтаний...")
-                .foregroundColor(Color("PrimaryColor"))
-                .font(.largeTitle)
                 .bold()
+                .foregroundColor(Color("PrimaryColor"))
+                .font(.custom("MontserratAlternates", size: 42))
                 .multilineTextAlignment(.center)
             
             Spacer()
             Image("FullLogo")
                 .padding(.bottom)
         }
+        .padding(.horizontal)
     }
 }
 
