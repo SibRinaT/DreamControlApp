@@ -9,7 +9,17 @@ import SwiftUI
 
 struct MorningSplash: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ZStack {
+                Image("dayCircleSplash")
+            }
+            Text("Утро начинается \n не с кофе, а с мечтаний...")
+                .foregroundColor(Color("PrimaryColor"))
+                .font(.largeTitle)
+                .bold()
+                .multilineTextAlignment(.center)
+            
+        }
     }
 }
 
