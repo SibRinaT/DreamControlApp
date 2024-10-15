@@ -17,6 +17,7 @@
 		2E34CBB32C881F970063F57F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34CBB22C881F970063F57F /* Model.swift */; };
 		2E34CBB52C8833700063F57F /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34CBB42C8833700063F57F /* StoryView.swift */; };
 		2E542A062CA8A26300338070 /* DayRectangel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E542A052CA8A26300338070 /* DayRectangel.swift */; };
+		2E6092362CBE73B900081545 /* MorningSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6092352CBE73B900081545 /* MorningSplash.swift */; };
 		2E61245F2B9025B300494DF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */; };
 		2E6124662B9025CD00494DF6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124652B9025CD00494DF6 /* MockData.swift */; };
 		2E66C4512BC79DD600FC2E49 /* AuthPasswordInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66C4502BC79DD600FC2E49 /* AuthPasswordInputField.swift */; };
@@ -66,6 +67,7 @@
 		2E34CBB22C881F970063F57F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		2E34CBB42C8833700063F57F /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		2E542A052CA8A26300338070 /* DayRectangel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRectangel.swift; sourceTree = "<group>"; };
+		2E6092352CBE73B900081545 /* MorningSplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningSplash.swift; sourceTree = "<group>"; };
 		2E6124542B9025B100494DF6 /* DreamControlApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamControlApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E6124592B9025B100494DF6 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		2E61245B2B9025B300494DF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -169,6 +171,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		2E6092342CBE738300081545 /* DailySplash */ = {
+			isa = PBXGroup;
+			children = (
+				2E6092352CBE73B900081545 /* MorningSplash.swift */,
+			);
+			path = DailySplash;
+			sourceTree = "<group>";
+		};
 		2E61244B2B9025B100494DF6 = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +249,7 @@
 		2E85787E2BBAB24E00BEA1ED /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
+				2E6092342CBE738300081545 /* DailySplash */,
 				2E252B402CB6579C006E3ACA /* IdeaViews */,
 				2EA84E1D2C901BC500C74160 /* NewModels */,
 				2EA06B9B2BD18F720056E9F7 /* TabBarViews */,
@@ -415,6 +426,7 @@
 				2E912D3A2B970CD600664140 /* MainOnboarding.swift in Sources */,
 				2EFB883A2CABC10D0006D68E /* HelpProfileRectangleEvening.swift in Sources */,
 				2E23AE462C2614D2003FCCC1 /* SubscriptionButton.swift in Sources */,
+				2E6092362CBE73B900081545 /* MorningSplash.swift in Sources */,
 				2E92C9262BC04DA7005E4DB9 /* CreateNewPasswordView.swift in Sources */,
 				2EC4DBFD2BBE7FFF00DE1B43 /* PasswordResetView .swift in Sources */,
 				2EFB883C2CABC9050006D68E /* MorningRectangle.swift in Sources */,
