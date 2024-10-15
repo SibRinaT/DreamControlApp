@@ -14,6 +14,9 @@ struct MorningSplash: View {
             
             ZStack {
                 Image("dayCircleSplash")
+                Image("Cloud1")
+                    .resizable()
+                    .frame(width: 50, height: 40)
             }
             Text("Утро начинается \n не с кофе, а с мечтаний...")
                 .foregroundColor(Color("PrimaryColor"))
