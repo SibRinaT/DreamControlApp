@@ -10,6 +10,8 @@ import SwiftUI
 struct MorningSplash: View {
     var body: some View {
         VStack {
+            Spacer()
+            
             ZStack {
                 Image("dayCircleSplash")
             }
@@ -19,6 +21,9 @@ struct MorningSplash: View {
                 .bold()
                 .multilineTextAlignment(.center)
             
+            Spacer()
+            Image("FullLogo")
+                .padding(.bottom)
         }
     }
 }
