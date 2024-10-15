@@ -4,6 +4,12 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>komika.ttf</string>
+		<string>Iowan Old Style.ttc</string>
+		<string></string>
+		<string>ComicSansMS.ttf</string>
+		<string>ArialRoundedBold.ttf</string>
+		<string>Cochin.ttc</string>
 		<string>MontserratAlternates.ttf</string>
 	</array>
 </dict>

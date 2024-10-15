@@ -31,9 +31,8 @@ struct MorningSplash: View {
                                        }
             }
             Text("Утро начинается \n не с кофе, а с мечтаний...")
-                .bold()
                 .foregroundColor(Color("PrimaryColor"))
-                .font(.custom("MontserratAlternates", size: 42))
+                .font(.custom("Iowan Old Style", size: 42))
                 .multilineTextAlignment(.center)
             
             Spacer()

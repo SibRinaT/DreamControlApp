@@ -18,6 +18,10 @@
 		2E34CBB52C8833700063F57F /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34CBB42C8833700063F57F /* StoryView.swift */; };
 		2E542A062CA8A26300338070 /* DayRectangel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E542A052CA8A26300338070 /* DayRectangel.swift */; };
 		2E6092362CBE73B900081545 /* MorningSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6092352CBE73B900081545 /* MorningSplash.swift */; };
+		2E60923A2CBE800800081545 /* ArialRoundedBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E6092392CBE800800081545 /* ArialRoundedBold.ttf */; };
+		2E60923C2CBE80A400081545 /* AmericanTypewriter.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 2E60923B2CBE80A400081545 /* AmericanTypewriter.ttc */; };
+		2E60923E2CBE814800081545 /* komika.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E60923D2CBE814800081545 /* komika.ttf */; };
+		2E6092402CBE835800081545 /* Iowan Old Style.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 2E60923F2CBE835800081545 /* Iowan Old Style.ttc */; };
 		2E61245F2B9025B300494DF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */; };
 		2E6124662B9025CD00494DF6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124652B9025CD00494DF6 /* MockData.swift */; };
 		2E66C4512BC79DD600FC2E49 /* AuthPasswordInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66C4502BC79DD600FC2E49 /* AuthPasswordInputField.swift */; };
@@ -68,6 +72,12 @@
 		2E34CBB42C8833700063F57F /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		2E542A052CA8A26300338070 /* DayRectangel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRectangel.swift; sourceTree = "<group>"; };
 		2E6092352CBE73B900081545 /* MorningSplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningSplash.swift; sourceTree = "<group>"; };
+		2E6092372CBE7EFC00081545 /* Cochin.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cochin.ttc; sourceTree = "<group>"; };
+		2E6092382CBE7F5100081545 /* ComicSansMS.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ComicSansMS.ttf; sourceTree = "<group>"; };
+		2E6092392CBE800800081545 /* ArialRoundedBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ArialRoundedBold.ttf; sourceTree = "<group>"; };
+		2E60923B2CBE80A400081545 /* AmericanTypewriter.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = AmericanTypewriter.ttc; sourceTree = "<group>"; };
+		2E60923D2CBE814800081545 /* komika.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = komika.ttf; sourceTree = "<group>"; };
+		2E60923F2CBE835800081545 /* Iowan Old Style.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Iowan Old Style.ttc"; sourceTree = "<group>"; };
 		2E6124542B9025B100494DF6 /* DreamControlApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamControlApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E6124592B9025B100494DF6 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		2E61245B2B9025B300494DF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -302,6 +312,12 @@
 		2EA20C932B91EF3F000AAEC2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				2E60923F2CBE835800081545 /* Iowan Old Style.ttc */,
+				2E6092392CBE800800081545 /* ArialRoundedBold.ttf */,
+				2E60923B2CBE80A400081545 /* AmericanTypewriter.ttc */,
+				2E60923D2CBE814800081545 /* komika.ttf */,
+				2E6092372CBE7EFC00081545 /* Cochin.ttc */,
+				2E6092382CBE7F5100081545 /* ComicSansMS.ttf */,
 				2E85787F2BBAB44900BEA1ED /* MontserratAlternates.ttf */,
 			);
 			path = Fonts;
@@ -390,8 +406,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E60923C2CBE80A400081545 /* AmericanTypewriter.ttc in Resources */,
 				2EA20C852B919924000AAEC2 /* Assets.xcassets in Resources */,
+				2E60923A2CBE800800081545 /* ArialRoundedBold.ttf in Resources */,
 				2E8578802BBAB44900BEA1ED /* MontserratAlternates.ttf in Resources */,
+				2E6092402CBE835800081545 /* Iowan Old Style.ttc in Resources */,
+				2E60923E2CBE814800081545 /* komika.ttf in Resources */,
 				2E61245F2B9025B300494DF6 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
