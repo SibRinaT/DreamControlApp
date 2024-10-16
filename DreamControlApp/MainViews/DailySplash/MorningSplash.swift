@@ -13,6 +13,7 @@ struct MorningSplash: View {
     @State private var circleOffset3 = CGSize.zero
     @State private var circleOffset4 = CGSize.zero
     @State private var starOffset = CGSize.zero
+    @State private var starOffset2 = CGSize.zero
 
     @State private var rotationCloudAngle: Double = 0
 
@@ -82,6 +83,19 @@ struct MorningSplash: View {
                                            withAnimation {
                                                // Укажите здесь целевые координаты, например:
                                                starOffset = CGSize(width: -65, height: 5)
+                                           }
+                                       }
+                
+                Image("StarWhite")
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .offset(x: -70, y: -30)
+                    .offset(starOffset2)
+                                       .animation(.easeInOut(duration: 2), value: starOffset2) // Анимация перемещения
+                                       .onAppear {
+                                           withAnimation {
+                                               // Укажите здесь целевые координаты, например:
+                                               starOffset2 = CGSize(width: 65, height: 50)
                                            }
                                        }
                 
