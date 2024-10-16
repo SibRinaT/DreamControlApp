@@ -12,6 +12,7 @@ struct MorningSplash: View {
     @State private var circleOffset2 = CGSize.zero
     @State private var circleOffset3 = CGSize.zero
     @State private var circleOffset4 = CGSize.zero
+    @State private var rotationCloudAngle: Double = 0
 
     var body: some View {
         VStack {
@@ -68,6 +69,22 @@ struct MorningSplash: View {
                                                circleOffset4 = CGSize(width: -10, height: 20)
                                            }
                                        }
+                Image("IllustrationHome")
+                    .resizable()
+                    .scaledToFit() // Сохраняет пропорции изображения
+                    .scaleEffect(x: -1, y: 1) // отразить по горизонтали
+                    .frame(width: 100, height: 100)
+                    .offset(x: 100, y: -10)
+                    .rotationEffect(.degrees(rotationCloudAngle)) // Поворачиваем изображение
+                                .onAppear {
+                                    withAnimation(
+                                        Animation.easeInOut(duration: 2)
+                                    ) {
+                                        rotationCloudAngle = 10 // Поворачиваем на 5 градусов
+                                    }
+                                }
+                
+                
             }
             Text("Утро начинается \n не с кофе, а с мечтаний...")
                 .foregroundColor(Color("PrimaryColor"))
