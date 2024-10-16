@@ -11,6 +11,7 @@ struct MorningSplash: View {
     @State private var circleOffset = CGSize.zero
     @State private var circleOffset2 = CGSize.zero
     @State private var circleOffset3 = CGSize.zero
+    @State private var circleOffset4 = CGSize.zero
 
     var body: some View {
         VStack {
@@ -57,14 +58,14 @@ struct MorningSplash: View {
                                        }
                 Image("Cloud1")
                     .resizable()
-                    .frame(width: 60, height: 50)
-                    .offset(x: -60, y: 80)
-                    .offset(circleOffset2)
-                                       .animation(.easeInOut(duration: 2), value: circleOffset2) // Анимация перемещения
+                    .frame(width: 30, height: 25)
+                    .offset(x: 40, y: 20)
+                    .offset(circleOffset4)
+                                       .animation(.easeInOut(duration: 2), value: circleOffset4) // Анимация перемещения
                                        .onAppear {
                                            withAnimation {
                                                // Укажите здесь целевые координаты, например:
-                                               circleOffset2 = CGSize(width: 35, height: 10)
+                                               circleOffset4 = CGSize(width: -10, height: 20)
                                            }
                                        }
             }
