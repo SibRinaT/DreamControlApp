@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MorningSplash: View {
     @State private var circleOffset = CGSize.zero
+    @State private var circleOffset2 = CGSize.zero
 
     var body: some View {
         VStack {
@@ -27,6 +28,18 @@ struct MorningSplash: View {
                                            withAnimation {
                                                // Укажите здесь целевые координаты, например:
                                                circleOffset = CGSize(width: 70, height: -55)
+                                           }
+                                       }
+                Image("Cloud1")
+                    .resizable()
+                    .frame(width: 60, height: 50)
+                    .offset(x: -60, y: 80)
+                    .offset(circleOffset2)
+                                       .animation(.easeInOut(duration: 2), value: circleOffset2) // Анимация перемещения
+                                       .onAppear {
+                                           withAnimation {
+                                               // Укажите здесь целевые координаты, например:
+                                               circleOffset2 = CGSize(width: 35, height: 10)
                                            }
                                        }
             }
