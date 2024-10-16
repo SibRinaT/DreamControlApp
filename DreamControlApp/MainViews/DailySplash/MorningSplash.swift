@@ -10,6 +10,7 @@ import SwiftUI
 struct MorningSplash: View {
     @State private var circleOffset = CGSize.zero
     @State private var circleOffset2 = CGSize.zero
+    @State private var circleOffset3 = CGSize.zero
 
     var body: some View {
         VStack {
@@ -27,7 +28,31 @@ struct MorningSplash: View {
                                        .onAppear {
                                            withAnimation {
                                                // Укажите здесь целевые координаты, например:
-                                               circleOffset = CGSize(width: 70, height: -55)
+                                               circleOffset = CGSize(width: 70, height: -45)
+                                           }
+                                       }
+                Image("Cloud1")
+                    .resizable()
+                    .frame(width: 60, height: 50)
+                    .offset(x: -60, y: 80)
+                    .offset(circleOffset2)
+                                       .animation(.easeInOut(duration: 2), value: circleOffset2) // Анимация перемещения
+                                       .onAppear {
+                                           withAnimation {
+                                               // Укажите здесь целевые координаты, например:
+                                               circleOffset2 = CGSize(width: 35, height: 10)
+                                           }
+                                       }
+                Image("Cloud1")
+                    .resizable()
+                    .frame(width: 30, height: 22)
+                    .offset(x: 40, y: -90)
+                    .offset(circleOffset3)
+                                       .animation(.easeInOut(duration: 2), value: circleOffset3) // Анимация перемещения
+                                       .onAppear {
+                                           withAnimation {
+                                               // Укажите здесь целевые координаты, например:
+                                               circleOffset3 = CGSize(width: -80, height: -5)
                                            }
                                        }
                 Image("Cloud1")
