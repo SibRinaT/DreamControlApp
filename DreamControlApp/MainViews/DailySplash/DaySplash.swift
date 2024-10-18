@@ -45,13 +45,13 @@ struct DaySplash: View {
                 Image("Cloud1")
                     .resizable()
                     .frame(width: 25, height: 20)
-                    .offset(x: -15, y: 98)
+                    .offset(x: 10, y: -70)
                     .offset(cloudOffset3)
                                        .animation(.easeInOut(duration: 2), value: cloudOffset3) // Анимация перемещения
                                        .onAppear {
                                            withAnimation {
                                                // Укажите здесь целевые координаты, например:
-                                               cloudOffset3 = CGSize(width: 30, height: -160)
+                                               cloudOffset3 = CGSize(width: -30, height: 165)
                                            }
                                        }
             }
