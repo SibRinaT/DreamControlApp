@@ -24,7 +24,7 @@ struct MorningSplash: View {
             Spacer()
             
             ZStack {
-                Image("dayCircleSplash")
+                Image("morningCircleSplash")
                     .shadow(radius: 10)
                 Image("Cloud1")
                     .resizable()

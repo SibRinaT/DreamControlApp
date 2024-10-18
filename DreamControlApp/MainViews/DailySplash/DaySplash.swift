@@ -9,7 +9,22 @@ import SwiftUI
 
 struct DaySplash: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Spacer()
+            ZStack {
+                Image("dayCircleSplash")
+                    .shadow(radius: 10)
+            }
+            Text("День - это время  действовать и мечтать!")
+                .foregroundColor(Color("PrimaryColor"))
+                .font(.custom("Iowan Old Style", size: 42))
+                .multilineTextAlignment(.center)
+            
+            Spacer()
+            Image("FullLogo")
+                .padding(.bottom)
+        }
+        .padding(.horizontal)
     }
 }
 
