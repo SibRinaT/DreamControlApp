@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DaySplash: View {
     @State private var cloudOffset = CGSize.zero
+    @State private var cloudOffset2 = CGSize.zero
 
     var body: some View {
         VStack {
@@ -26,6 +27,18 @@ struct DaySplash: View {
                                            withAnimation {
                                                // Укажите здесь целевые координаты, например:
                                                cloudOffset = CGSize(width: 25, height: 70)
+                                           }
+                                       }
+                Image("Cloud1")
+                    .resizable()
+                    .frame(width: 40, height: 30)
+                    .offset(x: 75, y: 65)
+                    .offset(cloudOffset2)
+                                       .animation(.easeInOut(duration: 2), value: cloudOffset2) // Анимация перемещения
+                                       .onAppear {
+                                           withAnimation {
+                                               // Укажите здесь целевые координаты, например:
+                                               cloudOffset2 = CGSize(width: -35, height: -155)
                                            }
                                        }
             }
