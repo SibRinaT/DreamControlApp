@@ -52,6 +52,7 @@
 		2ECD80112C9AA04A003147BE /* StoryTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD80102C9AA04A003147BE /* StoryTextView.swift */; };
 		2EDE21072C1F04C3006951E7 /* DreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE21062C1F04C3006951E7 /* DreamView.swift */; };
 		2EDE21092C20BE23006951E7 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE21082C20BE23006951E7 /* SubscriptionView.swift */; };
+		2EE3AC2E2CC2D1620045EDD0 /* DaySplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE3AC2D2CC2D1620045EDD0 /* DaySplash.swift */; };
 		2EFB88382CABBFA90006D68E /* EveningRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB88372CABBFA90006D68E /* EveningRectangle.swift */; };
 		2EFB883A2CABC10D0006D68E /* HelpProfileRectangleEvening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB88392CABC10D0006D68E /* HelpProfileRectangleEvening.swift */; };
 		2EFB883C2CABC9050006D68E /* MorningRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB883B2CABC9050006D68E /* MorningRectangle.swift */; };
@@ -109,6 +110,7 @@
 		2ECD80102C9AA04A003147BE /* StoryTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTextView.swift; sourceTree = "<group>"; };
 		2EDE21062C1F04C3006951E7 /* DreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamView.swift; sourceTree = "<group>"; };
 		2EDE21082C20BE23006951E7 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
+		2EE3AC2D2CC2D1620045EDD0 /* DaySplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySplash.swift; sourceTree = "<group>"; };
 		2EFB88372CABBFA90006D68E /* EveningRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveningRectangle.swift; sourceTree = "<group>"; };
 		2EFB88392CABC10D0006D68E /* HelpProfileRectangleEvening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpProfileRectangleEvening.swift; sourceTree = "<group>"; };
 		2EFB883B2CABC9050006D68E /* MorningRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningRectangle.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				2E6092352CBE73B900081545 /* MorningSplash.swift */,
+				2EE3AC2D2CC2D1620045EDD0 /* DaySplash.swift */,
 			);
 			path = DailySplash;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 			files = (
 				2E1978602BD57728000AD527 /* TabBar.swift in Sources */,
 				2EFB883E2CABC9160006D68E /* HelpProfileRectangleMorning.swift in Sources */,
+				2EE3AC2E2CC2D1620045EDD0 /* DaySplash.swift in Sources */,
 				2E9BD10F2BA35DDF0055566F /* InputFieldView.swift in Sources */,
 				AC3213632C9519F5006D4399 /* StoriesService.swift in Sources */,
 				2EDE21072C1F04C3006951E7 /* DreamView.swift in Sources */,
