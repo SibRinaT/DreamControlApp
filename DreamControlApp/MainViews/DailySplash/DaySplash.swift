@@ -11,6 +11,9 @@ struct DaySplash: View {
     @State private var cloudOffset = CGSize.zero
     @State private var cloudOffset2 = CGSize.zero
     @State private var cloudOffset3 = CGSize.zero
+    @State private var starOffset = CGSize.zero
+    @State private var starOffset2 = CGSize.zero
+    @State private var starOffset3 = CGSize.zero
 
     var body: some View {
         VStack {
@@ -54,6 +57,19 @@ struct DaySplash: View {
                                                cloudOffset3 = CGSize(width: -30, height: 165)
                                            }
                                        }
+                Image("StarWhite")
+                    .resizable()
+                    .frame(width: 35, height: 35)
+                    .offset(x: 30, y: -10)
+                    .offset(starOffset)
+                                       .animation(.easeInOut(duration: 2), value: starOffset) // Анимация перемещения
+                                       .onAppear {
+                                           withAnimation {
+                                               // Укажите здесь целевые координаты, например:
+                                               starOffset = CGSize(width: -20, height: 10)
+                                           }
+                                       }
+                
             }
             Text("День - это время  действовать и мечтать!")
                 .foregroundColor(Color("PrimaryColor"))
