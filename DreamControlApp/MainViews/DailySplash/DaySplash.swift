@@ -69,6 +69,18 @@ struct DaySplash: View {
                                                starOffset = CGSize(width: -20, height: 10)
                                            }
                                        }
+                Image("StarWhite")
+                    .resizable()
+                    .frame(width: 15, height: 15)
+                    .offset(x: 30, y: -40)
+                    .offset(starOffset2)
+                                       .animation(.easeInOut(duration: 2), value: starOffset2) // Анимация перемещения
+                                       .onAppear {
+                                           withAnimation {
+                                               // Укажите здесь целевые координаты, например:
+                                               starOffset2 = CGSize(width: -60, height: 20)
+                                           }
+                                       }
                 
             }
             Text("День - это время  действовать и мечтать!")
