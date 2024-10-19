@@ -141,9 +141,6 @@ struct MorningSplash: View {
                                         rotationCloudAngle = 10 // Поворачиваем на 5 градусов
                                     }
                                 }
-                
-                
-                
             }
             Text("Утро начинается \n не с кофе, а с мечтаний...")
                 .foregroundColor(Color("PrimaryColor"))

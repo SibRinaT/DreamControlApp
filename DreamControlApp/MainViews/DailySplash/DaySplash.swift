@@ -15,6 +15,8 @@ struct DaySplash: View {
     @State private var starOffset2 = CGSize.zero
     @State private var starOffset3 = CGSize.zero
 
+    @State private var rotationCloudAngle: Double = 0
+
     var body: some View {
         VStack {
             Spacer()
@@ -93,6 +95,22 @@ struct DaySplash: View {
                                                starOffset3 = CGSize(width: -30, height: 10)
                                            }
                                        }
+                Image("IllustrationHome")
+                    .resizable()
+                    .scaledToFit() // Сохраняет пропорции изображения
+//                    .scaleEffect(x: -1, y: 1) // отразить по горизонтали
+                    .frame(width: 100, height: 100)
+                    .offset(x: -100, y: 10)
+                    .rotationEffect(.degrees(30)) // Поворот на 15 градусов
+                    .rotationEffect(.degrees(rotationCloudAngle)) // Поворачиваем изображение
+                                .onAppear {
+                                    withAnimation(
+                                        Animation.easeInOut(duration: 2)
+                                    ) {
+                                        rotationCloudAngle = -25 // Поворачиваем на 5 градусов
+                                    }
+                                }
+                
             }
             Text("День - это время  действовать и мечтать!")
                 .foregroundColor(Color("PrimaryColor"))
