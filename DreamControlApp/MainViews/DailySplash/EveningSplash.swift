@@ -46,6 +46,18 @@ struct EveningSplash: View {
                                                cloudOffset2 = CGSize(width: -140, height: 10)
                                            }
                                        }
+                Image("Cloud1")
+                    .resizable()
+                    .frame(width: 25, height: 20)
+                    .offset(x: 70, y: -75)
+                    .offset(cloudOffset3)
+                                       .animation(.easeInOut(duration: 2), value: cloudOffset3) // Анимация перемещения
+                                       .onAppear {
+                                           withAnimation {
+                                               // Укажите здесь целевые координаты, например:
+                                               cloudOffset3 = CGSize(width: -60, height: 0)
+                                           }
+                                       }
             }
             Text("Перед сном самое время помечтать")
                 .foregroundColor(Color("SuccessColor"))
