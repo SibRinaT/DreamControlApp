@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NightSplash: View {
+struct EveningSplash: View {
     var body: some View {
         VStack {
             Spacer()
@@ -40,5 +40,5 @@ struct NightSplash: View {
 }
 
 #Preview {
-    NightSplash()
+    EveningSplash()
 }
