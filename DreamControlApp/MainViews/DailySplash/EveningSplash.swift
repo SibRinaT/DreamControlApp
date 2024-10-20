@@ -11,6 +11,7 @@ struct EveningSplash: View {
     @State private var cloudOffset = CGSize.zero
     @State private var cloudOffset2 = CGSize.zero
     @State private var cloudOffset3 = CGSize.zero
+    @State private var cloudOffset4 = CGSize.zero
     @State private var starOffset = CGSize.zero
     @State private var starOffset2 = CGSize.zero
     @State private var starOffset3 = CGSize.zero
@@ -56,6 +57,18 @@ struct EveningSplash: View {
                                            withAnimation {
                                                // Укажите здесь целевые координаты, например:
                                                cloudOffset3 = CGSize(width: -60, height: 0)
+                                           }
+                                       }
+                Image("Cloud1")
+                    .resizable()
+                    .frame(width: 25, height: 20)
+                    .offset(x: -20, y: -10)
+                    .offset(cloudOffset4)
+                                       .animation(.easeInOut(duration: 2), value: cloudOffset4) // Анимация перемещения
+                                       .onAppear {
+                                           withAnimation {
+                                               // Укажите здесь целевые координаты, например:
+                                               cloudOffset4 = CGSize(width: -35, height: 25)
                                            }
                                        }
             }
