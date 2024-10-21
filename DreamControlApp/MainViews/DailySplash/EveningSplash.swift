@@ -15,6 +15,7 @@ struct EveningSplash: View {
     @State private var starOffset = CGSize.zero
     @State private var starOffset2 = CGSize.zero
     @State private var starOffset3 = CGSize.zero
+    @State private var cloudScale: CGFloat = 1.0 // Добавляем состояние для масштабирования
 
     @State private var rotationCloudAngle: Double = 0
     var body: some View {
@@ -64,11 +65,14 @@ struct EveningSplash: View {
                     .frame(width: 25, height: 20)
                     .offset(x: -20, y: -10)
                     .offset(cloudOffset4)
-                                       .animation(.easeInOut(duration: 2), value: cloudOffset4) // Анимация перемещения
+                    .scaleEffect(cloudScale) // Добавляем модификатор масштаба
+                           .animation(.easeInOut(duration: 2), value: cloudOffset4) // Анимация для перемещения
+                           .animation(.easeInOut(duration: 2), value: cloudScale)
                                        .onAppear {
                                            withAnimation {
                                                // Укажите здесь целевые координаты, например:
-                                               cloudOffset4 = CGSize(width: -35, height: 25)
+                                               cloudOffset4 = CGSize(width: -15, height: 25)
+                                               cloudScale = 1.5
                                            }
                                        }
             }
