@@ -85,6 +85,17 @@ struct EveningSplash: View {
                                                starOffset = CGSize(width: 72, height: 0)
                                            }
                                        }
+                Image("StarWhite")
+                    .resizable()
+                    .frame(width: 20, height: 20)
+                    .offset(x: 0, y: 60)
+                    .offset(starOffset2)
+                                       .animation(.easeInOut(duration: 2), value: starOffset2) // Анимация перемещения
+                                       .onAppear {
+                                           withAnimation {
+                                               starOffset2 = CGSize(width: 70, height: 0)
+                                           }
+                                       }
             }
             Text("Перед сном самое время помечтать")
                 .foregroundColor(Color("SuccessColor"))
