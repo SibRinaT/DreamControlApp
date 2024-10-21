@@ -62,19 +62,19 @@ struct EveningSplash: View {
                                        }
                 Image("Cloud1")
                     .resizable()
-                    .frame(width: 25, height: 20)
-                    .offset(x: -20, y: -10)
+                    .frame(width: 40, height: 30)
+                    .offset(x: -60, y: 20)
                     .offset(cloudOffset4)
-                    .scaleEffect(cloudScale) // Добавляем модификатор масштаба
+                    .scaleEffect(cloudScale)
                            .animation(.easeInOut(duration: 2), value: cloudOffset4) // Анимация для перемещения
                            .animation(.easeInOut(duration: 2), value: cloudScale)
                                        .onAppear {
                                            withAnimation {
-                                               // Укажите здесь целевые координаты, например:
-                                               cloudOffset4 = CGSize(width: -15, height: 25)
-                                               cloudScale = 1.5
+                                               cloudOffset4 = CGSize(width: 35, height: -35)
+                                               cloudScale = 0.6
                                            }
                                        }
+                
             }
             Text("Перед сном самое время помечтать")
                 .foregroundColor(Color("SuccessColor"))
