@@ -61,6 +61,22 @@ struct StoryTextView: View {
                                     }
                                     .padding(.horizontal, 100)
                                 }
+                                Button(action: {
+                                    // Закрытие окна без сохранения
+//                                    dismiss()
+                                }, label: {
+                                    Rectangle()
+                                        .foregroundColor(Color("PrimaryColor"))
+                                        .cornerRadius(100)
+                                        .frame(height: 70)
+                                        .shadow(radius: 51)
+                                        .overlay(
+                                            Text("Сохранить")
+                                                .font(.title2)
+                                                .foregroundColor(.white)
+                                        )
+                                })
+                                .padding(.horizontal, 100)
                             }
                         }
                     )
