@@ -124,7 +124,8 @@ struct EveningSplash: View {
             }
             Text("Перед сном самое время помечтать")
                 .foregroundColor(Color("SuccessColor"))
-                .font(.custom("Iowan Old Style", size: 42))
+                .bold()
+                .font(.custom("Iowan Old Style", size: 35))
                 .multilineTextAlignment(.center)
             
             Spacer()

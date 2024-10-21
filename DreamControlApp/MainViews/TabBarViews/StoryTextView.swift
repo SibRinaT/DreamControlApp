@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct StoryTextView: View {
+    @State private var storyContent: String = ""
+
     var body: some View {
         VStack {
             Rectangle()
@@ -41,25 +43,29 @@ struct StoryTextView: View {
                                     .font(.title)
                                     .padding(.top, 30)
                                     .padding(.bottom)
-                                
-                                RoundedRectangle(cornerRadius: 25, style: .continuous)
-                                    .stroke(
-                                        LinearGradient(
-                                            gradient: Gradient(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")]),
-                                            startPoint: .topLeading,
-                                            endPoint: .bottomTrailing
-                                        ),
-                                        lineWidth: 3
-                                    )
-                                    .background(Color.clear) // Прозрачный фон
-                                    .frame(width: 300, height: 400) // Размеры прямоугольника
-                                Spacer()
+                                ZStack {
+                                    Group {
+                                        RoundedRectangle(cornerRadius: 25, style: .continuous)
+                                            .stroke(
+                                                LinearGradient(
+                                                    gradient: Gradient(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")]),
+                                                    startPoint: .topLeading,
+                                                    endPoint: .bottomTrailing
+                                                ),
+                                                lineWidth: 3
+                                            )
+                                            .background(Color.clear) // Прозрачный фон
+                                            .frame(width: 300, height: 400) // Размеры прямоугольник
+                                        TextField("Напишите историю успеха", text: $storyContent, axis: .vertical)
+                                            .padding(.horizontal)
+                                    }
+                                    .padding(.horizontal, 100)
+                                }
                             }
                         }
                     )
                     .padding(.horizontal)
         }
-                        
     }
 }
 
