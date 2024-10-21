@@ -138,7 +138,7 @@ struct MorningSplash: View {
                                     withAnimation(
                                         Animation.easeInOut(duration: 2)
                                     ) {
-                                        rotationCloudAngle = 10 // Поворачиваем на 5 градусов
+                                        rotationCloudAngle = 10 
                                     }
                                 }
             }

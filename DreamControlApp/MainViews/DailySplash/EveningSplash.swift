@@ -18,6 +18,8 @@ struct EveningSplash: View {
     @State private var cloudScale: CGFloat = 1.0 // Добавляем состояние для масштабирования
 
     @State private var rotationCloudAngle: Double = 0
+    @State private var rotationAngle: Double = 0 // Начальный угол поворота
+
     var body: some View {
         VStack {
             Spacer()
@@ -107,6 +109,18 @@ struct EveningSplash: View {
                                                starOffset3 = CGSize(width: 40, height: -20)
                                            }
                                        }
+                Image("eveningCloudSplash")
+                    .resizable()
+                    .scaledToFit() // Сохраняет пропорции изображения
+                    .frame(width: 120, height: 120)
+                    .offset(x: -100, y: -20)
+                    .rotationEffect(.degrees(rotationAngle), anchor: .center)
+                          .offset(y: rotationAngle != 0 ? -10 : 0) // Коррекция смещения
+                          .onAppear {
+                              withAnimation(.easeInOut(duration: 2)) {
+                                  rotationAngle = 15 // Наклон на 15 градусов
+                              }
+                          }
             }
             Text("Перед сном самое время помечтать")
                 .foregroundColor(Color("SuccessColor"))
