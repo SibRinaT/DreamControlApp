@@ -9,6 +9,8 @@ import SwiftUI
 
 struct StoryTextView: View {
     @State private var storyContent: String = ""
+    var onSave: (String, String) -> Void
+    @Environment(\.dismiss) var dismiss // Для закрытия окна
 
     var body: some View {
         VStack {
@@ -61,21 +63,41 @@ struct StoryTextView: View {
                                     }
                                     .padding(.horizontal, 100)
                                 }
-                                Button(action: {
-                                    // Закрытие окна без сохранения
-//                                    dismiss()
-                                }, label: {
-                                    Rectangle()
-                                        .foregroundColor(Color("PrimaryColor"))
-                                        .cornerRadius(100)
-                                        .frame(height: 70)
-                                        .shadow(radius: 51)
-                                        .overlay(
-                                            Text("Сохранить")
-                                                .font(.title2)
-                                                .foregroundColor(.white)
-                                        )
-                                })
+                                .padding(.bottom)
+                                HStack {
+                                    Button(action: {
+                                        // Логика для сохранения истории
+                                        onSave(storyContent, "")
+                                        dismiss() // Закрываем окно
+                                    }, label: {
+                                        Rectangle()
+                                            .foregroundColor(Color("PrimaryColor"))
+                                            .cornerRadius(100)
+                                            .frame(height: 50)
+                                            .shadow(radius: 1)
+                                            .overlay(
+                                                Text("Сохранить")
+                                                    .font(.title2)
+                                                    .foregroundColor(.white)
+                                            )
+                                    })
+                                    .disabled(storyContent.isEmpty) // Отключить, если поля пустые
+                                    Button(action: {
+                                        // Закрытие окна без сохранения
+                                        dismiss()
+                                    }, label: {
+                                        Rectangle()
+                                            .foregroundColor(Color("PrimaryColor"))
+                                            .cornerRadius(100)
+                                            .frame(height: 50)
+                                            .shadow(radius: 51)
+                                            .overlay(
+                                                Text("Отмена")
+                                                    .font(.title2)
+                                                    .foregroundColor(.white)
+                                            )
+                                    })
+                                }
                                 .padding(.horizontal, 100)
                             }
                         }
@@ -86,5 +108,5 @@ struct StoryTextView: View {
 }
 
 #Preview {
-    StoryTextView()
+    StoryTextView{_, _ in}
 }

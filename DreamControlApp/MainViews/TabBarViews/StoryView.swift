@@ -13,7 +13,6 @@ struct StoryView: View {
     
     // Не используется?
     @State private var nextStoryId = UUID() // Для генерации уникальных идентификаторов историй
-    
     @State private var showingNewStoryView = false // Стейт для отображения окна создания новой истории
 
     var body: some View {
