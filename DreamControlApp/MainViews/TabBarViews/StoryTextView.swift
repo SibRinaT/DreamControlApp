@@ -58,11 +58,18 @@ struct StoryTextView: View {
                                             )
                                             .background(Color.clear) // Прозрачный фон
                                             .frame(width: 300, height: 400) // Размеры прямоугольник
-                                        TextField("Напишите историю успеха", text: $storyContent, axis: .vertical)
-                                            .padding(.horizontal)
+                                        ScrollView {
+                                            TextField("Напишите историю успеха", text: $storyContent, axis: .vertical)
+                                                .padding(.horizontal)
+                                                .padding(.vertical)
+                                        }
                                     }
                                     .padding(.horizontal, 100)
                                 }
+                                
+                                Text("Количество символов: \(storyContent.count) / 400")
+                                            .padding()
+                    
                                 .padding(.bottom)
                                 HStack {
                                     Button(action: {
