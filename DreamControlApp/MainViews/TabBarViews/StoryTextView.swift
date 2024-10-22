@@ -9,6 +9,8 @@ import SwiftUI
 
 struct StoryTextView: View {
     @State private var storyContent: String = ""
+    private let characterLimit = 400
+    
     var onSave: (String, String) -> Void
     @Environment(\.dismiss) var dismiss // Для закрытия окна
 
@@ -62,12 +64,17 @@ struct StoryTextView: View {
                                             TextField("Напишите историю успеха", text: $storyContent, axis: .vertical)
                                                 .padding(.horizontal)
                                                 .padding(.vertical)
+                                                .onChange(of: storyContent) { newValue in
+                                                    if newValue.count > characterLimit {
+                                                        storyContent = String(newValue.prefix(characterLimit))
+                                                    }
+                                                }
                                         }
                                     }
                                     .padding(.horizontal, 100)
                                 }
                                 
-                                Text("Количество символов: \(storyContent.count) / 400")
+                                Text("Количество символов: \(storyContent.count)/\(characterLimit)")
                                             .padding()
                     
                                 .padding(.bottom)
