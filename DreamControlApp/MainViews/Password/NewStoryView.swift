@@ -9,7 +9,7 @@ import SwiftUI
 struct NewStoryView: View {
     @Environment(\.dismiss) var dismiss // Для закрытия окна
     @State private var storyTitle: String = ""
-    @State private var storyContent: String = ""
+    @State private var storyDescription: String = ""
     private let characterLimit = 200
     
 
@@ -50,7 +50,7 @@ struct NewStoryView: View {
                             .frame(width: 300, height: 200) // Размеры прямоугольника
                             .padding()
                         
-                        TextField("Введите описание...", text: $storyContent, axis: .vertical)
+                        TextField("Введите описание...", text: $storyDescription, axis: .vertical)
                             .foregroundColor(Color("TextColor"))
                             .font(.custom("", size: 16)) // need to fix a font
                             .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
@@ -64,10 +64,10 @@ struct NewStoryView: View {
                 .textFieldStyle(.roundedBorder)
                 HStack {
                     Spacer()
-                    Text("Количество: \(storyContent.count)/200")
-                        .onChange(of: storyContent) { newValue in
+                    Text("Количество: \(storyDescription.count)/200")
+                        .onChange(of: storyDescription) { newValue in
                             if newValue.count > characterLimit {
-                                storyContent = String(newValue.prefix(characterLimit))
+                                storyDescription = String(newValue.prefix(characterLimit))
                             }
                         }
                     Spacer()
@@ -79,7 +79,7 @@ struct NewStoryView: View {
                 VStack {
                     Button(action: {
                         // Логика для сохранения истории
-                        onSave(storyTitle, storyContent)
+                        onSave(storyTitle, storyDescription)
                         dismiss() // Закрываем окно
                     }, label: {
                         Rectangle()
@@ -93,7 +93,7 @@ struct NewStoryView: View {
                                     .foregroundColor(.white)
                             )
                     })
-                    .disabled(storyTitle.isEmpty || storyContent.isEmpty) // Отключить, если поля пустые
+                    .disabled(storyTitle.isEmpty || storyDescription.isEmpty) // Отключить, если поля пустые
                     .padding(.bottom)
                     
                     Button(action: {
