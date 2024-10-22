@@ -10,6 +10,8 @@ struct NewStoryView: View {
     @Environment(\.dismiss) var dismiss // Для закрытия окна
     @State private var storyTitle: String = ""
     @State private var storyContent: String = ""
+    private let characterLimit = 200
+    
 
     var onSave: (String, String) -> Void
 
@@ -60,8 +62,19 @@ struct NewStoryView: View {
                 }
                 .font(.caption2)
                 .textFieldStyle(.roundedBorder)
-                
+                HStack {
+                    Spacer()
+                    Text("Количество: \(storyContent.count)/200")
+                        .onChange(of: storyContent) { newValue in
+                            if newValue.count > characterLimit {
+                                storyContent = String(newValue.prefix(characterLimit))
+                            }
+                        }
+                    Spacer()
+                }
+
                 // Кнопки "Сохранить" и "Отмена"
+
                 Spacer()
                 VStack {
                     Button(action: {
