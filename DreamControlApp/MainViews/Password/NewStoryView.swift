@@ -62,6 +62,7 @@ struct NewStoryView: View {
                 .textFieldStyle(.roundedBorder)
                 
                 // Кнопки "Сохранить" и "Отмена"
+                Spacer()
                 VStack {
                     Button(action: {
                         // Логика для сохранения истории
