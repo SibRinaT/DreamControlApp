@@ -40,7 +40,7 @@ struct StoryTextView: View {
             RoundedRectangle(cornerRadius: 20)
                 .shadow(radius: 10)
                 .foregroundColor(.white)
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea(.all)
                     .overlay(
                         ScrollView {
                             VStack {
