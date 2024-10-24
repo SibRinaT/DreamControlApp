@@ -14,7 +14,16 @@ struct StoryView: View {
     // Не используется?
     @State private var nextStoryId = UUID() // Для генерации уникальных идентификаторов историй
     @State private var showingNewStoryView = false // Стейт для отображения окна создания новой истории
+    
+    @State private var storyToEdit: DreamStory?
 
+    private var isEditingStoryView: Binding<Bool> {
+        Binding(
+            get: { storyToEdit != nil },
+            set: { _ in storyToEdit = nil}
+        )
+    }
+    
     var body: some View {
         VStack {
             HStack {
@@ -26,7 +35,7 @@ struct StoryView: View {
                 Spacer()
             }
             .padding(.horizontal)
-
+            
             Rectangle()
                 .foregroundColor(Color("PrimaryColor"))
                 .frame(height: 100)
@@ -38,7 +47,7 @@ struct StoryView: View {
                                 .foregroundColor(Color("InactiveColor2"))
                                 .bold()
                                 .font(.headline)
-
+                            
                             Text(dream.name)
                                 .foregroundColor(.white)
                                 .bold()
@@ -48,11 +57,11 @@ struct StoryView: View {
                         .multilineTextAlignment(.leading)
                     }
                 )
-
+            
             List {
                 ForEach(dream.stories) { story in
                     Button(action: {
-                        print("Story clicked: \(story.title)")
+                        storyToEdit = story
                     }) {
                         RoundedRectangle(cornerRadius: 20)
                             .foregroundColor(Color("PrimaryColor")) // Прозрачный фон
@@ -70,7 +79,7 @@ struct StoryView: View {
                             )
                     }
                 }
-
+                
                 Button(action: {
                     showingNewStoryView = true // Открытие окна создания новой истории
                 }, label: {
@@ -96,20 +105,44 @@ struct StoryView: View {
                         )
                 })
                 .sheet(isPresented: $showingNewStoryView) {
-                                    NewStoryView { title, content in
-                                        // Добавляем новую историю после сохранения
-                                        let newStory = DreamStory(id: UUID(), title: title, content: content)
-                                        dream.stories.append(newStory)
-                                        storiesService.update(dream: dream)
-                                    }
-                                }
+                    // Добавляем новую историю после сохранения
+                    NewStoryView(onSave: addNewStory)
+                }
+                .sheet(isPresented: isEditingStoryView) {
+                    // Edit selected story
+                    StoryTextView(title: storyToEdit?.title ?? "",
+                                  storyContent: storyToEdit?.content ?? "",
+                                  isPresented: isEditingStoryView,
+                                  onSave: updateStory)
+                }
             }
             .listStyle(.plain)
+        }
+    }
+    
+    private func addNewStory(title: String, content: String) {
+        let newStory = DreamStory(id: UUID(), title: title, content: content)
+        dream.stories.append(newStory)
+        storiesService.update(dream: dream)
+    }
+    
+    private func updateStory(newTitle: String, newContent: String) {
+        guard let storyToEdit else { return }
+        
+        if let index = dream.stories.firstIndex(where: { $0.id == storyToEdit.id}) {
+            let id = dream.stories[index].id
+            dream.stories.remove(at: index)
+            let newStory = DreamStory(id: id, title: newTitle, content: newContent)
+            dream.stories.insert(newStory, at: index)
+            storiesService.update(dream: dream)
         }
     }
 }
 
 #Preview {
-    StoryView(dream: Dream(id: UUID(), name: "test", image: "", stories: []))
-        .environment(StoriesService())
+    NavigationStack {
+        StoryView(dream: Dream(id: UUID(), name: "test", image: "", stories: [DreamStory(id: UUID(), title: "Mystory", content: "super long story")]))
+            .environment(StoriesService())
+    }
+
 }

@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct StoryTextView: View {
-    @State private var storyContent: String = ""
-    private let characterLimit = 400
-    
+    @State var title = ""
+    @State var storyContent = ""
+    @Binding var isPresented: Bool
     var onSave: (String, String) -> Void
-    @Environment(\.dismiss) var dismiss // Для закрытия окна
+
+    private let characterLimit = 400
 
     var body: some View {
         VStack {
@@ -28,7 +29,7 @@ struct StoryTextView: View {
                                 .bold()
                                 .font(.headline)
                             
-                            Text("dream.name") // change need
+                            Text(title) // change need
                                 .foregroundColor(.white)
                                 .bold()
                                 .font(.title)
@@ -101,8 +102,8 @@ struct StoryTextView: View {
                                 HStack {
                                     Button(action: {
                                         // Логика для сохранения истории
-                                        onSave(storyContent, "")
-                                        dismiss() // Закрываем окно
+                                        onSave(title, storyContent)
+                                        isPresented.toggle()
                                     }, label: {
                                         Rectangle()
                                             .foregroundColor(Color("PrimaryColor"))
@@ -118,7 +119,7 @@ struct StoryTextView: View {
                                     .disabled(storyContent.isEmpty) // Отключить, если поля пустые
                                     Button(action: {
                                         // Закрытие окна без сохранения
-                                        dismiss()
+                                        isPresented.toggle()
                                     }, label: {
                                         Rectangle()
                                             .foregroundColor(Color("PrimaryColor"))
@@ -142,5 +143,5 @@ struct StoryTextView: View {
 }
 
 #Preview {
-    StoryTextView{_, _ in}
+    StoryTextView(isPresented: .constant(true)) {_, _ in}
 }
