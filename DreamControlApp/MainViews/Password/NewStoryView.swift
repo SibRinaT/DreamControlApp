@@ -11,6 +11,8 @@ struct NewStoryView: View {
     @State private var storyTitle: String = ""
     @State private var storyDescription: String = ""
     private let characterLimit = 200
+    @State private var autoStory: Bool = false
+
     
 
     var onSave: (String, String) -> Void
@@ -73,21 +75,35 @@ struct NewStoryView: View {
                         }
                     Spacer()
                 }
-                
-                Button(action: {
-                    //автоматическая
-                }, label: {
-                    Rectangle()
-                        .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])       .cornerRadius(100)
-                        .frame(height: 40)
-                        .shadow(radius: 1)
-                        .overlay(
-                            Text("Авто-история")
-                                .font(.title3)
-                                .foregroundColor(.white)
-                                .bold()
-                        )
-                })
+                VStack {
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            // Переключаем состояние
+                            autoStory.toggle()
+                        }, label: {
+                            HStack {
+                                Circle()
+                                    .strokeBorder(autoStory ? Color("Prem1") : Color.gray, lineWidth: 2)
+                                    .background(Circle().fill(autoStory ? Color("Prem1") : Color.clear))
+                                    .frame(width: 20, height: 20)
+                                
+                                Text("Авто-история")
+                                    .font(.title3)
+                                    .foregroundColor(.white)
+                                    .bold()
+                            }
+                            .padding()
+                            .background(Rectangle()
+                                .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
+                                .cornerRadius(100)
+                                .shadow(radius: 1))
+                        })
+                        Spacer()
+
+                    }
+                }
+                .padding(.horizontal)
                 .padding(.bottom)
                 
                 // Кнопки "Сохранить" и "Отмена"
