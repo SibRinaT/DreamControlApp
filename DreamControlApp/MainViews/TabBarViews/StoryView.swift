@@ -120,13 +120,13 @@ struct StoryView: View {
         }
     }
     
-    private func addNewStory(title: String, content: String) {
+    @MainActor private func addNewStory(title: String, content: String) {
         let newStory = DreamStory(id: UUID(), title: title, content: content)
         dream.stories.append(newStory)
         storiesService.update(dream: dream)
     }
     
-    private func updateStory(newTitle: String, newContent: String) {
+    @MainActor private func updateStory(newTitle: String, newContent: String) {
         guard let storyToEdit else { return }
         
         if let index = dream.stories.firstIndex(where: { $0.id == storyToEdit.id}) {
