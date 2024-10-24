@@ -34,47 +34,51 @@ struct NewStoryView: View {
             // Поле для ввода названия истории
             InputFieldView(title: "Название истории", placeholder: "Введите название", text: $storyTitle)
             
-            VStack(alignment: .leading) {
-                HStack {
-                    Spacer()
-                    Text("Описание истории")
-                        .foregroundColor(Color("TextColor"))
-                        .font(.custom("", size: 20)) // need to fix a font
-                    Spacer()
-                }
-                
                 // Поле для ввода описания истории
-                ZStack {
-                    Group {
-                        RoundedRectangle(cornerRadius: 25, style: .continuous)
-                            .stroke(Color("PrimaryColor"), lineWidth: 3) // Граница прямоугольника
-                            .background(Color.clear) // Прозрачный фон
-                            .frame(width: 300, height: 200) // Размеры прямоугольника
-                            .padding()
+                if autoStory {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Spacer()
+                            Text("Описание истории")
+                                .foregroundColor(Color("TextColor"))
+                                .font(.custom("", size: 20)) // need to fix a font
+                            Spacer()
+                        }
+                    }
                         
-                        TextField("Введите описание...", text: $storyDescription, axis: .vertical)
-                            .foregroundColor(Color("TextColor"))
-                            .font(.custom("", size: 16)) // need to fix a font
-                            .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-                            .textFieldStyle(PlainTextFieldStyle())
-                            .autocapitalization(.none) // Отключить автоматическое изменение раскладки
-                            .frame(height: 200)
-                            .padding(.horizontal)
+                    ZStack {
+                        Group {
+                            RoundedRectangle(cornerRadius: 25, style: .continuous)
+                                .stroke(Color("PrimaryColor"), lineWidth: 3) // Граница прямоугольника
+                                .background(Color.clear) // Прозрачный фон
+                                .frame(width: 300, height: 200) // Размеры прямоугольника
+                                .padding()
+                            
+                            TextField("Введите описание...", text: $storyDescription, axis: .vertical)
+                                .foregroundColor(Color("TextColor"))
+                                .font(.custom("", size: 16)) // need to fix a font
+                                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                                .textFieldStyle(PlainTextFieldStyle())
+                                .autocapitalization(.none) // Отключить автоматическое изменение раскладки
+                                .frame(height: 200)
+                                .padding(.horizontal, 40)
+                        }
+                    }
+                    .font(.caption2)
+                    .textFieldStyle(.roundedBorder)
+                    
+                    HStack {
+                        Spacer()
+                        Text("Количество: \(storyDescription.count)/200")
+                            .onChange(of: storyDescription) { newValue in
+                                if newValue.count > characterLimit {
+                                    storyDescription = String(newValue.prefix(characterLimit))
+                                }
+                            }
+                        Spacer()
                     }
                 }
-                .font(.caption2)
-                .textFieldStyle(.roundedBorder)
-                
-                HStack {
-                    Spacer()
-                    Text("Количество: \(storyDescription.count)/200")
-                        .onChange(of: storyDescription) { newValue in
-                            if newValue.count > characterLimit {
-                                storyDescription = String(newValue.prefix(characterLimit))
-                            }
-                        }
-                    Spacer()
-                }
+               
                 VStack {
                     HStack {
                         Spacer()
@@ -84,7 +88,7 @@ struct NewStoryView: View {
                         }, label: {
                             HStack {
                                 Circle()
-                                    .strokeBorder(autoStory ? Color("Prem1") : Color.gray, lineWidth: 2)
+                                    .strokeBorder(autoStory ? Color("Prem1") : Color.white, lineWidth: 2)
                                     .background(Circle().fill(autoStory ? Color("Prem1") : Color.clear))
                                     .frame(width: 20, height: 20)
                                 
@@ -100,7 +104,6 @@ struct NewStoryView: View {
                                 .shadow(radius: 1))
                         })
                         Spacer()
-
                     }
                 }
                 .padding(.horizontal)
@@ -144,9 +147,9 @@ struct NewStoryView: View {
                             )
                     })
                 }
-            }
+
             .padding(.horizontal)
-            Spacer()
+//            Spacer()
         }
     }
 }
