@@ -50,24 +50,6 @@ struct StoryTextView: View {
                                     .padding(.top, 30)
 //                                    .padding(.bottom)
                                 
-                                Button(action: {
-                                    //автоматическая
-                                }, label: {
-                                    Rectangle()
-                                        .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])       .cornerRadius(100)
-                                        .frame(height: 30)
-                                        .shadow(radius: 1)
-                                        .overlay(
-                                            Text("Авто-история")
-                                                .font(.title3)
-                                                .foregroundColor(.white)
-                                                .bold()
-                                        )
-                                })
-                                .padding(.horizontal, 100)
-                                .padding(.bottom)
-                                
-                                
                                 ZStack {
                                     Group {
                                         RoundedRectangle(cornerRadius: 25, style: .continuous)

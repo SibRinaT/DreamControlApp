@@ -62,6 +62,7 @@ struct NewStoryView: View {
                 }
                 .font(.caption2)
                 .textFieldStyle(.roundedBorder)
+                
                 HStack {
                     Spacer()
                     Text("Количество: \(storyDescription.count)/200")
@@ -72,11 +73,27 @@ struct NewStoryView: View {
                         }
                     Spacer()
                 }
-
+                
+                Button(action: {
+                    //автоматическая
+                }, label: {
+                    Rectangle()
+                        .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])       .cornerRadius(100)
+                        .frame(height: 40)
+                        .shadow(radius: 1)
+                        .overlay(
+                            Text("Авто-история")
+                                .font(.title3)
+                                .foregroundColor(.white)
+                                .bold()
+                        )
+                })
+                .padding(.bottom)
+                
                 // Кнопки "Сохранить" и "Отмена"
 
                 Spacer()
-                VStack {
+                HStack {
                     Button(action: {
                         // Логика для сохранения истории
                         onSave(storyTitle, storyDescription)
@@ -94,7 +111,6 @@ struct NewStoryView: View {
                             )
                     })
                     .disabled(storyTitle.isEmpty || storyDescription.isEmpty) // Отключить, если поля пустые
-                    .padding(.bottom)
                     
                     Button(action: {
                         // Закрытие окна без сохранения
