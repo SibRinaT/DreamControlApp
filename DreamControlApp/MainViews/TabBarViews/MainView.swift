@@ -35,9 +35,9 @@ struct MainView: View {
                             OtherViewsRectangle(image: "StarIcon", title: "Ваши мечты", text: "Пусть ваша звезда всегда горит ярко")
                         }
                         .padding(.horizontal)
-                        NavigationLink(destination: IdeasView(idea: "Новый язык")) {
-                            OtherViewsRectangle(image: "IdeaIcon", title: "Идеи", text: "Вдохновляйтесь и растите")
-                        }
+//                        NavigationLink(destination: IdeasView(idea: "Новый язык")) {
+//                            OtherViewsRectangle(image: "IdeaIcon", title: "Идеи", text: "Вдохновляйтесь и растите")
+//                        }
                         .padding(.horizontal)
                     }
                     HStack {

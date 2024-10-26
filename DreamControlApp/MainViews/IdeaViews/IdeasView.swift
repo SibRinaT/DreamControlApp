@@ -8,7 +8,16 @@
 import SwiftUI
 
 struct IdeasView: View {
-    @State var idea: String
+    @State private var idea: String = "Выучить новый язык"
+    private let ideas = [
+        "Выучить новый язык",
+        "Прочитать книгу по бизнесу",
+        "Научиться готовить новое блюдо",
+        "Прокачать навыки программирования",
+        "Заняться йогой",
+        "Изучить основы фотографии"
+    ]
+    
     var body: some View {
         VStack {
             RoundedRectangle(cornerRadius: 20)
@@ -22,15 +31,16 @@ struct IdeasView: View {
                             .font(.title3)
                             .foregroundColor(.black)
                     }
-                    )
+                )
                 .padding(.bottom, 30)
-            Button(action: {}) {
+            
+            Button(action: generateIdea) {
                 RoundedRectangle(cornerRadius: 20)
                     .frame(height: 100)
                     .foregroundColor(Color("PrimaryColor"))
                     .shadow(radius: 10)
                     .overlay(
-                        Text("Генерерировать")
+                        Text("Генерировать")
                             .bold()
                             .font(.title2)
                             .foregroundColor(.black)
@@ -39,8 +49,12 @@ struct IdeasView: View {
         }
         .padding(.horizontal)
     }
+    
+    private func generateIdea() {
+        idea = ideas.randomElement() ?? "Идея отсутствует"
+    }
 }
 
 #Preview {
-    IdeasView(idea: "Выучить новый язык")
+    IdeasView()
 }
