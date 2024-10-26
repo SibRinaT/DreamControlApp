@@ -9,14 +9,7 @@ import SwiftUI
 
 struct IdeasView: View {
     @State private var idea: String = "Выучить новый язык"
-    private let ideas = [
-        "Выучить новый язык",
-        "Прочитать книгу по бизнесу",
-        "Научиться готовить новое блюдо",
-        "Прокачать навыки программирования",
-        "Заняться йогой",
-        "Изучить основы фотографии"
-    ]
+    @ObservedObject private var viewModel = IdeasViewModel()
     
     var body: some View {
         VStack {
@@ -51,7 +44,7 @@ struct IdeasView: View {
     }
     
     private func generateIdea() {
-        idea = ideas.randomElement() ?? "Идея отсутствует"
+        idea = viewModel.getRandomIdea()
     }
 }
 
