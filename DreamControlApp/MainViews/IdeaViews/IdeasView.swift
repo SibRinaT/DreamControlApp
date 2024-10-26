@@ -23,6 +23,7 @@ struct IdeasView: View {
                             .bold()
                             .font(.title3)
                             .foregroundColor(.black)
+                            .multilineTextAlignment(.center)
                     }
                 )
                 .padding(.bottom, 30)
