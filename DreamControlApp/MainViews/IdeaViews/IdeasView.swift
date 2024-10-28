@@ -13,33 +13,40 @@ struct IdeasView: View {
     
     var body: some View {
         VStack {
+            Text("")
             RoundedRectangle(cornerRadius: 20)
-                .frame(height: 250)
                 .foregroundColor(.white)
                 .shadow(radius: 10)
+                .ignoresSafeArea(.all)
+            
                 .overlay(
                     VStack {
+                        Spacer()
                         Text(idea)
                             .bold()
                             .font(.title3)
                             .foregroundColor(.black)
                             .multilineTextAlignment(.center)
+                        Spacer()
+                        
+                        VStack {
+                            Button(action: generateIdea) {
+                                RoundedRectangle(cornerRadius: 20)
+                                    .frame(height: 100)
+                                    .foregroundColor(Color("PrimaryColor"))
+                                    .shadow(radius: 10)
+                                    .overlay(
+                                        Text("Генерировать")
+                                            .bold()
+                                            .font(.title2)
+                                            .foregroundColor(.black)
+                                    )
+                                
+                            }
+                        }
+                        .padding(.horizontal)
                     }
                 )
-                .padding(.bottom, 30)
-            
-            Button(action: generateIdea) {
-                RoundedRectangle(cornerRadius: 20)
-                    .frame(height: 100)
-                    .foregroundColor(Color("PrimaryColor"))
-                    .shadow(radius: 10)
-                    .overlay(
-                        Text("Генерировать")
-                            .bold()
-                            .font(.title2)
-                            .foregroundColor(.black)
-                    )
-            }
         }
         .padding(.horizontal)
     }
