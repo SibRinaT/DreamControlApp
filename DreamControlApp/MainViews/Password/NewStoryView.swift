@@ -5,6 +5,7 @@ struct NewStoryView: View {
     @State private var storyTitle: String = ""
     @State private var storyDescription: String = ""
     private let characterLimit = 200
+    private let titleLimit = 20 // Ограничение для названия
     @State private var autoStory: Bool = false
     @State private var warningMessage: String? = nil // Хранит сообщение об ошибке
 
@@ -26,7 +27,11 @@ struct NewStoryView: View {
             
             // Поле для ввода названия истории
             InputFieldView(title: "Название истории", placeholder: "Введите название", text: $storyTitle)
-                .onChange(of: storyTitle) { _ in
+                .onChange(of: storyTitle) { newValue in
+                    // Ограничиваем количество символов в названии
+                    if newValue.count > titleLimit {
+                        storyTitle = String(newValue.prefix(titleLimit))
+                    }
                     validateFields() // Проверяем при изменении заголовка
                 }
             
@@ -158,9 +163,6 @@ struct NewStoryView: View {
         }
         .onAppear {
             validateFields() // Проверяем поля при появлении
-        }
-        .onChange(of: storyTitle) { _ in
-            validateFields() // Проверяем при изменении заголовка
         }
         .onChange(of: storyDescription) { _ in
             validateFields() // Проверяем при изменении описания
