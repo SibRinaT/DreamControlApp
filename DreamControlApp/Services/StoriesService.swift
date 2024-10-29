@@ -35,6 +35,19 @@ import Foundation
         dreams = allDreams
     }
     
+    func deleteStory(from dream: Dream, story: DreamStory) {
+            print("delete story:", story, "from dream:", dream)
+            var allDreams = loadDreams()
+            
+            // Ищем нужную мечту и удаляем историю
+            if let dreamIndex = allDreams.firstIndex(where: { $0.id == dream.id }) {
+                allDreams[dreamIndex].stories.removeAll(where: { $0.id == story.id })
+            }
+            
+            saveDreams(allDreams)
+            dreams = allDreams
+        }
+    
     func update(dream: Dream) {
         print("update dream:", dream)
         var allDreams = loadDreams()

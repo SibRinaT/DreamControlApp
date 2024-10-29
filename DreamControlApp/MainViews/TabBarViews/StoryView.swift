@@ -78,7 +78,14 @@ struct StoryView: View {
                                 }
                             )
                     }
-                }
+                    .swipeActions(edge: .trailing) {
+                        Button(role: .destructive) {
+                            delete(story: story) // Удаляем выбранную историю
+                        } label: {
+                            Label("Удалить", systemImage: "trash")
+                        }
+                    }
+                    }
                 
                 Button(action: {
                     showingNewStoryView = true // Открытие окна создания новой истории
@@ -117,6 +124,13 @@ struct StoryView: View {
                 }
             }
             .listStyle(.plain)
+        }
+    }
+    
+    @MainActor private func delete(story: DreamStory) {
+        if let index = dream.stories.firstIndex(where: { $0.id == story.id }) {
+            dream.stories.remove(at: index)
+            storiesService.deleteStory(from: dream, story: story) // Удаляем историю из сервиса
         }
     }
     
