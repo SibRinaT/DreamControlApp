@@ -119,7 +119,7 @@ struct NewDreamView: View {
                 InputFieldView(title: "Название мечты", placeholder: "Введите название", text: $newButtonName)
                     .padding()
                 HStack {
-                    if newButtonName.count == 0 || newButtonName.count > 14 {
+                    if newButtonName.count == 0 || newButtonName.count > 12 {
                         Text("Символов: ")
                         Text("\(newButtonName.count)")
                             .foregroundColor(Color(.red))
@@ -180,7 +180,7 @@ struct NewDreamView: View {
                 }
                 .padding()
                 
-                if newButtonName.count == 0 || newButtonName.count > 14 {
+                if newButtonName.count == 0 || newButtonName.count > 12 {
                     Button("Сохранить") {
                         onSave(newButtonName, selectedImage)
                         newButtonName = ""

@@ -5,7 +5,7 @@ struct NewStoryView: View {
     @State private var storyTitle: String = ""
     @State private var storyDescription: String = ""
     private let characterLimit = 200
-    private let titleLimit = 20 // Ограничение для названия
+    private let titleLimit = 16 // Ограничение для названия
     @State private var autoStory: Bool = false
     @State private var warningMessage: String? = nil // Хранит сообщение об ошибке
 
