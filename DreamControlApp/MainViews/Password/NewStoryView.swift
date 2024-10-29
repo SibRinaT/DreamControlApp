@@ -156,6 +156,9 @@ struct NewStoryView: View {
             }
             .padding(.horizontal)
         }
+        .onAppear {
+            validateFields() // Проверяем поля при появлении
+        }
         .onChange(of: storyTitle) { _ in
             validateFields() // Проверяем при изменении заголовка
         }
