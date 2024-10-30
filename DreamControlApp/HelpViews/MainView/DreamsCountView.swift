@@ -31,7 +31,7 @@ struct DreamsCountView: View {
                         }
                             .padding(.vertical)
                     )
-                    .shadow(radius: 20)
+                    .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                     .padding(.vertical, 20)
                     .padding(.horizontal)
                 Image("CloudSmallImage")
@@ -48,7 +48,7 @@ struct DreamsCountView: View {
 //                Color.blue
 //                color for testing background
                 Rectangle()
-                    .shadow(radius: 20)
+                    .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                     .frame(height: 60)
                     .foregroundColor(Color("SuccessColor"))
                     .cornerRadius(10)
@@ -65,7 +65,7 @@ struct DreamsCountView: View {
                         }
                             .padding(.vertical)
                     )
-                    .shadow(radius: 20)
+                    .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                     .padding(.horizontal)
                 Image("StarSmallImage")
                     .offset(CGSize(width: -50, height: 18))

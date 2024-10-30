@@ -14,7 +14,7 @@ struct HelpProfileRectangleEvening: View {
                 .foregroundColor(Color("SecondaryColor"))
                 .frame(height: 200)
                 .cornerRadius(15)
-                .shadow(radius: 15)
+                .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                 .overlay (
                     ZStack {
                         Image("CloudSmallImage")
