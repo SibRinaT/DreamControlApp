@@ -61,7 +61,8 @@ struct DreamView: View {
                         .listRowBackground(Color.clear)
                         .listRowSeparator(.hidden)
                     }
-                    
+                    .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+
                     Button(action: {
                         showingSheet = true
                     }, label: {
@@ -86,6 +87,8 @@ struct DreamView: View {
                                     .bold()
                             )
                     })
+                    .buttonStyle(.plain)
+                    .listRowBackground(Color.clear)
                 }
                 .listStyle(.plain)
             }
