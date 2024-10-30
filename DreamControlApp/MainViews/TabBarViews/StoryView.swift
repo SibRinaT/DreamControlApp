@@ -65,7 +65,7 @@ struct StoryView: View {
                     }) {
                         RoundedRectangle(cornerRadius: 20)
                             .foregroundColor(Color("PrimaryColor")) // Прозрачный фон
-                            .frame(height: 75)
+                            .frame(height: 85)
                             .overlay (
                                 HStack {
                                     Image("StoryIcon")
@@ -85,14 +85,19 @@ struct StoryView: View {
                             Label("Удалить", systemImage: "trash")
                         }
                     }
+                    .listRowSeparator(.hidden) 
                     }
+                .listStyle(.plain)
+                .listRowBackground(Color.clear)
+                .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+
                 
                 Button(action: {
                     showingNewStoryView = true // Открытие окна создания новой истории
                 }, label: {
                     Rectangle()
                         .foregroundColor(.clear) // Прозрачный фон
-                        .frame(height: 75)
+                        .frame(height: 85)
                         .cornerRadius(20)
                         .overlay(
                             RoundedRectangle(cornerRadius: 20)
