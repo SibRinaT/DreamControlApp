@@ -91,7 +91,7 @@ struct StoryTextView: View {
                                             .foregroundColor(Color("PrimaryColor"))
                                             .cornerRadius(100)
                                             .frame(height: 50)
-                                            .shadow(radius: 1)
+                                            .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                                             .overlay(
                                                 Text("Сохранить")
                                                     .font(.title2)
@@ -107,7 +107,7 @@ struct StoryTextView: View {
                                             .foregroundColor(Color("PrimaryColor"))
                                             .cornerRadius(100)
                                             .frame(height: 50)
-                                            .shadow(radius: 51)
+                                            .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                                             .overlay(
                                                 Text("Отмена")
                                                     .font(.title2)
