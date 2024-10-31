@@ -138,7 +138,7 @@ struct NewStoryView: View {
                         .overlay(
                             Text("Сохранить")
                                 .font(.title2)
-                                .foregroundColor(storyTitle.isEmpty || (autoStory && storyDescription.isEmpty) ? Color("InactiveColor2") : Color("PrimaryColor"))                        )
+                                .foregroundColor(storyTitle.isEmpty || (autoStory && storyDescription.isEmpty) ? Color("InactiveColor2") : Color(.white)))
                 })
                 .disabled(storyTitle.isEmpty || (autoStory && storyDescription.isEmpty)) // Проверка в зависимости от состояния autoStory
 
