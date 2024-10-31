@@ -55,14 +55,24 @@ struct NewStoryView: View {
                             .frame(width: 300, height: 200) // Размеры прямоугольника
                             .padding()
                         
-                        TextField("Введите описание...", text: $storyDescription, axis: .vertical)
-                            .foregroundColor(Color("TextColor"))
-                            .font(.custom("", size: 16)) // need to fix a font
-                            .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-                            .textFieldStyle(PlainTextFieldStyle())
-                            .autocapitalization(.none) // Отключить автоматическое изменение раскладки
-                            .frame(height: 200)
-                            .padding(.horizontal, 40)
+                        ZStack {
+                            TextEditor(text: $storyDescription)
+                                .foregroundColor(Color("TextColor"))
+                                .font(.custom("", size: 16)) // need to fix a font
+                                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                                .textFieldStyle(PlainTextFieldStyle())
+                                .autocapitalization(.none) // Отключить автоматическое изменение раскладки
+                                .frame(height: 200)
+                                .padding(.horizontal, 40)
+                                
+                            if storyDescription.isEmpty {
+                                Text("Введите описание вашей истории")
+                                    .foregroundColor(Color("InactiveColor"))
+                                    .padding(.bottom, 145)
+                                    .padding(.trailing, 0)
+                                    .font(.custom("", size: 16)) // need to fix a font
+                            }
+                        }
                     }
                 }
                 .font(.caption2)
