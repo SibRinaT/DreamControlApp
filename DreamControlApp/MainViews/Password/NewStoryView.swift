@@ -131,15 +131,14 @@ struct NewStoryView: View {
                     }
                 }, label: {
                     Rectangle()
-                        .foregroundColor(Color("PrimaryColor"))
+                        .foregroundColor(storyTitle.isEmpty || (autoStory && storyDescription.isEmpty) ? Color("InactiveColor") : Color("PrimaryColor"))
                         .cornerRadius(100)
                         .frame(height: 70)
                         .shadow(radius: 1)
                         .overlay(
                             Text("Сохранить")
                                 .font(.title2)
-                                .foregroundColor(.white)
-                        )
+                                .foregroundColor(storyTitle.isEmpty || (autoStory && storyDescription.isEmpty) ? Color("InactiveColor2") : Color("PrimaryColor"))                        )
                 })
                 .disabled(storyTitle.isEmpty || (autoStory && storyDescription.isEmpty)) // Проверка в зависимости от состояния autoStory
 
