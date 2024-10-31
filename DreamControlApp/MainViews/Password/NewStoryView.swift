@@ -112,7 +112,7 @@ struct NewStoryView: View {
                         .background(Rectangle()
                             .gradientForeground(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")])
                             .cornerRadius(100)
-                            .shadow(radius: 1))
+                            .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0))
                     })
                     Spacer()
                 }
@@ -134,7 +134,7 @@ struct NewStoryView: View {
                         .foregroundColor(storyTitle.isEmpty || (autoStory && storyDescription.isEmpty) ? Color("InactiveColor") : Color("PrimaryColor"))
                         .cornerRadius(100)
                         .frame(height: 70)
-                        .shadow(radius: 1)
+                        .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                         .overlay(
                             Text("Сохранить")
                                 .font(.title2)
@@ -150,7 +150,7 @@ struct NewStoryView: View {
                         .foregroundColor(Color("PrimaryColor"))
                         .cornerRadius(100)
                         .frame(height: 70)
-                        .shadow(radius: 51)
+                        .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                         .overlay(
                             Text("Отмена")
                                 .font(.title2)
