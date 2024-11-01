@@ -12,7 +12,8 @@ struct DreamView: View {
     @State private var showingSheet = false
     @State private var newButtonName = ""
     @State private var selectedImage = "StarForDream"
-    
+    @State private var selectedDream: Dream? // Добавлено для хранения созданной мечты
+
     var body: some View {
         VStack {
             HStack {
@@ -97,9 +98,21 @@ struct DreamView: View {
                 if !name.isEmpty {
                     let newDream = Dream(id: UUID(), name: name, image: image, stories: [])
                     storiesService.add(dream: newDream)
+                    selectedDream = newDream // Сохранение созданной мечты
                 }
             }
         }
+        .background(
+                    NavigationLink(
+                        destination: selectedDream.map { StoryView(dream: $0) },
+                        isActive: Binding(
+                            get: { selectedDream != nil },
+                            set: { if !$0 { selectedDream = nil } }
+                        ),
+                        label: { EmptyView() }
+                    )
+                    .hidden()
+                )
     }
     
     private func delete(dream: Dream) {
@@ -111,6 +124,7 @@ struct NewDreamView: View {
     @Binding var newButtonName: String
     @Binding var selectedImage: String
     @Binding var showingSheet: Bool
+    @State private var selectedDream: Dream? // Добавлено для хранения созданной мечты
     var onSave: (String, String) -> Void
     
     var body: some View {
