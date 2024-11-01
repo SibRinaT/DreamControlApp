@@ -51,7 +51,5 @@ struct SplashView: View {
 }
 
 #Preview {
-    NavigationView {
         SplashView()
-    }
 }

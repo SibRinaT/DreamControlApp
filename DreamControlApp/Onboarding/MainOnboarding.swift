@@ -76,7 +76,5 @@ struct MainOnboarding: View {
 }
 
 #Preview {
-    NavigationView {
         MainOnboarding()
-    }
 }

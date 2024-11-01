@@ -79,6 +79,7 @@ struct MainView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
     func updateTime() {
           let now = Date()
