@@ -19,6 +19,10 @@ import Foundation
         dreams = loadDreams()
     }
         
+    var dreamsCount: Int {
+          dreams.count
+      }
+    
     func add(dream: Dream) {
         print("add dream:", dream)
         var allDreams = loadDreams()
