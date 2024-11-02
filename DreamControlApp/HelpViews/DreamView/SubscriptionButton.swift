@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct SubscriptionButton: View {
+    @State var text: String
+    @State private var isSubscriptionViewPresented = false
+
     var body: some View {
         VStack {
-            Button(action: {}, label: {
+            Button(action: {
+                isSubscriptionViewPresented = true
+            }, label: {
                 Rectangle()
                     .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
                     .frame(height: 85)
@@ -28,7 +33,7 @@ struct SubscriptionButton: View {
                             HStack {
                                 Image("PremIcon")
                                 Spacer()
-                                Text("Оформите подписку для добавления большего количества мечтаний")
+                                Text("Оформите подписку для добавления большего количества " + text)
                                     .lineSpacing(-10) // Уменьшение расстояния между строками
                                     .multilineTextAlignment(.leading)
                                     .bold()
@@ -39,12 +44,15 @@ struct SubscriptionButton: View {
                         }
                     )
             }
-                   )
+            )
+            .sheet(isPresented: $isSubscriptionViewPresented) {
+                SubscriptionView()
+            }
         }
         .padding(.horizontal, 30)
     }
 }
 
 #Preview {
-    SubscriptionButton()
+    SubscriptionButton(text: "мечтаний")
 }
