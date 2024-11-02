@@ -14,7 +14,8 @@ struct DreamView: View {
     @State private var selectedImage = "StarForDream"
     @State private var selectedDream: Dream? // Добавлено для хранения созданной мечты
     @State private var user = User(id: "123", name: "User", isAdmin: false) // Пример пользователя
-    
+    @State private var isSubscriptionViewPresented = false
+
     private var maxDreamsAllowed: Int {
             user.isSubscriptionEnabled ? 10 : 3 // Максимум 10 мечт для подписчиков и 3 для остальных
         }
@@ -95,20 +96,27 @@ struct DreamView: View {
                     .buttonStyle(.plain)
                     .listRowBackground(Color.clear)
                 } else {
-                    Button(action: {}) {
-                        Rectangle()
-                            .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
-                            .frame(height: 60)
-                            .cornerRadius(100)
-                            .overlay(
-                                Text("Попробовать")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 30))
-                                    .bold()
-                            )
-                    }
+                    Button(action: {
+                           isSubscriptionViewPresented = true
+                       }) {
+                           Rectangle()
+                               .gradientForeground(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")])
+                               .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+                               .frame(height: 85)
+                               .cornerRadius(20)
+                               .overlay(
+                                   Text("Оформить подписку")
+                                       .foregroundColor(.white)
+                                       .font(.system(size: 30))
+                                       .bold()
+                               )
+                       }
+                       .sheet(isPresented: $isSubscriptionViewPresented) {
+                           SubscriptionView()
+                       }
                 }
             }
+            .listRowSeparator(.hidden)
             .listStyle(.plain)
         }
         .padding(.horizontal)
