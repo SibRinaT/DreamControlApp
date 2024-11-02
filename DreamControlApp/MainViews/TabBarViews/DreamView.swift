@@ -13,7 +13,12 @@ struct DreamView: View {
     @State private var newButtonName = ""
     @State private var selectedImage = "StarForDream"
     @State private var selectedDream: Dream? // Добавлено для хранения созданной мечты
-
+    @State private var user = User(id: "123", name: "User", isAdmin: false) // Пример пользователя
+    
+    private var maxDreamsAllowed: Int {
+            user.isSubscriptionEnabled ? 10 : 3 // Максимум 10 мечт для подписчиков и 3 для остальных
+        }
+    
     var body: some View {
         VStack {
             HStack {
@@ -95,10 +100,10 @@ struct DreamView: View {
         .padding(.horizontal)
         .sheet(isPresented: $showingSheet) {
             NewDreamView(newButtonName: $newButtonName, selectedImage: $selectedImage, showingSheet: $showingSheet) { name, image in
-                if !name.isEmpty {
+                if !name.isEmpty && storiesService.dreams.count < maxDreamsAllowed {
                     let newDream = Dream(id: UUID(), name: name, image: image, stories: [])
                     storiesService.add(dream: newDream)
-                    selectedDream = newDream // Сохранение созданной мечты
+                    selectedDream = newDream
                 }
             }
         }
