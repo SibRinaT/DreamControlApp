@@ -13,10 +13,15 @@ struct StoryView: View {
     
     // Не используется?
     @State private var nextStoryId = UUID() // Для генерации уникальных идентификаторов историй
-    @State private var showingNewStoryView = false // Стейт для отображения окна создания новой истории
-    
+    @State private var showingNewStoryView = false // Стейт для отображения окна создания новой истории - используется
     @State private var storyToEdit: DreamStory?
-
+    @State private var user = User(id: "123", name: "User", isAdmin: false) // Пример пользователя
+    @State private var isSubscriptionViewPresented = false
+    
+    private var maxStoriesAllowed: Int {
+            user.isSubscriptionEnabled ? 10 : 1 // Максимум 10 story для подписчиков и 1 для остальных
+        }
+    
     private var isEditingStoryView: Binding<Bool> {
         Binding(
             get: { storyToEdit != nil },
@@ -85,50 +90,70 @@ struct StoryView: View {
                             Label("Удалить", systemImage: "trash")
                         }
                     }
-                    .listRowSeparator(.hidden) 
-                    }
+                    .listRowSeparator(.hidden)
+                }
                 .listStyle(.plain)
                 .listRowBackground(Color.clear)
                 .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-
                 
-                Button(action: {
-                    showingNewStoryView = true // Открытие окна создания новой истории
-                }, label: {
-                    Rectangle()
-                        .foregroundColor(.clear) // Прозрачный фон
-                        .frame(height: 85)
-                        .cornerRadius(20)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(
-                                    style: StrokeStyle(
-                                        lineWidth: 2,
-                                        dash: [15] // Длина штрихов и пробелов в пунктирной линии
+                if dream.stories.count < maxStoriesAllowed {
+                    Button(action: {
+                        showingNewStoryView = true // Открытие окна создания новой истории
+                    }, label: {
+                        Rectangle()
+                            .foregroundColor(.clear) // Прозрачный фон
+                            .frame(height: 85)
+                            .cornerRadius(20)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(
+                                        style: StrokeStyle(
+                                            lineWidth: 2,
+                                            dash: [15] // Длина штрихов и пробелов в пунктирной линии
+                                        )
                                     )
-                                )
-                                .foregroundColor(Color("PrimaryColor")) // Цвет обводки
-                        )
-                        .overlay(
-                            Text("Создать историю")
-                                .foregroundColor(Color("PrimaryColor"))
-                                .font(.largeTitle)
-                                .bold()
-                        )
-                })
-                .sheet(isPresented: $showingNewStoryView) {
-                    // Добавляем новую историю после сохранения
-                    NewStoryView(onSave: addNewStory)
-                }
-                .sheet(isPresented: isEditingStoryView) {
-                    // Edit selected story
-                    StoryTextView(title: storyToEdit?.title ?? "",
-                                  storyContent: storyToEdit?.content ?? "",
-                                  isPresented: isEditingStoryView,
-                                  onSave: updateStory)
+                                    .foregroundColor(Color("PrimaryColor")) // Цвет обводки
+                            )
+                            .overlay(
+                                Text("Создать историю")
+                                    .foregroundColor(Color("PrimaryColor"))
+                                    .font(.largeTitle)
+                                    .bold()
+                            )
+                    })
+                } else {
+                    Button(action: {
+                        isSubscriptionViewPresented = true
+                    }) {
+                        Rectangle()
+                            .gradientForeground(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")])
+                            .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+                            .frame(height: 85)
+                            .cornerRadius(20)
+                            .overlay(
+                                Text("Оформить подписку")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 30))
+                                    .bold()
+                            )
+                    }
+                    .sheet(isPresented: $isSubscriptionViewPresented) {
+                        SubscriptionView()
+                    }
                 }
             }
             .listStyle(.plain)
+        }
+        .sheet(isPresented: $showingNewStoryView) {
+            // Добавляем новую историю после сохранения
+            NewStoryView(onSave: addNewStory)
+        }
+        .sheet(isPresented: isEditingStoryView) {
+            // Edit selected story
+            StoryTextView(title: storyToEdit?.title ?? "",
+                          storyContent: storyToEdit?.content ?? "",
+                          isPresented: isEditingStoryView,
+                          onSave: updateStory)
         }
     }
     
