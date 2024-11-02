@@ -67,33 +67,47 @@ struct DreamView: View {
                     .listRowSeparator(.hidden)
                 }
                 .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-                
-                Button(action: {
-                    showingSheet = true
-                }, label: {
-                    Rectangle()
-                        .foregroundColor(.clear) // Прозрачный фон
-                        .frame(height: 85)
-                        .cornerRadius(20)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(
-                                    style: StrokeStyle(
-                                        lineWidth: 2,
-                                        dash: [15] // Длина штрихов и пробелов в пунктирной линии
+                if storiesService.dreams.count < maxDreamsAllowed {
+                    Button(action: {
+                        showingSheet = true
+                    }, label: {
+                        Rectangle()
+                            .foregroundColor(.clear) // Прозрачный фон
+                            .frame(height: 85)
+                            .cornerRadius(20)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(
+                                        style: StrokeStyle(
+                                            lineWidth: 2,
+                                            dash: [15] // Длина штрихов и пробелов в пунктирной линии
+                                        )
                                     )
-                                )
-                                .foregroundColor(Color("PrimaryColor")) // Цвет обводки
-                        )
-                        .overlay(
-                            Text("Добавить мечту")
-                                .foregroundColor(Color("PrimaryColor"))
-                                .font(.largeTitle)
-                                .bold()
-                        )
-                })
-                .buttonStyle(.plain)
-                .listRowBackground(Color.clear)
+                                    .foregroundColor(Color("PrimaryColor")) // Цвет обводки
+                            )
+                            .overlay(
+                                Text("Добавить мечту")
+                                    .foregroundColor(Color("PrimaryColor"))
+                                    .font(.largeTitle)
+                                    .bold()
+                            )
+                    })
+                    .buttonStyle(.plain)
+                    .listRowBackground(Color.clear)
+                } else {
+                    Button(action: {}) {
+                        Rectangle()
+                            .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
+                            .frame(height: 60)
+                            .cornerRadius(100)
+                            .overlay(
+                                Text("Попробовать")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 30))
+                                    .bold()
+                            )
+                    }
+                }
             }
             .listStyle(.plain)
         }
