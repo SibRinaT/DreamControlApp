@@ -49,7 +49,6 @@ struct SubscriptionButton: View {
                 SubscriptionView()
             }
         }
-        .padding(.horizontal, 30)
     }
 }
 

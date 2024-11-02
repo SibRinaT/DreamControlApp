@@ -96,24 +96,7 @@ struct DreamView: View {
                     .buttonStyle(.plain)
                     .listRowBackground(Color.clear)
                 } else {
-                    Button(action: {
-                           isSubscriptionViewPresented = true
-                       }) {
-                           Rectangle()
-                               .gradientForeground(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")])
-                               .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-                               .frame(height: 85)
-                               .cornerRadius(20)
-                               .overlay(
-                                   Text("Оформить подписку")
-                                       .foregroundColor(.white)
-                                       .font(.system(size: 30))
-                                       .bold()
-                               )
-                       }
-                       .sheet(isPresented: $isSubscriptionViewPresented) {
-                           SubscriptionView()
-                       }
+                    SubscriptionButton(text: "мечтаний")
                 }
             }
             .listRowSeparator(.hidden)
