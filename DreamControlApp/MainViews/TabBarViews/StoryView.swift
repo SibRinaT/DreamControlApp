@@ -62,87 +62,72 @@ struct StoryView: View {
                         .multilineTextAlignment(.leading)
                     }
                 )
-            
-            List {
-                ForEach(dream.stories) { story in
-                    Button(action: {
-                        storyToEdit = story
-                    }) {
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(Color("PrimaryColor")) // Прозрачный фон
-                            .frame(height: 85)
-                            .overlay (
-                                HStack {
-                                    Image("StoryIcon")
-                                        .padding()
-                                    Text(story.title)
-                                        .bold()
-                                        .foregroundColor(.white)
-                                        .font(.title2)
-                                        .padding()
-                                }
-                            )
-                    }
-                    .swipeActions(edge: .trailing) {
-                        Button(role: .destructive) {
-                            delete(story: story) // Удаляем выбранную историю
-                        } label: {
-                            Label("Удалить", systemImage: "trash")
+            VStack {
+                List {
+                    ForEach(dream.stories) { story in
+                        Button(action: {
+                            storyToEdit = story
+                        }) {
+                            RoundedRectangle(cornerRadius: 20)
+                                .foregroundColor(Color("PrimaryColor")) // Прозрачный фон
+                                .frame(height: 85)
+                                .overlay (
+                                    HStack {
+                                        Image("StoryIcon")
+                                            .padding()
+                                        Text(story.title)
+                                            .bold()
+                                            .foregroundColor(.white)
+                                            .font(.title2)
+                                            .padding()
+                                    }
+                                )
                         }
+                        .swipeActions(edge: .trailing) {
+                            Button(role: .destructive) {
+                                delete(story: story) // Удаляем выбранную историю
+                            } label: {
+                                Label("Удалить", systemImage: "trash")
+                            }
+                        }
+                        .listRowSeparator(.hidden)
                     }
-                    .listRowSeparator(.hidden)
+                    .listStyle(.plain)
+                    .listRowBackground(Color.clear)
+                    .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+                    
+                    if dream.stories.count < maxStoriesAllowed {
+                        Button(action: {
+                            showingNewStoryView = true // Открытие окна создания новой истории
+                        }, label: {
+                            Rectangle()
+                                .foregroundColor(.clear) // Прозрачный фон
+                                .frame(height: 85)
+                                .cornerRadius(20)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(
+                                            style: StrokeStyle(
+                                                lineWidth: 2,
+                                                dash: [15] // Длина штрихов и пробелов в пунктирной линии
+                                            )
+                                        )
+                                        .foregroundColor(Color("PrimaryColor")) // Цвет обводки
+                                )
+                                .overlay(
+                                    Text("Создать историю")
+                                        .foregroundColor(Color("PrimaryColor"))
+                                        .font(.largeTitle)
+                                        .bold()
+                                )
+                        })
+                    } else {
+                        SubscriptionButton(text: "историй")
+                    }
                 }
                 .listStyle(.plain)
-                .listRowBackground(Color.clear)
-                .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-                
-                if dream.stories.count < maxStoriesAllowed {
-                    Button(action: {
-                        showingNewStoryView = true // Открытие окна создания новой истории
-                    }, label: {
-                        Rectangle()
-                            .foregroundColor(.clear) // Прозрачный фон
-                            .frame(height: 85)
-                            .cornerRadius(20)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .stroke(
-                                        style: StrokeStyle(
-                                            lineWidth: 2,
-                                            dash: [15] // Длина штрихов и пробелов в пунктирной линии
-                                        )
-                                    )
-                                    .foregroundColor(Color("PrimaryColor")) // Цвет обводки
-                            )
-                            .overlay(
-                                Text("Создать историю")
-                                    .foregroundColor(Color("PrimaryColor"))
-                                    .font(.largeTitle)
-                                    .bold()
-                            )
-                    })
-                } else {
-                    Button(action: {
-                        isSubscriptionViewPresented = true
-                    }) {
-                        Rectangle()
-                            .gradientForeground(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")])
-                            .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-                            .frame(height: 85)
-                            .cornerRadius(20)
-                            .overlay(
-                                Text("Оформить подписку")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 30))
-                                    .bold()
-                            )
-                    }
-                    .sheet(isPresented: $isSubscriptionViewPresented) {
-                        SubscriptionView()
-                    }
-                }
             }
-            .listStyle(.plain)
+            .padding(.horizontal)
         }
         .sheet(isPresented: $showingNewStoryView) {
             // Добавляем новую историю после сохранения
