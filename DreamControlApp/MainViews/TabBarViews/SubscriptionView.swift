@@ -41,7 +41,7 @@ struct SubscriptionView: View {
                 HStack {
                     Image("SubImage3")
                         .resizable()
-                        .frame(width: 100, height: 90)
+                        .frame(width: 100, height: 80)
                     VStack(alignment: .leading) {
                         Text("Неограниченное количество автоисторий:")
                             .bold()

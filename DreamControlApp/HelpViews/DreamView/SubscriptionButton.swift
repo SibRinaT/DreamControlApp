@@ -46,7 +46,6 @@ struct SubscriptionButton: View {
             }
             )
             .sheet(isPresented: $isSubscriptionViewPresented) {
-                SubscriptionView()
             }
         }
     }
