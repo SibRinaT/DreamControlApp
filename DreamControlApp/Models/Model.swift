@@ -28,3 +28,20 @@ struct DailyRectangle: Codable, Identifiable {
     let authorText: String
 }
 
+struct User: Codable {
+    let id: String
+    let name: String
+    let isAdmin: Bool
+    private(set) var isSubscriptionEnabled: Bool
+    
+    mutating func enableSubscription() {
+        isSubscriptionEnabled = true
+    }
+    
+    init(id: String, name: String, isAdmin: Bool) {
+        self.id = id
+        self.name = name
+        self.isAdmin = isAdmin
+        self.isSubscriptionEnabled = false
+    }
+}
