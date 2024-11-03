@@ -8,6 +8,17 @@
 import SwiftUI
 
 class IdeasViewModel: ObservableObject {
+    @Published var rightSwipedIdeas: [String] = []
+    @Published var leftSwipedIdeas: [String] = []
+    
+    func saveIdea(_ idea: String, isRightSwipe: Bool) {
+        if isRightSwipe {
+            rightSwipedIdeas.append(idea)
+        } else {
+            leftSwipedIdeas.append(idea)
+        }
+    }
+    
     @Published var ideas = [
         "Выучить новый язык",
         "Прочитать книгу по бизнесу",

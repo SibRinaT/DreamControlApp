@@ -10,7 +10,8 @@ import SwiftUI
 struct IdeasView: View {
     @State private var idea: String = "Выучить новый язык"
     @ObservedObject private var viewModel = IdeasViewModel()
-    
+    @State private var dragOffset: CGSize = .zero
+
     var body: some View {
         VStack {
             Text("")
