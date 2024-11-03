@@ -36,9 +36,9 @@ struct IdeasView: View {
                                     .onChanged { value in
                                         dragOffset = value.translation
                                         if dragOffset.width > 0 {
-                                            rectangleColor = .green
+                                            rectangleColor = Color("SuccessColor")
                                         } else if dragOffset.width < 0 {
-                                            rectangleColor = .red
+                                            rectangleColor = Color(.red)
                                         }
                                     }
                                 
