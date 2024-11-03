@@ -16,17 +16,24 @@ struct IdeasView: View {
             Text("")
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(.white)
-                .shadow(radius: 10)
+                .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                 .ignoresSafeArea(.all)
             
                 .overlay(
                     VStack {
                         Spacer()
-                        Text(idea)
-                            .bold()
-                            .font(.title3)
-                            .foregroundColor(.black)
-                            .multilineTextAlignment(.center)
+                        RoundedRectangle(cornerRadius: 20)
+                            .foregroundColor(.white)
+                            .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+                            .frame(height: 300)
+                            .padding(.horizontal)
+                            .overlay(
+                                Text(idea)
+                                    .bold()
+                                    .font(.title3)
+                                    .foregroundColor(.black)
+                                    .multilineTextAlignment(.center)
+                            )
                         Spacer()
                         
                         VStack {
@@ -34,7 +41,7 @@ struct IdeasView: View {
                                 RoundedRectangle(cornerRadius: 20)
                                     .frame(height: 100)
                                     .foregroundColor(Color("PrimaryColor"))
-                                    .shadow(radius: 10)
+                                    .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                                     .overlay(
                                         Text("Генерировать")
                                             .bold()
