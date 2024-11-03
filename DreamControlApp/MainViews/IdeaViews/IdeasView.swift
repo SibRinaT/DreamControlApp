@@ -30,6 +30,7 @@ struct IdeasView: View {
                             .padding(.horizontal)
                             .offset(x: dragOffset.width, y: dragOffset.height * 0.1) // небольшое смещение по y
                             .rotationEffect(.degrees(Double(dragOffset.width) / 15))
+                            .animation(.easeInOut(duration: 0.6), value: rectangleColor) // Плавный переход цвета
                             .gesture(
                                 DragGesture()
                                     .onChanged { value in
