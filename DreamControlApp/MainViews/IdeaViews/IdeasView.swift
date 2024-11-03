@@ -11,6 +11,7 @@ struct IdeasView: View {
     @State private var idea: String = "Выучить новый язык"
     @ObservedObject private var viewModel = IdeasViewModel()
     @State private var dragOffset: CGSize = .zero
+    @State private var rectangleColor: Color = .white
 
     var body: some View {
         VStack {
@@ -23,37 +24,45 @@ struct IdeasView: View {
                     VStack {
                         Spacer()
                         RoundedRectangle(cornerRadius: 20)
-                                        .foregroundColor(.white)
-                                        .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-                                        .frame(height: 300)
-                                        .padding(.horizontal)
-                                        .offset(x: dragOffset.width, y: dragOffset.height * 0.1) // небольшое смещение по y
-                                                .rotationEffect(.degrees(Double(dragOffset.width) / 15))
-                                                .gesture(
-                                            DragGesture()
-                                                .onChanged { value in
-                                                    dragOffset = value.translation
-                                                }
-                                                .onEnded { value in
-                                                    if value.translation.width > 100 {
-                                                        viewModel.saveIdea(idea, isRightSwipe: true)
-                                                    } else if value.translation.width < -100 {
-                                                        viewModel.saveIdea(idea, isRightSwipe: false)
-                                                    }
-                                                    dragOffset = .zero
-                                                    generateIdea()
-                                                }
-                                        )
-                                        .overlay(
-                                            Text(idea)
-                                                .offset(x: dragOffset.width, y: dragOffset.height * 0.1) // небольшое смещение по y
-                                                .rotationEffect(.degrees(Double(dragOffset.width) / 15))
-                                                .bold()
-                                                .font(.title3)
-                                                .padding(.horizontal, 30)
-                                                .foregroundColor(.black)
-                                                .multilineTextAlignment(.center)
-                                        )
+                            .foregroundColor(rectangleColor)
+                            .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+                            .frame(height: 300)
+                            .padding(.horizontal)
+                            .offset(x: dragOffset.width, y: dragOffset.height * 0.1) // небольшое смещение по y
+                            .rotationEffect(.degrees(Double(dragOffset.width) / 15))
+                            .gesture(
+                                DragGesture()
+                                    .onChanged { value in
+                                        dragOffset = value.translation
+                                        if dragOffset.width > 0 {
+                                            rectangleColor = .green
+                                        } else if dragOffset.width < 0 {
+                                            rectangleColor = .red
+                                        }
+                                    }
+                                
+                                    .onEnded { value in
+                                        if value.translation.width > 100 {
+                                            viewModel.saveIdea(idea, isRightSwipe: true)
+                                        } else if value.translation.width < -100 {
+                                            viewModel.saveIdea(idea, isRightSwipe: false)
+                                        }
+                                        dragOffset = .zero
+                                        generateIdea()
+                                        rectangleColor = .white
+                                        
+                                    }
+                            )
+                            .overlay(
+                                Text(idea)
+                                    .offset(x: dragOffset.width, y: dragOffset.height * 0.1) // небольшое смещение по y
+                                    .rotationEffect(.degrees(Double(dragOffset.width) / 15))
+                                    .bold()
+                                    .font(.title3)
+                                    .padding(.horizontal, 30)
+                                    .foregroundColor(.black)
+                                    .multilineTextAlignment(.center)
+                            )
                         Spacer()
                         
                         VStack {
@@ -68,7 +77,6 @@ struct IdeasView: View {
                                             .font(.title2)
                                             .foregroundColor(.black)
                                     )
-                                
                             }
                         }
                         .padding(.horizontal)
