@@ -21,13 +21,15 @@ struct IdeasView: View {
                 .ignoresSafeArea(.all)
                 .overlay(
                     VStack {
+                        Spacer()
                         RoundedRectangle(cornerRadius: 20)
                                         .foregroundColor(.white)
                                         .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                                         .frame(height: 300)
                                         .padding(.horizontal)
-                                        .offset(x: dragOffset.width)
-                                        .gesture(
+                                        .offset(x: dragOffset.width, y: dragOffset.height * 0.1) // небольшое смещение по y
+                                                .rotationEffect(.degrees(Double(dragOffset.width) / 15))
+                                                .gesture(
                                             DragGesture()
                                                 .onChanged { value in
                                                     dragOffset = value.translation
@@ -44,9 +46,11 @@ struct IdeasView: View {
                                         )
                                         .overlay(
                                             Text(idea)
-                                                .offset(x: dragOffset.width)
+                                                .offset(x: dragOffset.width, y: dragOffset.height * 0.1) // небольшое смещение по y
+                                                .rotationEffect(.degrees(Double(dragOffset.width) / 15))
                                                 .bold()
                                                 .font(.title3)
+                                                .padding(.horizontal, 30)
                                                 .foregroundColor(.black)
                                                 .multilineTextAlignment(.center)
                                         )
