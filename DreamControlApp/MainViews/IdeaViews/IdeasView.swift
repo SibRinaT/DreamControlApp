@@ -78,6 +78,9 @@ struct IdeasView: View {
                                     .overlay(
                                         HStack {
                                             Image(systemName: "star.fill")
+                                                .resizable()
+                                                .foregroundColor(Color(.black))
+                                                .frame(width: 30, height: 30)
                                             Text("Избранное") //need some img
                                                 .bold()
                                                 .font(.title2)
@@ -109,10 +112,23 @@ struct FavoritesView: View {
             Text("Избранные Идеи")
                 .font(.title)
                 .padding()
+                .bold()
             
             List(viewModel.favoriteIdeas, id: \.self) { idea in
-                Text(idea)
+                RoundedRectangle(cornerRadius: 20)
+                    .frame(height: 100)
+                    .foregroundColor(Color("PrimaryColor"))
+                    .overlay(
+                        HStack {
+                            Text(idea)
+                                .bold()
+                                .font(.title3)
+                                .multilineTextAlignment(.leading)
+                        }
+                    )
             }
+            .listStyle(.plain)
+            .listRowSeparator(.hidden)
         }
     }
 }
