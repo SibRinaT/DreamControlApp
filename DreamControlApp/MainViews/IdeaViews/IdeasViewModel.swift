@@ -13,12 +13,13 @@ class IdeasViewModel: ObservableObject {
     @Published var leftSwipedIdeas: [String] = []
     
     func saveIdea(_ idea: String, isRightSwipe: Bool) {
-        if isRightSwipe {
-            rightSwipedIdeas.append(idea)
-        } else {
-            leftSwipedIdeas.append(idea)
+            if isRightSwipe {
+                rightSwipedIdeas.append(idea)
+                favoriteIdeas.append(idea) // Добавляем идею в избранные
+            } else {
+                leftSwipedIdeas.append(idea)
+            }
         }
-    }
     
     @Published var ideas = [
         "Выучить новый язык",
