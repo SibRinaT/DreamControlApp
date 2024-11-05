@@ -9,7 +9,8 @@ import SwiftUI
 
 struct DayRectangle: View {
     @State var text: String
-
+    @State var author: String
+    
     var body: some View {
         VStack {
             VStack {
@@ -36,7 +37,7 @@ struct DayRectangle: View {
                                     )
                                 HStack {
                                     Spacer()
-                                    Text("Гипократ")
+                                    Text(author)
                                         .font(.title2)
                                         .foregroundColor(.white)
                                         .bold()
@@ -50,7 +51,7 @@ struct DayRectangle: View {
     }
 }
 #Preview {
-    DayRectangle(text: "”Все имеет свою красоту, но не каждый ее видит”")
+    DayRectangle(text: "”Все имеет свою красоту, но не каждый ее видит”", author: "asdda")
 }
 
 // code for text autoSize 

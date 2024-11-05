@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EveningRectangle: View {
     @State var text: String
+    @State var author: String
 
     var body: some View {
         VStack {
@@ -36,7 +37,7 @@ struct EveningRectangle: View {
                                     )
                                 HStack {
                                     Spacer()
-                                    Text("Брюс Ли")
+                                    Text(author)
                                         .font(.title2)
                                         .foregroundColor(.white)
                                         .bold()
@@ -51,5 +52,5 @@ struct EveningRectangle: View {
 }
 
 #Preview {
-    EveningRectangle(text: "”Цель не обязательно должна достигаться. Порой это просто направление для дальнейшего движения”")
+    EveningRectangle(text: "”Цель не обязательно должна достигаться. Порой это просто направление для дальнейшего движения”", author: "")
 }

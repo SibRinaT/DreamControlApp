@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MorningRectangle: View {
     @State var text: String
-    
+    @State var author: String
+
     var body: some View {
         VStack {
             VStack {
@@ -36,7 +37,7 @@ struct MorningRectangle: View {
                                     )
                                 HStack {
                                     Spacer()
-                                    Text("КонФуЦий")
+                                    Text(author)
                                         .font(.title2)
                                         .foregroundColor(.white)
                                         .bold()
@@ -51,5 +52,5 @@ struct MorningRectangle: View {
 }
 
 #Preview {
-    MorningRectangle(text: "“Перед тем как мстить, вырой две могилы”")
+    MorningRectangle(text: "“Перед тем как мстить, вырой две могилы”", author: "")
 }
