@@ -73,10 +73,13 @@ struct IdeasView: View {
                                     .foregroundColor(Color("PrimaryColor"))
                                     .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                                     .overlay(
-                                        Text("Генерировать")
-                                            .bold()
-                                            .font(.title2)
-                                            .foregroundColor(.black)
+                                        HStack {
+                                            Image("")
+                                            Text("Избранное") //need some img
+                                                .bold()
+                                                .font(.title2)
+                                                .foregroundColor(.black)
+                                        }
                                     )
                             }
                         }
