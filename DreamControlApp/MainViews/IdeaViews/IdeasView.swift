@@ -87,6 +87,9 @@ struct IdeasView: View {
                             }
                         }
                         .padding(.horizontal)
+                        .sheet(isPresented: $showFavorites) {
+                                                   FavoritesView(viewModel: viewModel) // Открытие избранных идей
+                                               }
                     }
                 )
         }
@@ -95,6 +98,22 @@ struct IdeasView: View {
     
     private func generateIdea() {
         idea = viewModel.getRandomIdea()
+    }
+}
+
+struct FavoritesView: View {
+    @ObservedObject var viewModel: IdeasViewModel
+
+    var body: some View {
+        VStack {
+            Text("Избранные Идеи")
+                .font(.title)
+                .padding()
+            
+            List(viewModel.favoriteIdeas, id: \.self) { idea in
+                Text(idea)
+            }
+        }
     }
 }
 

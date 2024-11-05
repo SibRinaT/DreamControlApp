@@ -8,6 +8,7 @@
 import SwiftUI
 
 class IdeasViewModel: ObservableObject {
+    @Published var favoriteIdeas: [String] = []
     @Published var rightSwipedIdeas: [String] = []
     @Published var leftSwipedIdeas: [String] = []
     
