@@ -12,7 +12,8 @@ struct IdeasView: View {
     @ObservedObject private var viewModel = IdeasViewModel()
     @State private var dragOffset: CGSize = .zero
     @State private var rectangleColor: Color = .white
-
+    @State private var showFavorites = false
+    
     var body: some View {
         VStack {
             Text("")
@@ -67,14 +68,16 @@ struct IdeasView: View {
                         Spacer()
                         
                         VStack {
-                            Button(action: generateIdea) {
+                            Button(action: {
+                                showFavorites = true
+                            }) {
                                 RoundedRectangle(cornerRadius: 20)
                                     .frame(height: 100)
                                     .foregroundColor(Color("PrimaryColor"))
                                     .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                                     .overlay(
                                         HStack {
-                                            Image("")
+                                            Image(systemName: "star.fill")
                                             Text("Избранное") //need some img
                                                 .bold()
                                                 .font(.title2)
