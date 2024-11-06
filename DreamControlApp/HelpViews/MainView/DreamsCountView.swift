@@ -7,8 +7,9 @@
 
 import SwiftUI
 
+@MainActor
 struct DreamsCountView: View {
-//    @Environment(StoriesService.self) private var storiesService
+    @Environment(StoriesService.self) private var storiesService
 
     var body: some View {
         HStack {
@@ -22,10 +23,10 @@ struct DreamsCountView: View {
                     .cornerRadius(10)
                     .overlay(
                         VStack {
-//                            Text("\(storiesService.dreamsCount)")
-//                                .bold()
-//                                .font(.title2)
-//                                .foregroundColor(.white)
+                            Text("\(storiesService.dreams.count)")
+                                .bold()
+                                .font(.title2)
+                                .foregroundColor(.white)
                             Text("Мечты")
                                 .bold()
                                 .font(.title2)
@@ -86,4 +87,5 @@ struct DreamsCountView: View {
 
 #Preview {
     DreamsCountView()
+        .environment(StoriesService())
 }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 struct MainView: View {
     @State private var currentHour: Int = Calendar.current.component(.hour, from: Date())
     @State private var randomQuote: DailyRectangle?
@@ -31,7 +32,7 @@ struct MainView: View {
                 
                 VStack {
                     HStack {
-                        NavigationLink(destination: DreamView().environment(StoriesService()))
+                        NavigationLink(destination: DreamView())
                         {
                             OtherViewsRectangle(image: "StarIcon", title: "Ваши мечты", text: "Пусть ваша звезда всегда горит ярко")
                         }
