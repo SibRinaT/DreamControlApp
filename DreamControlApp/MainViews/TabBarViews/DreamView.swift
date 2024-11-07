@@ -65,8 +65,8 @@ struct DreamView: View {
                         .opacity(0.0)
                     }
                     .listRowBackground(Color.clear)
-                    .listRowSeparator(.hidden)
                 }
+                .listRowSeparator(.hidden)
                 .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                 if storiesService.dreams.count < maxDreamsAllowed {
                     Button(action: {
@@ -94,12 +94,12 @@ struct DreamView: View {
                             )
                     })
                     .buttonStyle(.plain)
+                    .listRowSeparator(.hidden)
                     .listRowBackground(Color.clear)
                 } else {
                     SubscriptionButton(text: "мечтаний")
                 }
             }
-            .listRowSeparator(.hidden)
             .listStyle(.plain)
         }
         .padding(.horizontal)

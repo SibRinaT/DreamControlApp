@@ -114,28 +114,30 @@ struct FavoritesView: View {
                 .padding()
                 .bold()
             
-            List(ideasViewModel.favoriteIdeas, id: \.self) { idea in
-                RoundedRectangle(cornerRadius: 20)
-                    .frame(height: 100)
-                    .foregroundColor(Color("PrimaryColor"))
-                    .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-                    .overlay(
-                        HStack {
-                            Text(idea)
-                                .bold()
-                                .font(.title3)
-                                .multilineTextAlignment(.leading)
+            List {
+                ForEach(ideasViewModel.favoriteIdeas, id: \.self) { idea in
+                    RoundedRectangle(cornerRadius: 20)
+                        .frame(height: 100)
+                        .foregroundColor(Color("PrimaryColor"))
+                        .overlay(
+                            HStack {
+                                Text(idea)
+                                    .bold()
+                                    .font(.title3)
+                                    .multilineTextAlignment(.leading)
+                                    .padding()
+                            }
+                        )
+                        .swipeActions(edge: .trailing) {
+                            Button(role: .destructive) {
+                                deleteIdea(idea)
+                            } label: {
+                                Label("Удалить", systemImage: "trash")
+                            }
                         }
-                            .swipeActions(edge: .trailing) {
-                                                        Button(role: .destructive) {
-                                                            deleteIdea(idea)
-                                                        } label: {
-                                                            Label("Удалить", systemImage: "trash")
-                                                        }
-                                                    }
-                    )
+                        .listRowSeparator(.hidden)
+                }
             }
-            .listRowSeparator(.hidden)
             .listStyle(.plain)
         }
     }
