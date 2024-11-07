@@ -10,14 +10,13 @@ import SwiftUI
 @MainActor
 struct DreamsCountView: View {
     @Environment(StoriesService.self) private var storiesService
-    @StateObject private var ideasViewModel = IdeasViewModel()
-    
+    @Environment(IdeasViewModel.self) private var ideasViewModel
+
     var body: some View {
         HStack {
             ZStack {
 //                Color.red
 //                color for testing background
-
                 Rectangle()
                     .frame(height: 60)
                     .foregroundColor(Color("PrimaryColor"))
@@ -58,7 +57,7 @@ struct DreamsCountView: View {
                     .cornerRadius(10)
                     .overlay(
                         VStack {
-                            Text("\(ideasViewModel.savedIdeasCount)") //mock
+                            Text("\(ideasViewModel.favoriteIdeas.count)")
                                 .bold()
                                 .font(.title2)
                                 .foregroundColor(.white)
@@ -89,4 +88,5 @@ struct DreamsCountView: View {
 #Preview {
     DreamsCountView()
         .environment(StoriesService())
+        .environmentObject(IdeasViewModel()) 
 }

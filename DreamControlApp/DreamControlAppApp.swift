@@ -20,5 +20,6 @@ struct DreamControlAppApp: App {
             SplashView()
         }
         .environment(storiesService)
+        .environmentObject(IdeasViewModel()) 
     }
 }
