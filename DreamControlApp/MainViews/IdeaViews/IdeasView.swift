@@ -118,6 +118,7 @@ struct FavoritesView: View {
                 RoundedRectangle(cornerRadius: 20)
                     .frame(height: 100)
                     .foregroundColor(Color("PrimaryColor"))
+                    .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                     .overlay(
                         HStack {
                             Text(idea)
@@ -134,8 +135,8 @@ struct FavoritesView: View {
                                                     }
                     )
             }
-            .listStyle(.plain)
             .listRowSeparator(.hidden)
+            .listStyle(.plain)
         }
     }
     private func deleteIdea(_ idea: String) {

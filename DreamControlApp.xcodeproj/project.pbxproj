@@ -26,6 +26,7 @@
 		2E6124662B9025CD00494DF6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124652B9025CD00494DF6 /* MockData.swift */; };
 		2E66C4512BC79DD600FC2E49 /* AuthPasswordInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66C4502BC79DD600FC2E49 /* AuthPasswordInputField.swift */; };
 		2E66C4532BC79F4D00FC2E49 /* OTPModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66C4522BC79F4D00FC2E49 /* OTPModifier.swift */; };
+		2E6B1A112CDCF31200E07DB2 /* NewDreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6B1A102CDCF31200E07DB2 /* NewDreamView.swift */; };
 		2E784F432BA0BE7700AA58F9 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E784F422BA0BE7700AA58F9 /* LogInView.swift */; };
 		2E784F452BA0BE8200AA58F9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E784F442BA0BE8200AA58F9 /* SignUpView.swift */; };
 		2E85787B2BBA030000BEA1ED /* OnboardingView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E85787A2BBA030000BEA1ED /* OnboardingView3.swift */; };
@@ -88,6 +89,7 @@
 		2E6124652B9025CD00494DF6 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		2E66C4502BC79DD600FC2E49 /* AuthPasswordInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPasswordInputField.swift; sourceTree = "<group>"; };
 		2E66C4522BC79F4D00FC2E49 /* OTPModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPModifier.swift; sourceTree = "<group>"; };
+		2E6B1A102CDCF31200E07DB2 /* NewDreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDreamView.swift; sourceTree = "<group>"; };
 		2E784F422BA0BE7700AA58F9 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		2E784F442BA0BE8200AA58F9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		2E85787A2BBA030000BEA1ED /* OnboardingView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView3.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				2E23AE422C24B604003FCCC1 /* SettingsView.swift */,
 				2E34CBB42C8833700063F57F /* StoryView.swift */,
 				2ECD80102C9AA04A003147BE /* StoryTextView.swift */,
+				2E6B1A102CDCF31200E07DB2 /* NewDreamView.swift */,
 			);
 			path = TabBarViews;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				2E85787B2BBA030000BEA1ED /* OnboardingView3.swift in Sources */,
 				2EA06B9F2BD18F9A0056E9F7 /* CustomTabBarView.swift in Sources */,
 				2E19785B2BD3DEED000AD527 /* HelpProfileRectangleDay.swift in Sources */,
+				2E6B1A112CDCF31200E07DB2 /* NewDreamView.swift in Sources */,
 				2E542A062CA8A26300338070 /* DayRectangel.swift in Sources */,
 				2EFB88382CABBFA90006D68E /* EveningRectangle.swift in Sources */,
 				AC3213602C9519DE006D4399 /* DreamControlAppApp.swift in Sources */,
