@@ -10,7 +10,8 @@ import SwiftUI
 @MainActor
 struct DreamsCountView: View {
     @Environment(StoriesService.self) private var storiesService
-
+    @StateObject private var ideasViewModel = IdeasViewModel()
+    
     var body: some View {
         HStack {
             ZStack {
@@ -57,7 +58,7 @@ struct DreamsCountView: View {
                     .cornerRadius(10)
                     .overlay(
                         VStack {
-                            Text("14") //mock
+                            Text("\(ideasViewModel.savedIdeasCount)") //mock
                                 .bold()
                                 .font(.title2)
                                 .foregroundColor(.white)

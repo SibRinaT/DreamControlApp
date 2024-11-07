@@ -28,6 +28,10 @@ class IdeasViewModel: ObservableObject {
           }
       }
     
+    var savedIdeasCount: Int {
+        return favoriteIdeas.count
+    }
+    
     private func saveFavoriteIdeas() {
             do {
                 let encodedFavorites = try JSONEncoder().encode(favoriteIdeas)
