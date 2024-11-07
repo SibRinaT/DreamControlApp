@@ -37,7 +37,7 @@ struct MainView: View {
                             OtherViewsRectangle(image: "StarIcon", title: "Ваши мечты", text: "Пусть ваша звезда всегда горит ярко")
                         }
                         .padding(.horizontal)
-                        NavigationLink(destination: IdeasView().environmentObject(IdeasViewModel())) {
+                        NavigationLink(destination: IdeasView()) {
                             OtherViewsRectangle(image: "IdeaIcon", title: "Идеи", text: "Вдохновляйтесь и растите")
                         }
                         .padding(.horizontal)

@@ -10,9 +10,11 @@ import SwiftUI
 @main
 struct DreamControlAppApp: App {
     private let storiesService: StoriesService
-    
+    private let ideasViewModel: IdeasViewModel
+
     init() {
         storiesService = StoriesService()
+        ideasViewModel = IdeasViewModel()
     }
     
     var body: some Scene {
@@ -20,6 +22,6 @@ struct DreamControlAppApp: App {
             SplashView()
         }
         .environment(storiesService)
-        .environmentObject(IdeasViewModel()) 
+        .environmentObject(ideasViewModel)
     }
 }
