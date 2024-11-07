@@ -8,7 +8,8 @@
 import SwiftUI
 
 class IdeasViewModel: ObservableObject {
-    @Published var favoriteIdeas: [String] = []
+    private let defaults = UserDefaults.standard
+    private let favoritesKey = "favoriteIdeas"
     @Published var rightSwipedIdeas: [String] = []
     @Published var leftSwipedIdeas: [String] = []
     
@@ -20,6 +21,37 @@ class IdeasViewModel: ObservableObject {
                 leftSwipedIdeas.append(idea)
             }
         }
+    
+    @Published var favoriteIdeas: [String] = [] {
+          didSet {
+              saveFavoriteIdeas() // Каждый раз при изменении списка сохраняем его в UserDefaults
+          }
+      }
+    
+    private func saveFavoriteIdeas() {
+            do {
+                let encodedFavorites = try JSONEncoder().encode(favoriteIdeas)
+                defaults.set(encodedFavorites, forKey: favoritesKey)
+            } catch {
+                print("Ошибка при сохранении избранных идей: \(error)")
+            }
+        }
+        
+        // Загрузка избранных идей из UserDefaults
+        private func loadFavoriteIdeas() {
+            guard let data = defaults.data(forKey: favoritesKey) else {
+                return
+            }
+            do {
+                favoriteIdeas = try JSONDecoder().decode([String].self, from: data)
+            } catch {
+                print("Ошибка при загрузке избранных идей: \(error)")
+            }
+        }
+    
+    init() {
+          loadFavoriteIdeas()
+      }
     
     @Published var ideas = [
         "Выучить новый язык",
