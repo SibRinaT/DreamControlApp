@@ -11,7 +11,7 @@ import SwiftUI
 struct MainView: View {
     @State private var currentHour: Int = Calendar.current.component(.hour, from: Date())
     @State private var randomQuote: DailyRectangle = quotes.randomElement()!
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -95,4 +95,6 @@ struct MainView: View {
 
 #Preview {
     MainView()
+        .environment(StoriesService())
+        .environmentObject(IdeasViewModel()) 
 }

@@ -23,7 +23,6 @@ struct TabBar: View {
                 .tag(0)
 
             DreamView()
-                .environment(StoriesService())
                 .tabItem {
                     VStack {
                         Image(selectedTab == 1 ? "ActiveDreamsIcon" : "DreamsIcon")
@@ -33,7 +32,7 @@ struct TabBar: View {
                 }
                 .tag(1)
 
-            Text("Идеи")
+            IdeasView()
                 .tabItem {
                     VStack {
                         Image(selectedTab == 2 ? "ActiveIdeasIcon" : "IdeasIcon")
@@ -48,4 +47,6 @@ struct TabBar: View {
 
 #Preview {
     TabBar()
+        .environment(StoriesService())
+        .environmentObject(IdeasViewModel())
 }

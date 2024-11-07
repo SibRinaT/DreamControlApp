@@ -9,7 +9,7 @@ import SwiftUI
 
 struct IdeasView: View {
     @State private var idea: String = "Выучить новый язык"
-    @ObservedObject private var viewModel = IdeasViewModel()
+    @EnvironmentObject var ideasViewModel: IdeasViewModel  // Инициализируем и используем @StateObject
     @State private var dragOffset: CGSize = .zero
     @State private var rectangleColor: Color = .white
     @State private var showFavorites = false
@@ -42,17 +42,15 @@ struct IdeasView: View {
                                             rectangleColor = Color(.red)
                                         }
                                     }
-                                
                                     .onEnded { value in
                                         if value.translation.width > 100 {
-                                            viewModel.saveIdea(idea, isRightSwipe: true)
+                                            ideasViewModel.saveIdea(idea, isRightSwipe: true)
                                         } else if value.translation.width < -100 {
-                                            viewModel.saveIdea(idea, isRightSwipe: false)
+                                            ideasViewModel.saveIdea(idea, isRightSwipe: false)
                                         }
                                         dragOffset = .zero
                                         generateIdea()
                                         rectangleColor = .white
-                                        
                                     }
                             )
                             .overlay(
@@ -81,7 +79,7 @@ struct IdeasView: View {
                                                 .resizable()
                                                 .foregroundColor(Color(.black))
                                                 .frame(width: 30, height: 30)
-                                            Text("Избранное") //need some img
+                                            Text("Избранное")
                                                 .bold()
                                                 .font(.title2)
                                                 .foregroundColor(.black)
@@ -91,21 +89,24 @@ struct IdeasView: View {
                         }
                         .padding(.horizontal)
                         .sheet(isPresented: $showFavorites) {
-                                                   FavoritesView(viewModel: viewModel) // Открытие избранных идей
-                                               }
+                            FavoritesView(ideasViewModel: ideasViewModel) // Открытие избранных идей
+                        }
                     }
                 )
         }
         .padding(.horizontal)
+        .onAppear {
+            generateIdea() // При загрузке представления получаем случайную идею
+        }
     }
-    
+
     private func generateIdea() {
-        idea = viewModel.getRandomIdea()
+        idea = ideasViewModel.getRandomIdea()
     }
 }
 
 struct FavoritesView: View {
-    @ObservedObject var viewModel: IdeasViewModel
+    @ObservedObject var ideasViewModel: IdeasViewModel
 
     var body: some View {
         VStack {
@@ -114,7 +115,7 @@ struct FavoritesView: View {
                 .padding()
                 .bold()
             
-            List(viewModel.favoriteIdeas, id: \.self) { idea in
+            List(ideasViewModel.favoriteIdeas, id: \.self) { idea in
                 RoundedRectangle(cornerRadius: 20)
                     .frame(height: 100)
                     .foregroundColor(Color("PrimaryColor"))
@@ -134,5 +135,6 @@ struct FavoritesView: View {
 }
 
 #Preview {
-    IdeasView()
+    IdeasView() 
+        .environmentObject(IdeasViewModel()) // Передаем viewModel для предварительного просмотра
 }
