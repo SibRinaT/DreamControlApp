@@ -28,21 +28,21 @@ struct CustomTabBar: View {
             
             // Кастомный Tab Bar
             HStack {
-                           TabBarButton(icon: selectedTab == 0 ? "ActiveHomeIcon" : "IconHome", label: "Главная", isSelected: selectedTab == 0) {
-                               selectedTab = 0
-                           }
-                           Spacer()
-                           TabBarButton(icon: selectedTab == 1 ? "ActiveDreamsIcon" : "DreamsIcon", label: "Мечта", isSelected: selectedTab == 1) {
-                               selectedTab = 1
-                           }
-                           Spacer()
-                           TabBarButton(icon: selectedTab == 2 ? "ActiveIdeasIcon" : "IdeasIcon", label: "Идеи", isSelected: selectedTab == 2) {
-                               selectedTab = 2
-                           }
-//                Spacer()
-//                TabBarButton(icon: "lightbulb.fill", label: "Настройки", isSelected: selectedTab == 2) {
-//                    selectedTab = 3
-//                }
+                TabBarButton(icon: selectedTab == 0 ? "ActiveHomeIcon" : "IconHome", label: "Главная", isSelected: selectedTab == 0) {
+                    selectedTab = 0
+                }
+                Spacer()
+                TabBarButton(icon: selectedTab == 1 ? "ActiveDreamsIcon" : "DreamsIcon", label: "Мечта", isSelected: selectedTab == 1) {
+                    selectedTab = 1
+                }
+                Spacer()
+                TabBarButton(icon: selectedTab == 2 ? "ActiveIdeasIcon" : "IdeasIcon", label: "Идеи", isSelected: selectedTab == 2) {
+                    selectedTab = 2
+                }
+                Spacer()
+                TabBarButton(icon: selectedTab == 3 ? "ActiveSettingIcon" : "SettingIcon", label: "Настройки", isSelected: selectedTab == 2) {
+                    selectedTab = 3
+                }
             }
             .padding(.horizontal, 20)
             .padding(.vertical, 40)
@@ -72,7 +72,7 @@ struct TabBarButton: View {
 
             Text(label)
                 .font(.caption)
-                .padding(.top, -15)
+                .padding(.top, -10)
                 .foregroundColor(Color("TextColor"))
         }
         .padding(.vertical, 8)
