@@ -10,22 +10,22 @@ import SwiftUI
 @MainActor
 struct MainView: View {
     @State private var currentHour: Int = Calendar.current.component(.hour, from: Date())
-    @State private var randomQuote: DailyRectangle?
+    @State private var randomQuote: DailyRectangle = quotes.randomElement()!
 
     var body: some View {
         NavigationView {
             VStack {
                 VStack {
                     if currentHour >= 6 && currentHour < 12 {
-                                      MorningRectangle(text: randomQuote?.text ?? "Доброе утро!", author: randomQuote?.authorText ?? "DC")
-                                  } else if currentHour >= 12 && currentHour < 18 {
-                                      DayRectangle(text: randomQuote?.text ?? "Добрый день!", author: randomQuote?.authorText ?? "DC")
-                                  } else {
-                                      EveningRectangle(text: randomQuote?.text ?? "Добрый вечер!", author: randomQuote?.authorText ?? "DC")
-                                  }
+                        MorningRectangle(text: randomQuote.text, author: randomQuote.authorText)
+                    } else if currentHour >= 12 && currentHour < 18 {
+                        DayRectangle(text: randomQuote.text, author: randomQuote.authorText)
+                    } else {
+                        EveningRectangle(text: randomQuote.text, author: randomQuote.authorText)
+                    }
                 }
                 .onAppear {
-                    randomQuote = quotes.randomElement()
+                    updateRandomQuote()
                     updateTime()
                 }
                 DreamsCountView()
@@ -87,6 +87,9 @@ struct MainView: View {
           let now = Date()
           currentHour = Calendar.current.component(.hour, from: now)
       }
+    private func updateRandomQuote() {
+        randomQuote = quotes.randomElement()!
+    }
 }
 
 

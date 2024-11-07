@@ -42,7 +42,7 @@ struct User: Codable {
 struct DailyRectangle: Codable, Identifiable {
     let id: UUID = UUID()
     let text: String
-    let authorText: String?
+    let authorText: String
 }
 
 let quotes: [DailyRectangle] = [
