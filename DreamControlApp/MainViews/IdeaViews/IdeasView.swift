@@ -96,6 +96,9 @@ struct IdeasView: View {
                     )
             }
             .padding(.horizontal)
+            .onAppear {
+                        generateIdea() // При загрузке представления получаем случайную идею
+                    }
         }
     private func generateIdea() {
            idea = viewModel.getRandomIdea()
