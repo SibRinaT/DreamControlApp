@@ -99,7 +99,6 @@ struct IdeasView: View {
             generateIdea() // При загрузке представления получаем случайную идею
         }
     }
-
     private func generateIdea() {
         idea = ideasViewModel.getRandomIdea()
     }
@@ -126,12 +125,24 @@ struct FavoritesView: View {
                                 .font(.title3)
                                 .multilineTextAlignment(.leading)
                         }
+                            .swipeActions(edge: .trailing) {
+                                                        Button(role: .destructive) {
+                                                            deleteIdea(idea)
+                                                        } label: {
+                                                            Label("Удалить", systemImage: "trash")
+                                                        }
+                                                    }
                     )
             }
             .listStyle(.plain)
             .listRowSeparator(.hidden)
         }
     }
+    private func deleteIdea(_ idea: String) {
+            if let index = ideasViewModel.favoriteIdeas.firstIndex(of: idea) {
+                ideasViewModel.favoriteIdeas.remove(at: index)
+            }
+        }
 }
 
 #Preview {
