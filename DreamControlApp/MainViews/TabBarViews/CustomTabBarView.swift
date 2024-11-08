@@ -40,7 +40,7 @@ struct CustomTabBar: View {
                     selectedTab = 2
                 }
                 Spacer()
-                TabBarButton(icon: selectedTab == 3 ? "ActiveSettingIcon" : "SettingIcon", label: "Настройки", isSelected: selectedTab == 2) {
+                TabBarButton(icon: selectedTab == 3 ? "ActiveSettingIcon" : "SettingIcon", label: "Настройки", isSelected: selectedTab == 3) {
                     selectedTab = 3
                 }
             }
@@ -63,8 +63,13 @@ struct TabBarButton: View {
 
     var body: some View {
         VStack {
-            Text("")
-            // for style
+            if isSelected {
+                       // Индикатор над активной иконкой
+                RoundedRectangle(cornerRadius: 15)
+                           .fill(Color.yellow)
+                           .frame(width: 10, height: 5)
+                           .offset(y: -50)
+                   }
             Image(icon)
                 .font(.system(size: 20))
                 .foregroundColor(isSelected ? Color.blue : Color.gray)
