@@ -26,7 +26,7 @@ struct HelpProfileRectangleEvening: View {
                         Image("CloudImage")
                             .offset(CGSize(width: -150, height: 65))
                         Image("CloudImage")
-                            .offset(CGSize(width: -30, height: 55))
+                            .offset(CGSize(width: -40, height: 60))
                         Image("StarSmallImage")
                             .offset(CGSize(width: -40, height: 30))
                         Image("StarSmallImage")

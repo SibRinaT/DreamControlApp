@@ -72,7 +72,7 @@ struct MainView: View {
                         }
                         .padding(.horizontal)
                         NavigationLink(destination: SettingsView()) {
-                            OtherViewsRectangle(image: "SettingIcon", title: "Настройки", text: "Настройся на нужный лад")
+                            OtherViewsRectangle(image: "IconSettings", title: "Настройки", text: "Настройся на нужный лад")
                         }
                         .padding(.horizontal)
                     }
