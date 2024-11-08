@@ -9,7 +9,16 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                Image("DCIcon")
+                Text("Настройки")
+                    .font(.largeTitle)
+                    .foregroundColor(Color("PrimaryColor"))
+                    .bold()
+                Spacer()
+            }
+        }
     }
 }
 
