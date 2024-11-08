@@ -16,8 +16,17 @@ struct IdeasView: View {
     
     var body: some View {
         VStack {
-            Text("Идеи")
-                    VStack {
+            VStack {
+                HStack {
+                    Image("DCIcon")
+                    Text("Идеи")
+                        .font(.largeTitle)
+                        .foregroundColor(Color("PrimaryColor"))
+                        .bold()
+                    Spacer()
+                }
+            }
+                VStack {
                         Spacer()
                         RoundedRectangle(cornerRadius: 20)
                             .foregroundColor(rectangleColor)
@@ -70,14 +79,10 @@ struct IdeasView: View {
                                     .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                                     .overlay(
                                         HStack {
-                                            Image(systemName: "star.fill")
-                                                .resizable()
-                                                .foregroundColor(Color(.black))
-                                                .frame(width: 30, height: 30)
                                             Text("Избранное")
                                                 .bold()
                                                 .font(.title2)
-                                                .foregroundColor(.black)
+                                                .foregroundColor(.white)
                                         }
                                     )
                             }
@@ -103,10 +108,21 @@ struct FavoritesView: View {
 
     var body: some View {
         VStack {
-            Text("Избранные Идеи")
-                .font(.title)
-                .padding()
-                .bold()
+            Rectangle()
+                .foregroundColor(Color("PrimaryColor"))
+                .frame(height: 100)
+                .overlay(
+                    HStack {
+                        Image("CloudForDream")
+                        VStack {
+                            Text("Избранные идеи") // change need
+                                .foregroundColor(.white)
+                                .bold()
+                                .font(.title)
+                        }
+                        .multilineTextAlignment(.leading)
+                    }
+                )
             
             List {
                 ForEach(ideasViewModel.favoriteIdeas, id: \.self) { idea in
@@ -115,11 +131,18 @@ struct FavoritesView: View {
                         .foregroundColor(Color("PrimaryColor"))
                         .overlay(
                             HStack {
-                                Text(idea)
-                                    .bold()
-                                    .font(.title3)
-                                    .multilineTextAlignment(.leading)
-                                    .padding()
+                                VStack(alignment: .leading) {
+                                    Text("Идея")
+                                        .foregroundColor(Color("InactiveColor2"))
+                                        .font(.subheadline)
+                                    Text(idea)
+                                        .bold()
+                                        .font(.title3)
+                                        .multilineTextAlignment(.leading)
+                                        .foregroundColor(.white)
+                                }
+                                .padding(.leading)
+                                Spacer()
                             }
                         )
                         .swipeActions(edge: .trailing) {
