@@ -29,7 +29,7 @@ struct MainOnboarding: View {
                                 .bold()
                                 .foregroundColor(Color("TextColor"))
                             
-                            NavigationLink(destination: MainView()) {
+                            NavigationLink(destination: CustomTabBar()) {
                                 YellowButton(isActive: true, text: "Войти")
                             }
                             .navigationBarHidden(true) // Скрываем навигационную панель

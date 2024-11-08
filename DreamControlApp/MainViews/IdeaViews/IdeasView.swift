@@ -16,12 +16,7 @@ struct IdeasView: View {
     
     var body: some View {
         VStack {
-            Text("")
-            RoundedRectangle(cornerRadius: 20)
-                .foregroundColor(.white)
-                .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-                .ignoresSafeArea(.all)
-                .overlay(
+            Text("Идеи")
                     VStack {
                         Spacer()
                         RoundedRectangle(cornerRadius: 20)
@@ -92,7 +87,6 @@ struct IdeasView: View {
                             FavoritesView(ideasViewModel: ideasViewModel) // Открытие избранных идей
                         }
                     }
-                )
         }
         .padding(.horizontal)
         .onAppear {
