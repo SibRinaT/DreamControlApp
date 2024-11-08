@@ -135,6 +135,7 @@ struct FavoritesView: View {
                                     Text("Идея")
                                         .foregroundColor(Color("InactiveColor2"))
                                         .font(.subheadline)
+                                        .bold()
                                     Text(idea)
                                         .bold()
                                         .font(.title3)
