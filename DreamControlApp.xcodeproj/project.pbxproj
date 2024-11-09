@@ -218,16 +218,15 @@
 		2E6124562B9025B100494DF6 /* DreamControlApp */ = {
 			isa = PBXGroup;
 			children = (
-				AC3213622C9519F5006D4399 /* Services */,
 				AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */,
+				AC3213622C9519F5006D4399 /* Services */,
 				2E69F7882CDF47C7002F970E /* Not Use */,
-				2E34CBB12C881F850063F57F /* Models */,
 				2E85787E2BBAB24E00BEA1ED /* MainViews */,
 				2E12B52F2BA2150800F44234 /* HelpViews */,
 				2E912D382B970CBA00664140 /* Onboarding */,
-				2E61245B2B9025B300494DF6 /* Assets.xcassets */,
 				2EA20C932B91EF3F000AAEC2 /* Fonts */,
 				2E61245D2B9025B300494DF6 /* Preview Content */,
+				2E61245B2B9025B300494DF6 /* Assets.xcassets */,
 			);
 			path = DreamControlApp;
 			sourceTree = "<group>";
@@ -355,6 +354,7 @@
 		AC3213622C9519F5006D4399 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				2E34CBB12C881F850063F57F /* Models */,
 				AC3213612C9519F5006D4399 /* StoriesService.swift */,
 			);
 			path = Services;

@@ -12,10 +12,9 @@ struct SplashView: View {
     @State private var opacity = 0.9
     @State private var size = 0.8
     
-    
     var body: some View {
         if isActive {
-            MainOnboarding()
+            OnboardingView1()
         } else {
             VStack {
                 ZStack {
@@ -51,5 +50,7 @@ struct SplashView: View {
 }
 
 #Preview {
+    NavigationView {
         SplashView()
+    }
 }
