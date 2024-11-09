@@ -26,6 +26,7 @@
 		2E6124662B9025CD00494DF6 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124652B9025CD00494DF6 /* MockData.swift */; };
 		2E66C4512BC79DD600FC2E49 /* AuthPasswordInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66C4502BC79DD600FC2E49 /* AuthPasswordInputField.swift */; };
 		2E66C4532BC79F4D00FC2E49 /* OTPModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66C4522BC79F4D00FC2E49 /* OTPModifier.swift */; };
+		2E69F7862CDE11A2002F970E /* AppleId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69F7852CDE11A2002F970E /* AppleId.swift */; };
 		2E6B1A112CDCF31200E07DB2 /* NewDreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6B1A102CDCF31200E07DB2 /* NewDreamView.swift */; };
 		2E784F432BA0BE7700AA58F9 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E784F422BA0BE7700AA58F9 /* LogInView.swift */; };
 		2E784F452BA0BE8200AA58F9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E784F442BA0BE8200AA58F9 /* SignUpView.swift */; };
@@ -89,6 +90,7 @@
 		2E6124652B9025CD00494DF6 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		2E66C4502BC79DD600FC2E49 /* AuthPasswordInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPasswordInputField.swift; sourceTree = "<group>"; };
 		2E66C4522BC79F4D00FC2E49 /* OTPModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPModifier.swift; sourceTree = "<group>"; };
+		2E69F7852CDE11A2002F970E /* AppleId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleId.swift; sourceTree = "<group>"; };
 		2E6B1A102CDCF31200E07DB2 /* NewDreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDreamView.swift; sourceTree = "<group>"; };
 		2E784F422BA0BE7700AA58F9 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		2E784F442BA0BE8200AA58F9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				2EA20C822B908FC2000AAEC2 /* OnboardingView2.swift */,
 				2E85787A2BBA030000BEA1ED /* OnboardingView3.swift */,
 				2E912D392B970CD600664140 /* MainOnboarding.swift */,
+				2E69F7852CDE11A2002F970E /* AppleId.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				2EE3AC302CC57D960045EDD0 /* EveningSplash.swift in Sources */,
 				2E8578842BBBF07F00BEA1ED /* ClearYellowButton.swift in Sources */,
 				2E6124662B9025CD00494DF6 /* MockData.swift in Sources */,
+				2E69F7862CDE11A2002F970E /* AppleId.swift in Sources */,
 				2E912D3A2B970CD600664140 /* MainOnboarding.swift in Sources */,
 				2EFB883A2CABC10D0006D68E /* HelpProfileRectangleEvening.swift in Sources */,
 				2E23AE462C2614D2003FCCC1 /* SubscriptionButton.swift in Sources */,
@@ -616,6 +620,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DreamControlApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 26BAG468M4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DreamControlApp/Info.plist;
@@ -645,6 +650,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DreamControlApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 26BAG468M4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DreamControlApp/Info.plist;
