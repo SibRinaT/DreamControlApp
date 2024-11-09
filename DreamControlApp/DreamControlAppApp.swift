@@ -51,7 +51,7 @@ struct DreamControlAppApp: App {
         case 18..<24:
             return AnyView(EveningSplash())
         default:
-            return AnyView(DaySplash()) // Ночной экран по умолчанию
+            return AnyView(DaySplash())
         }
     }
 }
