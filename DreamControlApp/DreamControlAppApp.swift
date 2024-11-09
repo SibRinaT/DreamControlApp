@@ -29,10 +29,12 @@ struct DreamControlAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if isFirstLaunch {
-                SplashView()
-            } else {
-                getTimeBasedSplashView()
+            NavigationView {
+                if isFirstLaunch {
+                    SplashView()
+                } else {
+                    getTimeBasedSplashView()
+                }
             }
         }
         .environment(storiesService)
