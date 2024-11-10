@@ -34,7 +34,7 @@ struct OnboardingView3: View {
                     .foregroundColor(Color("TextColor"))
                     .multilineTextAlignment(.center)
                     .bold()
-                NavigationLink(destination: CustomTabBar()) {
+                NavigationLink(destination: LastOnboarding()) {
                     Rectangle()
                         .foregroundColor(Color("PrimaryColor"))
                         .cornerRadius(100)
@@ -56,6 +56,4 @@ struct OnboardingView3: View {
 
 #Preview {
     OnboardingView3()
-        .environment(StoriesService())
-        .environment(IdeasViewModel())
 }

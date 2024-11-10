@@ -43,8 +43,9 @@ struct LastOnboarding: View {
                         InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com", text: $email)
                         InputFieldView(title: "Имя", placeholder: "Dream", text: $name)
                         
-                        YellowButtonLastOnboard(isActive: isButtonActive, text: "Войти") {
-                            print("Авторизация выполнена")
+                        NavigationLink(destination: CustomTabBar()) {
+                            YellowButtonLastOnboard(isActive: isButtonActive, text: "Войти") {
+                            }
                         }
                         
                         Spacer()
@@ -59,5 +60,9 @@ struct LastOnboarding: View {
 }
 
 #Preview {
-    LastOnboarding()
+    NavigationView {
+        LastOnboarding()
+            .environment(StoriesService())
+            .environment(IdeasViewModel())
+    }
 }
