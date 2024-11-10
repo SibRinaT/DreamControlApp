@@ -12,6 +12,8 @@ struct DreamsCountView: View {
     @Environment(StoriesService.self) private var storiesService
     @Environment(IdeasViewModel.self) private var ideasViewModel
 
+    @State private var showFavorites = false
+
     var body: some View {
         HStack {
             ZStack {
@@ -52,7 +54,9 @@ struct DreamsCountView: View {
             ZStack {
                 //                Color.blue
                 //                color for testing background
-                NavigationLink(destination: IdeasView()) {
+                Button(action: {
+                    showFavorites = true
+                }) {
                     Rectangle()
                         .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                         .frame(height: 60)
@@ -74,14 +78,17 @@ struct DreamsCountView: View {
                         .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                         .padding(.horizontal)
                 }
-                    Image("StarSmallImage")
-                        .offset(CGSize(width: -50, height: 18))
-                    Image("StarImage")
-                        .offset(CGSize(width: -75, height: -25))
-                    Image("StarSmallImage")
-                        .offset(CGSize(width: 57, height: -10))
-                    Image("StarImage")
-                        .offset(CGSize(width: 75, height: 25))
+                .sheet(isPresented: $showFavorites) {
+                    FavoritesView(ideasViewModel: ideasViewModel) // Открытие избранных идей
+                }
+                Image("StarSmallImage")
+                    .offset(CGSize(width: -50, height: 18))
+                Image("StarImage")
+                    .offset(CGSize(width: -75, height: -25))
+                Image("StarSmallImage")
+                    .offset(CGSize(width: 57, height: -10))
+                Image("StarImage")
+                    .offset(CGSize(width: 75, height: 25))
                 }
                 .frame(height: 100)
         }
