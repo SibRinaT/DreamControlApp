@@ -48,45 +48,48 @@ struct DreamsCountView: View {
             }
             .frame(height: 100)
             ZStack {
-//                Color.blue
-//                color for testing background
-                Rectangle()
-                    .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-                    .frame(height: 60)
-                    .foregroundColor(Color("SuccessColor"))
-                    .cornerRadius(10)
-                    .overlay(
-                        VStack {
-                            Text("\(ideasViewModel.favoriteIdeas.count)")
-                                .bold()
-                                .font(.title2)
-                                .foregroundColor(.white)
-                            Text("Идей")
-                                .bold()
-                                .font(.title2)
-                                .foregroundColor(.white)
-                        }
-                            .padding(.vertical)
-                    )
-                    .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-                    .padding(.horizontal)
-                Image("StarSmallImage")
-                    .offset(CGSize(width: -50, height: 18))
-                Image("StarImage")
-                    .offset(CGSize(width: -75, height: -25))
-                Image("StarSmallImage")
-                    .offset(CGSize(width: 57, height: -10))
-                Image("StarImage")
-                    .offset(CGSize(width: 75, height: 25))
-            }
-            .frame(height: 100)
-
+                //                Color.blue
+                //                color for testing background
+                NavigationLink(destination: IdeasView()) {
+                    Rectangle()
+                        .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+                        .frame(height: 60)
+                        .foregroundColor(Color("SuccessColor"))
+                        .cornerRadius(10)
+                        .overlay(
+                            VStack {
+                                Text("\(ideasViewModel.favoriteIdeas.count)")
+                                    .bold()
+                                    .font(.title2)
+                                    .foregroundColor(.white)
+                                Text("Идей")
+                                    .bold()
+                                    .font(.title2)
+                                    .foregroundColor(.white)
+                            }
+                                .padding(.vertical)
+                        )
+                        .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+                        .padding(.horizontal)
+                }
+                    Image("StarSmallImage")
+                        .offset(CGSize(width: -50, height: 18))
+                    Image("StarImage")
+                        .offset(CGSize(width: -75, height: -25))
+                    Image("StarSmallImage")
+                        .offset(CGSize(width: 57, height: -10))
+                    Image("StarImage")
+                        .offset(CGSize(width: 75, height: 25))
+                }
+                .frame(height: 100)
         }
     }
 }
 
 #Preview {
-    DreamsCountView()
-        .environment(StoriesService())
-        .environmentObject(IdeasViewModel()) 
+    NavigationView {
+        DreamsCountView()
+            .environment(StoriesService())
+            .environmentObject(IdeasViewModel())
+    }
 }
