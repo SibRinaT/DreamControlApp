@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct LastOnboarding: View {
-    @State var email = ""
-    @State var name = ""
-
+    @State private var email = ""
+    @State private var name = ""
+    
+    // Computed property to check if both fields are filled
+    private var isButtonActive: Bool {
+        !email.isEmpty && !name.isEmpty
+    }
+    
     var body: some View {
         ZStack {
             VStack {
@@ -31,19 +36,22 @@ struct LastOnboarding: View {
                             .font(.largeTitle)
                             .bold()
                             .foregroundColor(Color("TextColor"))
+                        
                         Rectangle()
-                            .frame(height: 10) // spacer :)
+                            .frame(height: 10) // Spacer
                         
                         InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com", text: $email)
-                        InputFieldView(title: "Имя", placeholder: "Dream", text: $email)
-
-                        YellowButton(isActive: false, text: "Войти")
-                    
+                        InputFieldView(title: "Имя", placeholder: "Dream", text: $name)
+                        
+                        YellowButtonLastOnboard(isActive: isButtonActive, text: "Войти") {
+                            print("Авторизация выполнена")
+                        }
+                        
                         Rectangle()
-                            .frame(height: 10) // spacer :)
+                            .frame(height: 10) // Spacer
                        
                         Rectangle()
-                            .frame(height: 30) // spacer :)
+                            .frame(height: 30) // Spacer
                         
                         Spacer()
                         Image("FullLogo")
@@ -55,7 +63,6 @@ struct LastOnboarding: View {
         }
     }
 }
-
 
 #Preview {
     LastOnboarding()
