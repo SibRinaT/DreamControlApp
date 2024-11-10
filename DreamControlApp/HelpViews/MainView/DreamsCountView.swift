@@ -17,26 +17,28 @@ struct DreamsCountView: View {
             ZStack {
 //                Color.red
 //                color for testing background
-                Rectangle()
-                    .frame(height: 60)
-                    .foregroundColor(Color("PrimaryColor"))
-                    .cornerRadius(10)
-                    .overlay(
-                        VStack {
-                            Text("\(storiesService.dreams.count)")
-                                .bold()
-                                .font(.title2)
-                                .foregroundColor(.white)
-                            Text("Мечты")
-                                .bold()
-                                .font(.title2)
-                                .foregroundColor(.white)
-                        }
-                            .padding(.vertical)
-                    )
-                    .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-                    .padding(.vertical, 20)
-                    .padding(.horizontal)
+                NavigationLink(destination: DreamsCountView()) {
+                    Rectangle()
+                        .frame(height: 60)
+                        .foregroundColor(Color("PrimaryColor"))
+                        .cornerRadius(10)
+                        .overlay(
+                            VStack {
+                                Text("\(storiesService.dreams.count)")
+                                    .bold()
+                                    .font(.title2)
+                                    .foregroundColor(.white)
+                                Text("Мечты")
+                                    .bold()
+                                    .font(.title2)
+                                    .foregroundColor(.white)
+                            }
+                                .padding(.vertical)
+                        )
+                        .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+                        .padding(.vertical, 20)
+                        .padding(.horizontal)
+                }
                 Image("CloudSmallImage")
                     .offset(CGSize(width: 57, height: 15))
                 Image("CloudImage")
