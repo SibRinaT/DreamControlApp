@@ -38,6 +38,7 @@
 		2E8578882BBBFAF400BEA1ED /* CustomCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8578872BBBFAF400BEA1ED /* CustomCheckBoxView.swift */; };
 		2E85788A2BBD82F700BEA1ED /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8578892BBD82F700BEA1ED /* AuthenticationView.swift */; };
 		2E8F49022B9489DF00414354 /* OnboardingView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8F49012B9489DF00414354 /* OnboardingView1.swift */; };
+		2E90A3162CE110DC00643AB4 /* LastOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E90A3152CE110DC00643AB4 /* LastOnboarding.swift */; };
 		2E912D3A2B970CD600664140 /* MainOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E912D392B970CD600664140 /* MainOnboarding.swift */; };
 		2E92C9262BC04DA7005E4DB9 /* CreateNewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E92C9252BC04DA7005E4DB9 /* CreateNewPasswordView.swift */; };
 		2E92C9282BC04EBA005E4DB9 /* PasswordCreatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E92C9272BC04EBA005E4DB9 /* PasswordCreatedView.swift */; };
@@ -101,6 +102,7 @@
 		2E8578872BBBFAF400BEA1ED /* CustomCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckBoxView.swift; sourceTree = "<group>"; };
 		2E8578892BBD82F700BEA1ED /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		2E8F49012B9489DF00414354 /* OnboardingView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView1.swift; sourceTree = "<group>"; };
+		2E90A3152CE110DC00643AB4 /* LastOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboarding.swift; sourceTree = "<group>"; };
 		2E912D392B970CD600664140 /* MainOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOnboarding.swift; sourceTree = "<group>"; };
 		2E92C9252BC04DA7005E4DB9 /* CreateNewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordView.swift; sourceTree = "<group>"; };
 		2E92C9272BC04EBA005E4DB9 /* PasswordCreatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCreatedView.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				2E8F49012B9489DF00414354 /* OnboardingView1.swift */,
 				2EA20C822B908FC2000AAEC2 /* OnboardingView2.swift */,
 				2E85787A2BBA030000BEA1ED /* OnboardingView3.swift */,
+				2E90A3152CE110DC00643AB4 /* LastOnboarding.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				2E69F7862CDE11A2002F970E /* AppleId.swift in Sources */,
 				2E912D3A2B970CD600664140 /* MainOnboarding.swift in Sources */,
 				2EFB883A2CABC10D0006D68E /* HelpProfileRectangleEvening.swift in Sources */,
+				2E90A3162CE110DC00643AB4 /* LastOnboarding.swift in Sources */,
 				2E23AE462C2614D2003FCCC1 /* SubscriptionButton.swift in Sources */,
 				2E6092362CBE73B900081545 /* MorningSplash.swift in Sources */,
 				2E92C9262BC04DA7005E4DB9 /* CreateNewPasswordView.swift in Sources */,
