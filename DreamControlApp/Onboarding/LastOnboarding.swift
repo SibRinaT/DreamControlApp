@@ -47,12 +47,6 @@ struct LastOnboarding: View {
                             print("Авторизация выполнена")
                         }
                         
-                        Rectangle()
-                            .frame(height: 10) // Spacer
-                       
-                        Rectangle()
-                            .frame(height: 30) // Spacer
-                        
                         Spacer()
                         Image("FullLogo")
                             .padding(.bottom, 30)
