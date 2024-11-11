@@ -11,21 +11,26 @@ import SwiftUI
 struct DreamControlAppApp: App {
     private let storiesService: StoriesService
     private let ideasViewModel: IdeasViewModel
+    @State private var hasCompletedOnboarding: Bool
     @State private var isFirstLaunch: Bool
 
     init() {
-        storiesService = StoriesService()
-        ideasViewModel = IdeasViewModel()
-        
-        // Проверяем, первый ли это запуск
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if !launchedBefore {
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
-            _isFirstLaunch = State(initialValue: true)
-        } else {
-            _isFirstLaunch = State(initialValue: false)
-        }
-    }
+          storiesService = StoriesService()
+          ideasViewModel = IdeasViewModel()
+          
+          // Проверяем, первый ли это запуск и завершен ли онбординг
+          let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+          let completedOnboarding = UserDefaults.standard.bool(forKey: "completedOnboarding")
+          
+          if !launchedBefore {
+              UserDefaults.standard.set(true, forKey: "launchedBefore")
+              _isFirstLaunch = State(initialValue: true)
+              _hasCompletedOnboarding = State(initialValue: false)
+          } else {
+              _isFirstLaunch = State(initialValue: false)
+              _hasCompletedOnboarding = State(initialValue: completedOnboarding)
+          }
+      }
     
     var body: some Scene {
         WindowGroup {

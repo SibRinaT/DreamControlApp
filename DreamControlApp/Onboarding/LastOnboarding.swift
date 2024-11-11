@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct LastOnboarding: View {
     @State private var email = ""
     @State private var name = ""
@@ -49,8 +47,12 @@ struct LastOnboarding: View {
                             }
                             
                             YellowButtonLastOnboard(isActive: isButtonActive, text: "Войти") {
-                                navigateToTabBar = true // Активируем навигацию
-                            }
+                                                         if isButtonActive {
+                                                             // Обновляем флаг онбординга в UserDefaults
+                                                             UserDefaults.standard.set(true, forKey: "onboardingCompleted")
+                                                             navigateToTabBar = true // Активируем навигацию
+                                                         }
+                                                     }
                             
                             Rectangle()
                                 .frame(height: 10) // Spacer

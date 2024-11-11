@@ -11,6 +11,8 @@ struct SplashView: View {
     @State private var isActive = false
     @State private var opacity = 0.9
     @State private var size = 0.8
+//    @Binding var onboardingCompleted: Bool  // Для проверки завершенности онбординга
+
     
     var body: some View {
         if isActive {

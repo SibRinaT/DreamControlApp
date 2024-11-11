@@ -56,4 +56,5 @@ struct OnboardingView3: View {
 
 #Preview {
     OnboardingView3()
+
 }
