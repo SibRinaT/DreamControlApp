@@ -41,18 +41,17 @@ struct LastOnboarding: View {
                             InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com", text: $email)
                             InputFieldView(title: "Имя", placeholder: "Dream", text: $name)
                             
-                            // Навигация к CustomTabBar при нажатии на кнопку
                             NavigationLink(destination: CustomTabBar(), isActive: $navigateToTabBar) {
                                 EmptyView()
                             }
                             
                             YellowButtonLastOnboard(isActive: isButtonActive, text: "Войти") {
-                                                         if isButtonActive {
-                                                             // Обновляем флаг онбординга в UserDefaults
-                                                             UserDefaults.standard.set(true, forKey: "onboardingCompleted")
-                                                             navigateToTabBar = true // Активируем навигацию
-                                                         }
-                                                     }
+                                if isButtonActive {
+                                    // Обновляем флаг онбординга в UserDefaults
+                                    UserDefaults.standard.set(true, forKey: "onboardingCompleted")
+                                    navigateToTabBar = true // Активируем навигацию
+                                }
+                            }
                             
                             Rectangle()
                                 .frame(height: 10) // Spacer

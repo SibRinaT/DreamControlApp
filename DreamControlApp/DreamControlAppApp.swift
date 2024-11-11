@@ -35,7 +35,7 @@ struct DreamControlAppApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                if isFirstLaunch {
+                if isFirstLaunch || !hasCompletedOnboarding {
                     SplashView()
                 } else {
                     getTimeBasedSplashView()
