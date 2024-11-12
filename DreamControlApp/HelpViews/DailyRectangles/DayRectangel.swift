@@ -10,7 +10,7 @@ import SwiftUI
 struct DayRectangle: View {
     @State var text: String
     @State var author: String
-    @State private var isAnimating = false
+    @AppStorage("isAnimating") private var isAnimating: Bool = true
 
     var body: some View {
         VStack {

@@ -19,7 +19,7 @@ struct DreamsCountView: View {
             ZStack {
 //                Color.red
 //                color for testing background
-                NavigationLink(destination: DreamsCountView()) {
+                NavigationLink(destination: DreamView()) {
                     Rectangle()
                         .frame(height: 60)
                         .foregroundColor(Color("PrimaryColor"))

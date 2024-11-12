@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @AppStorage("isAnimating") private var isAnimating: Bool = true
+
     var body: some View {
         VStack {
             HStack {
@@ -19,7 +21,7 @@ struct SettingsView: View {
                 Spacer()
             }
             
-            VStack {
+            ScrollView {
                 BigYellowButton(title: "Виджеты", image: "StoryIcon")
                     .padding(.bottom)
                 BigYellowButton(title: "Аккаунт", image: "StoryIcon")
@@ -32,6 +34,7 @@ struct SettingsView: View {
                     .padding(.bottom)
                 BigYellowButton(title: "Язык", image: "StoryIcon")
                     .padding(.bottom)
+                Toggle("Enable Animation", isOn: $isAnimating)
                 }
             .padding(.horizontal)
         }

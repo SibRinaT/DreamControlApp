@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HelpProfileRectangleDay: View {
-    @Binding var isAnimating: Bool 
+    @Binding var isAnimating: Bool
     @State private var rotateAmount: CGFloat = 5
 
     var body: some View {
@@ -40,7 +40,6 @@ struct HelpProfileRectangleDay: View {
         }
     }
 
-    // Функция для облаков с анимацией
     private func cloudImage(_ name: String, offset: CGSize) -> some View {
         Image(name)
             .offset(offset)
@@ -53,7 +52,6 @@ struct HelpProfileRectangleDay: View {
             )
     }
     
-    // Функция для звезд с анимацией
     private func starImage(_ name: String, offset: CGSize) -> some View {
         Image(name)
             .offset(offset)
@@ -66,7 +64,6 @@ struct HelpProfileRectangleDay: View {
             )
     }
 
-    // Функция для запуска анимации
     private func animateWobble() {
         isAnimating = true
     }
