@@ -21,7 +21,7 @@ struct MainView: View {
                     } else if currentHour >= 12 && currentHour < 17 {
                         DayRectangle(text: randomQuote.text, author: randomQuote.authorText)
                     } else {
-                        MorningRectangle(text: randomQuote.text, author: randomQuote.authorText)
+                        EveningRectangle(text: randomQuote.text, author: randomQuote.authorText)
                     }
                 }
                 .onAppear {
