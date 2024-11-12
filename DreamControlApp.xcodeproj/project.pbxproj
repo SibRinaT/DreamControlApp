@@ -165,9 +165,9 @@
 			children = (
 				2E19785A2BD3DEED000AD527 /* HelpProfileRectangleDay.swift */,
 				2EFB88392CABC10D0006D68E /* HelpProfileRectangleEvening.swift */,
+				2EFB883D2CABC9160006D68E /* HelpProfileRectangleMorning.swift */,
 				2E19785D2BD3E5E7000AD527 /* OtherViewsRectangle.swift */,
 				2EB1BCAF2C22C03A00DBA29F /* DreamsCountView.swift */,
-				2EFB883D2CABC9160006D68E /* HelpProfileRectangleMorning.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";

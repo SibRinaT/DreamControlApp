@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct HelpProfileRectangleDay: View {
-    @Binding var isAnimating: Bool // возможность контролировать анимацию извне
-    @State private var rotateAmount: CGFloat = 5 // угол поворота
+    @Binding var isAnimating: Bool 
+    @State private var rotateAmount: CGFloat = 5
 
     var body: some View {
         VStack {

@@ -18,7 +18,7 @@ struct MainView: View {
                 VStack {
                     if currentHour >= 6 && currentHour < 12 {
                         MorningRectangle(text: randomQuote.text, author: randomQuote.authorText)
-                    } else if currentHour >= 12 && currentHour < 18 {
+                    } else if currentHour >= 12 && currentHour < 17 {
                         DayRectangle(text: randomQuote.text, author: randomQuote.authorText)
                     } else {
                         EveningRectangle(text: randomQuote.text, author: randomQuote.authorText)

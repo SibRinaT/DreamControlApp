@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HelpProfileRectangleMorning: View {
+    @State private var isAnimating = true // состояние анимации
+    @State private var rotateAmount: CGFloat = 5 // угол поворота
+
     var body: some View {
         VStack {
             Rectangle()
@@ -15,36 +18,60 @@ struct HelpProfileRectangleMorning: View {
                 .frame(height: 200)
                 .cornerRadius(15)
                 .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-                .overlay (
+                .overlay(
                     ZStack {
-                        Image("StarSmallImage")
-                            .offset(CGSize(width: -40, height: 30))
-                        Image("CloudImage")
-                            .offset(CGSize(width: -140, height: -30))
-                        Image("CloudImage")
-                            .offset(CGSize(width: -10, height: -80))
-                        Image("CloudImage")
-                            .offset(CGSize(width: -150, height: 65))
-                        Image("StarSmallImage")
-                            .offset(CGSize(width: -150, height: -75))
-                        Image("StarSmallImage")
-                            .offset(CGSize(width: -165, height: 10))
-                        Image("CloudSmallImage")
-                            .offset(CGSize(width: -120, height: -60))
-                        Image("StarSmallImage")
-                            .offset(CGSize(width: -40, height: -80))
-                        Image("StarImage")
-                            .offset(CGSize(width: 140, height: -70))
-                        Image("StarImage")
-                            .offset(CGSize(width: -70, height: 75))
-                        Image("MorningCloud")
-                            .offset(CGSize(width: -100, height: 0))
+                        starImage("StarSmallImage", offset: CGSize(width: -40, height: 30))
+                        cloudImage("CloudImage", offset: CGSize(width: -140, height: -30))
+                        cloudImage("CloudImage", offset: CGSize(width: -10, height: -80))
+                        cloudImage("CloudImage", offset: CGSize(width: -150, height: 65))
+                        starImage("StarSmallImage", offset: CGSize(width: -150, height: -75))
+                        starImage("StarSmallImage", offset: CGSize(width: -165, height: 10))
+                        cloudImage("CloudSmallImage", offset: CGSize(width: -120, height: -60))
+                        starImage("StarSmallImage", offset: CGSize(width: -40, height: -80))
+                        starImage("StarImage", offset: CGSize(width: 140, height: -70))
+                        starImage("StarImage", offset: CGSize(width: -70, height: 75))
+                        cloudImage("MorningCloud", offset: CGSize(width: -100, height: 0))
                     }
                 )
         }
         .padding(.horizontal)
+        .onAppear {
+            animateWobble()
+        }
+    }
+
+    // Функция для облаков с анимацией
+    private func cloudImage(_ name: String, offset: CGSize) -> some View {
+        Image(name)
+            .offset(offset)
+            .rotationEffect(.degrees(isAnimating ? rotateAmount : 0))
+            .animation(
+                isAnimating
+                    ? Animation.easeInOut(duration: 5).repeatForever(autoreverses: true)
+                    : .default,
+                value: isAnimating
+            )
+    }
+    
+    // Функция для звезд с анимацией
+    private func starImage(_ name: String, offset: CGSize) -> some View {
+        Image(name)
+            .offset(offset)
+            .rotationEffect(.degrees(isAnimating ? -rotateAmount : 0))
+            .animation(
+                isAnimating
+                    ? Animation.easeInOut(duration: 5).repeatForever(autoreverses: true)
+                    : .default,
+                value: isAnimating
+            )
+    }
+
+    // Функция для запуска анимации
+    private func animateWobble() {
+        isAnimating = false
     }
 }
+
 #Preview {
     HelpProfileRectangleMorning()
 }
