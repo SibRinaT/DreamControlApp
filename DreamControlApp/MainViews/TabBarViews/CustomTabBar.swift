@@ -22,7 +22,9 @@ struct CustomTabBar: View {
                     DreamView()
                 } else if selectedTab == 2 {
                     IdeasView()
-                }
+                } else if selectedTab == 3 {
+                SettingsView()
+            }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             
