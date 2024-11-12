@@ -10,11 +10,12 @@ import SwiftUI
 struct MorningRectangle: View {
     @State var text: String
     @State var author: String
+    @AppStorage("isAnimating") private var isAnimating: Bool = false
 
     var body: some View {
         VStack {
             VStack {
-                HelpProfileRectangleMorning()
+                HelpProfileRectangleMorning(isAnimating: $isAnimating)
                     .overlay (
                         HStack {
                             Spacer()

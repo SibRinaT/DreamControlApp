@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HelpProfileRectangleMorning: View {
-    @State private var isAnimating = true // состояние анимации
+    @Binding var isAnimating: Bool // состояние анимации
     @State private var rotateAmount: CGFloat = 5 // угол поворота
 
     var body: some View {
@@ -68,10 +68,10 @@ struct HelpProfileRectangleMorning: View {
 
     // Функция для запуска анимации
     private func animateWobble() {
-        isAnimating = false
+        isAnimating = true
     }
 }
 
-#Preview {
-    HelpProfileRectangleMorning()
-}
+//#Preview {
+//    HelpProfileRectangleMorning()
+//}

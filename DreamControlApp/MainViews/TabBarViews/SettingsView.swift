@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @AppStorage("isAnimating") private var isAnimating: Bool = true
+    @AppStorage("isAnimating") private var isAnimating: Bool = false
 
     var body: some View {
         VStack {
