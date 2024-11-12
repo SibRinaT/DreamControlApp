@@ -10,11 +10,12 @@ import SwiftUI
 struct DayRectangle: View {
     @State var text: String
     @State var author: String
-    
+    @State private var isAnimating = false
+
     var body: some View {
         VStack {
             VStack {
-                HelpProfileRectangleDay()
+                HelpProfileRectangleDay(isAnimating: $isAnimating)
                     .overlay (
                         HStack {
                             Spacer()
@@ -53,19 +54,3 @@ struct DayRectangle: View {
 #Preview {
     DayRectangle(text: "”Все имеет свою красоту, но не каждый ее видит”", author: "asdda")
 }
-
-// code for text autoSize 
-//GeometryReader { geometry in
-//                                  Rectangle()
-//                                      .foregroundColor(.white)
-//                                      .cornerRadius(15)
-//                                      .frame(width: 200, height: geometry.size.height)
-//                                      .offset(CGSize(width: 70, height: 10))
-//                                      .overlay(
-//                                          Text(text)
-//                                              .gradientForeground(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")])
-//                                              .multilineTextAlignment(.center)
-//                                              .padding()
-//                                      )
-//                              }
-//                              .frame(width: 200)
