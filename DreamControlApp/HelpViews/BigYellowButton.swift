@@ -19,14 +19,15 @@ struct BigYellowButton: View {
                 .frame(height: 85)
                 .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                 .overlay (
-                    HStack {
+                    HStack(){
                         Image(image)
-                            .padding()
+                            .padding(30)
                         Text(title)
                             .bold()
                             .foregroundColor(.white)
                             .font(.title2)
-                            .padding()
+                            .padding(-10)
+                        Spacer()
                     }
                 )
         }
@@ -34,5 +35,5 @@ struct BigYellowButton: View {
 }
 
 #Preview {
-    BigYellowButton(title: "Виджеты", image: "StoryIcon")
+    BigYellowButton(title: "Виджетfjknfdjdnfjnfы", image: "StoryIcon")
 }

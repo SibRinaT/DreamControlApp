@@ -20,26 +20,22 @@ struct SettingsView: View {
             }
             
             VStack {
-                Button(action: {
-                }) {
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(Color("PrimaryColor")) // Прозрачный фон
-                        .frame(height: 85)
-                        .overlay (
-                            HStack {
-                                Image("StoryIcon")
-                                    .padding()
-                                Text("Виджеты")
-                                    .bold()
-                                    .foregroundColor(.white)
-                                    .font(.title2)
-                                    .padding()
-                            }
-                        )
+                BigYellowButton(title: "Виджеты", image: "StoryIcon")
+                    .padding(.bottom)
+                BigYellowButton(title: "Аккаунт", image: "StoryIcon")
+                    .padding(.bottom)
+                BigYellowButton(title: "Уведомления", image: "StoryIcon")
+                    .padding(.bottom)
+                BigYellowButton(title: "Тема", image: "StoryIcon")
+                    .padding(.bottom)
+                BigYellowButton(title: "Анимации", image: "StoryIcon")
+                    .padding(.bottom)
+                BigYellowButton(title: "Язык", image: "StoryIcon")
+                    .padding(.bottom)
                 }
-            }
+            .padding(.horizontal)
         }
-        .padding(.horizontal )
+        .padding(.horizontal)
     }
 }
 
