@@ -29,7 +29,7 @@ struct MorningSplash: View {
                 
                 ZStack {
                     Image("morningCircleSplash")
-                        .shadow(radius: 10)
+                        .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                     Image("Cloud1")
                         .resizable()
                         .frame(width: 40, height: 30)

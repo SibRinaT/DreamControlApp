@@ -17,6 +17,7 @@ struct BigYellowButton: View {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(Color("PrimaryColor")) // Прозрачный фон
                 .frame(height: 85)
+                .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                 .overlay (
                     HStack {
                         Image(image)
