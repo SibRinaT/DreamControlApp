@@ -18,6 +18,26 @@ struct SettingsView: View {
                     .bold()
                 Spacer()
             }
+            
+            VStack {
+                Button(action: {
+                }) {
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundColor(Color("PrimaryColor")) // Прозрачный фон
+                        .frame(height: 85)
+                        .overlay (
+                            HStack {
+                                Image("StoryIcon")
+                                    .padding()
+                                Text("Виджеты")
+                                    .bold()
+                                    .foregroundColor(.white)
+                                    .font(.title2)
+                                    .padding()
+                            }
+                        )
+                }
+            }
         }
         .padding(.horizontal )
     }
