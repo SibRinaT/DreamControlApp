@@ -21,7 +21,7 @@ struct MainOnboarding: View {
                 Rectangle()
                     .frame(height: 383)
                     .cornerRadius(50)
-                    .shadow(radius: 30, y: -4)
+                    .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                     .overlay(
                         VStack {
                             Text("Вход")
@@ -41,8 +41,8 @@ struct MainOnboarding: View {
                                 Rectangle()
                                     .frame(width: 133, height: 1)
                                     .foregroundColor(Color("PrimaryColor"))
-                                    .shadow(radius: 15)
-                                
+                                    .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+
                                 Text("ИЛИ")
                                     .foregroundColor(Color("PrimaryColor"))
                                     .bold()
@@ -50,6 +50,7 @@ struct MainOnboarding: View {
                                 Rectangle()
                                     .frame(width: 133, height: 1)
                                     .foregroundColor(Color("PrimaryColor"))
+                                    .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                             }
                             
                             Rectangle()
