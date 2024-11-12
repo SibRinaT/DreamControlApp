@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct OnboardingView1: View {
-    @State private var isActive: Bool = false
+    @State private var offset: CGSize = .zero
+    @State private var isSwiped: Bool = false
+    
     var body: some View {
         VStack {
             Spacer()
@@ -20,34 +22,52 @@ struct OnboardingView1: View {
                     .foregroundColor(Color("PrimaryColor"))
                 Image("onbImage2")
                     .frame(width: 354, height: 354)
-                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                    .shadow(radius: 10)
             }
             VStack {
                 Image("pageImage1")
                     .offset(y: -40)
-                Text("Теряешь мотивацию?Получи её тут!")
-//                    .font(.custom("MontserratAlternates", size: 24))
+                Text("Теряешь мотивацию? Получи её тут!")
                     .font(.title)
                     .bold()
                     .foregroundColor(Color("TextColor"))
                     .multilineTextAlignment(.center)
-                NavigationLink(destination: OnboardingView2(), isActive: $isActive) {
-                    Rectangle()
-                        .foregroundColor(Color("PrimaryColor"))
-                        .cornerRadius(100)
-                        .frame(height: 40)
-                        .shadow(radius: 5)
-                        .overlay(
-                            Text("Начать")
-                                .font(.title2)
-                                .foregroundColor(.white)
-                        )
-                }
-                .navigationBarHidden(true) // Скрываем навигационную панель
+                NavigationLink(destination: OnboardingView2()) {
+                                       Rectangle()
+                                           .foregroundColor(Color("PrimaryColor"))
+                                           .cornerRadius(100)
+                                           .frame(height: 40)
+                                           .shadow(radius: 5)
+                                           .overlay(
+                                               Text("Начать")
+                                                   .font(.title2)
+                                                   .foregroundColor(.white)
+                                           )
+                                   }
             }
             Spacer()
         }
         .padding(.horizontal, 30)
+        .offset(x: offset.width)
+        .gesture(
+            DragGesture()
+                .onChanged { gesture in
+                    offset = gesture.translation
+                }
+                .onEnded { _ in
+                    if offset.width < -100 { // Если свайп был влево
+                        isSwiped = true
+                    } else {
+                        offset = .zero // Возвращаем обратно, если свайп слабый
+                    }
+                }
+        )
+        .background(
+            NavigationLink(destination: OnboardingView2(), isActive: $isSwiped) {
+                EmptyView()
+            }
+        )
+        .navigationBarHidden(true)
     }
 }
 

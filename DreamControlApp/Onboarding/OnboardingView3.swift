@@ -4,10 +4,12 @@
 //
 //  Created by Ainur on 31.03.2024.
 //
-
 import SwiftUI
 
 struct OnboardingView3: View {
+    @State private var offset: CGSize = .zero
+    @State private var isSwiped: Bool = false
+    
     var body: some View {
         VStack {
             Spacer()
@@ -17,12 +19,11 @@ struct OnboardingView3: View {
                     .offset(y: -170)
                     .blur(radius: 70)
                     .foregroundColor(Color("SecondaryColor"))
-                VStack{
+                VStack {
                     Image("onbImage3")
                         .frame(width: 354, height: 354)
-                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                        .shadow(radius: 10)
                 }
-       
             }
             .edgesIgnoringSafeArea(.top)
             VStack {
@@ -34,7 +35,7 @@ struct OnboardingView3: View {
                     .foregroundColor(Color("TextColor"))
                     .multilineTextAlignment(.center)
                     .bold()
-                NavigationLink(destination: MainOnboarding()) {
+                NavigationLink(destination: LastOnboarding()) {
                     Rectangle()
                         .foregroundColor(Color("PrimaryColor"))
                         .cornerRadius(100)
@@ -46,11 +47,30 @@ struct OnboardingView3: View {
                                 .foregroundColor(.white)
                         )
                 }
-                .navigationBarHidden(true) // Скрываем навигационную панель
             }
             Spacer()
         }
         .padding(.horizontal, 30)
+        .offset(x: offset.width)
+        .gesture(
+            DragGesture()
+                .onChanged { gesture in
+                    offset = gesture.translation
+                }
+                .onEnded { _ in
+                    if offset.width < -100 { // Если свайп был влево
+                        isSwiped = true
+                    } else {
+                        offset = .zero // Возвращаем обратно, если свайп слабый
+                    }
+                }
+        )
+        .background(
+            NavigationLink(destination: LastOnboarding(), isActive: $isSwiped) {
+                EmptyView()
+            }
+        )
+        .navigationBarHidden(true)
     }
 }
 

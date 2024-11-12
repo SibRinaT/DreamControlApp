@@ -43,7 +43,7 @@ struct MainOnboarding: View {
                                     .foregroundColor(Color("PrimaryColor"))
                                     .shadow(radius: 15)
                                 
-                                Text("OR")
+                                Text("ИЛИ")
                                     .foregroundColor(Color("PrimaryColor"))
                                     .bold()
                                 
