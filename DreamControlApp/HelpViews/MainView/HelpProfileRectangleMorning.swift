@@ -35,9 +35,6 @@ struct HelpProfileRectangleMorning: View {
                 )
         }
         .padding(.horizontal)
-        .onAppear {
-            animateWobble()
-        }
     }
 
     // Функция для облаков с анимацией

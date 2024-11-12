@@ -35,9 +35,6 @@ struct HelpProfileRectangleDay: View {
                 )
         }
         .padding(.horizontal)
-        .onAppear {
-            animateWobble()
-        }
     }
 
     private func cloudImage(_ name: String, offset: CGSize) -> some View {

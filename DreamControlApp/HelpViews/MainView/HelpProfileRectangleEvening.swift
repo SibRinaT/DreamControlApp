@@ -21,17 +21,16 @@ struct HelpProfileRectangleEvening: View {
                 .overlay (
                     ZStack {
                         cloudImage("CloudSmallImage", offset: CGSize(width: -150, height: -75))
-                                                                      cloudImage("CloudImage", offset: CGSize(width: -140, height: -30))
-                                                                      cloudImage("CloudImage", offset: CGSize(width: -50, height: -45))
-                                                                      cloudImage("CloudImage", offset: CGSize(width: -150, height: 65))
-                                                                      cloudImage("CloudImage", offset: CGSize(width: -50, height: 60))
-                                                                      starImage("StarSmallImage", offset: CGSize(width: -40, height: 30))
-                                                                      starImage("StarSmallImage", offset: CGSize(width: -165, height: 10))
-                                                                      starImage("StarSmallImage", offset: CGSize(width: -120, height: -60))
-                                                                      starImage("StarSmallImage", offset: CGSize(width: -40, height: -80))
-                                                                      starImage("StarImage", offset: CGSize(width: 140, height: -70))
-                                                                      cloudImage("EveningCloud", offset: CGSize(width: -100, height: 0))
-                        // Добавьте остальные облака и звезды здесь
+                        cloudImage("CloudImage", offset: CGSize(width: -140, height: -30))
+                        cloudImage("CloudImage", offset: CGSize(width: -50, height: -45))
+                        cloudImage("CloudImage", offset: CGSize(width: -150, height: 65))
+                        cloudImage("CloudImage", offset: CGSize(width: -50, height: 60))
+                        starImage("StarSmallImage", offset: CGSize(width: -40, height: 30))
+                        starImage("StarSmallImage", offset: CGSize(width: -165, height: 10))
+                        starImage("StarSmallImage", offset: CGSize(width: -120, height: -60))
+                        starImage("StarSmallImage", offset: CGSize(width: -40, height: -80))
+                        starImage("StarImage", offset: CGSize(width: 140, height: -70))
+                        cloudImage("EveningCloud", offset: CGSize(width: -100, height: 0))
                     }
                 )
         }
