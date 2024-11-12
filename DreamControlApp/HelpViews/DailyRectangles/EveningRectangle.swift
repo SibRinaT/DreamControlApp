@@ -10,12 +10,12 @@ import SwiftUI
 struct EveningRectangle: View {
     @State var text: String
     @State var author: String
-
+    @State private var isAnimating = false
+    
     var body: some View {
         VStack {
             VStack {
-                HelpProfileRectangleEvening()
-                    .overlay (
+                HelpProfileRectangleEvening(isAnimating: $isAnimating)                     .overlay (
                         HStack {
                             Spacer()
                             VStack {
