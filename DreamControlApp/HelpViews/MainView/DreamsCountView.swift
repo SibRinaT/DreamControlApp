@@ -7,18 +7,17 @@
 
 import SwiftUI
 
-@MainActor
 struct DreamsCountView: View {
     @Environment(StoriesService.self) private var storiesService
     @Environment(IdeasViewModel.self) private var ideasViewModel
 
     @State private var showFavorites = false
+    @Binding var isAnimating: Bool // состояние анимации
+    @State private var rotateAmount: CGFloat = 5 // угол поворота
 
     var body: some View {
         HStack {
             ZStack {
-//                Color.red
-//                color for testing background
                 NavigationLink(destination: DreamView()) {
                     Rectangle()
                         .frame(height: 60)
@@ -41,19 +40,16 @@ struct DreamsCountView: View {
                         .padding(.vertical, 20)
                         .padding(.horizontal)
                 }
-                Image("CloudSmallImage")
-                    .offset(CGSize(width: 57, height: 15))
-                Image("CloudImage")
-                    .offset(CGSize(width: 75, height: -25))
-                Image("CloudSmallImage")
-                    .offset(CGSize(width: -57, height: -15))
-                Image("CloudImage")
-                    .offset(CGSize(width: -75, height: 20))
+
+                // Анимация для облаков
+                cloudImage("CloudSmallImage", offset: CGSize(width: 57, height: 15))
+                cloudImage("CloudImage", offset: CGSize(width: 75, height: -25))
+                cloudImage("CloudSmallImage", offset: CGSize(width: -57, height: -15))
+                cloudImage("CloudImage", offset: CGSize(width: -75, height: 20))
             }
             .frame(height: 100)
+
             ZStack {
-                //                Color.blue
-                //                color for testing background
                 Button(action: {
                     showFavorites = true
                 }) {
@@ -79,26 +75,50 @@ struct DreamsCountView: View {
                         .padding(.horizontal)
                 }
                 .sheet(isPresented: $showFavorites) {
-                    FavoritesView(ideasViewModel: ideasViewModel) // Открытие избранных идей
+                    FavoritesView(ideasViewModel: ideasViewModel)
                 }
-                Image("StarSmallImage")
-                    .offset(CGSize(width: -50, height: 18))
-                Image("StarImage")
-                    .offset(CGSize(width: -75, height: -25))
-                Image("StarSmallImage")
-                    .offset(CGSize(width: 57, height: -10))
-                Image("StarImage")
-                    .offset(CGSize(width: 75, height: 25))
-                }
-                .frame(height: 100)
+
+                // Анимация для звезд
+                starImage("StarSmallImage", offset: CGSize(width: -50, height: 18))
+                starImage("StarImage", offset: CGSize(width: -75, height: -25))
+                starImage("StarSmallImage", offset: CGSize(width: 57, height: -10))
+                starImage("StarImage", offset: CGSize(width: 75, height: 25))
+            }
+            .frame(height: 100)
         }
+    }
+
+    // Функция для облаков с анимацией
+    private func cloudImage(_ name: String, offset: CGSize) -> some View {
+        Image(name)
+            .offset(offset)
+            .rotationEffect(.degrees(isAnimating ? rotateAmount : 0))
+            .animation(
+                isAnimating
+                    ? Animation.easeInOut(duration: 5).repeatForever(autoreverses: true)
+                    : .default,
+                value: isAnimating
+            )
+    }
+
+    // Функция для звезд с анимацией
+    private func starImage(_ name: String, offset: CGSize) -> some View {
+        Image(name)
+            .offset(offset)
+            .rotationEffect(.degrees(isAnimating ? -rotateAmount : 0))
+            .animation(
+                isAnimating
+                    ? Animation.easeInOut(duration: 5).repeatForever(autoreverses: true)
+                    : .default,
+                value: isAnimating
+            )
     }
 }
 
-#Preview {
-    NavigationView {
-        DreamsCountView()
-            .environment(StoriesService())
-            .environmentObject(IdeasViewModel())
-    }
-}
+//#Preview {
+//    NavigationView {
+//        DreamsCountView(isAnimating: .constant(true))
+//            .environment(StoriesService())
+//            .environmentObject(IdeasViewModel())
+//    }
+//}

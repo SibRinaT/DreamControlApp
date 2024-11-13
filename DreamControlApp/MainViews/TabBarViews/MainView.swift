@@ -11,7 +11,8 @@ import SwiftUI
 struct MainView: View {
     @State private var currentHour: Int = Calendar.current.component(.hour, from: Date())
     @State private var randomQuote: DailyRectangle = quotes.randomElement()!
-
+    @AppStorage("isAnimating") private var isAnimating: Bool = false
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -28,7 +29,7 @@ struct MainView: View {
                     updateRandomQuote()
                     updateTime()
                 }
-                DreamsCountView()
+                DreamsCountView(isAnimating: $isAnimating)
                 
                 VStack {
                     HStack {
