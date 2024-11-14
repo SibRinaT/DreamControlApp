@@ -20,8 +20,8 @@ struct DreamControlAppApp: App {
           
           // Проверяем, первый ли это запуск и завершен ли онбординг
           let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-          let completedOnboarding = UserDefaults.standard.bool(forKey: "completedOnboarding")
-          
+        let completedOnboarding = UserDefaults.standard.bool(forKey: "onboardingCompleted")
+
           if !launchedBefore {
               UserDefaults.standard.set(true, forKey: "launchedBefore")
               _isFirstLaunch = State(initialValue: true)

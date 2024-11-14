@@ -33,7 +33,7 @@ struct OnboardingView2: View {
                     .bold()
                     .multilineTextAlignment(.center)
             }
-            NavigationLink(destination: LastOnboarding()) {
+            NavigationLink(destination: OnboardingView3()) {
                 Rectangle()
                     .foregroundColor(Color("PrimaryColor"))
                     .cornerRadius(100)
