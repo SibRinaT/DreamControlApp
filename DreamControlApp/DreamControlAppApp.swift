@@ -25,7 +25,7 @@ struct DreamControlAppApp: App {
           if !launchedBefore {
               UserDefaults.standard.set(true, forKey: "launchedBefore")
               _isFirstLaunch = State(initialValue: true)
-              _hasCompletedOnboarding = State(initialValue: false)
+                _hasCompletedOnboarding = State(initialValue: false)
           } else {
               _isFirstLaunch = State(initialValue: false)
               _hasCompletedOnboarding = State(initialValue: completedOnboarding)
