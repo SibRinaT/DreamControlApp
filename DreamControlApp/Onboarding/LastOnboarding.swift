@@ -50,9 +50,9 @@ struct LastOnboarding: View {
                         
                         YellowButtonLastOnboard(isActive: isButtonActive, text: "Войти") {
                             if isButtonActive {
-                                // Обновляем флаг онбординга в UserDefaults
                                 UserDefaults.standard.set(true, forKey: "onboardingCompleted")
                                 navigateToTabBar = true // Активируем навигацию
+                                UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: CustomTabBar())
                             }
                         }
                         
