@@ -54,11 +54,13 @@ struct DreamControlAppApp: App {
         case 6..<12:
             return AnyView(MorningSplash())
         case 12..<18:
-            return AnyView(TestNotificationView())
+            return AnyView(DaySplash())
         case 18..<24:
             return AnyView(EveningSplash())
         default:
             return AnyView(DaySplash())
         }
+            // for test notification        return AnyView(TestNotificationView())
+
     }
 }
