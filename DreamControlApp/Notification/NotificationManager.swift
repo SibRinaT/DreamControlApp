@@ -29,7 +29,7 @@ class NotificationManager {
     func scheduleNotification() {
         let content = UNMutableNotificationContent()
         content.title = "Напоминание"
-        content.body = "Не забудьте завершить вашу задачу!"
+        content.body = "Не забывайте мечтать, ведь постоянство - ключ к успеху!"
         content.sound = .default
         content.categoryIdentifier = "category_id"
 
@@ -43,6 +43,19 @@ class NotificationManager {
             if let error = error {
                 print("Ошибка при добавлении уведомления: \(error.localizedDescription)")
             }
+        }
+    }
+    
+    class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
+        func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+            if response.actionIdentifier == "action_id" {
+                print("Кнопка действия нажата!")
+            }
+            completionHandler()
+        }
+
+        func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+            completionHandler([.banner, .sound]) // Показывать уведомление, даже если приложение активно
         }
     }
 
