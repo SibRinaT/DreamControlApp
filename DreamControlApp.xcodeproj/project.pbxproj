@@ -38,6 +38,7 @@
 		2E8578882BBBFAF400BEA1ED /* CustomCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8578872BBBFAF400BEA1ED /* CustomCheckBoxView.swift */; };
 		2E85788A2BBD82F700BEA1ED /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8578892BBD82F700BEA1ED /* AuthenticationView.swift */; };
 		2E8C614E2CE8A99500A61DA4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C614D2CE8A99500A61DA4 /* NotificationManager.swift */; };
+		2E8C61502CE8AC5B00A61DA4 /* TestNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C614F2CE8AC5B00A61DA4 /* TestNotification.swift */; };
 		2E8F49022B9489DF00414354 /* OnboardingView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8F49012B9489DF00414354 /* OnboardingView1.swift */; };
 		2E90A3162CE110DC00643AB4 /* LastOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E90A3152CE110DC00643AB4 /* LastOnboarding.swift */; };
 		2E90A3182CE1158600643AB4 /* YellowButtonLastOnboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E90A3172CE1158600643AB4 /* YellowButtonLastOnboard.swift */; };
@@ -106,6 +107,7 @@
 		2E8578872BBBFAF400BEA1ED /* CustomCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckBoxView.swift; sourceTree = "<group>"; };
 		2E8578892BBD82F700BEA1ED /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		2E8C614D2CE8A99500A61DA4 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		2E8C614F2CE8AC5B00A61DA4 /* TestNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNotification.swift; sourceTree = "<group>"; };
 		2E8F49012B9489DF00414354 /* OnboardingView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView1.swift; sourceTree = "<group>"; };
 		2E90A3152CE110DC00643AB4 /* LastOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboarding.swift; sourceTree = "<group>"; };
 		2E90A3172CE1158600643AB4 /* YellowButtonLastOnboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowButtonLastOnboard.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				2E8C614D2CE8A99500A61DA4 /* NotificationManager.swift */,
+				2E8C614F2CE8AC5B00A61DA4 /* TestNotification.swift */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				2EA06B9F2BD18F9A0056E9F7 /* CustomTabBar.swift in Sources */,
 				2E19785B2BD3DEED000AD527 /* HelpProfileRectangleDay.swift in Sources */,
 				2E6B1A112CDCF31200E07DB2 /* NewDreamView.swift in Sources */,
+				2E8C61502CE8AC5B00A61DA4 /* TestNotification.swift in Sources */,
 				2E542A062CA8A26300338070 /* DayRectangel.swift in Sources */,
 				2EFB88382CABBFA90006D68E /* EveningRectangle.swift in Sources */,
 				AC3213602C9519DE006D4399 /* DreamControlAppApp.swift in Sources */,
