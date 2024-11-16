@@ -11,6 +11,7 @@ struct MorningRectangle: View {
     @State var text: String
     @State var author: String
     @AppStorage("isAnimating") private var isAnimating: Bool = false
+    @AppStorage("userName") private var savedName: String = ""
 
     var body: some View {
         VStack {
@@ -20,7 +21,7 @@ struct MorningRectangle: View {
                         HStack {
                             Spacer()
                             VStack {
-                                Text("Привет Айнур")
+                                Text("Привет, \(savedName)!")
                                     .font(.title)
                                     .foregroundColor(.white)
                                     .bold()
