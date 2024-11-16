@@ -37,6 +37,7 @@
 		2E8578862BBBF76800BEA1ED /* OrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8578852BBBF76800BEA1ED /* OrView.swift */; };
 		2E8578882BBBFAF400BEA1ED /* CustomCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8578872BBBFAF400BEA1ED /* CustomCheckBoxView.swift */; };
 		2E85788A2BBD82F700BEA1ED /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8578892BBD82F700BEA1ED /* AuthenticationView.swift */; };
+		2E8C614E2CE8A99500A61DA4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C614D2CE8A99500A61DA4 /* NotificationManager.swift */; };
 		2E8F49022B9489DF00414354 /* OnboardingView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8F49012B9489DF00414354 /* OnboardingView1.swift */; };
 		2E90A3162CE110DC00643AB4 /* LastOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E90A3152CE110DC00643AB4 /* LastOnboarding.swift */; };
 		2E90A3182CE1158600643AB4 /* YellowButtonLastOnboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E90A3172CE1158600643AB4 /* YellowButtonLastOnboard.swift */; };
@@ -104,6 +105,7 @@
 		2E8578852BBBF76800BEA1ED /* OrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrView.swift; sourceTree = "<group>"; };
 		2E8578872BBBFAF400BEA1ED /* CustomCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckBoxView.swift; sourceTree = "<group>"; };
 		2E8578892BBD82F700BEA1ED /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		2E8C614D2CE8A99500A61DA4 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		2E8F49012B9489DF00414354 /* OnboardingView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView1.swift; sourceTree = "<group>"; };
 		2E90A3152CE110DC00643AB4 /* LastOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboarding.swift; sourceTree = "<group>"; };
 		2E90A3172CE1158600643AB4 /* YellowButtonLastOnboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowButtonLastOnboard.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 		2E6124562B9025B100494DF6 /* DreamControlApp */ = {
 			isa = PBXGroup;
 			children = (
+				2E8C614C2CE8A97500A61DA4 /* Notification */,
 				AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */,
 				AC3213622C9519F5006D4399 /* Services */,
 				2E69F7882CDF47C7002F970E /* Not Use */,
@@ -294,6 +297,14 @@
 				2E6124592B9025B100494DF6 /* SplashView.swift */,
 			);
 			path = MainViews;
+			sourceTree = "<group>";
+		};
+		2E8C614C2CE8A97500A61DA4 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				2E8C614D2CE8A99500A61DA4 /* NotificationManager.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		2E912D382B970CBA00664140 /* Onboarding */ = {
@@ -509,6 +520,7 @@
 				2E90A3182CE1158600643AB4 /* YellowButtonLastOnboard.swift in Sources */,
 				2E90A3162CE110DC00643AB4 /* LastOnboarding.swift in Sources */,
 				2E23AE462C2614D2003FCCC1 /* SubscriptionButton.swift in Sources */,
+				2E8C614E2CE8A99500A61DA4 /* NotificationManager.swift in Sources */,
 				2E6092362CBE73B900081545 /* MorningSplash.swift in Sources */,
 				2E92C9262BC04DA7005E4DB9 /* CreateNewPasswordView.swift in Sources */,
 				2EC4DBFD2BBE7FFF00DE1B43 /* PasswordResetView .swift in Sources */,
