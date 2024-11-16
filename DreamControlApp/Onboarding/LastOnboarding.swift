@@ -10,12 +10,14 @@ import SwiftUI
 struct LastOnboarding: View {
     @State private var email = ""
     @State private var name = ""
-    @State private var navigateToTabBar = false  // состояние для навигации
+    @State private var navigateToTabBar = false
+
+    @AppStorage("userName") private var savedName: String = "" // Сохранение имени пользователя в UserDefaults
 
     private var isButtonActive: Bool {
         !email.isEmpty && !name.isEmpty
     }
-    
+
     var body: some View {
         ZStack {
             VStack {
@@ -46,11 +48,12 @@ struct LastOnboarding: View {
                         NavigationLink(destination: CustomTabBar(), isActive: $navigateToTabBar) {
                             EmptyView()
                         }
-                        .navigationBarHidden(true) 
+                        .navigationBarHidden(true)
                         
                         YellowButtonLastOnboard(isActive: isButtonActive, text: "Войти") {
                             if isButtonActive {
                                 UserDefaults.standard.set(true, forKey: "onboardingCompleted")
+                                savedName = name // Сохранение имени в UserDefaults через @AppStorage
                                 navigateToTabBar = true // Активируем навигацию
                                 UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: CustomTabBar())
                             }
@@ -72,7 +75,6 @@ struct LastOnboarding: View {
         }
     }
 }
-
 
 #Preview {
     NavigationView {
