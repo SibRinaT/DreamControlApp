@@ -25,6 +25,25 @@ class NotificationManager {
         let category = UNNotificationCategory(identifier: "category_id", actions: [action], intentIdentifiers: [])
         UNUserNotificationCenter.current().setNotificationCategories([category])
     }
+    
+    func scheduleNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "Напоминание"
+        content.body = "Не забудьте завершить вашу задачу!"
+        content.sound = .default
+        content.categoryIdentifier = "category_id"
 
+        // Триггер через 10 секунд
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+
+        // Уникальный идентификатор для уведомления
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Ошибка при добавлении уведомления: \(error.localizedDescription)")
+            }
+        }
+    }
 
 }
