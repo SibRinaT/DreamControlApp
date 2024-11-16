@@ -22,7 +22,7 @@ struct EveningRectangle: View {
                             Spacer()
                             VStack {
                                 Text("Привет, \(savedName)!")
-                                    .font(.title)
+                                    .font(.title2)
                                     .foregroundColor(.white)
                                     .bold()
                                     .offset(CGSize(width: 70, height: 10))

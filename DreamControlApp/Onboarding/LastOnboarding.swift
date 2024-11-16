@@ -11,7 +11,7 @@ struct LastOnboarding: View {
     @State private var email = ""
     @State private var name = ""
     @State private var navigateToTabBar = false
-
+    
     @AppStorage("userName") private var savedName: String = "" // Сохранение имени пользователя в UserDefaults
 
     private var isButtonActive: Bool {
