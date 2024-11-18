@@ -55,7 +55,6 @@ struct LastOnboarding: View {
                                 UserDefaults.standard.set(true, forKey: "onboardingCompleted")
                                 savedName = name // Сохранение имени в UserDefaults через @AppStorage
                                 navigateToTabBar = true // Активируем навигацию
-                                UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: CustomTabBar())
                             }
                         }
                         

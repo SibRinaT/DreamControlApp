@@ -14,72 +14,69 @@ struct MainView: View {
     @AppStorage("isAnimating") private var isAnimating: Bool = false
     
     var body: some View {
-        NavigationView {
+        VStack {
             VStack {
-                VStack {
-                    if currentHour >= 6 && currentHour < 12 {
-                        MorningRectangle(text: randomQuote.text, author: randomQuote.authorText)
-                    } else if currentHour >= 12 && currentHour < 17 {
-                        DayRectangle(text: randomQuote.text, author: randomQuote.authorText)
-                    } else {
-                        EveningRectangle(text: randomQuote.text, author: randomQuote.authorText)
-                    }
+                if currentHour >= 6 && currentHour < 12 {
+                    MorningRectangle(text: randomQuote.text, author: randomQuote.authorText)
+                } else if currentHour >= 12 && currentHour < 17 {
+                    DayRectangle(text: randomQuote.text, author: randomQuote.authorText)
+                } else {
+                    EveningRectangle(text: randomQuote.text, author: randomQuote.authorText)
                 }
-                .onAppear {
-                    updateRandomQuote()
-                    updateTime()
-                }
-                DreamsCountView(isAnimating: $isAnimating)
-                
-                VStack {
-                    HStack {
-                        NavigationLink(destination: DreamView())
-                        {
-                            OtherViewsRectangle(image: "StarIcon", title: "Ваши мечты", text: "Пусть ваша звезда всегда горит ярко")
-                        }
-                        .padding(.horizontal)
-                        NavigationLink(destination: IdeasView()) {
-                            OtherViewsRectangle(image: "IdeaIcon", title: "Идеи", text: "Вдохновляйтесь и растите")
-                        }
-                        .padding(.horizontal)
+            }
+            .onAppear {
+                updateRandomQuote()
+                updateTime()
+            }
+            DreamsCountView(isAnimating: $isAnimating)
+            
+            VStack {
+                HStack {
+                    NavigationLink(destination: DreamView())
+                    {
+                        OtherViewsRectangle(image: "StarIcon", title: "Ваши мечты", text: "Пусть ваша звезда всегда горит ярко")
                     }
-                    HStack {
-                        HStack {
-                            NavigationLink(destination: SubscriptionView()) {
-                                Rectangle()
-                                    .foregroundColor(.white)
-                                    .cornerRadius(15)
-                                    .frame(width: 159, height: 130)
-                                    .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-                                    .overlay(
-                                        HStack {
-                                            VStack(alignment: .leading, spacing: 5){
-                                                Image("SubIcon")
-                                                Text("Подписка")
-                                                    .bold()
-                                                //                                                .font(Font.custom("Название вашего шрифта", size: 14).bold())
-                                                    .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
-                                                Text("Позвольте себе большее")
-                                                    .foregroundColor(Color("TextColor"))
-                                                    .font(.custom("", size: 12))
-                                                    .multilineTextAlignment(.leading)
-                                            }
-                                            Spacer()
-                                        }
-                                            .padding(.horizontal)
-                                            .padding(.vertical)
-                                    )
-                            }
-                        }
-                        .padding(.horizontal)
-                        NavigationLink(destination: SettingsView()) {
-                            OtherViewsRectangle(image: "IconSettings", title: "Настройки", text: "Настройся на нужный лад")
-                        }
-                        .padding(.horizontal)
+                    .padding(.horizontal)
+                    NavigationLink(destination: IdeasView()) {
+                        OtherViewsRectangle(image: "IdeaIcon", title: "Идеи", text: "Вдохновляйтесь и растите")
                     }
-                    .padding(.vertical)
                     .padding(.horizontal)
                 }
+                HStack {
+                    HStack {
+                        NavigationLink(destination: SubscriptionView()) {
+                            Rectangle()
+                                .foregroundColor(.white)
+                                .cornerRadius(15)
+                                .frame(width: 159, height: 130)
+                                .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+                                .overlay(
+                                    HStack {
+                                        VStack(alignment: .leading, spacing: 5){
+                                            Image("SubIcon")
+                                            Text("Подписка")
+                                                .bold()
+                                            //                                                .font(Font.custom("Название вашего шрифта", size: 14).bold())
+                                                .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
+                                            Text("Позвольте себе большее")
+                                                .foregroundColor(Color("TextColor"))
+                                                .font(.custom("", size: 12))
+                                                .multilineTextAlignment(.leading)
+                                        }
+                                        Spacer()
+                                    }
+                                        .padding(.horizontal)
+                                        .padding(.vertical)
+                                )
+                        }
+                    }
+                    .padding(.horizontal)
+                    NavigationLink(destination: SettingsView()) {
+                        OtherViewsRectangle(image: "IconSettings", title: "Настройки", text: "Настройся на нужный лад")
+                    }
+                    .padding(.horizontal)
+                }
+                .padding(.vertical)
             }
         }
         .navigationBarBackButtonHidden(true)
