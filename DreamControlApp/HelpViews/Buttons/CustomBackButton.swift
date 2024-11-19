@@ -36,6 +36,24 @@ struct CustomBackButton: View {
     }
 }
 
+struct CustomBackButtonModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    CustomBackButton()
+                }
+            }
+    }
+}
+
+extension View {
+    func customBackButton() -> some View {
+        self.modifier(CustomBackButtonModifier())
+    }
+}
+
 #Preview {
     CustomBackButton()
 }
