@@ -37,11 +37,11 @@ struct DreamControlAppApp: App {
             NavigationView {
                 if isFirstLaunch || !hasCompletedOnboarding {
                     SplashView()
-                    
                 } else {
                     getTimeBasedSplashView()
                 }
             }
+            .customBackButton()
         }
         .environment(\.dynamicTypeSize, .xxLarge)
         .environment(storiesService)

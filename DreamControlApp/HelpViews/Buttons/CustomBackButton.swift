@@ -9,12 +9,10 @@ import SwiftUI
 
 struct CustomBackButton: View {
     var body: some View {
+        @Environment(\.dismiss) var dismiss
+        
         Button(action: {
-            // Возврат к предыдущему экрану
-            // Используйте `presentationMode` для управления навигацией
-            if let presentationMode = UIApplication.shared.windows.first?.rootViewController?.presentedViewController {
-                presentationMode.dismiss(animated: true, completion: nil)
-            }
+            dismiss() // Возвращает на предыдущий экран
         }) {
             Rectangle()
                 .cornerRadius(8)

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MainOnboarding: View {
     var body: some View {
-        NavigationView {
             ZStack {
                 VStack {
                     Image("registrImage")
@@ -70,7 +69,6 @@ struct MainOnboarding: View {
                     )
                     .foregroundColor(.white)
                     .offset(y: 250)
-            }
         }
         .navigationBarHidden(true) // Скрываем навигационную панель
     }

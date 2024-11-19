@@ -112,6 +112,11 @@ struct DreamView: View {
                 }
             }
         }
+        .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    CustomBackButton()
+                }
+            }
         .background(
                     NavigationLink(
                         destination: selectedDream.map { StoryView(dream: $0) },
