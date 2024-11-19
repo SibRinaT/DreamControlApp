@@ -57,6 +57,7 @@
 		2EC4DBFD2BBE7FFF00DE1B43 /* PasswordResetView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC4DBFC2BBE7FFF00DE1B43 /* PasswordResetView .swift */; };
 		2ECD80112C9AA04A003147BE /* StoryTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD80102C9AA04A003147BE /* StoryTextView.swift */; };
 		2ED0C1302CE4692D0038A96A /* YellowToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED0C12F2CE4692D0038A96A /* YellowToggle.swift */; };
+		2ED5FC4A2CEC67EA007A7B77 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED5FC492CEC67EA007A7B77 /* CustomBackButton.swift */; };
 		2EDE21072C1F04C3006951E7 /* DreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE21062C1F04C3006951E7 /* DreamView.swift */; };
 		2EDE21092C20BE23006951E7 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE21082C20BE23006951E7 /* SubscriptionView.swift */; };
 		2EE3AC2E2CC2D1620045EDD0 /* DaySplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE3AC2D2CC2D1620045EDD0 /* DaySplash.swift */; };
@@ -124,6 +125,7 @@
 		2EC4DBFC2BBE7FFF00DE1B43 /* PasswordResetView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PasswordResetView .swift"; sourceTree = "<group>"; };
 		2ECD80102C9AA04A003147BE /* StoryTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTextView.swift; sourceTree = "<group>"; };
 		2ED0C12F2CE4692D0038A96A /* YellowToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowToggle.swift; sourceTree = "<group>"; };
+		2ED5FC492CEC67EA007A7B77 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		2EDE21062C1F04C3006951E7 /* DreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamView.swift; sourceTree = "<group>"; };
 		2EDE21082C20BE23006951E7 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		2EE3AC2D2CC2D1620045EDD0 /* DaySplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySplash.swift; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 				2E90A3172CE1158600643AB4 /* YellowButtonLastOnboard.swift */,
 				2E8578812BBBF07300BEA1ED /* YellowButton.swift */,
 				2E8578832BBBF07F00BEA1ED /* ClearYellowButton.swift */,
+				2ED5FC492CEC67EA007A7B77 /* CustomBackButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				2E90A3182CE1158600643AB4 /* YellowButtonLastOnboard.swift in Sources */,
 				2E90A3162CE110DC00643AB4 /* LastOnboarding.swift in Sources */,
 				2E23AE462C2614D2003FCCC1 /* SubscriptionButton.swift in Sources */,
+				2ED5FC4A2CEC67EA007A7B77 /* CustomBackButton.swift in Sources */,
 				2E8C614E2CE8A99500A61DA4 /* NotificationManager.swift in Sources */,
 				2E6092362CBE73B900081545 /* MorningSplash.swift in Sources */,
 				2E92C9262BC04DA7005E4DB9 /* CreateNewPasswordView.swift in Sources */,
