@@ -14,8 +14,8 @@ extension SchemaV1 {
     @Model
     public final class DreamStory: Sendable {
         public let id: UUID = UUID()
-        public let title = ""
-        public let content = ""
+        public var title = ""
+        public var content = ""
         
         public init(id: UUID = UUID(), title: String, content: String) {
             self.id = id

@@ -68,7 +68,6 @@
 		2EFB883C2CABC9050006D68E /* MorningRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB883B2CABC9050006D68E /* MorningRectangle.swift */; };
 		2EFB883E2CABC9160006D68E /* HelpProfileRectangleMorning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB883D2CABC9160006D68E /* HelpProfileRectangleMorning.swift */; };
 		AC3213602C9519DE006D4399 /* DreamControlAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */; };
-		AC3213632C9519F5006D4399 /* StoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3213612C9519F5006D4399 /* StoriesService.swift */; };
 		ACB4DAE62CEDE2BB003A9B90 /* DataProvider in Frameworks */ = {isa = PBXBuildFile; productRef = ACB4DAE52CEDE2BB003A9B90 /* DataProvider */; };
 /* End PBXBuildFile section */
 
@@ -150,7 +149,6 @@
 		2EFB883B2CABC9050006D68E /* MorningRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningRectangle.swift; sourceTree = "<group>"; };
 		2EFB883D2CABC9160006D68E /* HelpProfileRectangleMorning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpProfileRectangleMorning.swift; sourceTree = "<group>"; };
 		AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DreamControlAppApp.swift; sourceTree = "<group>"; };
-		AC3213612C9519F5006D4399 /* StoriesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,7 +429,6 @@
 			isa = PBXGroup;
 			children = (
 				2E34CBB12C881F850063F57F /* Models */,
-				AC3213612C9519F5006D4399 /* StoriesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -519,7 +516,6 @@
 				2EFB883E2CABC9160006D68E /* HelpProfileRectangleMorning.swift in Sources */,
 				2EE3AC2E2CC2D1620045EDD0 /* DaySplash.swift in Sources */,
 				2E9BD10F2BA35DDF0055566F /* InputFieldView.swift in Sources */,
-				AC3213632C9519F5006D4399 /* StoriesService.swift in Sources */,
 				2EDE21072C1F04C3006951E7 /* DreamView.swift in Sources */,
 				2E8578882BBBFAF400BEA1ED /* CustomCheckBoxView.swift in Sources */,
 				2ED0C1302CE4692D0038A96A /* YellowToggle.swift in Sources */,

@@ -78,7 +78,6 @@ struct LastOnboarding: View {
 #Preview {
     NavigationView {
         LastOnboarding()
-            .environment(StoriesService())
             .environment(IdeasViewModel())
     }
 }

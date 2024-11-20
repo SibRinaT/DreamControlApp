@@ -47,6 +47,5 @@ struct TabBar: View {
 
 #Preview {
     TabBar()
-        .environment(StoriesService())
         .environmentObject(IdeasViewModel())
 }

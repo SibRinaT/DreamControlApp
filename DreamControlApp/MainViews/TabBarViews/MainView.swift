@@ -93,6 +93,5 @@ struct MainView: View {
 
 #Preview {
     MainView()
-        .environment(StoriesService())
         .environmentObject(IdeasViewModel()) 
 }

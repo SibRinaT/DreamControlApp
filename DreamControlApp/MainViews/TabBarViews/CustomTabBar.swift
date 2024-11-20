@@ -94,7 +94,6 @@ struct CustomTabBar: View {
 struct CustomTabBar_Previews: PreviewProvider {
     static var previews: some View {
         CustomTabBar()
-            .environment(StoriesService())
             .environment(IdeasViewModel())
     }
 }

@@ -20,6 +20,10 @@ public actor DataHandler {
         modelContext.insert(dream)
         return dream.persistentModelID
     }
+    
+    public func delete(dream: Dream) {
+        modelContext.delete(dream)
+    }
         
     public func getDreams() throws -> [Dream] {
         var desc = FetchDescriptor<Dream>()
@@ -29,5 +33,15 @@ public actor DataHandler {
     public func getDreamsCount() throws -> Int {
         var desc = FetchDescriptor<Dream>()
         return try modelContext.fetchCount(desc)
+    }
+    
+    @discardableResult
+    public func new(story: DreamStory) -> PersistentIdentifier {
+        modelContext.insert(story)
+        return story.persistentModelID
+    }
+    
+    public func delete(story: DreamStory) {
+        modelContext.delete(story)
     }
 }

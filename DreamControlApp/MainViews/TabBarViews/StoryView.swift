@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import DataProvider
 
 struct StoryView: View {
-    @Environment(StoriesService.self) private var storiesService
-    @State var dream: Dream
+    @Environment(\.dataHandler) private var dataHandler
+    
+    let dreamName: String
+    @State var stories: [DreamStory]
     
     // Не используется?
     @State private var nextStoryId = UUID() // Для генерации уникальных идентификаторов историй
@@ -53,7 +56,7 @@ struct StoryView: View {
                                 .bold()
                                 .font(.headline)
                             
-                            Text(dream.name)
+                            Text(dreamName)
                                 .foregroundColor(.white)
                                 .bold()
                                 .font(.title)
@@ -64,7 +67,7 @@ struct StoryView: View {
                 )
             VStack {
                 List {
-                    ForEach(dream.stories) { story in
+                    ForEach(stories) { story in
                         Button(action: {
                             storyToEdit = story
                         }) {
@@ -96,7 +99,7 @@ struct StoryView: View {
                     .listRowBackground(Color.clear)
                     .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                     
-                    if dream.stories.count < maxStoriesAllowed {
+                    if (stories.count) < maxStoriesAllowed {
                         Button(action: {
                             showingNewStoryView = true // Открытие окна создания новой истории
                         }, label: {
@@ -142,36 +145,35 @@ struct StoryView: View {
         }
     }
     
-    @MainActor private func delete(story: DreamStory) {
-        if let index = dream.stories.firstIndex(where: { $0.id == story.id }) {
-            dream.stories.remove(at: index)
-            storiesService.deleteStory(from: dream, story: story) // Удаляем историю из сервиса
+    private func delete(story: DreamStory) {
+        Task {
+            await dataHandler?.delete(story: story)
         }
     }
     
-    @MainActor private func addNewStory(title: String, content: String) {
-        let newStory = DreamStory(id: UUID(), title: title, content: content)
-        dream.stories.append(newStory)
-        storiesService.update(dream: dream)
+    private func addNewStory(title: String, content: String) {
+        Task {
+            let newStory = DreamStory(title: title, content: content)
+            await dataHandler?.new(story: newStory)
+        }
     }
     
-    @MainActor private func updateStory(newTitle: String, newContent: String) {
+    private func updateStory(newTitle: String, newContent: String) {
         guard let storyToEdit else { return }
-        
-        if let index = dream.stories.firstIndex(where: { $0.id == storyToEdit.id}) {
-            let id = dream.stories[index].id
-            dream.stories.remove(at: index)
-            let newStory = DreamStory(id: id, title: newTitle, content: newContent)
-            dream.stories.insert(newStory, at: index)
-            storiesService.update(dream: dream)
+        if let index = stories.firstIndex(where: { $0.id == storyToEdit.id}) {
+            let storyToUpdate = stories[index]
+            storyToUpdate.title = newTitle
+            storyToUpdate.content = newContent
         }
     }
 }
 
 #Preview {
     NavigationStack {
-        StoryView(dream: Dream(id: UUID(), name: "test", image: "", stories: [DreamStory(id: UUID(), title: "Mystory", content: "super long story")]))
-            .environment(StoriesService())
+        StoryView(dreamName: "test", stories: [DreamStory(id: UUID(), title: "Mystory", content: "super long story")])
+            .environment(\.dataHandler, DataHandler(modelContainer: DataProvider.shared.sharedModelContainer,
+                                                    mainActor: true))
+
     }
 
 }

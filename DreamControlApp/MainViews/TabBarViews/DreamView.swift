@@ -5,20 +5,24 @@
 //  Created by Ainur on 16.06.2024.
 //
 import SwiftUI
+import DataProvider
+import SwiftData
 
 @MainActor
 struct DreamView: View {
-    @Environment(StoriesService.self) private var storiesService
+    @Environment(\.dataHandler) private var dataHandler
     @State private var showingSheet = false
     @State private var newButtonName = ""
     @State private var selectedImage = "StarForDream"
     @State private var selectedDream: Dream? // Добавлено для хранения созданной мечты
     @State private var user = User(id: "123", name: "User", isAdmin: false) // Пример пользователя
     @State private var isSubscriptionViewPresented = false
-
+    
+    @Query private var dreams: [Dream]
+    
     private var maxDreamsAllowed: Int {
-            user.isSubscriptionEnabled ? 10 : 3 // Максимум 10 мечт для подписчиков и 3 для остальных
-        }
+        user.isSubscriptionEnabled ? 10 : 3 // Максимум 10 мечт для подписчиков и 3 для остальных
+    }
     
     var body: some View {
         VStack {
@@ -32,7 +36,7 @@ struct DreamView: View {
             }
             
             List {
-                ForEach(storiesService.dreams) { dream in
+                ForEach(dreams) { dream in
                     ZStack(alignment: .leading) {
                         HStack {
                             Image(dream.image)
@@ -59,7 +63,8 @@ struct DreamView: View {
                             }
                         }
                         
-                        NavigationLink(destination: StoryView(dream: dream)) {
+                        NavigationLink(destination: StoryView(dreamName: dream.name,
+                                                              stories: dream.stories ?? [])) {
                             EmptyView()
                         }
                         .opacity(0.0)
@@ -68,7 +73,7 @@ struct DreamView: View {
                 }
                 .listRowSeparator(.hidden)
                 .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-                if storiesService.dreams.count < maxDreamsAllowed {
+                if dreams.count < maxDreamsAllowed {
                     Button(action: {
                         showingSheet = true
                     }, label: {
@@ -104,38 +109,39 @@ struct DreamView: View {
         }
         .padding(.horizontal)
         .sheet(isPresented: $showingSheet) {
-            NewDreamView(newButtonName: $newButtonName, selectedImage: $selectedImage, showingSheet: $showingSheet) { name, image in
-                if !name.isEmpty && storiesService.dreams.count < maxDreamsAllowed {
-                    let newDream = Dream(id: UUID(), name: name, image: image, stories: [])
-                    storiesService.add(dream: newDream)
-                    selectedDream = newDream
-                }
+            NewDreamView(newButtonName: $newButtonName,
+                         selectedImage: $selectedImage,
+                         showingSheet: $showingSheet) { newDream in
+                selectedDream = newDream
             }
         }
         .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    CustomBackButton()
-                }
+            ToolbarItem(placement: .navigationBarLeading) {
+                CustomBackButton()
             }
+        }
         .background(
-                    NavigationLink(
-                        destination: selectedDream.map { StoryView(dream: $0) },
-                        isActive: Binding(
-                            get: { selectedDream != nil },
-                            set: { if !$0 { selectedDream = nil } }
-                        ),
-                        label: { EmptyView() }
-                    )
-                    .hidden()
-                )
+            NavigationLink(
+                destination: selectedDream.map { StoryView(dreamName: $0.name, stories: $0.stories ?? []) },
+                isActive: Binding(
+                    get: { selectedDream != nil },
+                    set: { if !$0 { selectedDream = nil } }
+                ),
+                label: { EmptyView() }
+            )
+            .hidden()
+        )
     }
     
     private func delete(dream: Dream) {
-        storiesService.delete(dream: dream)
+        Task {
+            await dataHandler?.delete(dream: dream)
+        }
     }
 }
 
 #Preview {
     DreamView()
-        .environment(StoriesService())
+        .environment(\.dataHandler, DataHandler(modelContainer: DataProvider.shared.sharedModelContainer,
+                                                mainActor: true))
 }

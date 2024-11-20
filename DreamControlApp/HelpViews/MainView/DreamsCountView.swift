@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import SwiftData
+import DataProvider
 
 struct DreamsCountView: View {
-    @Environment(StoriesService.self) private var storiesService
     @Environment(IdeasViewModel.self) private var ideasViewModel
-
+    
     @State private var showFavorites = false
     @Binding var isAnimating: Bool // состояние анимации
     @State private var rotateAmount: CGFloat = 5 // угол поворота
 
+    @Query private var dreams: [Dream]
+    
     var body: some View {
         HStack {
             ZStack {
@@ -25,7 +28,7 @@ struct DreamsCountView: View {
                         .cornerRadius(10)
                         .overlay(
                             VStack {
-                                Text("\(storiesService.dreams.count)")
+                                Text("\(dreams.count)")
                                     .bold()
                                     .font(.title2)
                                     .foregroundColor(.white)
@@ -118,7 +121,7 @@ struct DreamsCountView: View {
 //#Preview {
 //    NavigationView {
 //        DreamsCountView(isAnimating: .constant(true))
-//            .environment(StoriesService())
-//            .environmentObject(IdeasViewModel())
+//            .environment(\.dataHandler, DataHandler(modelContainer: DataProvider.shared.sharedModelContainer,
+//                                                    mainActor: true))      .environmentObject(IdeasViewModel())
 //    }
 //}

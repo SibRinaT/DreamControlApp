@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
+import DataProvider
 
 struct NewDreamView: View {
+    @Environment(\.dataHandler) private var dataHandler
     @Binding var newButtonName: String
     @Binding var selectedImage: String
     @Binding var showingSheet: Bool
     @State private var selectedDream: Dream? // Добавлено для хранения созданной мечты
-    var onSave: (String, String) -> Void
+    var onSave: (Dream) -> Void
     
     var body: some View {
         VStack {
@@ -82,19 +84,18 @@ struct NewDreamView: View {
             
             if newButtonName.count == 0 || newButtonName.count > 12 {
                 Button("Сохранить") {
-                    onSave(newButtonName, selectedImage)
-                    newButtonName = ""
-                    selectedImage = "StarForDream"
-                    showingSheet = false
+                    if !newButtonName.isEmpty {
+                        saveNewDream(newButtonName, selectedImage)
+                        
+                    }
                 }
                 .disabled(true)
                 .padding()
             } else {
                 Button("Сохранить") {
-                    onSave(newButtonName, selectedImage)
-                    newButtonName = ""
-                    selectedImage = "StarForDream"
-                    showingSheet = false
+                    if !newButtonName.isEmpty {
+                        saveNewDream(newButtonName, selectedImage)
+                    }
                 }
                 .foregroundColor(Color("PrimaryColor"))
                 .padding()
@@ -107,6 +108,17 @@ struct NewDreamView: View {
             .padding()
         }
         .navigationTitle("Новая мечта")
+    }
+    
+    private func saveNewDream(_ name: String, _ image: String) {
+        Task {
+            let newDream = Dream(id: UUID(), name: name, image: image, stories: [])
+            await dataHandler?.new(dream: newDream)
+            onSave(newDream)
+            newButtonName = ""
+            selectedImage = "StarForDream"
+            showingSheet = false
+        }
     }
 }
 

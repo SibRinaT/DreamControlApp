@@ -10,7 +10,6 @@ import DataProvider
 
 @main
 struct DreamControlAppApp: App {
-    private let storiesService: StoriesService
     private let ideasViewModel: IdeasViewModel
     @State private var hasCompletedOnboarding: Bool
     @State private var isFirstLaunch: Bool
@@ -18,7 +17,6 @@ struct DreamControlAppApp: App {
     @MainActor private let dataHandler: DataHandler
     
     init() {
-        storiesService = StoriesService()
         ideasViewModel = IdeasViewModel()
         dataHandler = DataHandler(modelContainer: DataProvider.shared.sharedModelContainer,
                                   mainActor: true)
@@ -49,7 +47,6 @@ struct DreamControlAppApp: App {
             .customBackButton()
         }
         .environment(\.dynamicTypeSize, .xxLarge)
-        .environment(storiesService)
         .environment(ideasViewModel)
         .environment(\.dataHandler, dataHandler)
     }

@@ -9,18 +9,18 @@ import SwiftUI
 import UIKit
 
 
-struct DreamStory: Codable, Identifiable {
-    let id: UUID
-    let title: String
-    let content: String
-}
-
-struct Dream: Codable, Identifiable {
-    let id: UUID
-    let name: String
-    let image: String
-    var stories: [DreamStory]
-}
+//struct DreamStory: Codable, Identifiable {
+//    let id: UUID
+//    let title: String
+//    let content: String
+//}
+//
+//struct Dream: Codable, Identifiable {
+//    let id: UUID
+//    let name: String
+//    let image: String
+//    var stories: [DreamStory]
+//}
 
 struct User: Codable {
     let id: String
