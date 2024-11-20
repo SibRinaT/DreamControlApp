@@ -36,20 +36,15 @@ public final class DataProvider: Sendable {
     }()
     
     public init() {}
-        
-    public func dataHandlerWithMainContextCreator() -> @Sendable @MainActor () async -> DataHandler {
-        let container = sharedModelContainer
-        return { DataHandler(modelContainer: container, mainActor: true) }
-    }
 }
 
-public struct MainActorDataHandlerKey: EnvironmentKey {
+public struct DataHandlerKey: EnvironmentKey {
     public static let defaultValue: DataHandler? = nil
 }
 
 extension EnvironmentValues {
-    @MainActor public var dataHandlerWithMainContext: DataHandler? {
-        get { self[MainActorDataHandlerKey.self] }
-        set { self[MainActorDataHandlerKey.self] = newValue }
+    @MainActor public var dataHandler: DataHandler? {
+        get { self[DataHandlerKey.self] }
+        set { self[DataHandlerKey.self] = newValue }
     }
 }
