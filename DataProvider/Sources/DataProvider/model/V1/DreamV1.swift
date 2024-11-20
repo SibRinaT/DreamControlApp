@@ -8,9 +8,14 @@ extension SchemaV1 {
     @Model
     public final class Dream: Sendable {
         public let id: UUID = UUID()
+        public let name = ""
+        public let image = ""
+        public var stories: [DreamStory]?
         
-        public init(id: UUID = UUID()) {
+        public init(id: UUID = UUID(), name: String, image: String) {
             self.id = id
+            self.name = name
+            self.image = image
         }
     }
 }
