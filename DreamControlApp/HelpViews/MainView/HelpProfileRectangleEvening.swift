@@ -4,12 +4,11 @@
 //
 //  Created by Ainur on 01.10.2024.
 //
-
 import SwiftUI
 
 struct HelpProfileRectangleEvening: View {
-    @Binding var isAnimating: Bool // возможность контролировать анимацию извне
-    @State private var rotateAmount: CGFloat = 5 // угол поворота
+    @Binding var isAnimating: Bool // Управление анимацией извне
+    @State private var rotateAmount: CGFloat = 5 // Угол поворота
 
     var body: some View {
         VStack {
@@ -18,7 +17,7 @@ struct HelpProfileRectangleEvening: View {
                 .frame(height: 200)
                 .cornerRadius(15)
                 .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-                .overlay (
+                .overlay(
                     ZStack {
                         cloudImage("CloudSmallImage", offset: CGSize(width: -150, height: -75))
                         cloudImage("CloudImage", offset: CGSize(width: -140, height: -30))
@@ -35,34 +34,35 @@ struct HelpProfileRectangleEvening: View {
                 )
         }
         .padding(.horizontal)
+        .onAppear {
+            startAnimationIfNeeded()
+        }
+        .onChange(of: isAnimating) { _ in
+            startAnimationIfNeeded()
+        }
+    }
+
+    private func startAnimationIfNeeded() {
+        if isAnimating {
+            withAnimation(Animation.easeInOut(duration: 5).repeatForever(autoreverses: true)) {
+                rotateAmount = 5
+            }
+        } else {
+            withAnimation(.default) {
+                rotateAmount = 5
+            }
+        }
     }
 
     private func cloudImage(_ name: String, offset: CGSize) -> some View {
         Image(name)
             .offset(offset)
-            .rotationEffect(.degrees(isAnimating ? rotateAmount : 0))
-            .animation(
-                isAnimating
-                    ? Animation.easeInOut(duration: 5).repeatForever(autoreverses: true)
-                    : .default,
-                value: isAnimating
-            )
+            .rotationEffect(.degrees(rotateAmount))
     }
-    
+
     private func starImage(_ name: String, offset: CGSize) -> some View {
         Image(name)
             .offset(offset)
-            .rotationEffect(.degrees(isAnimating ? -rotateAmount : 0))
-            .animation(
-                isAnimating
-                    ? Animation.easeInOut(duration: 5).repeatForever(autoreverses: true)
-                    : .default,
-                value: isAnimating
-            )
+            .rotationEffect(.degrees(-rotateAmount))
     }
 }
-
-
-//#Preview {
-//    HelpProfileRectangleEvening()
-//}
