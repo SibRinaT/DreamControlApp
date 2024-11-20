@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -68,7 +68,21 @@
 		2EFB883E2CABC9160006D68E /* HelpProfileRectangleMorning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB883D2CABC9160006D68E /* HelpProfileRectangleMorning.swift */; };
 		AC3213602C9519DE006D4399 /* DreamControlAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */; };
 		AC3213632C9519F5006D4399 /* StoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3213612C9519F5006D4399 /* StoriesService.swift */; };
+		ACB4DAE62CEDE2BB003A9B90 /* DataProvider in Frameworks */ = {isa = PBXBuildFile; productRef = ACB4DAE52CEDE2BB003A9B90 /* DataProvider */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		ACB4DADF2CEDE22E003A9B90 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2E12B5302BA2152800F44234 /* InputFieldViewPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldViewPassword.swift; sourceTree = "<group>"; };
@@ -142,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACB4DAE62CEDE2BB003A9B90 /* DataProvider in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +443,7 @@
 				2E6124502B9025B100494DF6 /* Sources */,
 				2E6124512B9025B100494DF6 /* Frameworks */,
 				2E6124522B9025B100494DF6 /* Resources */,
+				ACB4DADF2CEDE22E003A9B90 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -462,6 +478,9 @@
 				Base,
 			);
 			mainGroup = 2E61244B2B9025B100494DF6;
+			packageReferences = (
+				ACB4DAE42CEDE2BB003A9B90 /* XCLocalSwiftPackageReference "DataProvider" */,
+			);
 			productRefGroup = 2E6124552B9025B100494DF6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -680,7 +699,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DreamControlApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 26BAG468M4;
+				DEVELOPMENT_TEAM = YZ7WQPG9RM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DreamControlApp/Info.plist;
@@ -689,6 +708,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -710,7 +730,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DreamControlApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 26BAG468M4;
+				DEVELOPMENT_TEAM = YZ7WQPG9RM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DreamControlApp/Info.plist;
@@ -719,6 +739,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -754,6 +775,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		ACB4DAE42CEDE2BB003A9B90 /* XCLocalSwiftPackageReference "DataProvider" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = DataProvider;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ACB4DAE52CEDE2BB003A9B90 /* DataProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DataProvider;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2E61244C2B9025B100494DF6 /* Project object */;
 }
