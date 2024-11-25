@@ -14,6 +14,7 @@
 		2E23AE412C24B526003FCCC1 /* IdeasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E23AE402C24B526003FCCC1 /* IdeasView.swift */; };
 		2E23AE432C24B604003FCCC1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E23AE422C24B604003FCCC1 /* SettingsView.swift */; };
 		2E23AE462C2614D2003FCCC1 /* SubscriptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E23AE452C2614D2003FCCC1 /* SubscriptionButton.swift */; };
+		2E2ACFE52CF1D0E400A55886 /* UnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2ACFE42CF1D0E200A55886 /* UnitTest.swift */; };
 		2E34CBB32C881F970063F57F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34CBB22C881F970063F57F /* Model.swift */; };
 		2E34CBB52C8833700063F57F /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34CBB42C8833700063F57F /* StoryView.swift */; };
 		2E542A062CA8A26300338070 /* DayRectangel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E542A052CA8A26300338070 /* DayRectangel.swift */; };
@@ -92,6 +93,7 @@
 		2E23AE402C24B526003FCCC1 /* IdeasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeasView.swift; sourceTree = "<group>"; };
 		2E23AE422C24B604003FCCC1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2E23AE452C2614D2003FCCC1 /* SubscriptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionButton.swift; sourceTree = "<group>"; };
+		2E2ACFE42CF1D0E200A55886 /* UnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTest.swift; sourceTree = "<group>"; };
 		2E34CBB22C881F970063F57F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		2E34CBB42C8833700063F57F /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		2E542A052CA8A26300338070 /* DayRectangel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRectangel.swift; sourceTree = "<group>"; };
@@ -206,6 +208,14 @@
 			path = IdeaViews;
 			sourceTree = "<group>";
 		};
+		2E2ACFE32CF1D0D500A55886 /* Unit Test */ = {
+			isa = PBXGroup;
+			children = (
+				2E2ACFE42CF1D0E200A55886 /* UnitTest.swift */,
+			);
+			path = "Unit Test";
+			sourceTree = "<group>";
+		};
 		2E34CBB12C881F850063F57F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +253,7 @@
 		2E6124562B9025B100494DF6 /* DreamControlApp */ = {
 			isa = PBXGroup;
 			children = (
+				2E2ACFE32CF1D0D500A55886 /* Unit Test */,
 				2E8C614C2CE8A97500A61DA4 /* Notification */,
 				AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */,
 				AC3213622C9519F5006D4399 /* Services */,
@@ -563,6 +574,7 @@
 				2E12B5312BA2152800F44234 /* InputFieldViewPassword.swift in Sources */,
 				2ECD80112C9AA04A003147BE /* StoryTextView.swift in Sources */,
 				2E92C9282BC04EBA005E4DB9 /* PasswordCreatedView.swift in Sources */,
+				2E2ACFE52CF1D0E400A55886 /* UnitTest.swift in Sources */,
 				2EB1BCB02C22C03A00DBA29F /* DreamsCountView.swift in Sources */,
 				2E8F49022B9489DF00414354 /* OnboardingView1.swift in Sources */,
 				2EA84E1C2C901BBD00C74160 /* NewStoryView.swift in Sources */,
