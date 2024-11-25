@@ -5,6 +5,9 @@
 //  Created by Ainur on 26.10.2024.
 //
 import Foundation
+import SwiftUI
+import DataProvider
+import SwiftData
 
 @MainActor
 @Observable final class IdeasViewModel: ObservableObject {
@@ -60,44 +63,68 @@ import Foundation
         "Принять участие в научной конференции", "Сыграть главную роль в спектакле или фильме"
     ]
     
-    init() {
-        loadFavoriteIdeas()
-    }
-    
-    var savedIdeasCount: Int {
-        return favoriteIdeas.count
-    }
-    
-    func saveIdea(_ idea: String, isRightSwipe: Bool) {
-        if isRightSwipe {
-            rightSwipedIdeas.append(idea)
-            favoriteIdeas.append(idea) // Добавляем идею в избранные
-        } else {
-            leftSwipedIdeas.append(idea)
-        }
-    }
-    
-    private func saveFavoriteIdeas() {
-        do {
-            let encodedFavorites = try JSONEncoder().encode(favoriteIdeas)
-            defaults.set(encodedFavorites, forKey: Keys.favoriteIdeas)
-        } catch {
-            print("Ошибка при сохранении избранных идей: \(error)")
-        }
-    }
-    
-    private func loadFavoriteIdeas() {
-        guard let data = defaults.data(forKey: Keys.favoriteIdeas) else {
-            return
-        }
-        do {
-            favoriteIdeas = try JSONDecoder().decode([String].self, from: data)
-        } catch {
-            print("Ошибка при загрузке избранных идей: \(error)")
-        }
-    }
-    
-    func getRandomIdea() -> String {
-        return ideas.randomElement() ?? "Идея отсутствует"
-    }
-}
+      private let dataHandler: DataHandler
+
+      // Инициализатор, принимающий DataHandler
+      init(dataHandler: DataHandler) {
+          self.dataHandler = dataHandler
+          self.favoriteIdeas = []
+          self.rightSwipedIdeas = []
+          self.leftSwipedIdeas = []
+          loadFavoriteIdeas()
+      }
+      
+      var savedIdeasCount: Int {
+          return favoriteIdeas.count
+      }
+      
+      /// Сохранение идеи в зависимости от свайпа
+      func saveIdea(_ idea: String, isRightSwipe: Bool) {
+          if isRightSwipe {
+              rightSwipedIdeas.append(idea)
+              favoriteIdeas.append(idea) // Добавляем идею в избранные
+          } else {
+              leftSwipedIdeas.append(idea)
+              addIdeaToDreams(idea: idea) // Добавляем идею в мечты
+          }
+      }
+      
+      /// Сохранение избранных идей
+      private func saveFavoriteIdeas() {
+          do {
+              let encodedFavorites = try JSONEncoder().encode(favoriteIdeas)
+              defaults.set(encodedFavorites, forKey: Keys.favoriteIdeas)
+          } catch {
+              print("Ошибка при сохранении избранных идей: \(error)")
+          }
+      }
+      
+      /// Загрузка избранных идей
+      private func loadFavoriteIdeas() {
+          guard let data = defaults.data(forKey: Keys.favoriteIdeas) else {
+              return
+          }
+          do {
+              favoriteIdeas = try JSONDecoder().decode([String].self, from: data)
+          } catch {
+              print("Ошибка при загрузке избранных идей: \(error)")
+          }
+      }
+      
+      /// Получение случайной идеи
+      func getRandomIdea() -> String {
+          return ideas.randomElement() ?? "Идея отсутствует"
+      }
+      
+      /// Добавление идеи в мечты через DataHandler
+      private func addIdeaToDreams(idea: String) {
+          Task {
+              let newDream = Dream(name: idea, image: "DefaultDreamImage")
+              do {
+                  try await dataHandler.new(dream: newDream)
+              } catch {
+                  print("Ошибка при добавлении мечты: \(error)")
+              }
+          }
+      }
+  }
