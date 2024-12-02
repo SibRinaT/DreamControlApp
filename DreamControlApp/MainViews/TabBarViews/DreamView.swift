@@ -115,11 +115,11 @@ struct DreamView: View {
                 selectedDream = newDream
             }
         }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                CustomBackButton()
-            }
-        }
+//        .toolbar {
+//            ToolbarItem(placement: .navigationBarLeading) {
+//                CustomBackButton()
+//            }
+//        }
         .background(
             NavigationLink(
                 destination: selectedDream.map { StoryView(dreamName: $0.name, stories: $0.stories ?? []) },

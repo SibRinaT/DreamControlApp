@@ -44,7 +44,6 @@ struct DreamControlAppApp: App {
                     getTimeBasedSplashView()
                 }
             }
-            .customBackButton()
         }
         .environment(\.dynamicTypeSize, .xxLarge)
         .environment(ideasViewModel)

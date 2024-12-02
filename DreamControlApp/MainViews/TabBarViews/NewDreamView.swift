@@ -18,6 +18,12 @@ struct NewDreamView: View {
     
     var body: some View {
         VStack {
+            Text("Новая мечта")
+                .font(.title)
+                .bold()
+                .padding()
+                .padding(.leading)
+            
             InputFieldView(title: "Название мечты", placeholder: "Введите название", text: $newButtonName)
                 .padding()
             HStack {
@@ -107,7 +113,6 @@ struct NewDreamView: View {
             .foregroundColor(Color("PrimaryColor"))
             .padding()
         }
-        .navigationTitle("Новая мечта")
     }
     
     private func saveNewDream(_ name: String, _ image: String) {

@@ -11,7 +11,6 @@ struct CustomTabBar: View {
     @State private var selectedTab = 0
     
     var body: some View {
-        NavigationStack {
             VStack {
                 Spacer()
                 
@@ -89,7 +88,6 @@ struct CustomTabBar: View {
             }
         }
     }
-}
 
 struct CustomTabBar_Previews: PreviewProvider {
     static var previews: some View {
