@@ -78,7 +78,7 @@ struct DreamsCountView: View {
                         .padding(.horizontal)
                 }
                 .sheet(isPresented: $showFavorites) {
-                    FavoritesView(ideasViewModel: ideasViewModel)
+                    FavoritesIdeasView(ideasViewModel: ideasViewModel)
                 }
 
                 // Анимация для звезд
