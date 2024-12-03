@@ -46,9 +46,9 @@ public actor DataHandler {
         modelContext.delete(story)
     }
     
-    @discardableResult
-    public func new(idea: Idea) -> PersistentIdentifier {
-        modelContext.insert(idea)
-        return idea.persistentModelID
-    }
+//    @discardableResult
+//    public func new(idea: Idea) -> PersistentIdentifier {
+//        modelContext.insert(idea)
+//        return idea.persistentModelID
+//    }
 }
