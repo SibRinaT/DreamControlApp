@@ -18,6 +18,7 @@ public actor DataHandler {
     @discardableResult
     public func new(dream: Dream) -> PersistentIdentifier {
         modelContext.insert(dream)
+        try! modelContext.save()
         return dream.persistentModelID
     }
     
@@ -43,5 +44,11 @@ public actor DataHandler {
     
     public func delete(story: DreamStory) {
         modelContext.delete(story)
+    }
+    
+    @discardableResult
+    public func new(idea: Idea) -> PersistentIdentifier {
+        modelContext.insert(idea)
+        return idea.persistentModelID
     }
 }

@@ -33,7 +33,38 @@ struct DreamControlAppApp: App {
             _isFirstLaunch = State(initialValue: false)
             _hasCompletedOnboarding = State(initialValue: completedOnboarding)
         }
+        
+//        Task {
+//            do {
+//    //            if !ideasPopulatedFromJSON {
+//                    let ideas = try loadFromJson()
+//                    ideas.forEach {
+//                        let idea = Idea(title: $0.name, status: IdeaShowStatus.neutral)
+//                        await dataHandler.new(idea: idea)
+//                    }
+//                    
+//    //            }
+//                
+//            } catch {
+//                print(error)
+//            }
+//        }
+
+        
     }
+    
+//    struct IdeaStruct: Codable {
+//        let name: String
+//    }
+//    
+//    func loadFromJson() throws -> [IdeaStruct] {
+//        if let url = Bundle.main.url(forResource: "ideas", withExtension: "json") {
+//            let data = try Data(contentsOf: url)
+//            let ideas = try JSONDecoder().decode([IdeaStruct].self, from: data)
+//            print(ideas)
+//            return ideas
+//        }
+//    }
     
     var body: some Scene {
         WindowGroup {
@@ -48,6 +79,7 @@ struct DreamControlAppApp: App {
         .environment(\.dynamicTypeSize, .xxLarge)
         .environment(ideasViewModel)
         .environment(\.dataHandler, dataHandler)
+        .environment(\.modelContext, dataHandler.modelContainer.mainContext)
     }
     
     // Метод для выбора нужного Splash экрана в зависимости от времени суток

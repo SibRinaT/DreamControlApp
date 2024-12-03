@@ -141,7 +141,9 @@ struct DreamView: View {
 }
 
 #Preview {
+    let handler = DataHandler(modelContainer: DataProvider.shared.sharedModelContainer,
+                              mainActor: true)
     DreamView()
-        .environment(\.dataHandler, DataHandler(modelContainer: DataProvider.shared.sharedModelContainer,
-                                                mainActor: true))
+        .environment(\.dataHandler, handler)
+        .environment(\.modelContext, handler.modelContainer.mainContext)
 }
