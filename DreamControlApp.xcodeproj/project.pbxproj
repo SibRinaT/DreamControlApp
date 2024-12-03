@@ -208,8 +208,8 @@
 			children = (
 				2E23AE402C24B526003FCCC1 /* IdeasView.swift */,
 				2EEB4DD02CCCC222006FD26D /* IdeasViewModel.swift */,
-				ACE72F992CFEDC3300733B54 /* ideas.json */,
 				2EAA26662CFEF6EB00EC5997 /* FavoritesIdeasView.swift */,
+				ACE72F992CFEDC3300733B54 /* ideas.json */,
 			);
 			path = IdeaViews;
 			sourceTree = "<group>";
