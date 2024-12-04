@@ -17,13 +17,13 @@ struct CustomTabBar: View {
                 // Основное содержимое, меняющееся в зависимости от выбранной вкладки
                 Group {
                     if selectedTab == 0 {
-                        MainView()
+                        MainView(selectedTab: $selectedTab)
                     } else if selectedTab == 1 {
-                        DreamView()
+                        DreamView(selectedTab: $selectedTab)
                     } else if selectedTab == 2 {
-                        IdeasView()
+                        IdeasView(selectedTab: $selectedTab)
                     } else if selectedTab == 3 {
-                        SettingsView()
+                        SettingsView(selectedTab: $selectedTab)
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

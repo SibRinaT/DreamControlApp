@@ -9,10 +9,11 @@ import SwiftUI
 
 @MainActor
 struct MainView: View {
+    @Binding var selectedTab: Int // Передаем привязку состояния активной вкладки
     @State private var currentHour: Int = Calendar.current.component(.hour, from: Date())
     @State private var randomQuote: DailyRectangle = quotes.randomElement()!
     @AppStorage("isAnimating") private var isAnimating: Bool = false
-    
+
     var body: some View {
         VStack {
             VStack {
@@ -28,29 +29,44 @@ struct MainView: View {
                 updateRandomQuote()
                 updateTime()
             }
-            DreamsCountView(isAnimating: $isAnimating)
-            
+            DreamsCountView(isAnimating: $isAnimating, selectedTab: $selectedTab)
+
             VStack {
                 HStack {
-                    NavigationLink(destination: DreamView())
-                    {
-                        OtherViewsRectangle(image: "StarIcon", title: "Ваши мечты", text: "Пусть ваша звезда всегда горит ярко")
+                    OtherViewsRectangleSubscription(
+                        image: "StarIcon",
+                        title: "Ваши мечты",
+                        text: "Пусть ваша звезда всегда горит ярко"
+                    ) {
+                        selectedTab = 1 // Переход на вкладку "Мечты"
                     }
                     .padding(.horizontal)
-                    NavigationLink(destination: IdeasView()) {
-                        OtherViewsRectangle(image: "IdeaIcon", title: "Идеи", text: "Вдохновляйтесь и растите")
+
+                    OtherViewsRectangleSubscription(
+                        image: "IdeaIcon",
+                        title: "Идеи",
+                        text: "Вдохновляйтесь и растите"
+                    ) {
+                        selectedTab = 2 // Переход на вкладку "Идеи"
                     }
                     .padding(.horizontal)
                 }
                 HStack {
-                    HStack {
-                        NavigationLink(destination: SubscriptionView()) {
-                            OtherViewsRectangleSubscription(image: "SubIcon", title: "Подписка", text: "Позвольте себе больше")
-                        }
+                    OtherViewsRectangleSubscription(
+                        image: "SubIcon",
+                        title: "Подписка",
+                        text: "Позвольте себе больше"
+                    ) {
+                        selectedTab = 3 // Переход на вкладку "Подписка"
                     }
                     .padding(.horizontal)
-                    NavigationLink(destination: SettingsView()) {
-                        OtherViewsRectangle(image: "IconSettings", title: "Настройки", text: "Настройся на нужный лад")
+
+                    OtherViewsRectangleSubscription(
+                        image: "IconSettings",
+                        title: "Настройки",
+                        text: "Настройся на нужный лад"
+                    ) {
+                        selectedTab = 4 // Переход на вкладку "Настройки"
                     }
                     .padding(.horizontal)
                 }
@@ -59,17 +75,19 @@ struct MainView: View {
         }
         .navigationBarBackButtonHidden(true)
     }
+
     func updateTime() {
-          let now = Date()
-          currentHour = Calendar.current.component(.hour, from: now)
-      }
+        let now = Date()
+        currentHour = Calendar.current.component(.hour, from: now)
+    }
+
     private func updateRandomQuote() {
         randomQuote = quotes.randomElement()!
     }
 }
 
 
-#Preview {
-    MainView()
-        .environmentObject(IdeasViewModel()) 
-}
+//#Preview {
+//    MainView()
+//        .environmentObject(IdeasViewModel()) 
+//}

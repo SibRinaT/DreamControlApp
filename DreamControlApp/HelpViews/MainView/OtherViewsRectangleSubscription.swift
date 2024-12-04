@@ -11,7 +11,8 @@ struct OtherViewsRectangleSubscription: View {
     @State var image: String
     @State var title: String
     @State var text: String
-
+    let action: () -> Void
+    
     var body: some View {
         Rectangle()
             .foregroundColor(.white)
@@ -35,9 +36,12 @@ struct OtherViewsRectangleSubscription: View {
                     .padding(.horizontal)
                     .padding(.vertical)
             )
+            .onTapGesture {
+                action() // Выполняем действие нажатия
+            }
     }
 }
 
-#Preview {
-    OtherViewsRectangle(image: "IdeaIcon", title: "Ваши мечты", text: "Пусть ваша звезда всегда горит ярко")
-}
+//#Preview {
+//    OtherViewsRectangle(image: "IdeaIcon", title: "Ваши мечты", text: "Пусть ваша звезда всегда горит ярко")
+//}

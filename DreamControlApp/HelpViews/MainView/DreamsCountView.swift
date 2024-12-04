@@ -15,13 +15,13 @@ struct DreamsCountView: View {
     @State private var showFavorites = false
     @Binding var isAnimating: Bool // состояние анимации
     @State private var rotateAmount: CGFloat = 5 // угол поворота
-
     @Query private var dreams: [Dream]
-    
+    @Binding var selectedTab: Int
+
     var body: some View {
         HStack {
             ZStack {
-                NavigationLink(destination: DreamView()) {
+                NavigationLink(destination: DreamView(selectedTab: $selectedTab)) {
                     Rectangle()
                         .frame(height: 60)
                         .foregroundColor(Color("PrimaryColor"))

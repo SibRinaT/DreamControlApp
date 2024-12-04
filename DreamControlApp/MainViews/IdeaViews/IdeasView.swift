@@ -15,7 +15,8 @@ struct IdeasView: View {
     @State private var dragOffset: CGSize = .zero
     @State private var rectangleColor: Color = .white
     @State private var showFavorites = false
-    
+    @Binding var selectedTab: Int
+
     var body: some View {
         VStack {
             VStack {
@@ -112,8 +113,8 @@ struct IdeasView: View {
         idea = ideasViewModel.getRandomIdea()
     }
 }
-
-#Preview {
-    IdeasView()
-        .environmentObject(IdeasViewModel()) // Передаем viewModel для предварительного просмотра
-}
+//
+//#Preview {
+//    IdeasView()
+//        .environmentObject(IdeasViewModel()) // Передаем viewModel для предварительного просмотра
+//}

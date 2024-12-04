@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SettingsView: View {
     @AppStorage("isAnimating") private var isAnimating: Bool = false
-    
+    @Binding var selectedTab: Int
+
     var body: some View {
         VStack {
             HStack {
@@ -31,6 +32,6 @@ struct SettingsView: View {
     }
 }
 
-#Preview {
-    SettingsView()
-}
+//#Preview {
+//    SettingsView()
+//}

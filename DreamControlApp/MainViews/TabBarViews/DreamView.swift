@@ -17,7 +17,8 @@ struct DreamView: View {
     @State private var selectedDream: Dream? // Добавлено для хранения созданной мечты
     @State private var user = User(id: "123", name: "User", isAdmin: false) // Пример пользователя
     @State private var isSubscriptionViewPresented = false
-    
+    @Binding var selectedTab: Int
+
     @Query private var dreams: [Dream]
     
     private var maxDreamsAllowed: Int {
@@ -139,11 +140,11 @@ struct DreamView: View {
         }
     }
 }
-
-#Preview {
-    let handler = DataHandler(modelContainer: DataProvider.shared.sharedModelContainer,
-                              mainActor: true)
-    DreamView()
-        .environment(\.dataHandler, handler)
-        .environment(\.modelContext, handler.modelContainer.mainContext)
-}
+//
+//#Preview {
+//    let handler = DataHandler(modelContainer: DataProvider.shared.sharedModelContainer,
+//                              mainActor: true)
+//    DreamView()
+//        .environment(\.dataHandler, handler)
+//        .environment(\.modelContext, handler.modelContainer.mainContext)
+//}

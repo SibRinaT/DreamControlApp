@@ -12,7 +12,7 @@ struct TabBar: View {
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            MainView()
+            MainView(selectedTab: $selectedTab)
                 .tabItem {
                     VStack {
                         Image(selectedTab == 0 ? "ActiveHomeIcon" : "IconHome")
@@ -22,7 +22,7 @@ struct TabBar: View {
                 }
                 .tag(0)
 
-            DreamView()
+            DreamView(selectedTab: $selectedTab)
                 .tabItem {
                     VStack {
                         Image(selectedTab == 1 ? "ActiveDreamsIcon" : "DreamsIcon")
@@ -32,7 +32,7 @@ struct TabBar: View {
                 }
                 .tag(1)
 
-            IdeasView()
+            IdeasView(selectedTab: $selectedTab)
                 .tabItem {
                     VStack {
                         Image(selectedTab == 2 ? "ActiveIdeasIcon" : "IdeasIcon")
