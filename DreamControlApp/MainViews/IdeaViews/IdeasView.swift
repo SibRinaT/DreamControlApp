@@ -65,8 +65,10 @@ struct IdeasView: View {
                                 .bold()
                                 .font(.title2)
                                 .padding(.bottom, 60)
+                                .offset(x: dragOffset.width, y: dragOffset.height * 0.1)
+                                .rotationEffect(.degrees(Double(dragOffset.width) / 15))
                             Text(idea)
-                                .offset(x: dragOffset.width, y: dragOffset.height * 0.1) // небольшое смещение по y
+                                .offset(x: dragOffset.width, y: dragOffset.height * 0.1)
                                 .rotationEffect(.degrees(Double(dragOffset.width) / 15))
                                 .font(.title3)
                                 .padding(.horizontal, 30)

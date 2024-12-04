@@ -21,12 +21,14 @@ extension SchemaV1 {
     @Model
     public final class Idea: Sendable {
         public let id: UUID = UUID()
-        public var title = ""
+        public var name = ""
+        public var descriptions = ""
         public var status = 0
         
-        public init(id: UUID = UUID(), title: String, status: IdeaShowStatus) {
+        public init(id: UUID = UUID(), name: String, descriptions: String, status: IdeaShowStatus) {
             self.id = id
-            self.title = title
+            self.name = name
+            self.descriptions = descriptions
             self.status = status.rawValue
         }
     }
