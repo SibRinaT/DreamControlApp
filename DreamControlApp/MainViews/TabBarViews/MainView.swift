@@ -33,7 +33,7 @@ struct MainView: View {
 
             VStack {
                 HStack {
-                    OtherViewsRectangleSubscription(
+                    OtherViewsRectangle(
                         image: "StarIcon",
                         title: "Ваши мечты",
                         text: "Пусть ваша звезда всегда горит ярко"
@@ -42,7 +42,7 @@ struct MainView: View {
                     }
                     .padding(.horizontal)
 
-                    OtherViewsRectangleSubscription(
+                    OtherViewsRectangle(
                         image: "IdeaIcon",
                         title: "Идеи",
                         text: "Вдохновляйтесь и растите"
@@ -52,21 +52,21 @@ struct MainView: View {
                     .padding(.horizontal)
                 }
                 HStack {
-                    OtherViewsRectangleSubscription(
-                        image: "SubIcon",
-                        title: "Подписка",
-                        text: "Позвольте себе больше"
-                    ) {
-                        selectedTab = 3 // Переход на вкладку "Подписка"
+                    NavigationLink(destination: SubscriptionView()) {
+                        OtherViewsRectangleSubscription(
+                            image: "SubIcon",
+                            title: "Подписка",
+                            text: "Позвольте себе больше"
+                        )
                     }
                     .padding(.horizontal)
 
-                    OtherViewsRectangleSubscription(
+                    OtherViewsRectangle(
                         image: "IconSettings",
                         title: "Настройки",
                         text: "Настройся на нужный лад"
                     ) {
-                        selectedTab = 4 // Переход на вкладку "Настройки"
+                        selectedTab = 3 // Переход на вкладку "Настройки"
                     }
                     .padding(.horizontal)
                 }

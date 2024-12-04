@@ -11,7 +11,6 @@ struct OtherViewsRectangleSubscription: View {
     @State var image: String
     @State var title: String
     @State var text: String
-    let action: () -> Void
     
     var body: some View {
         Rectangle()
@@ -36,9 +35,6 @@ struct OtherViewsRectangleSubscription: View {
                     .padding(.horizontal)
                     .padding(.vertical)
             )
-            .onTapGesture {
-                action() // Выполняем действие нажатия
-            }
     }
 }
 
