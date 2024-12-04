@@ -54,6 +54,7 @@
 		2EA20C882B919B24000AAEC2 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6124592B9025B100494DF6 /* SplashView.swift */; };
 		2EA84E1C2C901BBD00C74160 /* NewStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA84E1B2C901BBD00C74160 /* NewStoryView.swift */; };
 		2EAA26672CFEF6EB00EC5997 /* FavoritesIdeasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA26662CFEF6EB00EC5997 /* FavoritesIdeasView.swift */; };
+		2EAA26692D00193D00EC5997 /* OtherViewsRectangleSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA26682D00193D00EC5997 /* OtherViewsRectangleSubscription.swift */; };
 		2EB1BCB02C22C03A00DBA29F /* DreamsCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1BCAF2C22C03A00DBA29F /* DreamsCountView.swift */; };
 		2EC4704D2CE3443A00CE1D48 /* BigYellowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC4704C2CE3443A00CE1D48 /* BigYellowButton.swift */; };
 		2EC4DBFD2BBE7FFF00DE1B43 /* PasswordResetView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC4DBFC2BBE7FFF00DE1B43 /* PasswordResetView .swift */; };
@@ -138,6 +139,7 @@
 		2EA20C822B908FC2000AAEC2 /* OnboardingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView2.swift; sourceTree = "<group>"; };
 		2EA84E1B2C901BBD00C74160 /* NewStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStoryView.swift; sourceTree = "<group>"; };
 		2EAA26662CFEF6EB00EC5997 /* FavoritesIdeasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesIdeasView.swift; sourceTree = "<group>"; };
+		2EAA26682D00193D00EC5997 /* OtherViewsRectangleSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewsRectangleSubscription.swift; sourceTree = "<group>"; };
 		2EB1BCAF2C22C03A00DBA29F /* DreamsCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamsCountView.swift; sourceTree = "<group>"; };
 		2EC4704C2CE3443A00CE1D48 /* BigYellowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigYellowButton.swift; sourceTree = "<group>"; };
 		2EC4DBFC2BBE7FFF00DE1B43 /* PasswordResetView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PasswordResetView .swift"; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				2EFB88392CABC10D0006D68E /* HelpProfileRectangleEvening.swift */,
 				2EFB883D2CABC9160006D68E /* HelpProfileRectangleMorning.swift */,
 				2E19785D2BD3E5E7000AD527 /* OtherViewsRectangle.swift */,
+				2EAA26682D00193D00EC5997 /* OtherViewsRectangleSubscription.swift */,
 				2EB1BCAF2C22C03A00DBA29F /* DreamsCountView.swift */,
 			);
 			path = MainView;
@@ -531,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E1978602BD57728000AD527 /* TabBar.swift in Sources */,
+				2EAA26692D00193D00EC5997 /* OtherViewsRectangleSubscription.swift in Sources */,
 				2EFB883E2CABC9160006D68E /* HelpProfileRectangleMorning.swift in Sources */,
 				2EE3AC2E2CC2D1620045EDD0 /* DaySplash.swift in Sources */,
 				2E9BD10F2BA35DDF0055566F /* InputFieldView.swift in Sources */,

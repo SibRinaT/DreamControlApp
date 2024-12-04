@@ -45,29 +45,7 @@ struct MainView: View {
                 HStack {
                     HStack {
                         NavigationLink(destination: SubscriptionView()) {
-                            Rectangle()
-                                .foregroundColor(.white)
-                                .cornerRadius(15)
-                                .frame(width: 159, height: 130)
-                                .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-                                .overlay(
-                                    HStack {
-                                        VStack(alignment: .leading, spacing: 5){
-                                            Image("SubIcon")
-                                            Text("Подписка")
-                                                .bold()
-                                            //                                                .font(Font.custom("Название вашего шрифта", size: 14).bold())
-                                                .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
-                                            Text("Позвольте себе большее")
-                                                .foregroundColor(Color("TextColor"))
-                                                .font(.custom("", size: 12))
-                                                .multilineTextAlignment(.leading)
-                                        }
-                                        Spacer()
-                                    }
-                                        .padding(.horizontal)
-                                        .padding(.vertical)
-                                )
+                            OtherViewsRectangleSubscription(image: "SubIcon", title: "Подписка", text: "Позвольте себе больше")
                         }
                     }
                     .padding(.horizontal)
