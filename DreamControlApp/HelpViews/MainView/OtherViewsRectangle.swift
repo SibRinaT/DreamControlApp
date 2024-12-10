@@ -24,7 +24,7 @@ struct OtherViewsRectangle: View {
                     VStack(alignment: .leading, spacing: 5){
                         Image(image)
                         Text(title)
-//                            .font(Font.custom("Название вашего шрифта", size: 14).bold())
+                            .font(Font.custom("MontserratAlternates.ttf", size: 14).bold())
                             .bold()
                             .foregroundColor(Color("TextColor"))
                             .bold()

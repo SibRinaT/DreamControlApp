@@ -55,6 +55,8 @@
 		2EA84E1C2C901BBD00C74160 /* NewStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA84E1B2C901BBD00C74160 /* NewStoryView.swift */; };
 		2EAA26672CFEF6EB00EC5997 /* FavoritesIdeasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA26662CFEF6EB00EC5997 /* FavoritesIdeasView.swift */; };
 		2EAA26692D00193D00EC5997 /* OtherViewsRectangleSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA26682D00193D00EC5997 /* OtherViewsRectangleSubscription.swift */; };
+		2EAA266B2D0037A500EC5997 /* Arial RoundedBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EAA266A2D0037A500EC5997 /* Arial RoundedBold.ttf */; };
+		2EAA266D2D0046A500EC5997 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAA266C2D0046A300EC5997 /* test.swift */; };
 		2EB1BCB02C22C03A00DBA29F /* DreamsCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1BCAF2C22C03A00DBA29F /* DreamsCountView.swift */; };
 		2EC4704D2CE3443A00CE1D48 /* BigYellowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC4704C2CE3443A00CE1D48 /* BigYellowButton.swift */; };
 		2EC4DBFD2BBE7FFF00DE1B43 /* PasswordResetView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC4DBFC2BBE7FFF00DE1B43 /* PasswordResetView .swift */; };
@@ -140,6 +142,8 @@
 		2EA84E1B2C901BBD00C74160 /* NewStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStoryView.swift; sourceTree = "<group>"; };
 		2EAA26662CFEF6EB00EC5997 /* FavoritesIdeasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesIdeasView.swift; sourceTree = "<group>"; };
 		2EAA26682D00193D00EC5997 /* OtherViewsRectangleSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewsRectangleSubscription.swift; sourceTree = "<group>"; };
+		2EAA266A2D0037A500EC5997 /* Arial RoundedBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arial RoundedBold.ttf"; sourceTree = "<group>"; };
+		2EAA266C2D0046A300EC5997 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		2EB1BCAF2C22C03A00DBA29F /* DreamsCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamsCountView.swift; sourceTree = "<group>"; };
 		2EC4704C2CE3443A00CE1D48 /* BigYellowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigYellowButton.swift; sourceTree = "<group>"; };
 		2EC4DBFC2BBE7FFF00DE1B43 /* PasswordResetView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PasswordResetView .swift"; sourceTree = "<group>"; };
@@ -313,6 +317,7 @@
 		2E69F7882CDF47C7002F970E /* Not Use */ = {
 			isa = PBXGroup;
 			children = (
+				2EAA266C2D0046A300EC5997 /* test.swift */,
 				2E85787C2BBAA7AB00BEA1ED /* TestPageView.swift */,
 				2E8578892BBD82F700BEA1ED /* AuthenticationView.swift */,
 				2E912D392B970CD600664140 /* MainOnboarding.swift */,
@@ -386,6 +391,7 @@
 		2EA20C932B91EF3F000AAEC2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				2EAA266A2D0037A500EC5997 /* Arial RoundedBold.ttf */,
 				2E60923F2CBE835800081545 /* Iowan Old Style.ttc */,
 				2E6092392CBE800800081545 /* ArialRoundedBold.ttf */,
 				2E60923B2CBE80A400081545 /* AmericanTypewriter.ttc */,
@@ -520,6 +526,7 @@
 				2EA20C852B919924000AAEC2 /* Assets.xcassets in Resources */,
 				2E60923A2CBE800800081545 /* ArialRoundedBold.ttf in Resources */,
 				2E8578802BBAB44900BEA1ED /* MontserratAlternates.ttf in Resources */,
+				2EAA266B2D0037A500EC5997 /* Arial RoundedBold.ttf in Resources */,
 				2E6092402CBE835800081545 /* Iowan Old Style.ttc in Resources */,
 				2E60923E2CBE814800081545 /* komika.ttf in Resources */,
 				2E61245F2B9025B300494DF6 /* Preview Assets.xcassets in Resources */,
@@ -572,6 +579,7 @@
 				2EFB883C2CABC9050006D68E /* MorningRectangle.swift in Sources */,
 				2E66C4512BC79DD600FC2E49 /* AuthPasswordInputField.swift in Sources */,
 				2E784F432BA0BE7700AA58F9 /* LogInView.swift in Sources */,
+				2EAA266D2D0046A500EC5997 /* test.swift in Sources */,
 				2E784F452BA0BE8200AA58F9 /* SignUpView.swift in Sources */,
 				2E85788A2BBD82F700BEA1ED /* AuthenticationView.swift in Sources */,
 				2E19785E2BD3E5E7000AD527 /* OtherViewsRectangle.swift in Sources */,

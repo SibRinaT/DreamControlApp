@@ -29,7 +29,7 @@ struct LastOnboarding: View {
                 
             }
             Rectangle()
-                .frame(height: 590)
+                .frame(height: 650)
                 .cornerRadius(50)
                 .shadow(radius: 30, y: -4)
                 .overlay(
