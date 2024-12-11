@@ -64,7 +64,7 @@ struct DreamView: View {
                             }
                         }
                         
-                        NavigationLink(destination: StoryView(dreamName: dream.name,
+                        NavigationLink(destination: StoryView(dream: dream,
                                                               stories: dream.stories ?? [])) {
                             EmptyView()
                         }
@@ -123,7 +123,7 @@ struct DreamView: View {
 //        }
         .background(
             NavigationLink(
-                destination: selectedDream.map { StoryView(dreamName: $0.name, stories: $0.stories ?? []) },
+                destination: selectedDream.map { StoryView(dream: $0, stories: $0.stories ?? []) },
                 isActive: Binding(
                     get: { selectedDream != nil },
                     set: { if !$0 { selectedDream = nil } }

@@ -11,7 +11,7 @@ import DataProvider
 struct StoryView: View {
     @Environment(\.dataHandler) private var dataHandler
     
-    let dreamName: String
+    let dream: Dream
     @State var stories: [DreamStory]
     
     // Не используется?
@@ -56,7 +56,7 @@ struct StoryView: View {
                                 .bold()
                                 .font(.headline)
                             
-                            Text(dreamName)
+                            Text(dream.name)
                                 .foregroundColor(.white)
                                 .bold()
                                 .font(.title)
@@ -154,7 +154,7 @@ struct StoryView: View {
     private func addNewStory(title: String, content: String) {
         Task {
             let newStory = DreamStory(title: title, content: content)
-            await dataHandler?.new(story: newStory)
+            await dataHandler?.new(story: newStory, for: dream)
         }
     }
     
@@ -168,12 +168,12 @@ struct StoryView: View {
     }
 }
 
-#Preview {
-    NavigationStack {
-        StoryView(dreamName: "test", stories: [DreamStory(id: UUID(), title: "Mystory", content: "super long story")])
-            .environment(\.dataHandler, DataHandler(modelContainer: DataProvider.shared.sharedModelContainer,
-                                                    mainActor: true))
-
-    }
-
-}
+//#Preview {
+//    NavigationStack {
+//        StoryView(dreamName: "test", stories: [DreamStory(id: UUID(), title: "Mystory", content: "super long story")])
+//            .environment(\.dataHandler, DataHandler(modelContainer: DataProvider.shared.sharedModelContainer,
+//                                                    mainActor: true))
+//
+//    }
+//
+//}
