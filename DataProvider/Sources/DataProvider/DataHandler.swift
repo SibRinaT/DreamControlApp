@@ -24,6 +24,7 @@ public actor DataHandler {
     
     public func delete(dream: Dream) {
         modelContext.delete(dream)
+        try! modelContext.save()
     }
         
     public func getDreams() throws -> [Dream] {
