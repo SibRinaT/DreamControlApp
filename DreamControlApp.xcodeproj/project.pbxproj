@@ -217,6 +217,7 @@
 				2EEB4DD02CCCC222006FD26D /* IdeasViewModel.swift */,
 				2EAA26662CFEF6EB00EC5997 /* FavoritesIdeasView.swift */,
 				ACE72F992CFEDC3300733B54 /* ideas.json */,
+				2E6092342CBE738300081545 /* DailySplash */,
 			);
 			path = IdeaViews;
 			sourceTree = "<group>";
@@ -332,7 +333,6 @@
 		2E85787E2BBAB24E00BEA1ED /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
-				2E6092342CBE738300081545 /* DailySplash */,
 				2E252B402CB6579C006E3ACA /* IdeaViews */,
 				2EA06B9B2BD18F720056E9F7 /* TabBarViews */,
 				2E92C9292BC04EC1005E4DB9 /* Password */,

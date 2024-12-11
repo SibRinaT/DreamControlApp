@@ -62,12 +62,12 @@ struct IdeasView: View {
                     )
                     .overlay(
                         VStack {
-                            Text("Название")
-                                .bold()
-                                .font(.title2)
-                                .padding(.bottom, 60)
-                                .offset(x: dragOffset.width, y: dragOffset.height * 0.1)
-                                .rotationEffect(.degrees(Double(dragOffset.width) / 15))
+//                            Text("Название")
+//                                .bold()
+//                                .font(.title2)
+//                                .padding(.bottom, 60)
+//                                .offset(x: dragOffset.width, y: dragOffset.height * 0.1)
+//                                .rotationEffect(.degrees(Double(dragOffset.width) / 15))
                             Text(idea)
                                 .offset(x: dragOffset.width, y: dragOffset.height * 0.1)
                                 .rotationEffect(.degrees(Double(dragOffset.width) / 15))
@@ -75,7 +75,7 @@ struct IdeasView: View {
                                 .padding(.horizontal, 30)
                                 .foregroundColor(.black)
                                 .multilineTextAlignment(.center)
-                                .padding(.bottom, 100)
+//                                .padding(.bottom, 100)
                         }
                     )
                 Spacer()
