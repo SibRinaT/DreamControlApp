@@ -24,6 +24,7 @@
 		2E60923E2CBE814800081545 /* komika.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E60923D2CBE814800081545 /* komika.ttf */; };
 		2E6092402CBE835800081545 /* Iowan Old Style.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 2E60923F2CBE835800081545 /* Iowan Old Style.ttc */; };
 		2E61245F2B9025B300494DF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */; };
+		2E666EB82D8835EF00089E89 /* AIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E666EB72D8835DD00089E89 /* AIService.swift */; };
 		2E66C4512BC79DD600FC2E49 /* AuthPasswordInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66C4502BC79DD600FC2E49 /* AuthPasswordInputField.swift */; };
 		2E66C4532BC79F4D00FC2E49 /* OTPModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66C4522BC79F4D00FC2E49 /* OTPModifier.swift */; };
 		2E69F7862CDE11A2002F970E /* AppleId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69F7852CDE11A2002F970E /* AppleId.swift */; };
@@ -113,6 +114,7 @@
 		2E6124592B9025B100494DF6 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		2E61245B2B9025B300494DF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2E666EB72D8835DD00089E89 /* AIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIService.swift; sourceTree = "<group>"; };
 		2E66C4502BC79DD600FC2E49 /* AuthPasswordInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPasswordInputField.swift; sourceTree = "<group>"; };
 		2E66C4522BC79F4D00FC2E49 /* OTPModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPModifier.swift; sourceTree = "<group>"; };
 		2E69F7852CDE11A2002F970E /* AppleId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleId.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 		2E6124562B9025B100494DF6 /* DreamControlApp */ = {
 			isa = PBXGroup;
 			children = (
+				2E666EB62D8835CF00089E89 /* AIViewTest */,
 				2E2ACFE32CF1D0D500A55886 /* Unit Test */,
 				2E8C614C2CE8A97500A61DA4 /* Notification */,
 				AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */,
@@ -304,6 +307,14 @@
 				2E784F442BA0BE8200AA58F9 /* SignUpView.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		2E666EB62D8835CF00089E89 /* AIViewTest */ = {
+			isa = PBXGroup;
+			children = (
+				2E666EB72D8835DD00089E89 /* AIService.swift */,
+			);
+			path = AIViewTest;
 			sourceTree = "<group>";
 		};
 		2E66C4542BC79F5100FC2E49 /* OTP */ = {
@@ -589,6 +600,7 @@
 				2E34CBB32C881F970063F57F /* Model.swift in Sources */,
 				2EDE21092C20BE23006951E7 /* SubscriptionView.swift in Sources */,
 				2EA06B9D2BD18F880056E9F7 /* MainView.swift in Sources */,
+				2E666EB82D8835EF00089E89 /* AIService.swift in Sources */,
 				2EEB4DD12CCCC222006FD26D /* IdeasViewModel.swift in Sources */,
 				2E12B5312BA2152800F44234 /* InputFieldViewPassword.swift in Sources */,
 				2ECD80112C9AA04A003147BE /* StoryTextView.swift in Sources */,
@@ -656,7 +668,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -713,7 +725,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -731,7 +743,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DreamControlApp/Preview Content\"";
-				DEVELOPMENT_TEAM = YZ7WQPG9RM;
+				DEVELOPMENT_TEAM = 26BAG468M4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DreamControlApp/Info.plist;
@@ -762,7 +774,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DreamControlApp/Preview Content\"";
-				DEVELOPMENT_TEAM = YZ7WQPG9RM;
+				DEVELOPMENT_TEAM = 26BAG468M4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DreamControlApp/Info.plist;
