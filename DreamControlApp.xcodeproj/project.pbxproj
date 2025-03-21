@@ -25,6 +25,7 @@
 		2E6092402CBE835800081545 /* Iowan Old Style.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 2E60923F2CBE835800081545 /* Iowan Old Style.ttc */; };
 		2E61245F2B9025B300494DF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */; };
 		2E666EB82D8835EF00089E89 /* AIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E666EB72D8835DD00089E89 /* AIService.swift */; };
+		2E666EBA2D88361A00089E89 /* AITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E666EB92D88361A00089E89 /* AITextView.swift */; };
 		2E66C4512BC79DD600FC2E49 /* AuthPasswordInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66C4502BC79DD600FC2E49 /* AuthPasswordInputField.swift */; };
 		2E66C4532BC79F4D00FC2E49 /* OTPModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66C4522BC79F4D00FC2E49 /* OTPModifier.swift */; };
 		2E69F7862CDE11A2002F970E /* AppleId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69F7852CDE11A2002F970E /* AppleId.swift */; };
@@ -115,6 +116,7 @@
 		2E61245B2B9025B300494DF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2E666EB72D8835DD00089E89 /* AIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIService.swift; sourceTree = "<group>"; };
+		2E666EB92D88361A00089E89 /* AITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AITextView.swift; sourceTree = "<group>"; };
 		2E66C4502BC79DD600FC2E49 /* AuthPasswordInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPasswordInputField.swift; sourceTree = "<group>"; };
 		2E66C4522BC79F4D00FC2E49 /* OTPModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPModifier.swift; sourceTree = "<group>"; };
 		2E69F7852CDE11A2002F970E /* AppleId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleId.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 		2E666EB62D8835CF00089E89 /* AIViewTest */ = {
 			isa = PBXGroup;
 			children = (
+				2E666EB92D88361A00089E89 /* AITextView.swift */,
 				2E666EB72D8835DD00089E89 /* AIService.swift */,
 			);
 			path = AIViewTest;
@@ -577,6 +580,7 @@
 				2EE3AC302CC57D960045EDD0 /* EveningSplash.swift in Sources */,
 				2E8578842BBBF07F00BEA1ED /* ClearYellowButton.swift in Sources */,
 				2E69F7862CDE11A2002F970E /* AppleId.swift in Sources */,
+				2E666EBA2D88361A00089E89 /* AITextView.swift in Sources */,
 				2E912D3A2B970CD600664140 /* MainOnboarding.swift in Sources */,
 				2EFB883A2CABC10D0006D68E /* HelpProfileRectangleEvening.swift in Sources */,
 				2E90A3182CE1158600643AB4 /* YellowButtonLastOnboard.swift in Sources */,
