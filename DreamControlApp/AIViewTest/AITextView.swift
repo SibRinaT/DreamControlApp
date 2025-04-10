@@ -9,32 +9,49 @@
 import SwiftUI
 
 struct AITextView: View {
-    @State private var generatedText = "Здесь появится текст..."
-    @State private var isLoading = false  // Следим за состоянием загрузки
+    @State private var output = ""
+    @State private var isLoading = false
+
+    let authService = GigaChatAuthService()
+    let chatService = GigaChatService()
+
     var body: some View {
-        VStack {
-            Text(generatedText)
-                .padding()
-                .opacity(isLoading ? 0.5 : 1.0) // Полупрозрачный текст при загрузке
-                .animation(.easeInOut, value: isLoading)
-            
-            if isLoading {
-                ProgressView() // Спиннер
-                    .padding()
-            }
-            
+        VStack(spacing: 20) {
             Button("Сгенерировать текст") {
-                generateTextFromKoboldAI(prompt: "Напиши сказку про волшебный лес") { result in
-                    generatedText = result
-                    isLoading = false  // Отключаем спиннер после получения ответа
+                isLoading = true
+                authService.fetchAccessToken { token in
+                    guard let token = token else {
+                        output = "Не удалось получить токен"
+                        isLoading = false
+                        return
+                    }
+
+                    chatService.generateText(prompt: "Напиши художественный рассказ про осенний лес", accessToken: token) { response in
+                        DispatchQueue.main.async {
+                            output = response ?? "Ошибка генерации"
+                            isLoading = false
+                        }
+                    }
                 }
-                isLoading = true // Включаем спиннер перед отправкой запроса
             }
             .padding()
-            .disabled(isLoading) // Блокируем кнопку во время запроса
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .cornerRadius(10)
+
+            if isLoading {
+                ProgressView()
+            } else {
+                ScrollView {
+                    Text(output)
+                        .padding()
+                }
+            }
         }
+        .padding()
     }
 }
+
 
 #Preview {
     AITextView()

@@ -24,7 +24,7 @@
 		2E60923E2CBE814800081545 /* komika.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E60923D2CBE814800081545 /* komika.ttf */; };
 		2E6092402CBE835800081545 /* Iowan Old Style.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 2E60923F2CBE835800081545 /* Iowan Old Style.ttc */; };
 		2E61245F2B9025B300494DF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */; };
-		2E666EB82D8835EF00089E89 /* AIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E666EB72D8835DD00089E89 /* AIService.swift */; };
+		2E666EB82D8835EF00089E89 /* GigaChatAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E666EB72D8835DD00089E89 /* GigaChatAuthService.swift */; };
 		2E666EBA2D88361A00089E89 /* AITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E666EB92D88361A00089E89 /* AITextView.swift */; };
 		2E66C4512BC79DD600FC2E49 /* AuthPasswordInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66C4502BC79DD600FC2E49 /* AuthPasswordInputField.swift */; };
 		2E66C4532BC79F4D00FC2E49 /* OTPModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66C4522BC79F4D00FC2E49 /* OTPModifier.swift */; };
@@ -32,6 +32,7 @@
 		2E6B1A112CDCF31200E07DB2 /* NewDreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6B1A102CDCF31200E07DB2 /* NewDreamView.swift */; };
 		2E784F432BA0BE7700AA58F9 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E784F422BA0BE7700AA58F9 /* LogInView.swift */; };
 		2E784F452BA0BE8200AA58F9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E784F442BA0BE8200AA58F9 /* SignUpView.swift */; };
+		2E829F632DA7A0A900A3BD6F /* GigaChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829F622DA7A09A00A3BD6F /* GigaChatService.swift */; };
 		2E85787B2BBA030000BEA1ED /* OnboardingView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E85787A2BBA030000BEA1ED /* OnboardingView3.swift */; };
 		2E85787D2BBAA7AB00BEA1ED /* TestPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E85787C2BBAA7AB00BEA1ED /* TestPageView.swift */; };
 		2E8578802BBAB44900BEA1ED /* MontserratAlternates.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E85787F2BBAB44900BEA1ED /* MontserratAlternates.ttf */; };
@@ -115,7 +116,7 @@
 		2E6124592B9025B100494DF6 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		2E61245B2B9025B300494DF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E61245E2B9025B300494DF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2E666EB72D8835DD00089E89 /* AIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIService.swift; sourceTree = "<group>"; };
+		2E666EB72D8835DD00089E89 /* GigaChatAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigaChatAuthService.swift; sourceTree = "<group>"; };
 		2E666EB92D88361A00089E89 /* AITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AITextView.swift; sourceTree = "<group>"; };
 		2E66C4502BC79DD600FC2E49 /* AuthPasswordInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPasswordInputField.swift; sourceTree = "<group>"; };
 		2E66C4522BC79F4D00FC2E49 /* OTPModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPModifier.swift; sourceTree = "<group>"; };
@@ -123,6 +124,7 @@
 		2E6B1A102CDCF31200E07DB2 /* NewDreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDreamView.swift; sourceTree = "<group>"; };
 		2E784F422BA0BE7700AA58F9 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		2E784F442BA0BE8200AA58F9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		2E829F622DA7A09A00A3BD6F /* GigaChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigaChatService.swift; sourceTree = "<group>"; };
 		2E85787A2BBA030000BEA1ED /* OnboardingView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView3.swift; sourceTree = "<group>"; };
 		2E85787C2BBAA7AB00BEA1ED /* TestPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPageView.swift; sourceTree = "<group>"; };
 		2E85787F2BBAB44900BEA1ED /* MontserratAlternates.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MontserratAlternates.ttf; sourceTree = "<group>"; };
@@ -271,10 +273,10 @@
 		2E6124562B9025B100494DF6 /* DreamControlApp */ = {
 			isa = PBXGroup;
 			children = (
+				AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */,
 				2E666EB62D8835CF00089E89 /* AIViewTest */,
 				2E2ACFE32CF1D0D500A55886 /* Unit Test */,
 				2E8C614C2CE8A97500A61DA4 /* Notification */,
-				AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */,
 				AC3213622C9519F5006D4399 /* Services */,
 				2E69F7882CDF47C7002F970E /* Not Use */,
 				2E85787E2BBAB24E00BEA1ED /* MainViews */,
@@ -314,8 +316,9 @@
 		2E666EB62D8835CF00089E89 /* AIViewTest */ = {
 			isa = PBXGroup;
 			children = (
+				2E829F622DA7A09A00A3BD6F /* GigaChatService.swift */,
 				2E666EB92D88361A00089E89 /* AITextView.swift */,
-				2E666EB72D8835DD00089E89 /* AIService.swift */,
+				2E666EB72D8835DD00089E89 /* GigaChatAuthService.swift */,
 			);
 			path = AIViewTest;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				2EFB883A2CABC10D0006D68E /* HelpProfileRectangleEvening.swift in Sources */,
 				2E90A3182CE1158600643AB4 /* YellowButtonLastOnboard.swift in Sources */,
 				2E90A3162CE110DC00643AB4 /* LastOnboarding.swift in Sources */,
+				2E829F632DA7A0A900A3BD6F /* GigaChatService.swift in Sources */,
 				2E23AE462C2614D2003FCCC1 /* SubscriptionButton.swift in Sources */,
 				2ED5FC4A2CEC67EA007A7B77 /* CustomBackButton.swift in Sources */,
 				2E8C614E2CE8A99500A61DA4 /* NotificationManager.swift in Sources */,
@@ -604,7 +608,7 @@
 				2E34CBB32C881F970063F57F /* Model.swift in Sources */,
 				2EDE21092C20BE23006951E7 /* SubscriptionView.swift in Sources */,
 				2EA06B9D2BD18F880056E9F7 /* MainView.swift in Sources */,
-				2E666EB82D8835EF00089E89 /* AIService.swift in Sources */,
+				2E666EB82D8835EF00089E89 /* GigaChatAuthService.swift in Sources */,
 				2EEB4DD12CCCC222006FD26D /* IdeasViewModel.swift in Sources */,
 				2E12B5312BA2152800F44234 /* InputFieldViewPassword.swift in Sources */,
 				2ECD80112C9AA04A003147BE /* StoryTextView.swift in Sources */,
