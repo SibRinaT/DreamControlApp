@@ -15,7 +15,7 @@ import SwiftUI
 struct DreamControlAppApp: App {
     var body: some Scene {
         WindowGroup {
-            TestGigaChat()
+            AITextView()
         }
     }
 }
