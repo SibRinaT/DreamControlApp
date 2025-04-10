@@ -2,17 +2,39 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>komika.ttf</string>
-		<string>Iowan Old Style.ttc</string>
-		<string></string>
-		<string>ComicSansMS.ttf</string>
-		<string>ArialRoundedBold.ttf</string>
-		<string>Cochin.ttc</string>
-		<string>MontserratAlternates.ttf</string>
-		<string>MontserratAlternates</string>
-		<string>MontserratAlternates.ttc</string>
-	</array>
+    <key>UIAppFonts</key>
+    <array>
+        <string>komika.ttf</string>
+        <string>Iowan Old Style.ttc</string>
+        <string></string>
+        <string>ComicSansMS.ttf</string>
+        <string>ArialRoundedBold.ttf</string>
+        <string>Cochin.ttc</string>
+        <string>MontserratAlternates.ttf</string>
+        <string>MontserratAlternates</string>
+        <string>MontserratAlternates.ttc</string>
+    </array>
+
+    <!-- 👇 Добавлено для разрешения доступа к GigaChat API (ngw.devices.sberbank.ru) -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>ngw.devices.sberbank.ru</key>
+            <dict>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSExceptionRequiresForwardSecrecy</key>
+                <false/>
+                <key>NSAllowsArbitraryLoadsInWebContent</key>
+                <true/>
+            </dict>
+        </dict>
+    </dict>
 </dict>
 </plist>
+
