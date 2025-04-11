@@ -5,66 +5,61 @@
 //  Created by Ainur on 10.04.2025.
 //
 
-
-import SwiftUI
-
-struct AITextView: View {
-    @State private var responseText: String = ""
-    @State private var isLoading: Bool = false
-    
-    private let authService = GigaChatAuthService()
-    private let chatService = GigaChatService()
-    
-    var body: some View {
-        VStack(spacing: 20) {
-            Text("GigaChat от Сбера")
-                .font(.title)
-                .bold()
-            
-            Button(action: generateText) {
-                Text("Сгенерировать текст")
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
-            .disabled(isLoading)
-            
-            if isLoading {
-                ProgressView("Загрузка...")
-            } else {
-                ScrollView {
-                    Text(responseText.isEmpty ? "Здесь появится текст..." : responseText)
-                        .padding()
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(Color.gray.opacity(0.1))
-                        .cornerRadius(10)
-                }
-            }
-        }
-        .padding()
-    }
-    
-    private func generateText() {
-        isLoading = true
-        responseText = ""
-        
-        authService.fetchAccessToken { token in
-            guard let token = token else {
-                DispatchQueue.main.async {
-                    self.responseText = "❌ Не удалось получить токен"
-                    self.isLoading = false
-                }
-                return
-            }
-            
-            chatService.generateText(prompt: "Напиши вдохновляющий рассказ о силе дружбы", accessToken: token) { text in
-                DispatchQueue.main.async {
-                    self.responseText = text ?? "⚠️ Ошибка генерации текста"
-                    self.isLoading = false
-                }
-            }
-        }
-    }
-}
+//
+//import SwiftUI
+//
+//struct AITextView: View {
+//    @State private var responseText: String = ""
+//    
+//    var body: some View {
+//        VStack {
+//            Text(responseText)
+//                .padding()
+//            
+//            Button("Получить токен и запросить текст") {
+//                // Получаем токен через GigaChatAuthService
+//                GigaChatAuthService.shared.fetchToken { token, error in
+//                    if let error = error {
+//                        print("Ошибка при получении токена: \(error.localizedDescription)")
+//                        return
+//                    }
+//                    
+//                    if let token = token {
+//                        print("Токен получен: \(token)")
+//                        // Вызываем запрос с полученным токеном
+//                        self.fetchTextWithToken(token: token)
+//                    }
+//                }
+//            }
+//        }
+//        .padding()
+//    }
+//    
+//    private func fetchTextWithToken(token: String) {
+//        // URL для запроса
+//        let url = URL(string: "https://ngw.devices.sberbank.ru:9443/api/v2/some-endpoint")!
+//        
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        
+//        // Заголовки с токеном
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+//        
+//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+//            if let error = error {
+//                print("Ошибка при запросе текста: \(error.localizedDescription)")
+//                return
+//            }
+//            
+//            // Парсим ответ (предположим, что это текст)
+//            if let data = data, let text = String(data: data, encoding: .utf8) {
+//                DispatchQueue.main.async {
+//                    self.responseText = text
+//                }
+//            }
+//        }
+//        
+//        task.resume()
+//    }
+//}

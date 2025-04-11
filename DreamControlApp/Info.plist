@@ -15,26 +15,11 @@
         <string>MontserratAlternates.ttc</string>
     </array>
 
-    <!-- 👇 Добавлено для разрешения доступа к GigaChat API (ngw.devices.sberbank.ru) -->
+    <!-- Разрешение сетевых запросов ко всем доменам -->
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSAllowsArbitraryLoads</key>
         <true/>
-        <key>NSExceptionDomains</key>
-        <dict>
-            <key>ngw.devices.sberbank.ru</key>
-            <dict>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <key>NSExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-                <key>NSExceptionRequiresForwardSecrecy</key>
-                <false/>
-                <key>NSAllowsArbitraryLoadsInWebContent</key>
-                <true/>
-            </dict>
-        </dict>
     </dict>
 </dict>
 </plist>
-
