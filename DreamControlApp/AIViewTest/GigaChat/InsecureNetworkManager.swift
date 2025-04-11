@@ -17,17 +17,7 @@ class InsecureNetworkManager: NSObject {
         session = URLSession(configuration: config, delegate: self, delegateQueue: nil)
     }
     
-    func fetchData(from urlString: String, token: String, completion: @escaping (Result<Data, Error>) -> Void) {
-        guard let url = URL(string: urlString) else {
-            completion(.failure(URLError(.badURL)))
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-
+    func fetchData(for request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
         let task = session.dataTask(with: request) { data, _, error in
             if let error = error {
                 completion(.failure(error))
