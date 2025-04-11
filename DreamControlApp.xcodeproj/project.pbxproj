@@ -35,14 +35,14 @@
 		2E829FA12DA7B30000A3BD6F /* StoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FA02DA7B2F700A3BD6F /* StoryService.swift */; };
 		2E829FA32DA7B33F00A3BD6F /* TestGigaChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FA22DA7B33300A3BD6F /* TestGigaChat.swift */; };
 		2E829FAD2DA7C8A500A3BD6F /* AITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FAC2DA7C8A500A3BD6F /* AITextView.swift */; };
-		2E829FB02DA7DEDB00A3BD6F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FAF2DA7DEDB00A3BD6F /* APIService.swift */; };
-		2E829FB22DA7DEE600A3BD6F /* GigaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FB12DA7DEE600A3BD6F /* GigaView.swift */; };
 		2E829FB72DA7F0A900A3BD6F /* GigaChatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FB62DA7F0A900A3BD6F /* GigaChatResponse.swift */; };
 		2E829FB92DA7F0B400A3BD6F /* GigaChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FB82DA7F0B400A3BD6F /* GigaChatViewModel.swift */; };
 		2E829FBB2DA7F0BC00A3BD6F /* GrokView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FBA2DA7F0BC00A3BD6F /* GrokView.swift */; };
 		2E829FBD2DA8093D00A3BD6F /* InsecureNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FBC2DA8093D00A3BD6F /* InsecureNetworkManager.swift */; };
 		2E829FBF2DA8094800A3BD6F /* ContentView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FBE2DA8094800A3BD6F /* ContentView3.swift */; };
 		2E829FC12DA9018800A3BD6F /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FC02DA9018800A3BD6F /* TokenManager.swift */; };
+		2E829FC62DA9020200A3BD6F /* GigaChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FC52DA9020200A3BD6F /* GigaChatView.swift */; };
+		2E829FC82DA9033800A3BD6F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FC72DA9033800A3BD6F /* APIService.swift */; };
 		2E85787B2BBA030000BEA1ED /* OnboardingView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E85787A2BBA030000BEA1ED /* OnboardingView3.swift */; };
 		2E85787D2BBAA7AB00BEA1ED /* TestPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E85787C2BBAA7AB00BEA1ED /* TestPageView.swift */; };
 		2E8578802BBAB44900BEA1ED /* MontserratAlternates.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E85787F2BBAB44900BEA1ED /* MontserratAlternates.ttf */; };
@@ -138,14 +138,14 @@
 		2E829FA02DA7B2F700A3BD6F /* StoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryService.swift; sourceTree = "<group>"; };
 		2E829FA22DA7B33300A3BD6F /* TestGigaChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGigaChat.swift; sourceTree = "<group>"; };
 		2E829FAC2DA7C8A500A3BD6F /* AITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AITextView.swift; sourceTree = "<group>"; };
-		2E829FAF2DA7DEDB00A3BD6F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		2E829FB12DA7DEE600A3BD6F /* GigaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigaView.swift; sourceTree = "<group>"; };
 		2E829FB62DA7F0A900A3BD6F /* GigaChatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigaChatResponse.swift; sourceTree = "<group>"; };
 		2E829FB82DA7F0B400A3BD6F /* GigaChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigaChatViewModel.swift; sourceTree = "<group>"; };
 		2E829FBA2DA7F0BC00A3BD6F /* GrokView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrokView.swift; sourceTree = "<group>"; };
 		2E829FBC2DA8093D00A3BD6F /* InsecureNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsecureNetworkManager.swift; sourceTree = "<group>"; };
 		2E829FBE2DA8094800A3BD6F /* ContentView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView3.swift; sourceTree = "<group>"; };
 		2E829FC02DA9018800A3BD6F /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		2E829FC52DA9020200A3BD6F /* GigaChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigaChatView.swift; sourceTree = "<group>"; };
+		2E829FC72DA9033800A3BD6F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		2E85787A2BBA030000BEA1ED /* OnboardingView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView3.swift; sourceTree = "<group>"; };
 		2E85787C2BBAA7AB00BEA1ED /* TestPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPageView.swift; sourceTree = "<group>"; };
 		2E85787F2BBAB44900BEA1ED /* MontserratAlternates.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MontserratAlternates.ttf; sourceTree = "<group>"; };
@@ -383,7 +383,7 @@
 		2E829FAB2DA7C87C00A3BD6F /* GigaChat */ = {
 			isa = PBXGroup;
 			children = (
-				2E829FC02DA9018800A3BD6F /* TokenManager.swift */,
+				2E829FC42DA901F100A3BD6F /* LastVersion */,
 				2E829FBE2DA8094800A3BD6F /* ContentView3.swift */,
 				2E829FBC2DA8093D00A3BD6F /* InsecureNetworkManager.swift */,
 				2E829FAC2DA7C8A500A3BD6F /* AITextView.swift */,
@@ -395,8 +395,6 @@
 		2E829FAE2DA7DED300A3BD6F /* NewTry */ = {
 			isa = PBXGroup;
 			children = (
-				2E829FB12DA7DEE600A3BD6F /* GigaView.swift */,
-				2E829FAF2DA7DEDB00A3BD6F /* APIService.swift */,
 			);
 			path = NewTry;
 			sourceTree = "<group>";
@@ -409,6 +407,16 @@
 				2E829FB62DA7F0A900A3BD6F /* GigaChatResponse.swift */,
 			);
 			path = TryFromGrok;
+			sourceTree = "<group>";
+		};
+		2E829FC42DA901F100A3BD6F /* LastVersion */ = {
+			isa = PBXGroup;
+			children = (
+				2E829FC72DA9033800A3BD6F /* APIService.swift */,
+				2E829FC52DA9020200A3BD6F /* GigaChatView.swift */,
+				2E829FC02DA9018800A3BD6F /* TokenManager.swift */,
+			);
+			path = LastVersion;
 			sourceTree = "<group>";
 		};
 		2E85787E2BBAB24E00BEA1ED /* MainViews */ = {
@@ -647,7 +655,6 @@
 				2EFB88382CABBFA90006D68E /* EveningRectangle.swift in Sources */,
 				AC3213602C9519DE006D4399 /* DreamControlAppApp.swift in Sources */,
 				2EA20C832B908FC2000AAEC2 /* OnboardingView2.swift in Sources */,
-				2E829FB02DA7DEDB00A3BD6F /* APIService.swift in Sources */,
 				2E8578822BBBF07300BEA1ED /* YellowButton.swift in Sources */,
 				2E34CBB52C8833700063F57F /* StoryView.swift in Sources */,
 				2EA20C882B919B24000AAEC2 /* SplashView.swift in Sources */,
@@ -661,13 +668,13 @@
 				2E90A3162CE110DC00643AB4 /* LastOnboarding.swift in Sources */,
 				2E23AE462C2614D2003FCCC1 /* SubscriptionButton.swift in Sources */,
 				2ED5FC4A2CEC67EA007A7B77 /* CustomBackButton.swift in Sources */,
-				2E829FB22DA7DEE600A3BD6F /* GigaView.swift in Sources */,
 				2E8C614E2CE8A99500A61DA4 /* NotificationManager.swift in Sources */,
 				2E6092362CBE73B900081545 /* MorningSplash.swift in Sources */,
 				2E92C9262BC04DA7005E4DB9 /* CreateNewPasswordView.swift in Sources */,
 				2EC4DBFD2BBE7FFF00DE1B43 /* PasswordResetView .swift in Sources */,
 				2EFB883C2CABC9050006D68E /* MorningRectangle.swift in Sources */,
 				2E66C4512BC79DD600FC2E49 /* AuthPasswordInputField.swift in Sources */,
+				2E829FC82DA9033800A3BD6F /* APIService.swift in Sources */,
 				2E784F432BA0BE7700AA58F9 /* LogInView.swift in Sources */,
 				2EAA266D2D0046A500EC5997 /* test.swift in Sources */,
 				2E784F452BA0BE8200AA58F9 /* SignUpView.swift in Sources */,
@@ -681,6 +688,7 @@
 				2EDE21092C20BE23006951E7 /* SubscriptionView.swift in Sources */,
 				2EA06B9D2BD18F880056E9F7 /* MainView.swift in Sources */,
 				2E666EB82D8835EF00089E89 /* GigaChatNetworkManager.swift in Sources */,
+				2E829FC62DA9020200A3BD6F /* GigaChatView.swift in Sources */,
 				2E829FBB2DA7F0BC00A3BD6F /* GrokView.swift in Sources */,
 				2EEB4DD12CCCC222006FD26D /* IdeasViewModel.swift in Sources */,
 				2E12B5312BA2152800F44234 /* InputFieldViewPassword.swift in Sources */,
