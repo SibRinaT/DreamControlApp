@@ -42,6 +42,7 @@
 		2E829FBB2DA7F0BC00A3BD6F /* GrokView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FBA2DA7F0BC00A3BD6F /* GrokView.swift */; };
 		2E829FBD2DA8093D00A3BD6F /* InsecureNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FBC2DA8093D00A3BD6F /* InsecureNetworkManager.swift */; };
 		2E829FBF2DA8094800A3BD6F /* ContentView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FBE2DA8094800A3BD6F /* ContentView3.swift */; };
+		2E829FC12DA9018800A3BD6F /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FC02DA9018800A3BD6F /* TokenManager.swift */; };
 		2E85787B2BBA030000BEA1ED /* OnboardingView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E85787A2BBA030000BEA1ED /* OnboardingView3.swift */; };
 		2E85787D2BBAA7AB00BEA1ED /* TestPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E85787C2BBAA7AB00BEA1ED /* TestPageView.swift */; };
 		2E8578802BBAB44900BEA1ED /* MontserratAlternates.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E85787F2BBAB44900BEA1ED /* MontserratAlternates.ttf */; };
@@ -144,6 +145,7 @@
 		2E829FBA2DA7F0BC00A3BD6F /* GrokView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrokView.swift; sourceTree = "<group>"; };
 		2E829FBC2DA8093D00A3BD6F /* InsecureNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsecureNetworkManager.swift; sourceTree = "<group>"; };
 		2E829FBE2DA8094800A3BD6F /* ContentView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView3.swift; sourceTree = "<group>"; };
+		2E829FC02DA9018800A3BD6F /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		2E85787A2BBA030000BEA1ED /* OnboardingView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView3.swift; sourceTree = "<group>"; };
 		2E85787C2BBAA7AB00BEA1ED /* TestPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPageView.swift; sourceTree = "<group>"; };
 		2E85787F2BBAB44900BEA1ED /* MontserratAlternates.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MontserratAlternates.ttf; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 		2E829FAB2DA7C87C00A3BD6F /* GigaChat */ = {
 			isa = PBXGroup;
 			children = (
+				2E829FC02DA9018800A3BD6F /* TokenManager.swift */,
 				2E829FBE2DA8094800A3BD6F /* ContentView3.swift */,
 				2E829FBC2DA8093D00A3BD6F /* InsecureNetworkManager.swift */,
 				2E829FAC2DA7C8A500A3BD6F /* AITextView.swift */,
@@ -633,6 +636,7 @@
 				2EC4704D2CE3443A00CE1D48 /* BigYellowButton.swift in Sources */,
 				2E85787B2BBA030000BEA1ED /* OnboardingView3.swift in Sources */,
 				2E829FAD2DA7C8A500A3BD6F /* AITextView.swift in Sources */,
+				2E829FC12DA9018800A3BD6F /* TokenManager.swift in Sources */,
 				2EA06B9F2BD18F9A0056E9F7 /* CustomTabBar.swift in Sources */,
 				2E829FBF2DA8094800A3BD6F /* ContentView3.swift in Sources */,
 				2E19785B2BD3DEED000AD527 /* HelpProfileRectangleDay.swift in Sources */,
