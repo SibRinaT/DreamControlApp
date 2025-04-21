@@ -148,8 +148,15 @@ struct StoryView: View {
     private func delete(story: DreamStory) {
         Task {
             await dataHandler?.delete(story: story)
+            // Обновляем локальный массив
+            if let index = stories.firstIndex(where: { $0.id == story.id }) {
+                DispatchQueue.main.async {
+                    stories.remove(at: index)
+                }
+            }
         }
     }
+
     
     private func addNewStory(title: String, content: String) {
         Task {
@@ -166,6 +173,18 @@ struct StoryView: View {
             storyToUpdate.content = newContent
         }
     }
+    
+    private func loadStories() {
+        Task {
+            if let handler = dataHandler {
+                let updatedStories = await handler.stories(for: dream)
+                await MainActor.run {
+                    self.stories = updatedStories
+                }
+            }
+        }
+    }
+
 }
 
 //#Preview {

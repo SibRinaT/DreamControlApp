@@ -13,8 +13,8 @@ struct OrView: View {
             Rectangle()
                 .frame(width: 133, height: 1)
                 .foregroundColor(Color("PrimaryColor"))
-                .shadow(radius: 15)
-            
+                .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+
             Text("OR")
                 .foregroundColor(Color("PrimaryColor"))
                 .bold()

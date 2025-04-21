@@ -39,7 +39,7 @@ struct StoryTextView: View {
                     }
                 )
             RoundedRectangle(cornerRadius: 20)
-                .shadow(radius: 10)
+                .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                 .foregroundColor(.white)
                 .ignoresSafeArea(.all)
                     .overlay(
@@ -92,6 +92,7 @@ struct StoryTextView: View {
                                             .overlay(
                                                 Text("Сохранить")
                                                     .font(.title2)
+                                                    .bold()
                                                     .foregroundColor(.white)
                                             )
                                     })
@@ -109,8 +110,10 @@ struct StoryTextView: View {
                                                 Text("Отмена")
                                                     .font(.title2)
                                                     .foregroundColor(.white)
+                                                    .bold()
                                             )
                                     })
+                                    .padding(.vertical, 10)
                                 }
                                 .padding(.horizontal, 100)
                             }

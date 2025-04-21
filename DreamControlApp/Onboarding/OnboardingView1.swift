@@ -22,7 +22,7 @@ struct OnboardingView1: View {
                     .foregroundColor(Color("PrimaryColor"))
                 Image("onbImage2")
                     .frame(width: 354, height: 354)
-                    .shadow(radius: 10)
+                    .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
             }
             VStack {
                 Image("pageImage1")
@@ -37,7 +37,7 @@ struct OnboardingView1: View {
                                            .foregroundColor(Color("PrimaryColor"))
                                            .cornerRadius(100)
                                            .frame(height: 40)
-                                           .shadow(radius: 5)
+                                           .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                                            .overlay(
                                                Text("Начать")
                                                    .font(.title2)
