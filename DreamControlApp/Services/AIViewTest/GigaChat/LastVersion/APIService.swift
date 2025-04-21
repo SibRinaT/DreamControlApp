@@ -8,7 +8,7 @@
 
 import Foundation
 
-class APIService {
+class APIService: ObservableObject  {
     let insecureNetworkManager = InsecureNetworkManager()
 
     func sendPrompt(_ prompt: String, completion: @escaping (String?) -> Void) {
