@@ -11,6 +11,7 @@ struct NewStoryView: View {
     @State private var storyDescription: String = ""
     private let characterLimit = 200
     private let titleLimit = 16 // Ограничение для названия
+    @State private var triedToSubmit = false
     
     @StateObject private var apiService = APIService()
     @State private var warningMessage: String? = nil
@@ -96,8 +97,8 @@ struct NewStoryView: View {
                                 Spacer()
                                 Button(action: {
                                     withAnimation {
-                                         autoStory.toggle()
-                                     }
+                                        autoStory.toggle()
+                                    }
                                 }, label: {
                                     HStack {
                                         Circle()
@@ -118,11 +119,21 @@ struct NewStoryView: View {
                                 })
                                 Spacer()
                             }
-                                                        
-                            if !errorMessage.isEmpty {
-                                Text(errorMessage)
-                                    .foregroundColor(.red)
-                                    .padding()
+                            
+                            VStack {
+                                if let validationMessage = combinedValidationMessage {
+                                    Text(validationMessage)
+                                        .foregroundColor(.red)
+                                        .font(.callout)
+                                        .padding(.top, 4)
+                                }
+
+                                
+                                if !errorMessage.isEmpty {
+                                    Text(errorMessage)
+                                        .foregroundColor(.red)
+                                        .padding()
+                                }
                             }
                             
                             if isLoading {
@@ -162,7 +173,6 @@ struct NewStoryView: View {
                                                 .bold()
                                         )
                                 }
-                                .disabled(!isFormValid)
                             }
                             .padding(.horizontal, 100)
                         }
@@ -173,23 +183,41 @@ struct NewStoryView: View {
         }
     }
     
+    private var combinedValidationMessage: String? {
+        guard triedToSubmit else { return nil }
+        
+        let isTitleEmpty = storyTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        let isDescriptionEmpty = autoStory && description.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+
+        switch (isTitleEmpty, isDescriptionEmpty) {
+        case (true, true):
+            return "Пожалуйста, заполните название и описание истории."
+        case (true, false):
+            return "Пожалуйста, заполните название истории."
+        case (false, true):
+            return "Пожалуйста, заполните описание истории."
+        default:
+            return nil
+        }
+    }
+
+    
     private var isFormValid: Bool {
         let trimmedTitle = storyTitle.trimmingCharacters(in: .whitespacesAndNewlines)
-        if trimmedTitle.isEmpty {
-            return false
-        }
-        if autoStory && description.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            return false
-        }
+        if trimmedTitle.isEmpty { return false }
+        if autoStory && description.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { return false }
         return true
     }
 
+    
+    
+    
     private func createStory() {
+        triedToSubmit = true
         errorMessage = ""
-        
         if autoStory {
             isLoading = true
-            let finalPrompt = "Используя это описание: \"\(description)\", создай вдохновляющую историю, чтобы человек мог визуализировать свой успех. История не долнжа вызывать никакиз негаивных эмоций."
+            let finalPrompt = "Используя это описание: \"\(description)\", создай вдохновляющую историю, чтобы человек мог визуализировать свой успех. История не должна вызывать никаких негативных эмоций."
             apiService.sendPrompt(finalPrompt) { result in
                 DispatchQueue.main.async {
                     isLoading = false
