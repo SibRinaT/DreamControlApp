@@ -52,7 +52,6 @@ struct NewStoryView: View {
                                     if newValue.count > titleLimit {
                                         storyTitle = String(newValue.prefix(titleLimit))
                                     }
-                                    validateFields() // Проверяем при изменении заголовка
                                 }
                             if autoStory {
                                 VStack(spacing: 8) {
@@ -99,7 +98,6 @@ struct NewStoryView: View {
                                     withAnimation {
                                          autoStory.toggle()
                                      }
-                                     validateFields()// Проверяем поля при переключении
                                 }, label: {
                                     HStack {
                                         Circle()
@@ -120,9 +118,7 @@ struct NewStoryView: View {
                                 })
                                 Spacer()
                             }
-                            
-                            
-                            
+                                                        
                             if !errorMessage.isEmpty {
                                 Text(errorMessage)
                                     .foregroundColor(.red)
@@ -166,7 +162,7 @@ struct NewStoryView: View {
                                                 .bold()
                                         )
                                 }
-                                .disabled(storyTitle.isEmpty || description.isEmpty)
+                                .disabled(!isFormValid)
                             }
                             .padding(.horizontal, 100)
                         }
@@ -177,29 +173,19 @@ struct NewStoryView: View {
         }
     }
     
-    private func validateFields() -> Bool {
-        // Убираем пробелы из начала и конца названия
-        let trimmedTitle = storyTitle.trimmingCharacters(in: .whitespaces)
-        
-        // Проверка полей на пустоту или состоящие только из пробелов
+    private var isFormValid: Bool {
+        let trimmedTitle = storyTitle.trimmingCharacters(in: .whitespacesAndNewlines)
         if trimmedTitle.isEmpty {
-            warningMessage = "Поле названия истории не должно быть пустым!"
             return false
-        } else if autoStory && storyDescription.isEmpty {
-            warningMessage = "Поле описания истории не должно быть пустым!"
-            return false
-        } else {
-            warningMessage = nil
-            return true
         }
+        if autoStory && description.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return false
+        }
+        return true
     }
 
     private func createStory() {
         errorMessage = ""
-        guard !storyTitle.isEmpty, !description.isEmpty else {
-            errorMessage = "Заполните все поля."
-            return
-        }
         
         if autoStory {
             isLoading = true
