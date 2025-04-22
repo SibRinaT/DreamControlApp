@@ -96,9 +96,10 @@ struct NewStoryView: View {
                             HStack {
                                 Spacer()
                                 Button(action: {
-                                    // Переключаем состояние
-                                    autoStory.toggle()
-                                    validateFields() // Проверяем поля при переключении
+                                    withAnimation {
+                                         autoStory.toggle()
+                                     }
+                                     validateFields()// Проверяем поля при переключении
                                 }, label: {
                                     HStack {
                                         Circle()
