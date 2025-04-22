@@ -20,10 +20,11 @@ struct EveningSplash: View {
     @State private var rotationAngle: Double = 0 // Начальный угол поворота
 
     @State private var isActive = false
-    
+    @Binding var user: User // Используем привязку к состоянию пользователя
+
     var body: some View {
         if isActive {
-            CustomTabBar()
+            CustomTabBar(user: $user)
         } else {
             VStack {
                 Spacer()
@@ -149,5 +150,5 @@ struct EveningSplash: View {
 }
 
 #Preview {
-    EveningSplash()
+    EveningSplash(user: .constant(User(id: "123", name: "John Doe", isAdmin: false)))
 }

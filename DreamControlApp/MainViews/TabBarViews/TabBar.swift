@@ -9,10 +9,11 @@ import SwiftUI
 
 struct TabBar: View {
     @State private var selectedTab = 0
+    @Binding var user: User // Используем привязку к состоянию пользователя
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            MainView(selectedTab: $selectedTab)
+            MainView(selectedTab: $selectedTab, user: $user)
                 .tabItem {
                     VStack {
                         Image(selectedTab == 0 ? "ActiveHomeIcon" : "IconHome")
@@ -22,7 +23,7 @@ struct TabBar: View {
                 }
                 .tag(0)
 
-            DreamView(selectedTab: $selectedTab)
+            DreamView(user: $user, selectedTab: $selectedTab)
                 .tabItem {
                     VStack {
                         Image(selectedTab == 1 ? "ActiveDreamsIcon" : "DreamsIcon")
@@ -46,6 +47,6 @@ struct TabBar: View {
 }
 
 #Preview {
-    TabBar()
+    TabBar(user: .constant(User(id: "123", name: "John Doe", isAdmin: false)))
         .environmentObject(IdeasViewModel())
 }

@@ -17,6 +17,8 @@ struct LastOnboarding: View {
     private var isButtonActive: Bool {
         !email.isEmpty && !name.isEmpty
     }
+    @Binding var user: User // Используем привязку к состоянию пользователя
+
 
     var body: some View {
         ZStack {
@@ -45,7 +47,7 @@ struct LastOnboarding: View {
                         InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com", text: $email)
                         InputFieldView(title: "Имя", placeholder: "Dream", text: $name)
                         
-                        NavigationLink(destination: CustomTabBar(), isActive: $navigateToTabBar) {
+                        NavigationLink(destination: CustomTabBar(user: $user), isActive: $navigateToTabBar) {
                             EmptyView()
                         }
                         .navigationBarHidden(true)
@@ -77,7 +79,7 @@ struct LastOnboarding: View {
 
 #Preview {
     NavigationView {
-        LastOnboarding()
+        LastOnboarding(user: .constant(User(id: "123", name: "John Doe", isAdmin: false)))
             .environment(IdeasViewModel())
     }
 }

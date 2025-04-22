@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainOnboarding: View {
+    @Binding var user: User // Используем привязку к состоянию пользователя
+
     var body: some View {
             ZStack {
                 VStack {
@@ -28,7 +30,7 @@ struct MainOnboarding: View {
                                 .bold()
                                 .foregroundColor(Color("TextColor"))
                             
-                            NavigationLink(destination: CustomTabBar()) {
+                            NavigationLink(destination: CustomTabBar(user: $user)) {
                                 YellowButton(isActive: true, text: "Войти")
                             }
                             .navigationBarHidden(true) // Скрываем навигационную панель
@@ -75,5 +77,5 @@ struct MainOnboarding: View {
 }
 
 #Preview {
-        MainOnboarding()
+        MainOnboarding(user: .constant(User(id: "123", name: "John Doe", isAdmin: false)))
 }

@@ -15,7 +15,7 @@ struct DreamView: View {
     @State private var newButtonName = ""
     @State private var selectedImage = "StarForDream"
     @State private var selectedDream: Dream? // Добавлено для хранения созданной мечты
-    @State private var user = User(id: "123", name: "User", isAdmin: false) // Пример пользователя
+    @Binding var user: User // Используем привязку к состоянию пользователя
     @State private var isSubscriptionViewPresented = false
     @Binding var selectedTab: Int
 
@@ -74,6 +74,8 @@ struct DreamView: View {
                 }
                 .listRowSeparator(.hidden)
                 .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+                
+                // Кнопка для добавления мечты или кнопка подписки, если мечт слишком много
                 if dreams.count < maxDreamsAllowed {
                     Button(action: {
                         showingSheet = true
@@ -104,6 +106,10 @@ struct DreamView: View {
                     .listRowBackground(Color.clear)
                 } else {
                     SubscriptionButton(text: "мечтаний")
+                        .onTapGesture {
+                            // Открыть экран подписки, если мечт слишком много
+                            isSubscriptionViewPresented = true
+                        }
                 }
             }
             .listStyle(.plain)
@@ -116,11 +122,9 @@ struct DreamView: View {
                 selectedDream = newDream
             }
         }
-//        .toolbar {
-//            ToolbarItem(placement: .navigationBarLeading) {
-//                CustomBackButton()
-//            }
-//        }
+        .sheet(isPresented: $isSubscriptionViewPresented) {
+            SubscriptionView(user: $user) // Передаем привязку для обновления пользователя
+        }
         .background(
             NavigationLink(
                 destination: selectedDream.map { StoryView(dream: $0, stories: $0.stories ?? []) },
@@ -140,6 +144,7 @@ struct DreamView: View {
         }
     }
 }
+
 //
 //#Preview {
 //    let handler = DataHandler(modelContainer: DataProvider.shared.sharedModelContainer,

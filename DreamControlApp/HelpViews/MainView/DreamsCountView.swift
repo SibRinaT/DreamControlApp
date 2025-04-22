@@ -11,7 +11,8 @@ import DataProvider
 
 struct DreamsCountView: View {
     @Environment(IdeasViewModel.self) private var ideasViewModel
-    
+    @Binding var user: User // Используем привязку к состоянию пользователя
+
     @State private var showFavorites = false
     @Binding var isAnimating: Bool
     @State private var rotateAmount: CGFloat = 5
@@ -25,7 +26,7 @@ struct DreamsCountView: View {
     var body: some View {
         HStack {
             ZStack {
-                NavigationLink(destination: DreamView(selectedTab: $selectedTab)) {
+                NavigationLink(destination: DreamView(user: $user, selectedTab: $selectedTab)) {
                     Rectangle()
                         .frame(height: 60)
                         .foregroundColor(Color("PrimaryColor"))
