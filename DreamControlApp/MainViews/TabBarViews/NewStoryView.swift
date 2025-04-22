@@ -200,7 +200,6 @@ struct NewStoryView: View {
             return nil
         }
     }
-
     
     private var isFormValid: Bool {
         let trimmedTitle = storyTitle.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -208,9 +207,6 @@ struct NewStoryView: View {
         if autoStory && description.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { return false }
         return true
     }
-
-    
-    
     
     private func createStory() {
         triedToSubmit = true

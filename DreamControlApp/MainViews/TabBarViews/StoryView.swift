@@ -146,14 +146,17 @@ struct StoryView: View {
     }
     
     private func delete(story: DreamStory) {
+        // Начинаем анимацию удаления
+        withAnimation {
+            // Удаляем элемент с плавным исчезновением
+            if let index = stories.firstIndex(where: { $0.id == story.id }) {
+                stories.remove(at: index)
+            }
+        }
+
+        // Асинхронное удаление с сервера/данных
         Task {
             await dataHandler?.delete(story: story)
-            // Обновляем локальный массив
-            if let index = stories.firstIndex(where: { $0.id == story.id }) {
-                DispatchQueue.main.async {
-                    stories.remove(at: index)
-                }
-            }
         }
     }
 
@@ -162,8 +165,16 @@ struct StoryView: View {
         Task {
             let newStory = DreamStory(title: title, content: content)
             await dataHandler?.new(story: newStory, for: dream)
+            
+            // Загружает обновлённый список историй
+            if let updatedStories = await dataHandler?.stories(for: dream) {
+                await MainActor.run {
+                    self.stories = updatedStories
+                }
+            }
         }
     }
+
     
     private func updateStory(newTitle: String, newContent: String) {
         guard let storyToEdit else { return }
