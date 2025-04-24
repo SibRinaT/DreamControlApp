@@ -21,11 +21,12 @@ struct DreamsCountView: View {
     // Состояния для анимации
     @State private var cloudRotation: Double = 0
     @State private var starRotation: Double = 0
-
+    @Binding var user: User
+    
     var body: some View {
         HStack {
             ZStack {
-                NavigationLink(destination: DreamView(selectedTab: $selectedTab)) {
+                NavigationLink(destination: DreamView(selectedTab: $selectedTab, user: $user)) {
                     Rectangle()
                         .frame(height: 60)
                         .foregroundColor(Color("PrimaryColor"))

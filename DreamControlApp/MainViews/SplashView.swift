@@ -12,11 +12,11 @@ struct SplashView: View {
     @State private var opacity = 0.9
     @State private var size = 0.8
 //    @Binding var onboardingCompleted: Bool  // Для проверки завершенности онбординга
-
+    @Binding var user: User
     
     var body: some View {
         if isActive {
-            OnboardingView1()
+            OnboardingView1(user: $user)
         } else {
             VStack {
                 ZStack {
@@ -51,8 +51,8 @@ struct SplashView: View {
     }
 }
 
-#Preview {
-    NavigationView {
-        SplashView()
-    }
-}
+//#Preview {
+//    NavigationView {
+//        SplashView(user: <#Binding<User>#>)
+//    }
+//}

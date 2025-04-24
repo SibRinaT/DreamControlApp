@@ -18,7 +18,7 @@ struct StoryView: View {
     @State private var nextStoryId = UUID() // Для генерации уникальных идентификаторов историй
     @State private var showingNewStoryView = false // Стейт для отображения окна создания новой истории - используется
     @State private var storyToEdit: DreamStory?
-    @State private var user = User(id: "123", name: "User", isAdmin: false) // Пример пользователя
+    @Binding var user: User
     @State private var isSubscriptionViewPresented = false
     
     private var maxStoriesAllowed: Int {
@@ -125,7 +125,7 @@ struct StoryView: View {
                                 )
                         })
                     } else {
-                        SubscriptionButton(text: "историй")
+                        SubscriptionButton(text: "историй", user: $user)
                     }
                 }
                 .listStyle(.plain)

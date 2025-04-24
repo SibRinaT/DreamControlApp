@@ -20,10 +20,11 @@ struct EveningSplash: View {
     @State private var rotationAngle: Double = 0 // Начальный угол поворота
 
     @State private var isActive = false
+    @Binding var user: User
     
     var body: some View {
         if isActive {
-            CustomTabBar()
+            CustomTabBar(user: $user)
         } else {
             VStack {
                 Spacer()
@@ -148,6 +149,6 @@ struct EveningSplash: View {
     }
 }
 
-#Preview {
-    EveningSplash()
-}
+//#Preview {
+//    EveningSplash()
+//}

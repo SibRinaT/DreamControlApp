@@ -9,6 +9,7 @@ import SwiftUI
 struct OnboardingView3: View {
     @State private var offset: CGSize = .zero
     @State private var isSwiped: Bool = false
+    @Binding var user: User
     
     var body: some View {
         VStack {
@@ -35,7 +36,7 @@ struct OnboardingView3: View {
                     .foregroundColor(Color("TextColor"))
                     .multilineTextAlignment(.center)
                     .bold()
-                NavigationLink(destination: LastOnboarding()) {
+                NavigationLink(destination: LastOnboarding(user: $user)) {
                     Rectangle()
                         .foregroundColor(Color("PrimaryColor"))
                         .cornerRadius(100)
@@ -66,7 +67,7 @@ struct OnboardingView3: View {
                 }
         )
         .background(
-            NavigationLink(destination: LastOnboarding(), isActive: $isSwiped) {
+            NavigationLink(destination: LastOnboarding(user: $user), isActive: $isSwiped) {
                 EmptyView()
             }
         )
@@ -74,8 +75,8 @@ struct OnboardingView3: View {
     }
 }
 
-#Preview {
-    NavigationView {
-        OnboardingView3()
-    }
-}
+//#Preview {
+//    NavigationView {
+//        OnboardingView3()
+//    }
+//}

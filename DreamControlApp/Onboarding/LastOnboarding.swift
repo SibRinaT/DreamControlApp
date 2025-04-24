@@ -11,6 +11,7 @@ struct LastOnboarding: View {
     @State private var email = ""
     @State private var name = ""
     @State private var navigateToTabBar = false
+    @Binding var user: User
     
     @AppStorage("userName") private var savedName: String = "" // Сохранение имени пользователя в UserDefaults
 
@@ -45,7 +46,7 @@ struct LastOnboarding: View {
                         InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com", text: $email)
                         InputFieldView(title: "Имя", placeholder: "Dream", text: $name)
                         
-                        NavigationLink(destination: CustomTabBar(), isActive: $navigateToTabBar) {
+                        NavigationLink(destination: CustomTabBar(user: $user), isActive: $navigateToTabBar) {
                             EmptyView()
                         }
                         .navigationBarHidden(true)
@@ -74,10 +75,10 @@ struct LastOnboarding: View {
         }
     }
 }
-
-#Preview {
-    NavigationView {
-        LastOnboarding()
-            .environment(IdeasViewModel())
-    }
-}
+//
+//#Preview {
+//    NavigationView {
+//        LastOnboarding()
+//            .environment(IdeasViewModel())
+//    }
+//}

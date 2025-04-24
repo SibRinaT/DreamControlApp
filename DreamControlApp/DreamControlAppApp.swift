@@ -25,6 +25,7 @@ struct DreamControlAppApp: App {
     private let ideasViewModel: IdeasViewModel
     @State private var hasCompletedOnboarding: Bool
     @State private var isFirstLaunch: Bool
+    @Binding var user: User
     
     @MainActor private let dataHandler: DataHandler
     
@@ -82,7 +83,7 @@ struct DreamControlAppApp: App {
         WindowGroup {
             NavigationView {
                 if isFirstLaunch || !hasCompletedOnboarding {
-                    SplashView()
+                    SplashView(user: $user)
                 } else {
                     getTimeBasedSplashView()
                 }
@@ -100,13 +101,13 @@ struct DreamControlAppApp: App {
         
         switch hour {
         case 6..<12:
-            return AnyView(MorningSplash())
+            return AnyView(MorningSplash(user: $user))
         case 12..<18:
-            return AnyView(DaySplash())
+            return AnyView(DaySplash(user: $user))
         case 18..<24:
-            return AnyView(EveningSplash())
+            return AnyView(EveningSplash(user: $user))
         default:
-            return AnyView(DaySplash())
+            return AnyView(DaySplash(user: $user))
         }
         // for test notification        return AnyView(TestNotificationView())
         

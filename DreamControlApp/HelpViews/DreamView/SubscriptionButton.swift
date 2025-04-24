@@ -10,7 +10,8 @@ import SwiftUI
 struct SubscriptionButton: View {
     @State var text: String
     @State private var isSubscriptionViewPresented = false
-
+    @Binding var user: User
+    
     var body: some View {
         VStack {
             Button(action: {
@@ -46,12 +47,12 @@ struct SubscriptionButton: View {
             }
             )
             .sheet(isPresented: $isSubscriptionViewPresented) {
-                SubscriptionView()
+                SubscriptionView(user: $user)
             }
         }
     }
 }
 
-#Preview {
-    SubscriptionButton(text: "мечтаний")
-}
+//#Preview {
+//    SubscriptionButton(text: "мечтаний")
+//}

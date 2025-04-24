@@ -9,24 +9,27 @@ import SwiftUI
 
 struct CustomTabBar: View {
     @State private var selectedTab = 0
-    
+    @Binding var user: User
+    @ViewBuilder
+
     var body: some View {
             VStack {
                 Spacer()
                 
                 // Основное содержимое, меняющееся в зависимости от выбранной вкладки
-                Group {
-                    if selectedTab == 0 {
-                        MainView(selectedTab: $selectedTab)
-                    } else if selectedTab == 1 {
-                        DreamView(selectedTab: $selectedTab)
-                    } else if selectedTab == 2 {
-                        IdeasView(selectedTab: $selectedTab)
-                    } else if selectedTab == 3 {
-                        SettingsView(selectedTab: $selectedTab)
-                    }
+                switch selectedTab {
+                case 0:
+                    MainView(selectedTab: $selectedTab, user: $user)
+                case 1:
+                    DreamView(selectedTab: $selectedTab, user: $user)
+                case 2:
+                    IdeasView(selectedTab: $selectedTab)
+                case 3:
+                    SettingsView(selectedTab: $selectedTab)
+                default:
+                    EmptyView()
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
                 // Кастомный Tab Bar
                 HStack {
@@ -89,9 +92,9 @@ struct CustomTabBar: View {
         }
     }
 
-struct CustomTabBar_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomTabBar()
-            .environment(IdeasViewModel())
-    }
-}
+//struct CustomTabBar_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CustomTabBar()
+//            .environment(IdeasViewModel())
+//    }
+//}

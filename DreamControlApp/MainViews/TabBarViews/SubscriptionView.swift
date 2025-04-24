@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SubscriptionView: View {
+    @Binding var user: User
+    
     var body: some View {
         VStack {
             Text("Подписка")
@@ -51,7 +53,9 @@ struct SubscriptionView: View {
                 }
             }
             .padding(.leading)
-            Button(action: {}) {
+            Button(action: {
+                user.isSubscriptionEnabled = true
+            }) {
                 Rectangle()
                     .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
                     .frame(height: 60)
@@ -85,6 +89,6 @@ extension View {
     }
 }
 
-#Preview {
-    SubscriptionView()
-}
+//#Preview {
+//    SubscriptionView(user: User(id: "123", name: "User", isAdmin: false))
+//}

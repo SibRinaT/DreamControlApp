@@ -17,12 +17,13 @@ struct MorningSplash: View {
     @State private var starOffset3 = CGSize.zero
     @State private var starOffset4 = CGSize.zero
     @State private var rotationCloudAngle: Double = 0
+    @Binding var user: User
 
     @State private var isActive = false
 
     var body: some View {
         if isActive {
-            CustomTabBar()
+            CustomTabBar(user: $user)
         } else {
             VStack {
                 Spacer()
@@ -167,6 +168,6 @@ struct MorningSplash: View {
     }
 }
 
-#Preview {
-    MorningSplash()
-}
+//#Preview {
+//    MorningSplash(user: <#Binding<User>#>)
+//}

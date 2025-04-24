@@ -17,10 +17,11 @@ struct DaySplash: View {
     @State private var rotationCloudAngle: Double = 0
 
     @State private var isActive = false
-
+    @Binding var user: User
+    
     var body: some View {
         if isActive {
-            CustomTabBar()
+            CustomTabBar(user: $user)
         } else {
             VStack {
                 Spacer()
@@ -137,6 +138,6 @@ struct DaySplash: View {
     }
 }
 
-#Preview {
-    DaySplash()
-}
+//#Preview {
+//    DaySplash(user: User(id: "123", name: "sadsa", isAdmin: false))
+//}

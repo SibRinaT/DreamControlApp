@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainOnboarding: View {
+    @Binding var user: User
+    
     var body: some View {
             ZStack {
                 VStack {
@@ -28,7 +30,7 @@ struct MainOnboarding: View {
                                 .bold()
                                 .foregroundColor(Color("TextColor"))
                             
-                            NavigationLink(destination: CustomTabBar()) {
+                            NavigationLink(destination: CustomTabBar(user: $user)) {
                                 YellowButton(isActive: true, text: "Войти")
                             }
                             .navigationBarHidden(true) // Скрываем навигационную панель
@@ -74,6 +76,6 @@ struct MainOnboarding: View {
     }
 }
 
-#Preview {
-        MainOnboarding()
-}
+//#Preview {
+//        MainOnboarding()
+//}

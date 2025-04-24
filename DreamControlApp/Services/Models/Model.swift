@@ -22,15 +22,11 @@ import UIKit
 //    var stories: [DreamStory]
 //}
 
-struct User: Codable {
+class User: ObservableObject, Codable {
     let id: String
     let name: String
     let isAdmin: Bool
-    private(set) var isSubscriptionEnabled: Bool
-    
-    mutating func enableSubscription() {
-        isSubscriptionEnabled = true
-    }
+    @Published var isSubscriptionEnabled: Bool
     
     init(id: String, name: String, isAdmin: Bool) {
         self.id = id
@@ -38,7 +34,28 @@ struct User: Codable {
         self.isAdmin = isAdmin
         self.isSubscriptionEnabled = false
     }
+
+    enum CodingKeys: CodingKey {
+        case id, name, isAdmin, isSubscriptionEnabled
+    }
+
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(String.self, forKey: .id)
+        name = try container.decode(String.self, forKey: .name)
+        isAdmin = try container.decode(Bool.self, forKey: .isAdmin)
+        isSubscriptionEnabled = try container.decode(Bool.self, forKey: .isSubscriptionEnabled)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        try container.encode(isAdmin, forKey: .isAdmin)
+        try container.encode(isSubscriptionEnabled, forKey: .isSubscriptionEnabled)
+    }
 }
+
 struct DailyRectangle: Codable, Identifiable {
     let id: UUID = UUID()
     let text: String
