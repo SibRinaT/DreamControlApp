@@ -84,6 +84,7 @@
 		2EFB883E2CABC9160006D68E /* HelpProfileRectangleMorning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB883D2CABC9160006D68E /* HelpProfileRectangleMorning.swift */; };
 		AC3213602C9519DE006D4399 /* DreamControlAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */; };
 		ACB4DAE62CEDE2BB003A9B90 /* DataProvider in Frameworks */ = {isa = PBXBuildFile; productRef = ACB4DAE52CEDE2BB003A9B90 /* DataProvider */; };
+		ACC76C6B2DBE3AD800897281 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC76C6A2DBE3AD800897281 /* UserManager.swift */; };
 		ACE72F9A2CFEDC3300733B54 /* ideas.json in Resources */ = {isa = PBXBuildFile; fileRef = ACE72F992CFEDC3300733B54 /* ideas.json */; };
 /* End PBXBuildFile section */
 
@@ -181,6 +182,7 @@
 		2EFB883B2CABC9050006D68E /* MorningRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningRectangle.swift; sourceTree = "<group>"; };
 		2EFB883D2CABC9160006D68E /* HelpProfileRectangleMorning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpProfileRectangleMorning.swift; sourceTree = "<group>"; };
 		AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DreamControlAppApp.swift; sourceTree = "<group>"; };
+		ACC76C6A2DBE3AD800897281 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		ACE72F992CFEDC3300733B54 /* ideas.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ideas.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -406,6 +408,7 @@
 				2E829FC72DA9033800A3BD6F /* APIService.swift */,
 				2E829FC52DA9020200A3BD6F /* GigaChatView.swift */,
 				2E829FC02DA9018800A3BD6F /* TokenManager.swift */,
+				ACC76C6A2DBE3AD800897281 /* UserManager.swift */,
 			);
 			path = LastVersion;
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 				2E8578862BBBF76800BEA1ED /* OrView.swift in Sources */,
 				2EE3AC302CC57D960045EDD0 /* EveningSplash.swift in Sources */,
 				2E8578842BBBF07F00BEA1ED /* ClearYellowButton.swift in Sources */,
+				ACC76C6B2DBE3AD800897281 /* UserManager.swift in Sources */,
 				2E69F7862CDE11A2002F970E /* AppleId.swift in Sources */,
 				2E912D3A2B970CD600664140 /* MainOnboarding.swift in Sources */,
 				2EFB883A2CABC10D0006D68E /* HelpProfileRectangleEvening.swift in Sources */,
