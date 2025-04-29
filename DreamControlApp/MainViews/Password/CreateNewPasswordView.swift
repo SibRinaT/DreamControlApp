@@ -22,7 +22,7 @@ struct CreateNewPasswordView: View {
             Rectangle()
                 .frame(height: 641)
                 .cornerRadius(50)
-                .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+                .shadow(radius: 30, y: -4)
                 .overlay(
                     VStack {
                         Text("Создайте новый пароль")

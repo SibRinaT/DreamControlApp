@@ -46,11 +46,6 @@ public actor DataHandler {
     
     public func delete(story: DreamStory) {
         modelContext.delete(story)
-        try? modelContext.save()
-    }
-    
-    public func stories(for dream: Dream) -> [DreamStory] {
-        return dream.stories ?? []
     }
     
 //    @discardableResult

@@ -13,7 +13,7 @@ struct StoryTextView: View {
     @Binding var isPresented: Bool
     var onSave: (String, String) -> Void
 
-    private let characterLimit = 2000
+    private let characterLimit = 400
 
     var body: some View {
         VStack {
@@ -39,7 +39,7 @@ struct StoryTextView: View {
                     }
                 )
             RoundedRectangle(cornerRadius: 20)
-                .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+                .shadow(radius: 10)
                 .foregroundColor(.white)
                 .ignoresSafeArea(.all)
                     .overlay(
@@ -51,34 +51,37 @@ struct StoryTextView: View {
 //                                    .padding(.bottom)
                                 
                                 ZStack {
-                                    // Контейнер с рамкой
-                                    RoundedRectangle(cornerRadius: 25, style: .continuous)
-                                        .stroke(
-                                            LinearGradient(
-                                                gradient: Gradient(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")]),
-                                                startPoint: .topLeading,
-                                                endPoint: .bottomTrailing
-                                            ),
-                                            lineWidth: 3
-                                        )
-                                    
-                                    // Контент внутри рамки
-                                    TextField("Напишите историю мечты...", text: $storyContent, axis: .vertical)
-                                        .padding(16) // внутренние отступы
-                                        .background(Color.clear) // убираем фон, чтобы не перекрывал рамку
-                                        .onChange(of: storyContent) { newValue in
-                                            if newValue.count > characterLimit {
-                                                storyContent = String(newValue.prefix(characterLimit))
-                                            }
+                                    Group {
+                                        RoundedRectangle(cornerRadius: 25, style: .continuous)
+                                            .stroke(
+                                                LinearGradient(
+                                                    gradient: Gradient(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")]),
+                                                    startPoint: .topLeading,
+                                                    endPoint: .bottomTrailing
+                                                ),
+                                                lineWidth: 3
+                                            )
+                                            .background(Color.clear) // Прозрачный фон
+                                            .frame(width: 300, height: 400) // Размеры прямоугольник
+                                        ScrollView {
+                                            TextField("Напишите историю успеха", text: $storyContent, axis: .vertical)
+                                                .padding(.horizontal)
+                                                .padding(.vertical)
+                                                .onChange(of: storyContent) { newValue in
+                                                    if newValue.count > characterLimit {
+                                                        storyContent = String(newValue.prefix(characterLimit))
+                                                    }
+                                                }
                                         }
+                                    }
+                                    .padding(.horizontal, 100)
                                 }
-                                .padding(.horizontal, 40)
-
+                                
                                 Text("Количество символов: \(storyContent.count)/\(characterLimit)")
                                             .padding()
                     
                                 .padding(.bottom)
-                                VStack {
+                                HStack {
                                     Button(action: {
                                         // Логика для сохранения истории
                                         onSave(title, storyContent)
@@ -87,12 +90,11 @@ struct StoryTextView: View {
                                         Rectangle()
                                             .foregroundColor(Color("PrimaryColor"))
                                             .cornerRadius(100)
-                                            .frame(width: 200, height: 50)
+                                            .frame(height: 50)
                                             .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                                             .overlay(
                                                 Text("Сохранить")
                                                     .font(.title2)
-                                                    .bold()
                                                     .foregroundColor(.white)
                                             )
                                     })
@@ -110,10 +112,8 @@ struct StoryTextView: View {
                                                 Text("Отмена")
                                                     .font(.title2)
                                                     .foregroundColor(.white)
-                                                    .bold()
                                             )
                                     })
-                                    .padding(.vertical, 10)
                                 }
                                 .padding(.horizontal, 100)
                             }

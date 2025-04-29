@@ -11,15 +11,12 @@ import DataProvider
 
 struct DreamsCountView: View {
     @Environment(IdeasViewModel.self) private var ideasViewModel
+    
     @State private var showFavorites = false
-    @Binding var isAnimating: Bool
-    @State private var rotateAmount: CGFloat = 5
+    @Binding var isAnimating: Bool // состояние анимации
+    @State private var rotateAmount: CGFloat = 5 // угол поворота
     @Query private var dreams: [Dream]
     @Binding var selectedTab: Int
-
-    // Состояния для анимации
-    @State private var cloudRotation: Double = 0
-    @State private var starRotation: Double = 0
 
     var body: some View {
         HStack {
@@ -47,7 +44,7 @@ struct DreamsCountView: View {
                         .padding(.horizontal)
                 }
 
-                // Анимация облаков
+                // Анимация для облаков
                 cloudImage("CloudSmallImage", offset: CGSize(width: 57, height: 15))
                 cloudImage("CloudImage", offset: CGSize(width: 75, height: -25))
                 cloudImage("CloudSmallImage", offset: CGSize(width: -57, height: -15))
@@ -77,13 +74,14 @@ struct DreamsCountView: View {
                             }
                                 .padding(.vertical)
                         )
+                        .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                         .padding(.horizontal)
                 }
                 .sheet(isPresented: $showFavorites) {
                     FavoritesIdeasView(ideasViewModel: ideasViewModel)
                 }
 
-                // Анимация звёзд
+                // Анимация для звезд
                 starImage("StarSmallImage", offset: CGSize(width: -50, height: 18))
                 starImage("StarImage", offset: CGSize(width: -75, height: -25))
                 starImage("StarSmallImage", offset: CGSize(width: 57, height: -10))
@@ -91,42 +89,34 @@ struct DreamsCountView: View {
             }
             .frame(height: 100)
         }
-        .onAppear {
-            startAnimationsIfNeeded()
-        }
-        .onChange(of: isAnimating) { _ in
-            startAnimationsIfNeeded()
-        }
     }
 
-    // MARK: - Анимации
-
-    private func startAnimationsIfNeeded() {
-        if isAnimating {
-            withAnimation(Animation.easeInOut(duration: 5).repeatForever(autoreverses: true)) {
-                cloudRotation = Double(rotateAmount)
-                starRotation = -Double(rotateAmount)
-            }
-        } else {
-            cloudRotation = 0
-            starRotation = 0
-        }
-    }
-
+    // Функция для облаков с анимацией
     private func cloudImage(_ name: String, offset: CGSize) -> some View {
         Image(name)
             .offset(offset)
-            .rotationEffect(.degrees(cloudRotation))
+            .rotationEffect(.degrees(isAnimating ? rotateAmount : 0))
+            .animation(
+                isAnimating
+                    ? Animation.easeInOut(duration: 5).repeatForever(autoreverses: true)
+                    : .default,
+                value: isAnimating
+            )
     }
 
+    // Функция для звезд с анимацией
     private func starImage(_ name: String, offset: CGSize) -> some View {
         Image(name)
             .offset(offset)
-            .rotationEffect(.degrees(starRotation))
+            .rotationEffect(.degrees(isAnimating ? -rotateAmount : 0))
+            .animation(
+                isAnimating
+                    ? Animation.easeInOut(duration: 5).repeatForever(autoreverses: true)
+                    : .default,
+                value: isAnimating
+            )
     }
 }
-
-
 
 //#Preview {
 //    NavigationView {

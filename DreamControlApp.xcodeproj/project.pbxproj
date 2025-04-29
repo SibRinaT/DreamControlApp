@@ -30,6 +30,9 @@
 		2E6B1A112CDCF31200E07DB2 /* NewDreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6B1A102CDCF31200E07DB2 /* NewDreamView.swift */; };
 		2E784F432BA0BE7700AA58F9 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E784F422BA0BE7700AA58F9 /* LogInView.swift */; };
 		2E784F452BA0BE8200AA58F9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E784F442BA0BE8200AA58F9 /* SignUpView.swift */; };
+		2E829F9E2DA7B2DE00A3BD6F /* ModelStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829F9D2DA7B2D000A3BD6F /* ModelStory.swift */; };
+		2E829FA12DA7B30000A3BD6F /* StoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FA02DA7B2F700A3BD6F /* StoryService.swift */; };
+		2E829FA32DA7B33F00A3BD6F /* TestGigaChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FA22DA7B33300A3BD6F /* TestGigaChat.swift */; };
 		2E829FB72DA7F0A900A3BD6F /* GigaChatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FB62DA7F0A900A3BD6F /* GigaChatResponse.swift */; };
 		2E829FB92DA7F0B400A3BD6F /* GigaChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FB82DA7F0B400A3BD6F /* GigaChatViewModel.swift */; };
 		2E829FBB2DA7F0BC00A3BD6F /* GrokView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FBA2DA7F0BC00A3BD6F /* GrokView.swift */; };
@@ -128,6 +131,9 @@
 		2E784F422BA0BE7700AA58F9 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		2E784F442BA0BE8200AA58F9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		2E829F9B2DA7A88200A3BD6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E829F9D2DA7B2D000A3BD6F /* ModelStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelStory.swift; sourceTree = "<group>"; };
+		2E829FA02DA7B2F700A3BD6F /* StoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryService.swift; sourceTree = "<group>"; };
+		2E829FA22DA7B33300A3BD6F /* TestGigaChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGigaChat.swift; sourceTree = "<group>"; };
 		2E829FB62DA7F0A900A3BD6F /* GigaChatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigaChatResponse.swift; sourceTree = "<group>"; };
 		2E829FB82DA7F0B400A3BD6F /* GigaChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigaChatViewModel.swift; sourceTree = "<group>"; };
 		2E829FBA2DA7F0BC00A3BD6F /* GrokView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrokView.swift; sourceTree = "<group>"; };
@@ -285,15 +291,16 @@
 			isa = PBXGroup;
 			children = (
 				AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */,
+				2E666EB62D8835CF00089E89 /* AIViewTest */,
 				2E2ACFE32CF1D0D500A55886 /* Unit Test */,
 				2E8C614C2CE8A97500A61DA4 /* Notification */,
 				AC3213622C9519F5006D4399 /* Services */,
+				2E69F7882CDF47C7002F970E /* Not Use */,
 				2E85787E2BBAB24E00BEA1ED /* MainViews */,
 				2E12B52F2BA2150800F44234 /* HelpViews */,
 				2E912D382B970CBA00664140 /* Onboarding */,
 				2EA20C932B91EF3F000AAEC2 /* Fonts */,
 				2E61245D2B9025B300494DF6 /* Preview Content */,
-				2E69F7882CDF47C7002F970E /* Not Use */,
 				2E61245B2B9025B300494DF6 /* Assets.xcassets */,
 				2E829F9B2DA7A88200A3BD6F /* Info.plist */,
 			);
@@ -328,7 +335,9 @@
 			isa = PBXGroup;
 			children = (
 				2E829FB32DA7F07100A3BD6F /* TryFromGrok */,
+				2E829FAE2DA7DED300A3BD6F /* NewTry */,
 				2E829FAB2DA7C87C00A3BD6F /* GigaChat */,
+				2E829F9F2DA7B2EA00A3BD6F /* FromGigaChat */,
 			);
 			path = AIViewTest;
 			sourceTree = "<group>";
@@ -357,12 +366,30 @@
 			path = "Not Use";
 			sourceTree = "<group>";
 		};
+		2E829F9F2DA7B2EA00A3BD6F /* FromGigaChat */ = {
+			isa = PBXGroup;
+			children = (
+				2E829FA22DA7B33300A3BD6F /* TestGigaChat.swift */,
+				2E829FA02DA7B2F700A3BD6F /* StoryService.swift */,
+				2E829F9D2DA7B2D000A3BD6F /* ModelStory.swift */,
+			);
+			path = FromGigaChat;
+			sourceTree = "<group>";
+		};
 		2E829FAB2DA7C87C00A3BD6F /* GigaChat */ = {
 			isa = PBXGroup;
 			children = (
 				2E829FC42DA901F100A3BD6F /* LastVersion */,
+				2E829FBC2DA8093D00A3BD6F /* InsecureNetworkManager.swift */,
 			);
 			path = GigaChat;
+			sourceTree = "<group>";
+		};
+		2E829FAE2DA7DED300A3BD6F /* NewTry */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NewTry;
 			sourceTree = "<group>";
 		};
 		2E829FB32DA7F07100A3BD6F /* TryFromGrok */ = {
@@ -381,11 +408,7 @@
 				2E829FC72DA9033800A3BD6F /* APIService.swift */,
 				2E829FC52DA9020200A3BD6F /* GigaChatView.swift */,
 				2E829FC02DA9018800A3BD6F /* TokenManager.swift */,
-<<<<<<< HEAD
 				ACC76C6A2DBE3AD800897281 /* UserManager.swift */,
-=======
-				2E829FBC2DA8093D00A3BD6F /* InsecureNetworkManager.swift */,
->>>>>>> AutoStorysFromAI
 			);
 			path = LastVersion;
 			sourceTree = "<group>";
@@ -424,6 +447,7 @@
 		2E92C9292BC04EC1005E4DB9 /* Password */ = {
 			isa = PBXGroup;
 			children = (
+				2EA84E1B2C901BBD00C74160 /* NewStoryView.swift */,
 				2EC4DBFC2BBE7FFF00DE1B43 /* PasswordResetView .swift */,
 				2E92C9252BC04DA7005E4DB9 /* CreateNewPasswordView.swift */,
 				2E92C9272BC04EBA005E4DB9 /* PasswordCreatedView.swift */,
@@ -442,7 +466,6 @@
 				2E23AE422C24B604003FCCC1 /* SettingsView.swift */,
 				2E34CBB42C8833700063F57F /* StoryView.swift */,
 				2ECD80102C9AA04A003147BE /* StoryTextView.swift */,
-				2EA84E1B2C901BBD00C74160 /* NewStoryView.swift */,
 				2E6B1A102CDCF31200E07DB2 /* NewDreamView.swift */,
 			);
 			path = TabBarViews;
@@ -515,7 +538,6 @@
 			isa = PBXGroup;
 			children = (
 				2E34CBB12C881F850063F57F /* Models */,
-				2E666EB62D8835CF00089E89 /* AIViewTest */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -602,6 +624,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E1978602BD57728000AD527 /* TabBar.swift in Sources */,
+				2E829FA32DA7B33F00A3BD6F /* TestGigaChat.swift in Sources */,
 				2EAA26692D00193D00EC5997 /* OtherViewsRectangleSubscription.swift in Sources */,
 				2EFB883E2CABC9160006D68E /* HelpProfileRectangleMorning.swift in Sources */,
 				2EE3AC2E2CC2D1620045EDD0 /* DaySplash.swift in Sources */,
@@ -617,6 +640,7 @@
 				2E829FC12DA9018800A3BD6F /* TokenManager.swift in Sources */,
 				2EA06B9F2BD18F9A0056E9F7 /* CustomTabBar.swift in Sources */,
 				2E19785B2BD3DEED000AD527 /* HelpProfileRectangleDay.swift in Sources */,
+				2E829F9E2DA7B2DE00A3BD6F /* ModelStory.swift in Sources */,
 				2E6B1A112CDCF31200E07DB2 /* NewDreamView.swift in Sources */,
 				2E8C61502CE8AC5B00A61DA4 /* TestNotification.swift in Sources */,
 				2E542A062CA8A26300338070 /* DayRectangel.swift in Sources */,
@@ -649,6 +673,7 @@
 				2E784F452BA0BE8200AA58F9 /* SignUpView.swift in Sources */,
 				2E85788A2BBD82F700BEA1ED /* AuthenticationView.swift in Sources */,
 				2E19785E2BD3E5E7000AD527 /* OtherViewsRectangle.swift in Sources */,
+				2E829FA12DA7B30000A3BD6F /* StoryService.swift in Sources */,
 				2E85787D2BBAA7AB00BEA1ED /* TestPageView.swift in Sources */,
 				2E66C4532BC79F4D00FC2E49 /* OTPModifier.swift in Sources */,
 				2E23AE432C24B604003FCCC1 /* SettingsView.swift in Sources */,
