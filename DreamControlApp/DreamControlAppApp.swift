@@ -25,8 +25,6 @@ struct DreamControlAppApp: App {
     private let ideasViewModel: IdeasViewModel
     @State private var hasCompletedOnboarding: Bool
     @State private var isFirstLaunch: Bool
-    @Binding var user: User // Используем привязку к состоянию пользователя
-    
     @MainActor private let dataHandler: DataHandler
     
     init() {
@@ -101,13 +99,13 @@ struct DreamControlAppApp: App {
         
         switch hour {
         case 6..<12:
-            return AnyView(MorningSplash(user: $user))
+            return AnyView(MorningSplash())
         case 12..<18:
-            return AnyView(DaySplash(user: $user))
+            return AnyView(DaySplash())
         case 18..<24:
-            return AnyView(EveningSplash(user: $user))
+            return AnyView(EveningSplash())
         default:
-            return AnyView(DaySplash(user: $user))
+            return AnyView(DaySplash())
         }
         // for test notification        return AnyView(TestNotificationView())
         

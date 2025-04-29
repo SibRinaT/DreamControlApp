@@ -46,7 +46,7 @@ struct SubscriptionButton: View {
             }
             )
             .sheet(isPresented: $isSubscriptionViewPresented) {
-                SubscriptionView(user: .constant(User(id: "123", name: "John Doe", isAdmin: false)))
+                SubscriptionView()
             }
         }
     }

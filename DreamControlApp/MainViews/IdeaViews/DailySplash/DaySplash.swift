@@ -15,13 +15,11 @@ struct DaySplash: View {
     @State private var starOffset2 = CGSize.zero
     @State private var starOffset3 = CGSize.zero
     @State private var rotationCloudAngle: Double = 0
-    @Binding var user: User // Используем привязку к состоянию пользователя
-
     @State private var isActive = false
 
     var body: some View {
         if isActive {
-            CustomTabBar(user: $user)
+            CustomTabBar()
         } else {
             VStack {
                 Spacer()
@@ -139,5 +137,5 @@ struct DaySplash: View {
 }
 
 #Preview {
-    DaySplash(user: .constant(User(id: "123", name: "John Doe", isAdmin: false)))
+    DaySplash()
 }

@@ -13,7 +13,6 @@ struct MainView: View {
     @State private var currentHour: Int = Calendar.current.component(.hour, from: Date())
     @State private var randomQuote: DailyRectangle = quotes.randomElement()!
     @AppStorage("isAnimating") private var isAnimating: Bool = false
-    @Binding var user: User // Используем привязку к состоянию пользователя
 
     var body: some View {
         VStack {
@@ -30,7 +29,8 @@ struct MainView: View {
                 updateRandomQuote()
                 updateTime()
             }
-            DreamsCountView(user: $user, isAnimating: $isAnimating, selectedTab: $selectedTab)
+
+            DreamsCountView(isAnimating: $isAnimating, selectedTab: $selectedTab)
 
             VStack {
                 HStack {
@@ -53,7 +53,7 @@ struct MainView: View {
                     .padding(.horizontal)
                 }
                 HStack {
-                    NavigationLink(destination: SubscriptionView(user: $user)) {
+                    NavigationLink(destination: SubscriptionView()) {
                         OtherViewsRectangleSubscription(
                             image: "SubIcon",
                             title: "Подписка",

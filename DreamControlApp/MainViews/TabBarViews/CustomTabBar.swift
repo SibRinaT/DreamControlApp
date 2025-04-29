@@ -9,26 +9,21 @@ import SwiftUI
 
 struct CustomTabBar: View {
     @State private var selectedTab = 0
-    @Binding var user: User // Используем привязку к состоянию пользователя
-
+    
     var body: some View {
         VStack {
             Spacer()
             
             // Основное содержимое, меняющееся в зависимости от выбранной вкладки
-            ZStack {
+            Group {
                 if selectedTab == 0 {
-                    MainView(selectedTab: $selectedTab, user: $user)
-                        .transition(.opacity)
+                    MainView(selectedTab: $selectedTab)
                 } else if selectedTab == 1 {
-                    DreamView(user: $user, selectedTab: $selectedTab)
-                        .transition(.opacity)
+                    DreamView(selectedTab: $selectedTab)
                 } else if selectedTab == 2 {
                     IdeasView(selectedTab: $selectedTab)
-                        .transition(.opacity)
                 } else if selectedTab == 3 {
                     SettingsView(selectedTab: $selectedTab)
-                        .transition(.opacity)
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -51,14 +46,14 @@ struct CustomTabBar: View {
                     selectedTab = 3
                 }
             }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 40)
-            .background(Color.white)
-            .cornerRadius(40)
-            .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-            .padding(.bottom, -40)
-            .ignoresSafeArea(edges: .bottom)
         }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 40)
+        .background(Color.white)
+        .cornerRadius(40)
+        .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+        .padding(.bottom, -40)
+        .ignoresSafeArea(edges: .bottom)
     }
 }
 
@@ -96,6 +91,7 @@ struct TabBarButton: View {
 
 struct CustomTabBar_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTabBar(user: .constant(User(id: "123", name: "John Doe", isAdmin: false)))
+        CustomTabBar()
+            .environment(IdeasViewModel())
     }
 }

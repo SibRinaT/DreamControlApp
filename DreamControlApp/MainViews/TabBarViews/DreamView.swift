@@ -15,9 +15,9 @@ struct DreamView: View {
     @State private var newButtonName = ""
     @State private var selectedImage = "StarForDream"
     @State private var selectedDream: Dream? // Добавлено для хранения созданной мечты
-    @Binding var user: User // Используем привязку к состоянию пользователя
     @State private var isSubscriptionViewPresented = false
     @Binding var selectedTab: Int
+    @State private var user = User(id: "123", name: "User", isAdmin: false) // Пример пользователя
 
     @Query private var dreams: [Dream]
     
@@ -123,7 +123,7 @@ struct DreamView: View {
             }
         }
         .sheet(isPresented: $isSubscriptionViewPresented) {
-            SubscriptionView(user: $user) // Передаем привязку для обновления пользователя
+            SubscriptionView()
         }
         .background(
             NavigationLink(
