@@ -25,8 +25,11 @@ struct DreamControlAppApp: App {
     private let ideasViewModel: IdeasViewModel
     @State private var hasCompletedOnboarding: Bool
     @State private var isFirstLaunch: Bool
+<<<<<<< HEAD
     private let userManager: UserManager
     
+=======
+>>>>>>> AutoStorysFromAI
     @MainActor private let dataHandler: DataHandler
     
     init() {
@@ -48,24 +51,24 @@ struct DreamControlAppApp: App {
             _hasCompletedOnboarding = State(initialValue: completedOnboarding)
         }
         
-//        Task {
-//            do {
-//    //            if !ideasPopulatedFromJSON {
-//                    let ideas = try loadFromJson()
-//                    ideas.forEach {
-//                        let idea = Idea(title: $0.name, status: IdeaShowStatus.neutral)
-//                        await dataHandler.new(idea: idea)
-//                    }
-//                    
-//    //            }
-//                
-//            } catch {
-//                print(error)
-//            }
-//        }
-
+        //        Task {
+        //            do {
+        //    //            if !ideasPopulatedFromJSON {
+        //                    let ideas = try loadFromJson()
+        //                    ideas.forEach {
+        //                        let idea = Idea(title: $0.name, status: IdeaShowStatus.neutral)
+        //                        await dataHandler.new(idea: idea)
+        //                    }
+        //
+        //    //            }
+        //
+        //            } catch {
+        //                print(error)
+        //            }
+        //        }
         
     }
+
     
 //    struct IdeaStruct: Codable {
 //        let name: String

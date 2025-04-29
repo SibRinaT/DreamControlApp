@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct SubscriptionView: View {
-    var body: some View {
+    @State private var showAlert = false // Стейт для отображения алерта
+    
+var body: some View {
         VStack {
             Text("Подписка")
                 .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
@@ -67,9 +69,16 @@ struct SubscriptionView: View {
             Text("7 дней бесплатно, далее 299 руб в месяц")
                 .foregroundColor(Color("InactiveColor2"))
                 .font(.system(size: 16))
-
         }
         .padding(.horizontal, 33)
+        // Добавление алерта
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Подписка успешно активирована"),
+                message: Text("Теперь у вас неограниченный доступ к цитатам, мечтам и автоисториям."),
+                dismissButton: .default(Text("Ок"))
+            )
+        }
     }
 }
 

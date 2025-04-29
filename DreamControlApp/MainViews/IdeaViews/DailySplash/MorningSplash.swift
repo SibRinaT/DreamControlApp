@@ -17,7 +17,6 @@ struct MorningSplash: View {
     @State private var starOffset3 = CGSize.zero
     @State private var starOffset4 = CGSize.zero
     @State private var rotationCloudAngle: Double = 0
-
     @State private var isActive = false
 
     var body: some View {

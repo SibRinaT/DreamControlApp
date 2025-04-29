@@ -29,6 +29,7 @@ struct MainView: View {
                 updateRandomQuote()
                 updateTime()
             }
+
             DreamsCountView(isAnimating: $isAnimating, selectedTab: $selectedTab)
 
             VStack {
