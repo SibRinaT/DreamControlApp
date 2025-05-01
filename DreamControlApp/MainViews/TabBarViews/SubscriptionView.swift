@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SubscriptionView: View {
+    @Environment(UserManager.self) private var userManager
+    @State private var showConfirmation = false
+    
     var body: some View {
         VStack {
             Text("Подписка")
@@ -51,7 +54,10 @@ struct SubscriptionView: View {
                 }
             }
             .padding(.leading)
-            Button(action: {}) {
+            Button(action: {
+                userManager.activateSubscription()
+                showConfirmation = true
+            }) {
                 Rectangle()
                     .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
                     .frame(height: 60)
@@ -63,6 +69,9 @@ struct SubscriptionView: View {
                             .bold()
                     )
             }
+            .alert("Подписка активирована!", isPresented: $showConfirmation) {
+                        Button("ОК", role: .cancel) {}
+                    }
             
             Text("7 дней бесплатно, далее 299 руб в месяц")
                 .foregroundColor(Color("InactiveColor2"))
