@@ -213,7 +213,7 @@ struct NewStoryView: View {
         errorMessage = ""
         if autoStory {
             isLoading = true
-            let finalPrompt = "Используя это описание: \"\(description)\", создай вдохновляющую историю, чтобы человек мог визуализировать свой успех. История не должна вызывать никаких негативных эмоций."
+            let finalPrompt = "Используя это описание: \"\(description)\", создай вдохновляющую историю, чтобы человек мог визуализировать свой успех. История не должна вызывать никаких негативных эмоций. Максимум 2000 символов."
             apiService.sendPrompt(finalPrompt) { result in
                 DispatchQueue.main.async {
                     isLoading = false
