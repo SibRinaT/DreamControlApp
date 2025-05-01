@@ -18,7 +18,7 @@ struct ClearYellowButton: View {
                 .stroke(Color("PrimaryColor"), lineWidth: 2) // Цвет и толщина границы
                 .background(Color.clear) // Прозрачный фон
                 .frame(width: 302, height: 40)
-                .shadow(radius: 15)
+                .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
         }
     }
 }

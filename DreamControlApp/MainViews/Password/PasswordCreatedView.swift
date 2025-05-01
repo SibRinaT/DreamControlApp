@@ -20,7 +20,7 @@ struct PasswordCreatedView: View {
             Rectangle()
                 .frame(height: 641)
                 .cornerRadius(50)
-                .shadow(radius: 30, y: -4)
+                .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                 .overlay(
                     VStack {
                         Text("Новый пароль успешно создан!")

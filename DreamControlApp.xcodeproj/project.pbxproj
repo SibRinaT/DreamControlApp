@@ -30,9 +30,6 @@
 		2E6B1A112CDCF31200E07DB2 /* NewDreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6B1A102CDCF31200E07DB2 /* NewDreamView.swift */; };
 		2E784F432BA0BE7700AA58F9 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E784F422BA0BE7700AA58F9 /* LogInView.swift */; };
 		2E784F452BA0BE8200AA58F9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E784F442BA0BE8200AA58F9 /* SignUpView.swift */; };
-		2E829F9E2DA7B2DE00A3BD6F /* ModelStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829F9D2DA7B2D000A3BD6F /* ModelStory.swift */; };
-		2E829FA12DA7B30000A3BD6F /* StoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FA02DA7B2F700A3BD6F /* StoryService.swift */; };
-		2E829FA32DA7B33F00A3BD6F /* TestGigaChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FA22DA7B33300A3BD6F /* TestGigaChat.swift */; };
 		2E829FB72DA7F0A900A3BD6F /* GigaChatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FB62DA7F0A900A3BD6F /* GigaChatResponse.swift */; };
 		2E829FB92DA7F0B400A3BD6F /* GigaChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FB82DA7F0B400A3BD6F /* GigaChatViewModel.swift */; };
 		2E829FBB2DA7F0BC00A3BD6F /* GrokView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E829FBA2DA7F0BC00A3BD6F /* GrokView.swift */; };
@@ -131,9 +128,6 @@
 		2E784F422BA0BE7700AA58F9 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		2E784F442BA0BE8200AA58F9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		2E829F9B2DA7A88200A3BD6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E829F9D2DA7B2D000A3BD6F /* ModelStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelStory.swift; sourceTree = "<group>"; };
-		2E829FA02DA7B2F700A3BD6F /* StoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryService.swift; sourceTree = "<group>"; };
-		2E829FA22DA7B33300A3BD6F /* TestGigaChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGigaChat.swift; sourceTree = "<group>"; };
 		2E829FB62DA7F0A900A3BD6F /* GigaChatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigaChatResponse.swift; sourceTree = "<group>"; };
 		2E829FB82DA7F0B400A3BD6F /* GigaChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigaChatViewModel.swift; sourceTree = "<group>"; };
 		2E829FBA2DA7F0BC00A3BD6F /* GrokView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrokView.swift; sourceTree = "<group>"; };
@@ -620,7 +614,6 @@
 				2E829FC12DA9018800A3BD6F /* TokenManager.swift in Sources */,
 				2EA06B9F2BD18F9A0056E9F7 /* CustomTabBar.swift in Sources */,
 				2E19785B2BD3DEED000AD527 /* HelpProfileRectangleDay.swift in Sources */,
-				2E829F9E2DA7B2DE00A3BD6F /* ModelStory.swift in Sources */,
 				2E6B1A112CDCF31200E07DB2 /* NewDreamView.swift in Sources */,
 				2E8C61502CE8AC5B00A61DA4 /* TestNotification.swift in Sources */,
 				2E542A062CA8A26300338070 /* DayRectangel.swift in Sources */,
