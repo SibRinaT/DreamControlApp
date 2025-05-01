@@ -80,6 +80,7 @@
 		2EFB883C2CABC9050006D68E /* MorningRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB883B2CABC9050006D68E /* MorningRectangle.swift */; };
 		2EFB883E2CABC9160006D68E /* HelpProfileRectangleMorning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB883D2CABC9160006D68E /* HelpProfileRectangleMorning.swift */; };
 		AC3213602C9519DE006D4399 /* DreamControlAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */; };
+		AC7E33852DC39A13002E1F59 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7E33842DC39A13002E1F59 /* UserManager.swift */; };
 		ACB4DAE62CEDE2BB003A9B90 /* DataProvider in Frameworks */ = {isa = PBXBuildFile; productRef = ACB4DAE52CEDE2BB003A9B90 /* DataProvider */; };
 		ACE72F9A2CFEDC3300733B54 /* ideas.json in Resources */ = {isa = PBXBuildFile; fileRef = ACE72F992CFEDC3300733B54 /* ideas.json */; };
 /* End PBXBuildFile section */
@@ -175,6 +176,7 @@
 		2EFB883B2CABC9050006D68E /* MorningRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningRectangle.swift; sourceTree = "<group>"; };
 		2EFB883D2CABC9160006D68E /* HelpProfileRectangleMorning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpProfileRectangleMorning.swift; sourceTree = "<group>"; };
 		AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DreamControlAppApp.swift; sourceTree = "<group>"; };
+		AC7E33842DC39A13002E1F59 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		ACE72F992CFEDC3300733B54 /* ideas.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ideas.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -283,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */,
+				AC7E33842DC39A13002E1F59 /* UserManager.swift */,
 				2E2ACFE32CF1D0D500A55886 /* Unit Test */,
 				2E8C614C2CE8A97500A61DA4 /* Notification */,
 				AC3213622C9519F5006D4399 /* Services */,
@@ -637,6 +640,7 @@
 				2EFB883C2CABC9050006D68E /* MorningRectangle.swift in Sources */,
 				2E66C4512BC79DD600FC2E49 /* AuthPasswordInputField.swift in Sources */,
 				2E829FC82DA9033800A3BD6F /* APIService.swift in Sources */,
+				AC7E33852DC39A13002E1F59 /* UserManager.swift in Sources */,
 				2E784F432BA0BE7700AA58F9 /* LogInView.swift in Sources */,
 				2EAA266D2D0046A500EC5997 /* test.swift in Sources */,
 				2E784F452BA0BE8200AA58F9 /* SignUpView.swift in Sources */,
