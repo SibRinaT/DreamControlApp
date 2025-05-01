@@ -25,11 +25,7 @@ struct DreamControlAppApp: App {
     private let ideasViewModel: IdeasViewModel
     @State private var hasCompletedOnboarding: Bool
     @State private var isFirstLaunch: Bool
-<<<<<<< HEAD
     private let userManager: UserManager
-    
-=======
->>>>>>> AutoStorysFromAI
     @MainActor private let dataHandler: DataHandler
     
     init() {
