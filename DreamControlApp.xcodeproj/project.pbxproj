@@ -75,6 +75,8 @@
 		2EE3AC2E2CC2D1620045EDD0 /* DaySplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE3AC2D2CC2D1620045EDD0 /* DaySplash.swift */; };
 		2EE3AC302CC57D960045EDD0 /* EveningSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE3AC2F2CC57D960045EDD0 /* EveningSplash.swift */; };
 		2EEB4DD12CCCC222006FD26D /* IdeasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB4DD02CCCC222006FD26D /* IdeasViewModel.swift */; };
+		2EED37B22DC8B05800E71584 /* CategoryFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EED37B12DC8B05800E71584 /* CategoryFilterView.swift */; };
+		2EED37B42DC8B0B300E71584 /* MultipleSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EED37B32DC8B0B300E71584 /* MultipleSelectionRow.swift */; };
 		2EFB88382CABBFA90006D68E /* EveningRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB88372CABBFA90006D68E /* EveningRectangle.swift */; };
 		2EFB883A2CABC10D0006D68E /* HelpProfileRectangleEvening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB88392CABC10D0006D68E /* HelpProfileRectangleEvening.swift */; };
 		2EFB883C2CABC9050006D68E /* MorningRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB883B2CABC9050006D68E /* MorningRectangle.swift */; };
@@ -171,6 +173,8 @@
 		2EE3AC2D2CC2D1620045EDD0 /* DaySplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySplash.swift; sourceTree = "<group>"; };
 		2EE3AC2F2CC57D960045EDD0 /* EveningSplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveningSplash.swift; sourceTree = "<group>"; };
 		2EEB4DD02CCCC222006FD26D /* IdeasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeasViewModel.swift; sourceTree = "<group>"; };
+		2EED37B12DC8B05800E71584 /* CategoryFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterView.swift; sourceTree = "<group>"; };
+		2EED37B32DC8B0B300E71584 /* MultipleSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionRow.swift; sourceTree = "<group>"; };
 		2EFB88372CABBFA90006D68E /* EveningRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveningRectangle.swift; sourceTree = "<group>"; };
 		2EFB88392CABC10D0006D68E /* HelpProfileRectangleEvening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpProfileRectangleEvening.swift; sourceTree = "<group>"; };
 		2EFB883B2CABC9050006D68E /* MorningRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningRectangle.swift; sourceTree = "<group>"; };
@@ -230,6 +234,8 @@
 		2E252B402CB6579C006E3ACA /* IdeaViews */ = {
 			isa = PBXGroup;
 			children = (
+				2EED37B32DC8B0B300E71584 /* MultipleSelectionRow.swift */,
+				2EED37B12DC8B05800E71584 /* CategoryFilterView.swift */,
 				2E23AE402C24B526003FCCC1 /* IdeasView.swift */,
 				2EEB4DD02CCCC222006FD26D /* IdeasViewModel.swift */,
 				2EAA26662CFEF6EB00EC5997 /* FavoritesIdeasView.swift */,
@@ -632,6 +638,7 @@
 				2E90A3182CE1158600643AB4 /* YellowButtonLastOnboard.swift in Sources */,
 				2E90A3162CE110DC00643AB4 /* LastOnboarding.swift in Sources */,
 				2E23AE462C2614D2003FCCC1 /* SubscriptionButton.swift in Sources */,
+				2EED37B22DC8B05800E71584 /* CategoryFilterView.swift in Sources */,
 				2ED5FC4A2CEC67EA007A7B77 /* CustomBackButton.swift in Sources */,
 				2E8C614E2CE8A99500A61DA4 /* NotificationManager.swift in Sources */,
 				2E6092362CBE73B900081545 /* MorningSplash.swift in Sources */,
@@ -644,6 +651,7 @@
 				2E784F432BA0BE7700AA58F9 /* LogInView.swift in Sources */,
 				2EAA266D2D0046A500EC5997 /* test.swift in Sources */,
 				2E784F452BA0BE8200AA58F9 /* SignUpView.swift in Sources */,
+				2EED37B42DC8B0B300E71584 /* MultipleSelectionRow.swift in Sources */,
 				2E85788A2BBD82F700BEA1ED /* AuthenticationView.swift in Sources */,
 				2E19785E2BD3E5E7000AD527 /* OtherViewsRectangle.swift in Sources */,
 				2E85787D2BBAA7AB00BEA1ED /* TestPageView.swift in Sources */,

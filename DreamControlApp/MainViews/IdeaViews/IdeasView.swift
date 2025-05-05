@@ -16,6 +16,8 @@ struct IdeasView: View {
     @State private var rectangleColor: Color = .white
     @State private var showFavorites = false
     @Binding var selectedTab: Int
+    @State private var selectedCategories: Set<String> = []
+    @State private var showCategorySheet = false
 
     var body: some View {
         VStack {
@@ -82,6 +84,22 @@ struct IdeasView: View {
                 
                 VStack {
                     Button(action: {
+                        showCategorySheet = true
+                    }) {
+                        HStack {
+                            Image(systemName: "slider.horizontal.3")
+                            Text("Фильтр категорий")
+                        }
+                    }
+                    .sheet(isPresented: $showCategorySheet) {
+                        CategoryFilterView(
+                            selectedCategories: $selectedCategories,
+                            allCategories: ideasViewModel.ideas.map { $0.category }.uniqued()
+                        )
+                    }
+
+                    
+                    Button(action: {
                         showFavorites = true
                     }) {
                         RoundedRectangle(cornerRadius: 20)
@@ -110,9 +128,12 @@ struct IdeasView: View {
         }
     }
     private func generateIdea() {
-        idea = ideasViewModel.getRandomIdea()
+        idea = ideasViewModel.getRandomIdea(from: Array(selectedCategories)).text
     }
 }
+
+
+
 //
 //#Preview {
 //    IdeasView()
