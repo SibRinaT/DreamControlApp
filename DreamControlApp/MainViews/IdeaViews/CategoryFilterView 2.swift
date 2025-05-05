@@ -1,5 +1,5 @@
 //
-//  CategoryFilterView.swift
+//  CategoryFilterView 2.swift
 //  DreamControlApp
 //
 //  Created by Ainur on 05.05.2025.
@@ -10,7 +10,7 @@ import SwiftUI
 struct CategoryFilterView: View {
     @Binding var selectedCategories: Set<String>
     let allCategories: [String]
-    var onDismiss: () -> Void
+    @Environment(\.dismiss) private var dismiss  // Добавлено для закрытия вьюшки
 
     var body: some View {
         NavigationView {
@@ -29,14 +29,11 @@ struct CategoryFilterView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Готово") {
-                        onDismiss() // Закрытие и обновление идеи
+                        dismiss()  // Закрываем вьюшку
                     }
                 }
             }
         }
     }
 }
-//
-//#Preview {
-//    CategoryFilterView(selectedCategories: .constant([]), allCategories: ["1", "2", "3"])
-//}
+

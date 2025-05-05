@@ -94,10 +94,13 @@ struct IdeasView: View {
                     .sheet(isPresented: $showCategorySheet) {
                         CategoryFilterView(
                             selectedCategories: $selectedCategories,
-                            allCategories: ideasViewModel.ideas.map { $0.category }.uniqued()
+                            allCategories: ideasViewModel.ideas.map { $0.category }.uniqued(),
+                            onDismiss: {
+                                showCategorySheet = false
+                                generateIdea() // Обновить идею после выбора
+                            }
                         )
                     }
-
                     
                     Button(action: {
                         showFavorites = true
