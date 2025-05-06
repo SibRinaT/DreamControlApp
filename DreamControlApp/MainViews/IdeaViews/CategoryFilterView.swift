@@ -14,11 +14,11 @@ struct CategoryFilterView: View {
 
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 0) {
                 // Кастомный заголовок
                 HStack {
                     Image("DCIcon")
-                    Text("Идеи")
+                    Text("Категории идей")
                         .font(.largeTitle)
                         .foregroundColor(Color("PrimaryColor"))
                         .bold()
@@ -26,19 +26,28 @@ struct CategoryFilterView: View {
                 }
                 .padding()
 
-                // Основной список
-                List {
-                    ForEach(allCategories, id: \.self) { category in
-                        MultipleSelectionRow(title: category, isSelected: selectedCategories.contains(category)) {
-                            if selectedCategories.contains(category) {
-                                selectedCategories.remove(category)
-                            } else {
-                                selectedCategories.insert(category)
+                ScrollView {
+                    VStack(spacing: 0) {
+                        ForEach(allCategories, id: \.self) { category in
+                            // Оборачиваем в кнопку, чтобы гарантировать обновление
+                            Button(action: {
+                                if selectedCategories.contains(category) {
+                                    selectedCategories.remove(category)
+                                } else {
+                                    selectedCategories.insert(category)
+                                }
+                            }) {
+                                CategoryRowView(
+                                    title: category,
+                                    isSelected: selectedCategories.contains(category)
+                                )
                             }
+                            .buttonStyle(PlainButtonStyle()) // Убираем анимации кнопки по умолчанию
                         }
                     }
                 }
             }
+            .background(Color.white.ignoresSafeArea())
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Готово") {
@@ -46,11 +55,10 @@ struct CategoryFilterView: View {
                     }
                 }
             }
-            .navigationBarTitleDisplayMode(.inline) // Скрывает большой системный заголовок
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
-
 
 #Preview {
     CategoryFilterView(

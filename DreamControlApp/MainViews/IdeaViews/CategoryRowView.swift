@@ -25,7 +25,7 @@ struct CategoryRowView: View {
                             .foregroundColor(.white)
                             .bold()
                         Spacer()
-                        Image(isSelected ? "whiteLamp" : "grayLamp")
+                        Image(isSelected ? "whiteLamp" : "unactiveLamp")
                     }
                     .padding(.horizontal)
                 }
