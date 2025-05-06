@@ -114,7 +114,6 @@ struct IdeasView: View {
                 Spacer()
                 
                 VStack {
-                    
                     Button(action: {
                         showFavorites = true
                     }) {

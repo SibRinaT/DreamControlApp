@@ -14,28 +14,43 @@ struct CategoryFilterView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(allCategories, id: \.self) { category in
-                    MultipleSelectionRow(title: category, isSelected: selectedCategories.contains(category)) {
-                        if selectedCategories.contains(category) {
-                            selectedCategories.remove(category)
-                        } else {
-                            selectedCategories.insert(category)
+            VStack(alignment: .leading) {
+                // Кастомный заголовок
+                HStack {
+                    Image("DCIcon")
+                    Text("Идеи")
+                        .font(.largeTitle)
+                        .foregroundColor(Color("PrimaryColor"))
+                        .bold()
+                    Spacer()
+                }
+                .padding()
+
+                // Основной список
+                List {
+                    ForEach(allCategories, id: \.self) { category in
+                        MultipleSelectionRow(title: category, isSelected: selectedCategories.contains(category)) {
+                            if selectedCategories.contains(category) {
+                                selectedCategories.remove(category)
+                            } else {
+                                selectedCategories.insert(category)
+                            }
                         }
                     }
                 }
             }
-            .navigationTitle("Выбор категорий")
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Готово") {
-                        onDismiss() // Закрытие и обновление идеи
+                        onDismiss()
                     }
                 }
             }
+            .navigationBarTitleDisplayMode(.inline) // Скрывает большой системный заголовок
         }
     }
 }
+
 
 #Preview {
     CategoryFilterView(
