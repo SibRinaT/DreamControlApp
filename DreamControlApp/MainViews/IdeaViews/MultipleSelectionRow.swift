@@ -24,3 +24,7 @@ struct MultipleSelectionRow: View {
         }
     }
 }
+
+#Preview {
+    MultipleSelectionRow(title: "dsadsad", isSelected: true, action: {})
+}

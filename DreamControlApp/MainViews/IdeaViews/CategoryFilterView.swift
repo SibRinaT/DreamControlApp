@@ -36,7 +36,11 @@ struct CategoryFilterView: View {
         }
     }
 }
-//
-//#Preview {
-//    CategoryFilterView(selectedCategories: .constant([]), allCategories: ["1", "2", "3"])
-//}
+
+#Preview {
+    CategoryFilterView(
+        selectedCategories: .constant([]),
+        allCategories: ["Спорт", "Музыка", "Кино"],
+        onDismiss: {}
+    )
+}
