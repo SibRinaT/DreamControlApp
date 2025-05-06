@@ -106,7 +106,7 @@ struct NewDreamView: View {
                         Rectangle()
                             .foregroundColor(Color("PrimaryColor").opacity(0.5))
                             .cornerRadius(100)
-                            .frame(width: 135, height: 50)
+                            .frame(height: 50)
                             .shadow(color: Color.black.opacity(0.15), radius: 10)
                             .overlay(
                                 Text("Сохранить")
