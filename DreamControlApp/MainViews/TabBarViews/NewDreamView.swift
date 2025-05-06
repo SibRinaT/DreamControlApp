@@ -15,28 +15,38 @@ struct NewDreamView: View {
     @Binding var showingSheet: Bool
     @State private var selectedDream: Dream? // Добавлено для хранения созданной мечты
     var onSave: (Dream) -> Void
-    
+
     var body: some View {
         VStack {
-            Text("Новая мечта")
-                .font(.title)
-                .bold()
-                .padding()
-                .padding(.leading)
-            
-            InputFieldView(title: "Название мечты", placeholder: "Введите название", text: $newButtonName)
-                .padding()
-            HStack {
-                if newButtonName.count == 0 || newButtonName.count > 12 {
-                    Text("Символов: ")
-                    Text("\(newButtonName.count)")
-                        .foregroundColor(Color(.red))
-                } else {
-                    Text("Символов: ")
-                    Text("\(newButtonName.count)")
+            VStack {
+                HStack {
+                    Image("DCIcon")
+                    Text("Новая мечта")
+                        .font(.largeTitle)
                         .foregroundColor(Color("PrimaryColor"))
+                        .bold()
+                    Spacer()
                 }
             }
+            .padding()
+            .padding(.vertical)
+            
+            VStack {
+                InputFieldView(title: "Название мечты", placeholder: "Введите название", text: $newButtonName)
+                HStack {
+                    if newButtonName.count == 0 || newButtonName.count > 12 {
+                        Text("Символов: ")
+                        Text("\(newButtonName.count)")
+                            .foregroundColor(Color(.red))
+                    } else {
+                        Text("Символов: ")
+                        Text("\(newButtonName.count)")
+                            .foregroundColor(Color("PrimaryColor"))
+                    }
+                }
+                .font(.footnote)
+            }
+            
             Text("Выберите изображение")
                 .font(.headline)
                 .padding()
@@ -88,31 +98,59 @@ struct NewDreamView: View {
             }
             .padding()
             
-            if newButtonName.count == 0 || newButtonName.count > 12 {
-                Button("Сохранить") {
-                    if !newButtonName.isEmpty {
-                        saveNewDream(newButtonName, selectedImage)
-                        
-                    }
-                }
-                .disabled(true)
-                .padding()
-            } else {
-                Button("Сохранить") {
-                    if !newButtonName.isEmpty {
-                        saveNewDream(newButtonName, selectedImage)
-                    }
-                }
-                .foregroundColor(Color("PrimaryColor"))
-                .padding()
-            }
+            Spacer()
             
-            Button("Отмена") {
-                showingSheet = false
+            VStack {
+                Group {
+                    if newButtonName.count == 0 || newButtonName.count > 12 {
+                        Rectangle()
+                            .foregroundColor(Color("PrimaryColor").opacity(0.5))
+                            .cornerRadius(100)
+                            .frame(width: 135, height: 50)
+                            .shadow(color: Color.black.opacity(0.15), radius: 10)
+                            .overlay(
+                                Text("Сохранить")
+                                    .font(.title2)
+                                    .foregroundColor(.white)
+                                    .bold()
+                            )
+                            .padding()
+                    } else {
+                        Rectangle()
+                            .foregroundColor(Color("PrimaryColor"))
+                            .cornerRadius(100)
+                            .frame(height: 50)
+                            .shadow(color: Color.black.opacity(0.15), radius: 10)
+                            .overlay(
+                                Text("Сохранить")
+                                    .font(.title2)
+                                    .foregroundColor(.white)
+                                    .bold()
+                            )
+                            .onTapGesture {
+                                saveNewDream(newButtonName, selectedImage)
+                            }
+                    }
+                }
+                Rectangle()
+                    .foregroundColor(Color("PrimaryColor"))
+                    .cornerRadius(100)
+                    .frame(height: 50)
+                    .shadow(color: Color.black.opacity(0.15), radius: 10)
+                    .overlay(
+                        Text("Отмена")
+                            .font(.title2)
+                            .foregroundColor(.white)
+                            .bold()
+                    )
+                    .onTapGesture {
+                        showingSheet = false
+                    }
             }
-            .foregroundColor(Color("PrimaryColor"))
+            .padding(.horizontal)
             .padding()
         }
+        Spacer()
     }
     
     private func saveNewDream(_ name: String, _ image: String) {
@@ -127,4 +165,13 @@ struct NewDreamView: View {
     }
 }
 
-
+#Preview {
+    NewDreamView(
+        newButtonName: .constant("Мечта"),
+        selectedImage: .constant("StarForDream"),
+        showingSheet: .constant(true),
+        onSave: { dream in
+            print("Preview onSave: \(dream.name)")
+        }
+    )
+}
