@@ -80,17 +80,25 @@ struct IdeasView: View {
 //                                .padding(.bottom, 100)
                         }
                     )
-                Spacer()
-                
                 VStack {
                     Button(action: {
                         showCategorySheet = true
                     }) {
-                        HStack {
-                            Image(systemName: "slider.horizontal.3")
-                            Text("Фильтр категорий")
-                        }
+                        Rectangle()
+                            .cornerRadius(16)
+                            .frame(height: 50)
+                            .gradientForeground(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")])
+                            .overlay {
+                                HStack {
+                                    Image(systemName: "slider.horizontal.3")
+                                        .foregroundColor(.white)
+                                    Text("Фильтр категорий")
+                                        .foregroundColor(.white)
+                                        .bold()
+                                }
+                            }
                     }
+                    
                     .sheet(isPresented: $showCategorySheet) {
                         CategoryFilterView(
                             selectedCategories: $selectedCategories,
@@ -101,6 +109,11 @@ struct IdeasView: View {
                             }
                         )
                     }
+                }
+                .padding()
+                Spacer()
+                
+                VStack {
                     
                     Button(action: {
                         showFavorites = true
@@ -137,8 +150,8 @@ struct IdeasView: View {
 
 
 
-//
-//#Preview {
-//    IdeasView()
-//        .environmentObject(IdeasViewModel()) // Передаем viewModel для предварительного просмотра
-//}
+
+#Preview {
+    IdeasView(selectedTab: .constant(0))
+        .environmentObject(IdeasViewModel()) // Замените на мок если нужно
+}
