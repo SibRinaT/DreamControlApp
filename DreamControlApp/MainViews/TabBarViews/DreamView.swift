@@ -15,14 +15,18 @@ struct DreamView: View {
     @State private var newButtonName = ""
     @State private var selectedImage = "StarForDream"
     @State private var selectedDream: Dream? // Добавлено для хранения созданной мечты
-    @State private var user = User(id: "123", name: "User", isAdmin: false) // Пример пользователя
+//    @State private var user = User(id: "123", name: "User", isAdmin: false) // Пример пользователя
     @State private var isSubscriptionViewPresented = false
     @Binding var selectedTab: Int
 
     @Query private var dreams: [Dream]
-    
+    @Environment(UserManager.self) private var userManager
+
     private var maxDreamsAllowed: Int {
-        user.isSubscriptionEnabled ? 10 : 3 // Максимум 10 мечт для подписчиков и 3 для остальных
+        if let user = userManager.getUser() {
+            return user.isSubscriptionEnabled ? 10 : 3
+        }
+        return 3
     }
     
     var body: some View {
