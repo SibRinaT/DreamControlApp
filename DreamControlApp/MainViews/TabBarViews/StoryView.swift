@@ -14,16 +14,16 @@ struct StoryView: View {
     let dream: Dream
     @State var stories: [DreamStory]
     
-    // Не используется?
     @State private var nextStoryId = UUID() // Для генерации уникальных идентификаторов историй
     @State private var showingNewStoryView = false // Стейт для отображения окна создания новой истории - используется
     @State private var storyToEdit: DreamStory?
-    @State private var user = User(id: "123", name: "User", isAdmin: false) // Пример пользователя
+//    @State private var user = User(id: "123", name: "User", isAdmin: false) // Пример пользователя
     @State private var isSubscriptionViewPresented = false
-    
+    @EnvironmentObject var userManager: UserManager
+
     private var maxStoriesAllowed: Int {
-            user.isSubscriptionEnabled ? 10 : 1 // Максимум 10 story для подписчиков и 1 для остальных
-        }
+        userManager.isSubscriptionEnabled ? 10 : 3
+    }
     
     private var isEditingStoryView: Binding<Bool> {
         Binding(

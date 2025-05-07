@@ -25,11 +25,10 @@ struct DreamControlAppApp: App {
     private let ideasViewModel: IdeasViewModel
     @State private var hasCompletedOnboarding: Bool
     @State private var isFirstLaunch: Bool
-    private let userManager: UserManager
+    private let userManager = UserManager()
     @MainActor private let dataHandler: DataHandler
     
     init() {
-        userManager = UserManager()
         ideasViewModel = IdeasViewModel()
         dataHandler = DataHandler(modelContainer: DataProvider.shared.sharedModelContainer,
                                   mainActor: true)
@@ -93,7 +92,7 @@ struct DreamControlAppApp: App {
         .environment(ideasViewModel)
         .environment(\.dataHandler, dataHandler)
         .environment(\.modelContext, dataHandler.modelContainer.mainContext)
-        .environment(userManager)
+        .environmentObject(userManager)
     }
     
     // Метод для выбора нужного Splash экрана в зависимости от времени суток

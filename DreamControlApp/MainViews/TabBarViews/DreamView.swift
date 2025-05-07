@@ -20,14 +20,13 @@ struct DreamView: View {
     @Binding var selectedTab: Int
 
     @Query private var dreams: [Dream]
-    @Environment(UserManager.self) private var userManager
+    @EnvironmentObject var userManager: UserManager
 
     private var maxDreamsAllowed: Int {
-        if let user = userManager.getUser() {
-            return user.isSubscriptionEnabled ? 10 : 3
-        }
-        return 3
+        userManager.isSubscriptionEnabled ? 10 : 3
     }
+
+
     
     var body: some View {
         VStack {

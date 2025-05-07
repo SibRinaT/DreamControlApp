@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SubscriptionView: View {
-    @Environment(UserManager.self) private var userManager
+    @EnvironmentObject var userManager: UserManager
     @State private var showConfirmation = false
     
     var body: some View {
@@ -54,6 +54,13 @@ struct SubscriptionView: View {
                 }
             }
             .padding(.leading)
+            Button("Отключить подписку") {
+                    userManager.deactivateSubscription()
+                }
+                .padding()
+                .background(Color.red)
+                .cornerRadius(8)
+                .foregroundColor(.white)
             Button(action: {
                 userManager.activateSubscription()
                 showConfirmation = true

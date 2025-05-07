@@ -6,46 +6,63 @@
 //
 
 import Foundation
+import Combine
 
 @MainActor
-@Observable final class UserManager {
+final class UserManager: ObservableObject {
     
-    private let userDefaultsKey = "userDefaultsKey"
+    private let userDefaultsUserKey = "userDefaultsUserKey"
+    private let userDefaultsSubscriptionKey = "subscriptionEnabled"
     private let defaults = UserDefaults.standard
-    private var user: User?
-    
-    init() {
-        loadUser()
-    }
-    
-    func isLoggedIn() -> Bool {
-        user != nil
-    }
-    
-    func activateSubscription() {
-        guard isLoggedIn() else { return }
-        user?.enableSubscription()
-        saveUser()
-    }
-    
-    func getUser() -> User? {
-        user
-    }
-    
-    func saveUser(_ user: User) {
-        self.user = user
-        saveUser()
-    }
-    
-//MARK: private methods
-    private func loadUser() {
-        user = defaults.object(forKey: userDefaultsKey) as? User
-    }
-    
-    private func saveUser() {
-        if let user {
-            defaults.set(user, forKey: userDefaultsKey)
+
+    @Published private(set) var user: User? {
+        didSet {
+            saveUser()
         }
     }
     
+    @Published var isSubscriptionEnabled: Bool {
+        didSet {
+            saveSubscription()
+        }
+    }
+
+    init() {
+        // Загрузка пользователя
+        if let data = defaults.data(forKey: userDefaultsUserKey),
+           let decoded = try? JSONDecoder().decode(User.self, from: data) {
+            self.user = decoded
+        } else {
+            self.user = nil
+        }
+        
+        // Загрузка подписки
+        self.isSubscriptionEnabled = defaults.bool(forKey: userDefaultsSubscriptionKey)
+    }
+
+    var isLoggedIn: Bool {
+        user != nil
+    }
+
+    func activateSubscription() {
+        isSubscriptionEnabled = true
+    }
+
+    func deactivateSubscription() {
+        isSubscriptionEnabled = false
+    }
+
+    func saveUser(_ user: User) {
+        self.user = user
+    }
+
+    private func saveUser() {
+        guard let user = user,
+              let encoded = try? JSONEncoder().encode(user) else { return }
+        defaults.set(encoded, forKey: userDefaultsUserKey)
+    }
+
+    private func saveSubscription() {
+        defaults.set(isSubscriptionEnabled, forKey: userDefaultsSubscriptionKey)
+    }
 }
