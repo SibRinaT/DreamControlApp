@@ -35,24 +35,36 @@ struct MemoriesView: View {
             } else {
                 List {
                     ForEach(archivedDreams) { dream in
-                        HStack {
-                            Image(systemName: "clock.arrow.circlepath")
-                                .foregroundColor(.blue)
-                            Text(dream.name)
-                                .font(.title3)
-                            Spacer()
-                        }
-                        .padding()
-                        .background(Color("PrimaryColor").opacity(0.1))
-                        .cornerRadius(10)
-                        .swipeActions(edge: .leading) {
-                            Button {
-                                unarchive(dream: dream)
-                            } label: {
-                                Label("Восстановить", systemImage: "arrow.uturn.left")
+                        ZStack(alignment: .leading) {
+                            HStack {
+                                Image(dream.image)
+                                VStack(alignment: .leading) {
+                                    Text("Мечта")
+                                        .foregroundColor(Color("InactiveColor2"))
+                                        .font(.subheadline)
+                                    Text(dream.name)
+                                        .font(.title)
+                                }
+                                .bold()
+                                Spacer()
                             }
-                            .tint(.green)
+                            .padding()
+                            .frame(height: 85)
+                            .background(Color("PrimaryColor"))
+                            .foregroundColor(.white)
+                            .cornerRadius(20)
+                            .swipeActions(edge: .leading) {
+                                Button {
+                                    unarchive(dream: dream)
+                                } label: {
+                                    Label("Восстановить", systemImage: "arrow.uturn.left")
+                                }
+                                .tint(.green)
+                            }
                         }
+                        .listRowSeparator(.hidden)
+                        .listRowBackground(Color.clear)
+                        .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                     }
                 }
                 .listStyle(.plain)
@@ -61,6 +73,7 @@ struct MemoriesView: View {
         .padding(.horizontal)
     }
 
+    // функция если захочется добавить прерващение воспоминания в мечту 
     private func unarchive(dream: Dream) {
         Task {
             await dataHandler?.unarchive(dream: dream)
