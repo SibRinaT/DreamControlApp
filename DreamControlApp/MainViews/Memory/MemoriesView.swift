@@ -28,7 +28,7 @@ struct MemoriesView: View {
 
             if archivedDreams.isEmpty {
                 Spacer()
-                Text("Здесь пока нет воспоминаний")
+                Text("Вы пока не добавили воспоминания")
                     .foregroundColor(.gray)
                     .font(.title3)
                 Spacer()
@@ -68,6 +68,16 @@ struct MemoriesView: View {
     }
 }
 
-//#Preview {
-//    MemoriesView()
-//}
+#Preview {
+    struct PreviewWrapper: View {
+        @State private var selectedTab = 0
+
+        var body: some View {
+            MemoriesView(selectedTab: $selectedTab)
+                .modelContainer(for: Dream.self, inMemory: true)
+                .environment(\.dataHandler, DataHandler(modelContainer: try! ModelContainer(for: Dream.self)))
+        }
+    }
+
+    return PreviewWrapper()
+}

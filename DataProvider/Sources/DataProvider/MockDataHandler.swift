@@ -7,10 +7,12 @@
 
 
 //import Foundation
-//
-//struct MockDataHandler: DataHandler {
-//    func new(dream: Dream) async {
-//        print("Mock save: \(dream.name)")
+//class MockDataHandler: DataHandler {
+//    override init(modelContainer: ModelContainer = try! ModelContainer(for: Dream.self)) {
+//        super.init(modelContainer: modelContainer)
 //    }
 //
+//    override func unarchive(dream: Dream) {
+//        print("Unarchive called for \(dream.name)")
+//    }
 //}
