@@ -8,8 +8,32 @@
 import SwiftUI
 
 struct MemoryDetailView: View {
+    @State var title = "Воспоминание"
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Rectangle()
+                .foregroundColor(Color("PrimaryColor"))
+                .frame(height: 100)
+                .overlay(
+                    HStack {
+                        Image("CloudForDream")
+                        VStack {
+                            Text("Воспоминание")
+                                .foregroundColor(Color("InactiveColor2"))
+                                .bold()
+                                .font(.headline)
+                            
+                            Text(title)
+                                .foregroundColor(.white)
+                                .bold()
+                                .font(.title)
+                        }
+                        .padding(.horizontal)
+                        .multilineTextAlignment(.leading)
+                    }
+                )
+        }
     }
 }
 
