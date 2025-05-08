@@ -47,6 +47,20 @@ struct NewStoryView: View {
                 .overlay(
                     ScrollView {
                         VStack(spacing: 16) {
+                            HStack {
+                                Spacer()
+                                Button(action: {
+                                    dismiss()
+                                }) {
+                                    Image(systemName: "xmark")
+                                        .foregroundColor(Color("PrimaryColor"))
+                                        .padding(8)
+                                        .background(Color.white)
+                                        .clipShape(Circle())
+                                }
+                                .padding(.trailing)
+                            }
+                            
                             InputFieldView(title: "Название истории", placeholder: "Введите название", text: $storyTitle)
                                 .onChange(of: storyTitle) { newValue in
                                     // Ограничиваем количество символов в названии
@@ -141,22 +155,6 @@ struct NewStoryView: View {
                                     .padding()
                             }
                             
-                            HStack(spacing: 20) {
-                                Button(action: {
-                                    dismiss()
-                                }) {
-                                    Rectangle()
-                                        .foregroundColor(Color("PrimaryColor"))
-                                        .cornerRadius(100)
-                                        .frame(width: 135, height: 50)
-                                        .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-                                        .overlay(
-                                            Text("Отмена")
-                                                .font(.title2)
-                                                .foregroundColor(.white)
-                                                .bold()
-                                        )
-                                }
                                 
                                 Button(action: {
                                     createStory()
@@ -164,7 +162,7 @@ struct NewStoryView: View {
                                     Rectangle()
                                         .foregroundColor(Color("PrimaryColor"))
                                         .cornerRadius(100)
-                                        .frame(width: 135, height: 50)
+                                        .frame(height: 50)
                                         .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                                         .overlay(
                                             Text("Сохранить")
@@ -172,9 +170,8 @@ struct NewStoryView: View {
                                                 .foregroundColor(.white)
                                                 .bold()
                                         )
-                                }
                             }
-                            .padding(.horizontal, 100)
+                                .padding(.horizontal)
                         }
                         .padding(.top)
                     }
