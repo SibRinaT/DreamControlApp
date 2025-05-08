@@ -48,6 +48,7 @@ struct StoryTextView: View {
                                 Text("История вашей мечты")
                                     .font(.title)
                                     .padding(.top, 30)
+                                    .foregroundColor(Color("TextColor"))
 //                                    .padding(.bottom)
                                 
                                 ZStack {
@@ -76,7 +77,8 @@ struct StoryTextView: View {
 
                                 Text("Количество символов: \(storyContent.count)/\(characterLimit)")
                                             .padding()
-                    
+                                            .foregroundColor(Color("TextColor"))
+
                                 .padding(.bottom)
                                 VStack {
                                     Button(action: {
