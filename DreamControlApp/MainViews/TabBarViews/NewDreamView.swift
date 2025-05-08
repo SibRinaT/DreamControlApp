@@ -26,6 +26,16 @@ struct NewDreamView: View {
                         .foregroundColor(Color("PrimaryColor"))
                         .bold()
                     Spacer()
+                    
+                    Button(action: {
+                                        showingSheet = false
+                                    }) {
+                                        Image(systemName: "xmark")
+                                            .foregroundColor(Color("PrimaryColor"))
+                                            .padding(8)
+                                            .background(Color.white)
+                                            .clipShape(Circle())
+                                    }
                 }
             }
             .padding()
@@ -114,7 +124,6 @@ struct NewDreamView: View {
                                     .foregroundColor(.white)
                                     .bold()
                             )
-                            .padding()
                     } else {
                         Rectangle()
                             .foregroundColor(Color("PrimaryColor"))
@@ -132,20 +141,6 @@ struct NewDreamView: View {
                             }
                     }
                 }
-                Rectangle()
-                    .foregroundColor(Color("PrimaryColor"))
-                    .cornerRadius(100)
-                    .frame(height: 50)
-                    .shadow(color: Color.black.opacity(0.15), radius: 10)
-                    .overlay(
-                        Text("Отмена")
-                            .font(.title2)
-                            .foregroundColor(.white)
-                            .bold()
-                    )
-                    .onTapGesture {
-                        showingSheet = false
-                    }
             }
             .padding(.horizontal)
             .padding()

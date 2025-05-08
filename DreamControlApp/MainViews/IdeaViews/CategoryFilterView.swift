@@ -53,6 +53,7 @@ struct CategoryFilterView: View {
                     Button("Готово") {
                         onDismiss()
                     }
+                    .foregroundColor(Color("PrimaryColor"))
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
