@@ -9,7 +9,12 @@ import SwiftUI
 
 struct MemoryDetailView: View {
     @State var title = "Воспоминание"
+    @State var storyContent = ""
+    @Binding var isPresented: Bool
+    var onSave: (String, String) -> Void
 
+    private let characterLimit = 400
+    
     var body: some View {
         VStack {
             Rectangle()
@@ -33,10 +38,52 @@ struct MemoryDetailView: View {
                         .multilineTextAlignment(.leading)
                     }
                 )
+            
+            RoundedRectangle(cornerRadius: 20)
+                .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+                .foregroundColor(.white)
+                .ignoresSafeArea(.all)
+                    .overlay(
+            ScrollView {
+                VStack {
+                    Text("Воспоминания о вашей мечте")
+                        .foregroundColor(Color("TextColor"))
+                        .bold()
+                        .font(.title3)
+                    ZStack {
+                        // Контейнер с рамкой
+                        RoundedRectangle(cornerRadius: 25, style: .continuous)
+                            .stroke(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")]),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                ),
+                                lineWidth: 3
+                            )
+                        
+                        // Контент внутри рамки
+                        TextField("Напишите воспоминания о мечте...", text: $storyContent, axis: .vertical)
+                            .padding(16) // внутренние отступы
+                            .background(Color.clear) // убираем фон, чтобы не перекрывал рамку
+                            .onChange(of: storyContent) { newValue in
+                                if newValue.count > characterLimit {
+                                    storyContent = String(newValue.prefix(characterLimit))
+                                }
+                            }
+                        
+                        
+                    }
+                    
+                    .padding(.horizontal, 40)
+                }
+                .padding(.vertical)
+            })
+                    .padding(.horizontal)
         }
     }
 }
 
 #Preview {
-    MemoryDetailView()
+    MemoryDetailView(isPresented: .constant(true)) {_, _ in}
 }
