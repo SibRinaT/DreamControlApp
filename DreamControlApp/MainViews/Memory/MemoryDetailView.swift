@@ -44,8 +44,21 @@ struct MemoryDetailView: View {
                 .foregroundColor(.white)
                 .ignoresSafeArea(.all)
                     .overlay(
-            ScrollView {
+            ScrollView {                
                 VStack {
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            // сделать отмену сохранения
+                        }) {
+                            Image(systemName: "xmark")
+                                .foregroundColor(Color("PrimaryColor"))
+                                .padding(8)
+                                .background(Color.white)
+                                .clipShape(Circle())
+                        }
+                        .padding(.trailing)
+                    }
                     VStack {
                         Text("Воспоминания о вашей мечте")
                             .foregroundColor(Color("TextColor"))
@@ -73,6 +86,8 @@ struct MemoryDetailView: View {
                                     }
                                 }
                         }
+                        .padding(.bottom)
+
                         Text("Фото на память")
                             .foregroundColor(Color("TextColor"))
                             .bold()
@@ -147,10 +162,25 @@ struct MemoryDetailView: View {
                             }
                             .frame(height: 150)
                         }
-                        
-                        
                     }
                     .padding(.horizontal, 40)
+                    .padding(.bottom, 50)
+                    Button(action: {
+                        // сделать сохраение воспоминания
+                    }) {
+                        Rectangle()
+                            .foregroundColor(Color("PrimaryColor"))
+                            .cornerRadius(100)
+                            .frame(height: 50)
+                            .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+                            .overlay(
+                                Text("Сохранить")
+                                    .font(.title2)
+                                    .foregroundColor(.white)
+                                    .bold()
+                            )
+                }
+                    .padding(.horizontal)
                 }
                 .padding(.vertical)
             })
