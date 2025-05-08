@@ -19,7 +19,9 @@ struct DreamView: View {
     @State private var isSubscriptionViewPresented = false
     @Binding var selectedTab: Int
 
-    @Query private var dreams: [Dream]
+//    @Query private var dreams: [Dream]
+    @Query(filter: #Predicate<Dream> { !$0.isArchived }) private var dreams: [Dream]
+
     @EnvironmentObject var userManager: UserManager
 
     private var maxDreamsAllowed: Int {
@@ -64,6 +66,13 @@ struct DreamView: View {
                                 delete(dream: dream)
                             } label: {
                                 Label("Удалить", systemImage: "trash")
+                            }
+                        }
+                        .swipeActions(edge: .leading) {
+                            Button {
+                                archive(dream: dream)
+                            } label: {
+                                Label("В воспоминанния", systemImage: "archivebox")
                             }
                         }
                         
@@ -142,6 +151,13 @@ struct DreamView: View {
             await dataHandler?.delete(dream: dream)
         }
     }
+    
+    private func archive(dream: Dream) {
+        Task {
+            await dataHandler?.archive(dream: dream)
+        }
+    }
+
 }
 //
 //#Preview {

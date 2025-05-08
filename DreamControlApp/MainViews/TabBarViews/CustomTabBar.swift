@@ -25,6 +25,9 @@ struct CustomTabBar: View {
                     } else if selectedTab == 3 {
                         SettingsView(selectedTab: $selectedTab)
                     }
+                        else if selectedTab == 4 {
+                        MemoriesView(selectedTab: $selectedTab)
+                    }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 

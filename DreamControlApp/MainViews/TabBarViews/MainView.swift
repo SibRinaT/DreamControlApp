@@ -63,10 +63,10 @@ struct MainView: View {
 
                     OtherViewsRectangle(
                         image: "IconSettings",
-                        title: "Настройки",
+                        title: "Воспоминания",
                         text: "Настройся на нужный лад"
                     ) {
-                        selectedTab = 3 // Переход на вкладку "Настройки"
+                        selectedTab = 4 // Переход на вкладку "Воспоминания"
                     }
                     .padding(.horizontal)
                 }

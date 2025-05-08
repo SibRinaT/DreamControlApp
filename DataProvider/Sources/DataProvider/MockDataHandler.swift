@@ -6,12 +6,11 @@
 //
 
 
-import Foundation
-
-struct MockDataHandler: DataHandler {
-    func new(dream: Dream) async {
-        print("Mock save: \(dream.name)")
-    }
-
-    // Добавьте другие методы протокола DataHandler, если они обязательны
-}
+//import Foundation
+//
+//struct MockDataHandler: DataHandler {
+//    func new(dream: Dream) async {
+//        print("Mock save: \(dream.name)")
+//    }
+//
+//}

@@ -11,12 +11,14 @@ extension SchemaV1 {
         public let name = ""
         public let image = ""
         public var stories: [DreamStory]?
-        
-        public init(id: UUID = UUID(), name: String, image: String, stories: [DreamStory]? = nil) {
+        public var isArchived: Bool = false
+
+        public init(id: UUID = UUID(), name: String, image: String, isArchived: Bool = false, stories: [DreamStory]? = nil) {
             self.id = id
             self.name = name
             self.image = image
             self.stories = stories
+            self.isArchived = isArchived
         }
     }
 }

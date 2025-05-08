@@ -26,6 +26,16 @@ public actor DataHandler {
         modelContext.delete(dream)
         try! modelContext.save()
     }
+    
+    public func archive(dream: Dream) {
+        dream.isArchived = true
+        try? modelContext.save()
+    }
+
+    public func unarchive(dream: Dream) {
+        dream.isArchived = false
+        try? modelContext.save()
+    }
         
     public func getDreams() throws -> [Dream] {
         var desc = FetchDescriptor<Dream>()
