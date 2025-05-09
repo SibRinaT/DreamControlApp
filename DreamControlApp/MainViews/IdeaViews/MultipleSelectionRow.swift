@@ -16,6 +16,7 @@ struct MultipleSelectionRow: View {
         Button(action: action) {
             HStack {
                 Text(title)
+                    .font(.custom("MontserratAlternates-Regular", size: 14))
                 if isSelected {
                     Spacer()
                     Image(systemName: "checkmark")

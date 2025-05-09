@@ -31,7 +31,7 @@ struct FavoritesIdeasView: View {
                             Text("Избранные идеи") // change need
                                 .foregroundColor(.white)
                                 .bold()
-                                .font(.title)
+                                .font(.custom("MontserratAlternates-Regular", size: 32))
                         }
                         .multilineTextAlignment(.leading)
                     }
@@ -47,11 +47,11 @@ struct FavoritesIdeasView: View {
                                 VStack(alignment: .leading) {
                                     Text("Идея")
                                         .foregroundColor(Color("InactiveColor2"))
-                                        .font(.subheadline)
+                                        .font(.custom("MontserratAlternates-Regular", size: 14))
                                         .bold()
                                     Text(idea)
                                         .bold()
-                                        .font(.title3)
+                                        .font(.custom("MontserratAlternates-Regular", size: 18))
                                         .multilineTextAlignment(.leading)
                                         .foregroundColor(.white)
                                 }

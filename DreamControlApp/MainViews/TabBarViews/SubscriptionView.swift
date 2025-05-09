@@ -15,7 +15,7 @@ struct SubscriptionView: View {
         VStack {
             Text("Подписка")
                 .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
-                .font(.system(size: 63))
+                .font(.custom("MontserratAlternates-Regular", size: 56))
                 .bold()
             VStack(alignment: .leading)  {
                 HStack {
@@ -24,8 +24,10 @@ struct SubscriptionView: View {
                         .frame(width: 100, height: 110)
                     VStack(alignment: .leading) {
                         Text("Неограниченное количество цитат:")
+                            .font(.custom("MontserratAlternates-Regular", size: 16))
                             .bold()
                         Text("читайте и делитесь вдохновляющими цитатами без ограничений.")
+                            .font(.custom("MontserratAlternates-Regular", size: 14))
                     }
                     Spacer()
                 }
@@ -36,8 +38,10 @@ struct SubscriptionView: View {
                     Spacer()
                     VStack(alignment: .leading) {
                         Text("Неограниченное количество мечт:")
+                            .font(.custom("MontserratAlternates-Regular", size: 16))
                             .bold()
                         Text("ставьте новые цели и визуализируйте их без ограничений.")
+                            .font(.custom("MontserratAlternates-Regular", size: 14))
                     }
                     Spacer()
                 }
@@ -47,8 +51,10 @@ struct SubscriptionView: View {
                         .frame(width: 100, height: 80)
                     VStack(alignment: .leading) {
                         Text("Неограниченное количество автоисторий:")
+                            .font(.custom("MontserratAlternates-Regular", size: 16))
                             .bold()
                         Text("создавайте и делитесь своими историями о путешествиях на автомобиле.")
+                            .font(.custom("MontserratAlternates-Regular", size: 14))
                     }
                     Spacer()
                 }
@@ -72,7 +78,7 @@ struct SubscriptionView: View {
                     .overlay(
                         Text("Попробовать")
                             .foregroundColor(.white)
-                            .font(.system(size: 30))
+                            .font(.custom("MontserratAlternates-Regular", size: 28))
                             .bold()
                     )
             }
@@ -82,7 +88,7 @@ struct SubscriptionView: View {
             
             Text("7 дней бесплатно, далее 299 руб в месяц")
                 .foregroundColor(Color("InactiveColor2"))
-                .font(.system(size: 16))
+                .font(.custom("MontserratAlternates-Regular", size: 14))
 
         }
         .padding(.horizontal, 33)

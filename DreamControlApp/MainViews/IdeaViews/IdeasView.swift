@@ -73,7 +73,7 @@ struct IdeasView: View {
                             Text(idea)
                                 .offset(x: dragOffset.width, y: dragOffset.height * 0.1)
                                 .rotationEffect(.degrees(Double(dragOffset.width) / 15))
-                                .font(.title3)
+                                .font(.custom("MontserratAlternates-Regular", size: 24))
                                 .padding(.horizontal, 30)
                                 .foregroundColor(.black)
                                 .multilineTextAlignment(.center)
@@ -94,6 +94,7 @@ struct IdeasView: View {
                                         .foregroundColor(.white)
                                     Text("Фильтр категорий")
                                         .foregroundColor(.white)
+                                        .font(.custom("MontserratAlternates-Regular", size: 14))
                                         .bold()
                                 }
                             }
@@ -125,7 +126,7 @@ struct IdeasView: View {
                                 HStack {
                                     Text("Избранное")
                                         .bold()
-                                        .font(.title2)
+                                        .font(.custom("MontserratAlternates-Regular", size: 18))
                                         .foregroundColor(.white)
                                 }
                             )

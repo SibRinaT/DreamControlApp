@@ -16,7 +16,7 @@ struct SettingsView: View {
             HStack {
                 Image("DCIcon")
                 Text("Настройки")
-                    .font(.largeTitle)
+                    .font(.custom("MontserratAlternates-Regular", size: 32))
                     .foregroundColor(Color("PrimaryColor"))
                     .bold()
                 Spacer()
@@ -25,6 +25,7 @@ struct SettingsView: View {
             ScrollView {
                 Toggle("Включить анимацию", isOn: $isAnimating)
                     .toggleStyle(YellowToggle())
+                    .font(.custom("MontserratAlternates-Regular", size: 14))
             }
             .padding(.horizontal)
         }

@@ -19,7 +19,7 @@ struct CategoryFilterView: View {
                 HStack {
                     Image("DCIcon")
                     Text("Категории идей")
-                        .font(.largeTitle)
+                        .font(.custom("MontserratAlternates-Regular", size: 32))
                         .foregroundColor(Color("PrimaryColor"))
                         .bold()
                     Spacer()
@@ -53,6 +53,7 @@ struct CategoryFilterView: View {
                     Button("Готово") {
                         onDismiss()
                     }
+                    .font(.custom("MontserratAlternates-Regular", size: 18))
                     .foregroundColor(Color("PrimaryColor"))
                 }
             }

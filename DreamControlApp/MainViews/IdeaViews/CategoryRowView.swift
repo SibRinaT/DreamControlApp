@@ -23,6 +23,7 @@ struct CategoryRowView: View {
                     HStack {
                         Text(title)
                             .foregroundColor(.white)
+                            .font(.custom("MontserratAlternates-Regular", size: 14))
                             .bold()
                         Spacer()
                         Image(isSelected ? "whiteLamp" : "unactiveLamp")

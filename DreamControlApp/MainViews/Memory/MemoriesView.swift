@@ -19,7 +19,7 @@ struct MemoriesView: View {
             HStack {
                 Image("DCIcon")
                 Text("Воспоминания")
-                    .font(.largeTitle)
+                    .font(.custom("MontserratAlternates-Regular", size: 32))
                     .foregroundColor(Color("PrimaryColor"))
                     .bold()
                 Spacer()
@@ -30,7 +30,7 @@ struct MemoriesView: View {
                 Spacer()
                 Text("Вы пока не добавили воспоминания")
                     .foregroundColor(.gray)
-                    .font(.title3)
+                    .font(.custom("MontserratAlternates-Regular", size: 16))
                 Spacer()
             } else {
                 List {
@@ -41,9 +41,9 @@ struct MemoriesView: View {
                                 VStack(alignment: .leading) {
                                     Text("Мечта")
                                         .foregroundColor(Color("InactiveColor2"))
-                                        .font(.subheadline)
+                                        .font(.custom("MontserratAlternates-Regular", size: 14))
                                     Text(dream.name)
-                                        .font(.title)
+                                        .font(.custom("MontserratAlternates-Regular", size: 24))
                                 }
                                 .bold()
                                 Spacer()
@@ -58,6 +58,7 @@ struct MemoriesView: View {
                                     unarchive(dream: dream)
                                 } label: {
                                     Label("Восстановить", systemImage: "arrow.uturn.left")
+                                        .font(.custom("MontserratAlternates-Regular", size: 14))
                                 }
                                 .tint(.green)
                             }
