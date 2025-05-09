@@ -2,24 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>UIAppFonts</key>
-    <array>
-        <string>komika.ttf</string>
-        <string>Iowan Old Style.ttc</string>
-        <string></string>
-        <string>ComicSansMS.ttf</string>
-        <string>ArialRoundedBold.ttf</string>
-        <string>Cochin.ttc</string>
-        <string>MontserratAlternates.ttf</string>
-        <string>MontserratAlternates</string>
-        <string>MontserratAlternates.ttc</string>
-    </array>
-
-    <!-- Разрешение сетевых запросов ко всем доменам -->
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-    </dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>komika.ttf</string>
+		<string>Iowan Old Style.ttc</string>
+		<string></string>
+		<string>ComicSansMS.ttf</string>
+		<string>ArialRoundedBold.ttf</string>
+		<string>Cochin.ttc</string>
+		<string>MontserratAlternates.ttf</string>
+		<string>MontserratAlternates</string>
+		<string>MontserratAlternates.ttc</string>
+		<string>MontserratAlternatesBold</string>
+		<string>MontserratAlternatesBold.ttf</string>
+		<string>MontserratAlternates-Bold</string>
+		<string>MontserratAlternates-Bold.ttf</string>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

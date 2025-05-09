@@ -24,10 +24,11 @@ struct OtherViewsRectangleSubscription: View {
                         Image("SubIcon")
                         Text("Подписка")
                             .bold()
+                            .font(.custom("MontserratAlternates-Regular", size: 14))
                             .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
                         Text("Позвольте себе больше")
                             .foregroundColor(Color("TextColor"))
-                            .font(.custom("", size: 12))
+                            .font(.custom("MontserratAlternates-Regular", size: 12))
                             .multilineTextAlignment(.leading)
                     }
                     Spacer()

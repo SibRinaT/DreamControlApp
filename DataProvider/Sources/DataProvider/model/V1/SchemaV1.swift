@@ -9,7 +9,7 @@ public enum SchemaV1: VersionedSchema {
     }
     
     public static var models: [any PersistentModel.Type] {
-        [Dream.self, DreamStory.self, DreamMemory.self /*, Idea.self*/]
+        [Dream.self, DreamStory.self, /*DreamMemory.self*/ /*, Idea.self*/]
     }
 }
 
