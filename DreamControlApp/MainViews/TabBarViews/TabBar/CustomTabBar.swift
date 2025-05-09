@@ -81,9 +81,9 @@ struct CustomTabBar: View {
                     .padding(.top, -40)
                 
                 Text(label)
-                    .font(.caption)
                     .padding(.top, -10)
                     .foregroundColor(Color("TextColor"))
+                    .font(.custom("MontserratAlternates-Regular", size: 12))
             }
             .padding(.vertical, 8)
             .onTapGesture {

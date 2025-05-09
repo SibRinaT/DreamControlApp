@@ -38,7 +38,7 @@ struct SubscriptionButton: View {
                                     .multilineTextAlignment(.leading)
                                     .bold()
                                     .foregroundColor(Color(.white))
-                                    .font(.subheadline)
+                                    .font(.custom("MontserratAlternates-Regular", size: 14))
                             }
                             .padding(.horizontal)
                         }

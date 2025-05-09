@@ -22,7 +22,7 @@ struct NewDreamView: View {
                 HStack {
                     Image("DCIcon")
                     Text("Новая мечта")
-                        .font(.largeTitle)
+                        .font(.custom("MontserratAlternates-Regular", size: 32))
                         .foregroundColor(Color("PrimaryColor"))
                         .bold()
                     Spacer()

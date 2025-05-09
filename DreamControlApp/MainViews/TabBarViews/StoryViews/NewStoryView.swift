@@ -29,12 +29,12 @@ struct NewStoryView: View {
                             Text("Новая История")
                                 .foregroundColor(Color("InactiveColor2"))
                                 .bold()
-                                .font(.headline)
-                            
-                            Text(storyTitle.isEmpty ? "Введите название" : storyTitle)
+                                .font(.custom("MontserratAlternates-Regular", size: 14))
+
+                            Text(storyTitle.isEmpty ? "Какое-то название" : storyTitle)
                                 .foregroundColor(.white)
                                 .bold()
-                                .font(.title)
+                                .font(.custom("MontserratAlternates-Regular", size: 20))
                         }
                         .padding(.horizontal)
                         .multilineTextAlignment(.leading)
@@ -62,6 +62,7 @@ struct NewStoryView: View {
                             }
                             
                             InputFieldView(title: "Название истории", placeholder: "Введите название", text: $storyTitle)
+                                .font(.custom("MontserratAlternates-Regular", size: 16))
                                 .onChange(of: storyTitle) { newValue in
                                     // Ограничиваем количество символов в названии
                                     if newValue.count > titleLimit {
@@ -73,7 +74,7 @@ struct NewStoryView: View {
                                     HStack {
                                         Text("Описание")
                                             .foregroundColor(Color("TextColor"))
-                                            .font(.custom("", size: 20))
+                                            .font(.custom("MontserratAlternates-Regular", size: 16))
                                     }
                                     
                                     ZStack {
@@ -91,6 +92,7 @@ struct NewStoryView: View {
                                         
                                         ScrollView {
                                             TextField("Введите описание истории", text: $description, axis: .vertical)
+                                                .font(.custom("MontserratAlternates-Regular", size: 14))
                                                 .padding()
                                                 .onChange(of: description) { newValue in
                                                     if newValue.count > characterLimit {
@@ -102,7 +104,7 @@ struct NewStoryView: View {
                                     }
                                     .transition(.opacity.combined(with: .move(edge: .top)))
                                     Text("Количество символов: \(description.count)/\(characterLimit)")
-                                        .font(.callout)
+                                        .font(.custom("MontserratAlternates-Regular", size: 14))
                                         .foregroundColor(.gray)
                                 }
                             }
@@ -121,7 +123,7 @@ struct NewStoryView: View {
                                             .frame(width: 20, height: 20)
                                         
                                         Text("Авто-история")
-                                            .font(.title3)
+                                            .font(.custom("MontserratAlternates-Regular", size: 16))
                                             .foregroundColor(.white)
                                             .bold()
                                     }
@@ -152,6 +154,7 @@ struct NewStoryView: View {
                             
                             if isLoading {
                                 ProgressView("Генерация истории...")
+                                    .font(.custom("MontserratAlternates-Regular", size: 22))
                                     .padding()
                             }
                             
@@ -166,7 +169,7 @@ struct NewStoryView: View {
                                         .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                                         .overlay(
                                             Text("Сохранить")
-                                                .font(.title2)
+                                                .font(.custom("MontserratAlternates-Regular", size: 22))
                                                 .foregroundColor(.white)
                                                 .bold()
                                         )

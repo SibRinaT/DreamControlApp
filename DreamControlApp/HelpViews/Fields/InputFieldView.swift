@@ -15,7 +15,7 @@ struct InputFieldView: View {
         VStack(alignment: .leading) {
             Text(title)
                 .foregroundColor(Color("TextColor"))
-                .font(.custom("", size: 20)) // need to fix a font
+                .font(.custom("MontserratAlternates-Regular", size: 20))
             ZStack {
                 Group {
                     Capsule()
@@ -24,7 +24,7 @@ struct InputFieldView: View {
                         .frame(width: 302, height: 40)
                     TextField(placeholder, text: $text)
                         .foregroundColor(Color("TextColor"))
-                        .font(.custom("", size: 16)) // need to fix a font
+                        .font(.custom("MontserratAlternates-Regular", size: 16))
                         .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                         .textFieldStyle(PlainTextFieldStyle())
                         .autocapitalization(.none) // Отключить автоматическое изменение раскладки

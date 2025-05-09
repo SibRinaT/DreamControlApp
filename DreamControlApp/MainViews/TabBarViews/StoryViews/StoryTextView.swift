@@ -27,12 +27,12 @@ struct StoryTextView: View {
                             Text("Мечта")
                                 .foregroundColor(Color("InactiveColor2"))
                                 .bold()
-                                .font(.headline)
-                            
+                                .font(.custom("MontserratAlternates-Regular", size: 16))
+
                             Text(title) // change need
                                 .foregroundColor(.white)
                                 .bold()
-                                .font(.title)
+                                .font(.custom("MontserratAlternates-Regular", size: 28))
                         }
                         .padding(.horizontal)
                         .multilineTextAlignment(.leading)
@@ -46,7 +46,7 @@ struct StoryTextView: View {
                         ScrollView {
                             VStack {
                                 Text("История вашей мечты")
-                                    .font(.title)
+                                    .font(.custom("MontserratAlternates-Regular", size: 28))
                                     .padding(.top, 30)
                                     .foregroundColor(Color("TextColor"))
 //                                    .padding(.bottom)
@@ -64,7 +64,7 @@ struct StoryTextView: View {
                                         )
                                     
                                     // Контент внутри рамки
-                                    TextField("Напишите историю мечты...", text: $storyContent, axis: .vertical)
+                                    TextField("Напишите историю мечты...", text: $storyContent, axis: .vertical)                    .font(.custom("MontserratAlternates-Regular", size: 14))
                                         .padding(16) // внутренние отступы
                                         .background(Color.clear) // убираем фон, чтобы не перекрывал рамку
                                         .onChange(of: storyContent) { newValue in
@@ -77,6 +77,7 @@ struct StoryTextView: View {
 
                                 Text("Количество символов: \(storyContent.count)/\(characterLimit)")
                                             .padding()
+                                            .font(.custom("MontserratAlternates-Regular", size: 14))
                                             .foregroundColor(Color("TextColor"))
 
                                 .padding(.bottom)
@@ -89,7 +90,7 @@ struct StoryTextView: View {
                                         Rectangle()
                                             .foregroundColor(Color("PrimaryColor"))
                                             .cornerRadius(100)
-                                            .frame(width: 200, height: 50)
+                                            .frame(height: 50)
                                             .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                                             .overlay(
                                                 Text("Сохранить")
@@ -99,25 +100,8 @@ struct StoryTextView: View {
                                             )
                                     })
                                     .disabled(storyContent.isEmpty) // Отключить, если поля пустые
-                                    Button(action: {
-                                        // Закрытие окна без сохранения
-                                        isPresented.toggle()
-                                    }, label: {
-                                        Rectangle()
-                                            .foregroundColor(Color("PrimaryColor"))
-                                            .cornerRadius(100)
-                                            .frame(height: 50)
-                                            .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
-                                            .overlay(
-                                                Text("Отмена")
-                                                    .font(.title2)
-                                                    .foregroundColor(.white)
-                                                    .bold()
-                                            )
-                                    })
-                                    .padding(.vertical, 10)
                                 }
-                                .padding(.horizontal, 100)
+                                .padding(.horizontal)
                             }
                         }
                     )

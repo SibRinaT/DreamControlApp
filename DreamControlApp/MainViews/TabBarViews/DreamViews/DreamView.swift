@@ -35,7 +35,7 @@ struct DreamView: View {
             HStack {
                 Image("DCIcon")
                 Text("Мечтания")
-                    .font(.largeTitle)
+                    .font(.custom("MontserratAlternates-Regular", size: 32))
                     .foregroundColor(Color("PrimaryColor"))
                     .bold()
                 Spacer()
@@ -49,9 +49,9 @@ struct DreamView: View {
                             VStack(alignment: .leading) {
                                 Text("Мечта")
                                     .foregroundColor(Color("InactiveColor2"))
-                                    .font(.subheadline)
+                                    .font(.custom("MontserratAlternates-Regular", size: 14))
                                 Text(dream.name)
-                                    .font(.title)
+                                    .font(.custom("MontserratAlternates-Regular", size: 24))
                             }
                             .bold()
                             Spacer()
@@ -66,6 +66,7 @@ struct DreamView: View {
                                 delete(dream: dream)
                             } label: {
                                 Label("Удалить", systemImage: "trash")
+                                    .font(.custom("MontserratAlternates-Regular", size: 14))
                             }
                         }
                         .swipeActions(edge: .leading) {
@@ -73,6 +74,7 @@ struct DreamView: View {
                                 archive(dream: dream)
                             } label: {
                                 Label("В воспоминанния", systemImage: "archivebox")
+                                    .font(.custom("MontserratAlternates-Regular", size: 14))
                             }
                         }
                         
@@ -159,11 +161,11 @@ struct DreamView: View {
     }
 
 }
-//
+
 //#Preview {
 //    let handler = DataHandler(modelContainer: DataProvider.shared.sharedModelContainer,
 //                              mainActor: true)
-//    DreamView()
+//    DreamView(selectedTab: .constant(0))
 //        .environment(\.dataHandler, handler)
 //        .environment(\.modelContext, handler.modelContainer.mainContext)
 //}

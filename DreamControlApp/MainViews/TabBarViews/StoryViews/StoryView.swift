@@ -37,7 +37,7 @@ struct StoryView: View {
             HStack {
                 Image("DCIcon")
                 Text("Истории")
-                    .font(.largeTitle)
+                    .font(.custom("MontserratAlternates-Regular", size: 32))
                     .bold()
                     .foregroundColor(Color("PrimaryColor"))
                 Spacer()
@@ -51,15 +51,15 @@ struct StoryView: View {
                     HStack {
                         Image("CloudForDream")
                         VStack {
-                            Text("Мечта")
-                                .foregroundColor(Color("InactiveColor2"))
-                                .bold()
-                                .font(.headline)
-                            
-                            Text(dream.name)
-                                .foregroundColor(.white)
-                                .bold()
-                                .font(.title)
+                                Text("Мечта")
+                                    .foregroundColor(Color("InactiveColor2"))
+                                    .bold()
+                                    .font(.custom("MontserratAlternates-Regular", size: 14))
+
+                                Text(dream.name)
+                                    .foregroundColor(.white)
+                                    .bold()
+                                    .font(.custom("MontserratAlternates-Regular", size: 28))
                         }
                         .padding(.horizontal)
                         .multilineTextAlignment(.leading)
@@ -72,6 +72,7 @@ struct StoryView: View {
                             storyToEdit = story
                         }) {
                             RoundedRectangle(cornerRadius: 20)
+                                .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                                 .foregroundColor(Color("PrimaryColor")) // Прозрачный фон
                                 .frame(height: 85)
                                 .overlay (
@@ -81,7 +82,7 @@ struct StoryView: View {
                                         Text(story.title)
                                             .bold()
                                             .foregroundColor(.white)
-                                            .font(.title2)
+                                            .font(.custom("MontserratAlternates-Regular", size: 20))
                                             .padding()
                                     }
                                 )
@@ -91,13 +92,13 @@ struct StoryView: View {
                                 delete(story: story) // Удаляем выбранную историю
                             } label: {
                                 Label("Удалить", systemImage: "trash")
+                                    .font(.custom("MontserratAlternates-Regular", size: 16))
                             }
                         }
                         .listRowSeparator(.hidden)
                     }
                     .listStyle(.plain)
                     .listRowBackground(Color.clear)
-                    .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                     
                     if (stories.count) < maxStoriesAllowed {
                         Button(action: {
@@ -120,7 +121,7 @@ struct StoryView: View {
                                 .overlay(
                                     Text("Создать историю")
                                         .foregroundColor(Color("PrimaryColor"))
-                                        .font(.largeTitle)
+                                        .font(.custom("MontserratAlternates-Regular", size: 24))
                                         .bold()
                                 )
                         })
