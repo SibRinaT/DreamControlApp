@@ -8,15 +8,16 @@
 import Foundation
 import SwiftData
 
-public typealias DreamMemory = SchemaV1.Dream
+public typealias DreamMemory = SchemaV1.DreamMemory
 
 extension SchemaV1 {
     @Model
-    public final class DreamMemory: Sendable {
+    public final class DreamMemory: Sendable, Identifiable {
         public let id: UUID
         public let createdAt: Date
         public var text: String
         public var photoNames: [String]?
+        public var dreamDate: Date
         public var dream: Dream
         
         public init(
@@ -24,12 +25,14 @@ extension SchemaV1 {
             createdAt: Date = .now,
             text: String,
             photoNames: [String]? = nil,
+            dreamDate: Date = .now,
             dream: Dream
         ) {
             self.id = id
             self.createdAt = createdAt
             self.text = text
             self.photoNames = photoNames
+            self.dreamDate = dreamDate
             self.dream = dream
         }
     }

@@ -156,9 +156,22 @@ struct DreamView: View {
     
     private func archive(dream: Dream) {
         Task {
-            await dataHandler?.archive(dream: dream)
+            // Архивируем мечту
+            dream.isArchived = true
+            
+            // Создаём воспоминание на основе мечты
+            let memory = DreamMemory(
+                text: "",
+                photoNames: [],
+                dreamDate: Date(),
+                dream: dream
+            )
+            
+            // Сохраняем изменения
+            await dataHandler?.archiveAsMemory(dream: dream)
         }
     }
+
 
 }
 

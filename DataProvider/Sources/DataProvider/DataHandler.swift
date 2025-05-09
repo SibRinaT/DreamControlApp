@@ -31,7 +31,31 @@ public actor DataHandler {
         dream.isArchived = true
         try? modelContext.save()
     }
+    
+    @discardableResult
+    public func archiveAsMemory(dream: Dream) -> PersistentIdentifier {
+        // Архивируем мечту
+        dream.isArchived = true
 
+        // Создаем воспоминание
+        let memory = DreamMemory(
+            text: "",
+            photoNames: [],
+            dreamDate: Date(),
+            dream: dream
+        )
+
+        modelContext.insert(memory)
+        try? modelContext.save()
+
+        return memory.persistentModelID
+    }
+    
+    public func save() {
+        try? modelContext.save()
+    }
+
+    
     public func unarchive(dream: Dream) {
         dream.isArchived = false
         try? modelContext.save()
