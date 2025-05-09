@@ -54,20 +54,20 @@ struct NewDreamView: View {
                             .foregroundColor(Color("PrimaryColor"))
                     }
                 }
-                .font(.footnote)
+                .font(.custom("MontserratAlternates-Regular", size: 14))
             }
             
             Text("Выберите изображение")
-                .font(.headline)
+                .font(.custom("MontserratAlternates-Regular", size: 16))
+                .bold()
                 .padding()
             
             HStack(spacing: 40) {
                 VStack {
                     Image("StarForDream")
                     Text("Звезда")
-                        .font(.caption2)
+                        .font(.custom("MontserratAlternates-Regular", size: 14))
                         .foregroundColor(Color("TextColor"))
-                        .bold()
                 }
                 .onTapGesture {
                     selectedImage = "StarForDream"
@@ -80,9 +80,8 @@ struct NewDreamView: View {
                 VStack {
                     Image("CloudForDream")
                     Text("Облако")
-                        .font(.caption2)
+                        .font(.custom("MontserratAlternates-Regular", size: 14))
                         .foregroundColor(Color("TextColor"))
-                        .bold()
                 }
                 .onTapGesture {
                     selectedImage = "CloudForDream"
@@ -94,9 +93,8 @@ struct NewDreamView: View {
                 VStack {
                     Image("Cloud2ForDream")
                     Text("2 облака")
-                        .font(.caption2)
+                        .font(.custom("MontserratAlternates-Regular", size: 14))
                         .foregroundColor(Color("TextColor"))
-                        .bold()
                 }
                 .onTapGesture {
                     selectedImage = "Cloud2ForDream"
@@ -120,7 +118,7 @@ struct NewDreamView: View {
                             .shadow(color: Color.black.opacity(0.15), radius: 10)
                             .overlay(
                                 Text("Сохранить")
-                                    .font(.title2)
+                                    .font(.custom("MontserratAlternates-Regular", size: 18))
                                     .foregroundColor(.white)
                                     .bold()
                             )
@@ -132,7 +130,7 @@ struct NewDreamView: View {
                             .shadow(color: Color.black.opacity(0.15), radius: 10)
                             .overlay(
                                 Text("Сохранить")
-                                    .font(.title2)
+                                    .font(.custom("MontserratAlternates-Regular", size: 18))
                                     .foregroundColor(.white)
                                     .bold()
                             )

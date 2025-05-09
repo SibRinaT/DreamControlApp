@@ -109,7 +109,7 @@ struct DreamView: View {
                             .overlay(
                                 Text("Добавить мечту")
                                     .foregroundColor(Color("PrimaryColor"))
-                                    .font(.largeTitle)
+                                    .font(.custom("MontserratAlternates-Regular", size: 24))
                                     .bold()
                             )
                     })

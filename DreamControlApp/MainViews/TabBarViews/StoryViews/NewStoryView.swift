@@ -211,6 +211,11 @@ struct NewStoryView: View {
     private func createStory() {
         triedToSubmit = true
         errorMessage = ""
+        
+        guard isFormValid else {
+              return // Не продолжаем, если форма недействительна
+          }
+        
         if autoStory {
             isLoading = true
             let finalPrompt = "Используя это описание: \"\(description)\", создай вдохновляющую историю, чтобы человек мог визуализировать свой успех. История не должна вызывать никаких негативных эмоций. Максимум 2000 символов."
