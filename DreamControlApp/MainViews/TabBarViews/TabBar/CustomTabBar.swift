@@ -48,6 +48,11 @@ struct CustomTabBar: View {
                     TabBarButton(icon: selectedTab == 3 ? "ActiveSettingIcon" : "SettingIcon", label: "Настройки", isSelected: selectedTab == 3) {
                         selectedTab = 3
                     }
+//                    Spacer()
+//                    TabBarButton(icon: selectedTab == 3 ? "ActiveSettingIcon" : "SettingIcon", label: "Воспоминания", isSelected: selectedTab == 4) {
+//                        selectedTab = 4
+//                    }
+//                    Spacer()
                 }
                 .padding(.horizontal, 20)
                 .padding(.vertical, 40)
