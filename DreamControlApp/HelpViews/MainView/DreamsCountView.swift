@@ -34,11 +34,11 @@ struct DreamsCountView: View {
                             VStack {
                                 Text("\(dreams.count)")
                                     .bold()
-                                    .font(.title2)
+                                    .font(.custom("MontserratAlternates-Regular", size: 20))
                                     .foregroundColor(.white)
                                 Text("Мечты")
                                     .bold()
-                                    .font(.title2)
+                                    .font(.custom("MontserratAlternates-Regular", size: 20))
                                     .foregroundColor(.white)
                             }
                                 .padding(.vertical)
@@ -69,11 +69,11 @@ struct DreamsCountView: View {
                             VStack {
                                 Text("\(ideasViewModel.favoriteIdeas.count)")
                                     .bold()
-                                    .font(.title2)
+                                    .font(.custom("MontserratAlternates-Regular", size: 20))
                                     .foregroundColor(.white)
                                 Text("Идей")
                                     .bold()
-                                    .font(.title2)
+                                    .font(.custom("MontserratAlternates-Regular", size: 20))
                                     .foregroundColor(.white)
                             }
                                 .padding(.vertical)
