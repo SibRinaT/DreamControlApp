@@ -74,6 +74,7 @@
 		2EDE21092C20BE23006951E7 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE21082C20BE23006951E7 /* SubscriptionView.swift */; };
 		2EE3AC2E2CC2D1620045EDD0 /* DaySplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE3AC2D2CC2D1620045EDD0 /* DaySplash.swift */; };
 		2EE3AC302CC57D960045EDD0 /* EveningSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE3AC2F2CC57D960045EDD0 /* EveningSplash.swift */; };
+		2EEABE1B2DCDE73B000CC705 /* MontserratAlternates.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 2E85787F2BBAB44900BEA1ED /* MontserratAlternates.ttf */; };
 		2EEB4DD12CCCC222006FD26D /* IdeasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB4DD02CCCC222006FD26D /* IdeasViewModel.swift */; };
 		2EED37B22DC8B05800E71584 /* CategoryFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EED37B12DC8B05800E71584 /* CategoryFilterView.swift */; };
 		2EED37B42DC8B0B300E71584 /* MultipleSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EED37B32DC8B0B300E71584 /* MultipleSelectionRow.swift */; };
@@ -645,6 +646,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EEABE1B2DCDE73B000CC705 /* MontserratAlternates.ttf in Sources */,
 				2E1978602BD57728000AD527 /* TabBar.swift in Sources */,
 				2EAA26692D00193D00EC5997 /* OtherViewsRectangleSubscription.swift in Sources */,
 				2EFB883E2CABC9160006D68E /* HelpProfileRectangleMorning.swift in Sources */,
