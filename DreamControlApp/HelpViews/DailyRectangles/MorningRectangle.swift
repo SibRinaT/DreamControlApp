@@ -22,8 +22,7 @@ struct MorningRectangle: View {
                             Spacer()
                             VStack {
                                 Text("Привет, \(savedName)!")
-                                    .font(.title2)
-                                    .foregroundColor(.white)
+                                    .font(.custom("MontserratAlternates-Regular", size: 22))                                    .foregroundColor(.white)
                                     .bold()
                                     .offset(CGSize(width: 70, height: 10))
                                 Rectangle() // нужно придумать, чтобы белый расширялся в зависмости от размера текста
@@ -33,6 +32,7 @@ struct MorningRectangle: View {
                                     .offset(CGSize(width: 70, height: 10))
                                     .overlay(
                                         Text(text)
+                                            .font(.custom("MontserratAlternates-Regular", size: 16))
                                             .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
                                             .multilineTextAlignment(.center)
                                             .offset(CGSize(width: 70, height: 10))
@@ -40,8 +40,7 @@ struct MorningRectangle: View {
                                 HStack {
                                     Spacer()
                                     Text(author)
-                                        .font(.title2)
-                                        .foregroundColor(.white)
+                                        .font(.custom("MontserratAlternates-Regular", size: 22))                                        .foregroundColor(.white)
                                         .bold()
                                         .offset(CGSize(width: -25, height: 10))
                                 }
