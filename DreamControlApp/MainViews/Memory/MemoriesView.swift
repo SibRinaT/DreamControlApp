@@ -12,13 +12,13 @@ import DataProvider
 struct MemoriesView: View {
     @Environment(\.dataHandler) private var dataHandler
     @Query(filter: #Predicate<DreamMemory> { $0.dream.isArchived }) private var memories: [DreamMemory]
+    @AppStorage("showDeleteConfirmations") private var showDeleteConfirmations: Bool = true
     @Binding var selectedTab: Int
     
     @Query private var allMemories: [DreamMemory]
     @State private var selectedMemory: DreamMemory?
     
     @State private var showCustomDialog = false
-    @State private var showDeleteConfirmation = true
     @State private var memoryToDelete: DreamMemory?
 
     var body: some View {
@@ -109,7 +109,7 @@ struct MemoriesView: View {
                         showCustomDialog = false
                     },
                     onDisablePrompt: {
-                        showDeleteConfirmation = false
+                        showDeleteConfirmations = false
                     }
                 )
             }
@@ -118,7 +118,7 @@ struct MemoriesView: View {
 
     // Запрос подтверждения
     private func requestDeleteConfirmation(memory: DreamMemory) {
-        if showDeleteConfirmation {
+        if showDeleteConfirmations {
             memoryToDelete = memory
             showCustomDialog = true
         } else {

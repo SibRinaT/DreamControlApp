@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @AppStorage("isAnimating") private var isAnimating: Bool = false
     @Binding var selectedTab: Int
+    @AppStorage("showDeleteConfirmations") private var showDeleteConfirmations: Bool = true
 
     var body: some View {
         VStack {
@@ -24,6 +25,9 @@ struct SettingsView: View {
             
             ScrollView {
                 Toggle("Включить анимацию", isOn: $isAnimating)
+                    .toggleStyle(YellowToggle())
+                    .font(.custom("MontserratAlternates-Regular", size: 14))
+                Toggle("Показывать окно подтверждения", isOn: $showDeleteConfirmations)
                     .toggleStyle(YellowToggle())
                     .font(.custom("MontserratAlternates-Regular", size: 14))
             }
