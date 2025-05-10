@@ -16,7 +16,7 @@ struct MemoriesView: View {
     
     @Query private var allMemories: [DreamMemory]
     @State private var selectedMemory: DreamMemory?
-    
+
     var body: some View {
         NavigationStack {
             VStack {

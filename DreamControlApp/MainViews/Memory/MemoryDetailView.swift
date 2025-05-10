@@ -7,6 +7,7 @@
 
 import SwiftUI
 import DataProvider
+import PhotosUI
 
 struct MemoryDetailView: View {
     @State var title = "Воспоминание"
@@ -15,6 +16,9 @@ struct MemoryDetailView: View {
     private let characterLimit = 400
 
     @Environment(\.dataHandler) private var dataHandler
+
+    @State private var selectedPhoto: PhotosPickerItem? = nil
+    @State private var selectedUIImage: UIImage? = nil
 
     var onSave: (String, String) -> Void
     let memory: DreamMemory
@@ -105,22 +109,48 @@ struct MemoryDetailView: View {
                             .font(.title3)
                         VStack {
                             HStack {
-                                ZStack {
-                                    // Контейнер с рамкой
-                                    RoundedRectangle(cornerRadius: 25, style: .continuous)
-                                        .stroke(
-                                            LinearGradient(
-                                                gradient: Gradient(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")]),
-                                                startPoint: .topLeading,
-                                                endPoint: .bottomTrailing
-                                            ),
-                                            lineWidth: 3
-                                        )
-                                    Text("Добавить фото")
-                                        .foregroundColor(Color("TextColor"))
-                                        .font(.custom("MontserratAlternates-Regular", size: 16))
-                                        .multilineTextAlignment(.center)
+                                PhotosPicker(
+                                    selection: $selectedPhoto,
+                                    matching: .images,
+                                    photoLibrary: .shared()
+                                ) {
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 25)
+                                            .stroke(
+                                                LinearGradient(
+                                                    gradient: Gradient(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")]),
+                                                    startPoint: .topLeading,
+                                                    endPoint: .bottomTrailing
+                                                ),
+                                                lineWidth: 3
+                                            )
+                                            .background(Color.white)
+                                            .frame(maxWidth: .infinity)
+                                        
+                                        if let image = selectedUIImage {
+                                            Image(uiImage: image)
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(height: 150)
+                                                .clipShape(RoundedRectangle(cornerRadius: 25))
+                                                .clipped()
+                                        } else {
+                                            Text("Добавить фото")
+                                                .foregroundColor(Color("TextColor"))
+                                                .font(.custom("MontserratAlternates-Regular", size: 16))
+                                        }
+                                    }
+                                    .onChange(of: selectedPhoto) { newItem in
+                                        Task {
+                                            if let data = try? await newItem?.loadTransferable(type: Data.self),
+                                               let image = UIImage(data: data) {
+                                                selectedUIImage = image
+                                            }
+                                        }
+                                    }
                                 }
+                                .frame(height: 150)
+
                                 
                                 ZStack {
                                     // Контейнер с рамкой
@@ -202,6 +232,7 @@ struct MemoryDetailView: View {
                     .padding(.horizontal)
         }
     }
+    
     
     private func saveMemory() {
         Task {
