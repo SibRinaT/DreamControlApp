@@ -17,6 +17,7 @@
 		2E2ACFE52CF1D0E400A55886 /* UnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2ACFE42CF1D0E200A55886 /* UnitTest.swift */; };
 		2E34CBB32C881F970063F57F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34CBB22C881F970063F57F /* Model.swift */; };
 		2E34CBB52C8833700063F57F /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34CBB42C8833700063F57F /* StoryView.swift */; };
+		2E459C782DCF75A900AF5D03 /* CustomDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E459C772DCF75A900AF5D03 /* CustomDialogView.swift */; };
 		2E542A062CA8A26300338070 /* DayRectangel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E542A052CA8A26300338070 /* DayRectangel.swift */; };
 		2E6092362CBE73B900081545 /* MorningSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6092352CBE73B900081545 /* MorningSplash.swift */; };
 		2E60923A2CBE800800081545 /* ArialRoundedBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E6092392CBE800800081545 /* ArialRoundedBold.ttf */; };
@@ -134,6 +135,7 @@
 		2E2ACFE42CF1D0E200A55886 /* UnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTest.swift; sourceTree = "<group>"; };
 		2E34CBB22C881F970063F57F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		2E34CBB42C8833700063F57F /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
+		2E459C772DCF75A900AF5D03 /* CustomDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialogView.swift; sourceTree = "<group>"; };
 		2E542A052CA8A26300338070 /* DayRectangel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRectangel.swift; sourceTree = "<group>"; };
 		2E6092352CBE73B900081545 /* MorningSplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningSplash.swift; sourceTree = "<group>"; };
 		2E6092372CBE7EFC00081545 /* Cochin.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cochin.ttc; sourceTree = "<group>"; };
@@ -306,6 +308,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		2E459C742DCF71BD00AF5D03 /* CustomDialog */ = {
+			isa = PBXGroup;
+			children = (
+				2E459C772DCF75A900AF5D03 /* CustomDialogView.swift */,
+			);
+			path = CustomDialog;
+			sourceTree = "<group>";
+		};
 		2E6092342CBE738300081545 /* DailySplash */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +451,7 @@
 		2E85787E2BBAB24E00BEA1ED /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
+				2E459C742DCF71BD00AF5D03 /* CustomDialog */,
 				2EED37C02DCCE56700E71584 /* Memory */,
 				2E252B402CB6579C006E3ACA /* IdeaViews */,
 				2EA06B9B2BD18F720056E9F7 /* TabBarViews */,
@@ -734,6 +745,7 @@
 				2EFB883E2CABC9160006D68E /* HelpProfileRectangleMorning.swift in Sources */,
 				2EE3AC2E2CC2D1620045EDD0 /* DaySplash.swift in Sources */,
 				2E9BD10F2BA35DDF0055566F /* InputFieldView.swift in Sources */,
+				2E459C782DCF75A900AF5D03 /* CustomDialogView.swift in Sources */,
 				2EDE21072C1F04C3006951E7 /* DreamView.swift in Sources */,
 				2E829FB92DA7F0B400A3BD6F /* GigaChatViewModel.swift in Sources */,
 				2E8578882BBBFAF400BEA1ED /* CustomCheckBoxView.swift in Sources */,

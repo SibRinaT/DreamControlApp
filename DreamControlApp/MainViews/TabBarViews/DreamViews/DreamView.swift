@@ -14,21 +14,32 @@ struct DreamView: View {
     @State private var showingSheet = false
     @State private var newButtonName = ""
     @State private var selectedImage = "StarForDream"
-    @State private var selectedDream: Dream? // Добавлено для хранения созданной мечты
-//    @State private var user = User(id: "123", name: "User", isAdmin: false) // Пример пользователя
+    @State private var selectedDream: Dream?
+    
     @State private var isSubscriptionViewPresented = false
     @Binding var selectedTab: Int
-
-//    @Query private var dreams: [Dream]
+    
     @Query(filter: #Predicate<Dream> { !$0.isArchived }) private var dreams: [Dream]
-
+    
     @EnvironmentObject var userManager: UserManager
-
+    
+    @State private var showCustomDialog = false
+    @State private var showDeleteConfirmation = true
+    @State private var showArchiveConfirmation = true
+    
+    @State private var confirmationType: ConfirmationType? = nil
+    @State private var dreamToDelete: Dream? = nil
+    @State private var dreamToArchive: Dream? = nil
+    
+    enum ConfirmationType {
+        case delete
+        case archive
+    }
     private var maxDreamsAllowed: Int {
         userManager.isSubscriptionEnabled ? 10 : 3
     }
-
-
+    
+    
     
     var body: some View {
         VStack {
@@ -63,7 +74,7 @@ struct DreamView: View {
                         .cornerRadius(20)
                         .swipeActions(edge: .trailing) {
                             Button(role: .destructive) {
-                                delete(dream: dream)
+                                requestDeleteConfirmation(for: dream)
                             } label: {
                                 Label("Удалить", systemImage: "trash")
                                     .font(.custom("MontserratAlternates-Regular", size: 14))
@@ -71,7 +82,7 @@ struct DreamView: View {
                         }
                         .swipeActions(edge: .leading) {
                             Button {
-                                archive(dream: dream)
+                                requestArchiveConfirmation(for: dream)
                             } label: {
                                 Label("В воспоминанния", systemImage: "archivebox")
                                     .font(.custom("MontserratAlternates-Regular", size: 14))
@@ -82,7 +93,7 @@ struct DreamView: View {
                                                               stories: dream.stories ?? [])) {
                             EmptyView()
                         }
-                        .opacity(0.0)
+                                                              .opacity(0.0)
                     }
                     .listRowBackground(Color.clear)
                 }
@@ -122,19 +133,11 @@ struct DreamView: View {
             }
             .listStyle(.plain)
         }
-        .padding(.horizontal)
-        .sheet(isPresented: $showingSheet) {
-            NewDreamView(newButtonName: $newButtonName,
-                         selectedImage: $selectedImage,
-                         showingSheet: $showingSheet) { newDream in
-                selectedDream = newDream
-            }
-        }
-//        .toolbar {
-//            ToolbarItem(placement: .navigationBarLeading) {
-//                CustomBackButton()
-//            }
-//        }
+        //        .toolbar {
+        //            ToolbarItem(placement: .navigationBarLeading) {
+        //                CustomBackButton()
+        //            }
+        //        }
         .background(
             NavigationLink(
                 destination: selectedDream.map { StoryView(dream: $0, stories: $0.stories ?? []) },
@@ -146,7 +149,48 @@ struct DreamView: View {
             )
             .hidden()
         )
+        .padding(.horizontal)
+        .sheet(isPresented: $showingSheet) {
+            NewDreamView(newButtonName: $newButtonName,
+                         selectedImage: $selectedImage,
+                         showingSheet: $showingSheet) { newDream in
+                selectedDream = newDream
+            }
+        }
+        if showCustomDialog {
+            CustomDialogView(
+                title: "Вы уверены, что хотите продолжить?",
+                message: "Все связанные с мечтой истории будут удалены.",
+                confirmationType: confirmationType,
+                onConfirm: {
+                    showCustomDialog = false
+                    switch confirmationType {
+                    case .delete:
+                        if let dream = dreamToDelete {
+                            delete(dream: dream)
+                        }
+                    case .archive:
+                        if let dream = dreamToArchive {
+                            archive(dream: dream)
+                        }
+                    case .none:
+                        break
+                    }
+                },
+                onCancel: {
+                    showCustomDialog = false
+                },
+                onDisablePrompt: {
+                    if confirmationType == .delete {
+                        showDeleteConfirmation = false
+                    } else {
+                        showArchiveConfirmation = false
+                    }
+                }
+            )
+        }
     }
+    
     
     private func delete(dream: Dream) {
         Task {
@@ -171,8 +215,26 @@ struct DreamView: View {
             await dataHandler?.archiveAsMemory(dream: dream)
         }
     }
+    
+    private func requestDeleteConfirmation(for dream: Dream) {
+        if showDeleteConfirmation {
+            dreamToDelete = dream
+            confirmationType = .delete
+            showCustomDialog = true
+        } else {
+            delete(dream: dream)
+        }
+    }
 
-
+    private func requestArchiveConfirmation(for dream: Dream) {
+        if showArchiveConfirmation {
+            dreamToArchive = dream
+            confirmationType = .archive
+            showCustomDialog = true
+        } else {
+            archive(dream: dream)
+        }
+    }
 }
 
 //#Preview {

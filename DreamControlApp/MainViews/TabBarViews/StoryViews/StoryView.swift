@@ -20,6 +20,11 @@ struct StoryView: View {
 //    @State private var user = User(id: "123", name: "User", isAdmin: false) // Пример пользователя
     @State private var isSubscriptionViewPresented = false
     @EnvironmentObject var userManager: UserManager
+    
+    @State private var showCustomDialog = false
+    @State private var showDeleteConfirmation = true
+    @State private var storyToDelete: DreamStory?
+    @State private var isDeletePromptDisabled = false
 
     private var maxStoriesAllowed: Int {
         userManager.isSubscriptionEnabled ? 10 : 3
@@ -31,6 +36,7 @@ struct StoryView: View {
             set: { _ in storyToEdit = nil}
         )
     }
+    
     
     var body: some View {
         VStack {
@@ -89,7 +95,7 @@ struct StoryView: View {
                         }
                         .swipeActions(edge: .trailing) {
                             Button(role: .destructive) {
-                                delete(story: story) // Удаляем выбранную историю
+                                requestDeleteConfirmation(story: story)
                             } label: {
                                 Label("Удалить", systemImage: "trash")
                                     .font(.custom("MontserratAlternates-Regular", size: 16))
@@ -144,18 +150,43 @@ struct StoryView: View {
                           isPresented: isEditingStoryView,
                           onSave: updateStory)
         }
+        if showCustomDialog {
+            CustomDialogView(
+                title: "Удалить историю?",
+                message: "Вы уверены, что хотите удалить эту историю? Это действие необратимо",
+                confirmationType: nil,
+                onConfirm: {
+                    showCustomDialog = false
+                    if let story = storyToDelete {
+                        performDelete(story: story)
+                    }
+                },
+                onCancel: {
+                    showCustomDialog = false
+                },
+                onDisablePrompt: {
+                    showDeleteConfirmation = false
+                }
+            )
+        }
     }
     
-    private func delete(story: DreamStory) {
-        // Начинаем анимацию удаления
+    private func requestDeleteConfirmation(story: DreamStory) {
+        if showDeleteConfirmation {
+            storyToDelete = story
+            showCustomDialog = true
+        } else {
+            performDelete(story: story)
+        }
+    }
+
+    private func performDelete(story: DreamStory) {
         withAnimation {
-            // Удаляем элемент с плавным исчезновением
             if let index = stories.firstIndex(where: { $0.id == story.id }) {
                 stories.remove(at: index)
             }
         }
 
-        // Асинхронное удаление с сервера/данных
         Task {
             await dataHandler?.delete(story: story)
         }
