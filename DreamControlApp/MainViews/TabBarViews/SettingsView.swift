@@ -24,12 +24,17 @@ struct SettingsView: View {
             }
             
             ScrollView {
-                Toggle("Включить анимацию", isOn: $isAnimating)
-                    .toggleStyle(YellowToggle())
-                    .font(.custom("MontserratAlternates-Regular", size: 14))
-                Toggle("Показывать окно подтверждения", isOn: $showDeleteConfirmations)
-                    .toggleStyle(YellowToggle())
-                    .font(.custom("MontserratAlternates-Regular", size: 14))
+                Toggle(isOn: $isAnimating) {
+                    Text("Включить анимацию")
+                        .font(.custom("MontserratAlternates-Regular", size: 14))
+                }
+                .toggleStyle(YellowToggle())
+
+                Toggle(isOn: $showDeleteConfirmations) {
+                    Text("Показывать окно подтверждения")
+                        .font(.custom("MontserratAlternates-Regular", size: 14))
+                }
+                .toggleStyle(YellowToggle())
             }
             .padding(.horizontal)
         }
