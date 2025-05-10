@@ -15,6 +15,7 @@ struct YellowButtonLastOnboard: View {
     var body: some View {
         Button(action: action) {
             Text(text)
+                .font(.custom("MontserratAlternates-Regular", size: 22))
                 .bold()
                 .frame(width: 302, height: 40)
                 .background(isActive ? Color("PrimaryColor") : Color("InactiveColor"))

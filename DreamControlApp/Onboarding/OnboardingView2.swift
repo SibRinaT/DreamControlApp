@@ -28,7 +28,7 @@ struct OnboardingView2: View {
                 Image("pageImage2")
                     .offset(y: -40)
                 Text("Совершенствуйся и достигай!")
-                    .font(.title)
+                    .font(.custom("MontserratAlternates-Regular", size: 26))
                     .foregroundColor(Color("TextColor"))
                     .bold()
                     .multilineTextAlignment(.center)
@@ -41,7 +41,7 @@ struct OnboardingView2: View {
                     .shadow(radius: 5)
                     .overlay(
                         Text("Начать")
-                            .font(.title2)
+                            .font(.custom("MontserratAlternates-Regular", size: 22))
                             .foregroundColor(.white)
                     )
             }

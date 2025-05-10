@@ -36,14 +36,17 @@ struct LastOnboarding: View {
                     VStack {
                         Text("Регистрация")
                             .padding(.top, 30)
-                            .font(.largeTitle)
+                            .font(.custom("MontserratAlternates-Regular", size: 32))
                             .bold()
                             .foregroundColor(Color("TextColor"))
                         Rectangle()
                             .frame(height: 10) // Spacer
                         
                         InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com", text: $email)
+                            .font(.custom("MontserratAlternates-Regular", size: 14))
                         InputFieldView(title: "Имя", placeholder: "Dream", text: $name)
+                            .font(.custom("MontserratAlternates-Regular", size: 14))
+
                         
                         NavigationLink(destination: CustomTabBar(), isActive: $navigateToTabBar) {
                             EmptyView()
