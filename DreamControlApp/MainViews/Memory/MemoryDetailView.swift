@@ -35,12 +35,11 @@ struct MemoryDetailView: View {
                             Text("Воспоминание")
                                 .foregroundColor(Color("InactiveColor2"))
                                 .bold()
-                                .font(.headline)
-                            
+                                .font(.custom("MontserratAlternates-Regular", size: 16))
                             Text(title)
                                 .foregroundColor(.white)
                                 .bold()
-                                .font(.title)
+                                .font(.custom("MontserratAlternates-Regular", size: 28))
                         }
                         .padding(.horizontal)
                         .multilineTextAlignment(.leading)
@@ -71,7 +70,7 @@ struct MemoryDetailView: View {
                         Text("Воспоминания о вашей мечте")
                             .foregroundColor(Color("TextColor"))
                             .bold()
-                            .font(.title3)
+                            .font(.custom("MontserratAlternates-Regular", size: 16))
                         ZStack {
                             // Контейнер с рамкой
                             RoundedRectangle(cornerRadius: 25, style: .continuous)
@@ -86,6 +85,7 @@ struct MemoryDetailView: View {
                             
                             // Контент внутри рамки
                             TextField("Напишите воспоминания о мечте...", text: $storyContent, axis: .vertical)
+                                .font(.custom("MontserratAlternates-Regular", size: 16))
                                 .padding(16) // внутренние отступы
                                 .background(Color.clear) // убираем фон, чтобы не перекрывал рамку
                                 .onChange(of: storyContent) { newValue in
@@ -115,7 +115,7 @@ struct MemoryDetailView: View {
                                         )
                                     Text("Фото 1")
                                         .foregroundColor(Color("TextColor"))
-                                        .font(.title3)
+                                        .font(.custom("MontserratAlternates-Regular", size: 16))
                                 }
                                 
                                 ZStack {
@@ -131,7 +131,7 @@ struct MemoryDetailView: View {
                                         )
                                     Text("Фото 2")
                                         .foregroundColor(Color("TextColor"))
-                                        .font(.title3)
+                                        .font(.custom("MontserratAlternates-Regular", size: 16))
                                 }
                             }
                             .frame(height: 150)
@@ -150,7 +150,7 @@ struct MemoryDetailView: View {
                                         )
                                     Text("Фото 3")
                                         .foregroundColor(Color("TextColor"))
-                                        .font(.title3)
+                                        .font(.custom("MontserratAlternates-Regular", size: 16))
                                 }
                                 ZStack {
                                     // Контейнер с рамкой
@@ -183,7 +183,7 @@ struct MemoryDetailView: View {
                             .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                             .overlay(
                                 Text("Сохранить")
-                                    .font(.title2)
+                                    .font(.custom("MontserratAlternates-Regular", size: 22))
                                     .foregroundColor(.white)
                                     .bold()
                             )

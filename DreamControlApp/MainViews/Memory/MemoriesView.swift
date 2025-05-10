@@ -23,7 +23,7 @@ struct MemoriesView: View {
                 HStack {
                     Image("DCIcon")
                     Text("Воспоминания")
-                        .font(.largeTitle)
+                        .font(.custom("MontserratAlternates-Regular", size: 32))
                         .foregroundColor(Color("PrimaryColor"))
                         .bold()
                     Spacer()
@@ -49,9 +49,9 @@ struct MemoriesView: View {
                                     VStack(alignment: .leading) {
                                         Text("Мечта")
                                             .foregroundColor(Color("InactiveColor2"))
-                                            .font(.subheadline)
+                                            .font(.custom("MontserratAlternates-Regular", size: 14))
                                         Text(memory.dream.name)
-                                            .font(.title)
+                                            .font(.custom("MontserratAlternates-Regular", size: 24))
                                             .foregroundColor(.white)
                                     }
                                     .bold()
