@@ -17,6 +17,8 @@ struct NewStoryView: View {
     @State private var warningMessage: String? = nil
     var onSave: (String, String) -> Void
     
+    @AppStorage("userName") private var savedName: String = ""
+    
     var body: some View {
         VStack {
             Rectangle()
@@ -218,7 +220,7 @@ struct NewStoryView: View {
         
         if autoStory {
             isLoading = true
-            let finalPrompt = "Используя это описание: \"\(description)\", создай вдохновляющую историю, чтобы человек мог визуализировать свой успех. История не должна вызывать никаких негативных эмоций. Максимум 2000 символов."
+            let finalPrompt = "Используя это описание: \"\(description)\", создай вдохновляющую историю, чтобы человек мог визуализировать свой успех. В качестве имени применяй имя: \"\(savedName)\". История не должна вызывать никаких негативных эмоций. Не превышай количество в 2000 символов, нельзя! Не пиши никаких обращений к пользователю, он не должен знать что ты ии"
             apiService.sendPrompt(finalPrompt) { result in
                 DispatchQueue.main.async {
                     isLoading = false
