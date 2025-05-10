@@ -118,7 +118,7 @@ struct DaySplash: View {
                 }
                 Text("День - это время  действовать и мечтать!")
                     .foregroundColor(Color("SecondaryColor"))
-                    .font(.custom("Iowan Old Style", size: 42))
+                    .font(.custom("MontserratAlternates-Regular", size: 42))
                     .multilineTextAlignment(.center)
                 
                 Spacer()
