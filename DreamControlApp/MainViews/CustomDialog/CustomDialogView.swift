@@ -19,7 +19,7 @@ struct CustomDialogView: View {
     @State private var isChecked = false
 
     var body: some View {
-        Color.white.opacity(0.01)
+        Color.clear
             .ignoresSafeArea()
             .overlay(
                 VStack(spacing: 20) {

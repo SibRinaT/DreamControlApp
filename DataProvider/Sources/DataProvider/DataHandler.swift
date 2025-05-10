@@ -26,7 +26,10 @@ public actor DataHandler {
         modelContext.delete(dream)
         try! modelContext.save()
     }
-    
+    public func delete(dreamMemory: DreamMemory) {
+        modelContext.delete(dreamMemory)
+        try! modelContext.save()
+    }
     public func archive(dream: Dream) {
         dream.isArchived = true
         try? modelContext.save()

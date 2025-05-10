@@ -16,6 +16,10 @@ struct MemoriesView: View {
     
     @Query private var allMemories: [DreamMemory]
     @State private var selectedMemory: DreamMemory?
+    
+    @State private var showCustomDialog = false
+    @State private var showDeleteConfirmation = true
+    @State private var memoryToDelete: DreamMemory?
 
     var body: some View {
         NavigationStack {
@@ -41,33 +45,40 @@ struct MemoriesView: View {
                 } else {
                     List {
                         ForEach(memories) { memory in
-                            Button {
-                                selectedMemory = memory
-                            } label: {
-                                HStack {
-                                    Image(memory.dream.image)
-                                    VStack(alignment: .leading) {
-                                        Text("Мечта")
-                                            .foregroundColor(Color("InactiveColor2"))
-                                            .font(.custom("MontserratAlternates-Regular", size: 14))
-                                        Text(memory.dream.name)
-                                            .font(.custom("MontserratAlternates-Regular", size: 24))
-                                            .foregroundColor(.white)
-                                    }
-                                    .bold()
-                                    Spacer()
+                            HStack {
+                                Image(memory.dream.image)
+                                VStack(alignment: .leading) {
+                                    Text("Воспоминание")
+                                        .foregroundColor(Color("InactiveColor2"))
+                                        .font(.custom("MontserratAlternates-Regular", size: 14))
+                                    Text(memory.dream.name)
+                                        .font(.custom("MontserratAlternates-Regular", size: 24))
+                                        .foregroundColor(.white)
                                 }
-                                .padding()
-                                .frame(height: 85)
-                                .background(Color("PrimaryColor"))
-                                .cornerRadius(20)
-                                .shadow(color: Color.black.opacity(0.15), radius: 10)
+                                .bold()
+                                Spacer()
                             }
-                            .buttonStyle(PlainButtonStyle())
-                            .listRowSeparator(.hidden)
-                            .listRowBackground(Color.clear)
+                            .padding()
+                            .frame(height: 85)
+                            .background(Color("PrimaryColor"))
+                            .cornerRadius(20)
+                            .shadow(color: Color.black.opacity(0.15), radius: 10)
+                            .contentShape(Rectangle()) // Обязательно, чтобы свайпы работали!
+                            .onTapGesture {
+                                selectedMemory = memory
+                            }
+                            .swipeActions(edge: .trailing) {
+                                Button(role: .destructive) {
+                                    requestDeleteConfirmation(memory: memory)
+                                } label: {
+                                    Label("Удалить", systemImage: "trash")
+                                        .font(.custom("MontserratAlternates-Regular", size: 16))
+                                }
+                            }
                         }
+                        .listRowSeparator(.hidden)
                     }
+                    .listRowSeparator(.hidden)
                     .listStyle(.plain)
                     .scrollContentBackground(.hidden)
                 }
@@ -78,21 +89,58 @@ struct MemoriesView: View {
                     onSave: { _, _ in },
                     memory: memory,
                     dismiss: {
-                           selectedMemory = nil
-                       }
+                        selectedMemory = nil
+                    }
+                )
+            }
+
+            if showCustomDialog {
+                CustomDialogView(
+                    title: "Удалить воспоминание?",
+                    message: "Вы уверены, что хотите удалить это воспоминание? Это действие необратимо.",
+                    confirmationType: nil,
+                    onConfirm: {
+                        showCustomDialog = false
+                        if let memory = memoryToDelete {
+                            performDelete(memory: memory)
+                        }
+                    },
+                    onCancel: {
+                        showCustomDialog = false
+                    },
+                    onDisablePrompt: {
+                        showDeleteConfirmation = false
+                    }
                 )
             }
         }
     }
 
+    // Запрос подтверждения
+    private func requestDeleteConfirmation(memory: DreamMemory) {
+        if showDeleteConfirmation {
+            memoryToDelete = memory
+            showCustomDialog = true
+        } else {
+            performDelete(memory: memory)
+        }
+    }
 
-    // функция если захочется добавить прерващение воспоминания в мечту 
+    // Удаление воспоминания
+    private func performDelete(memory: DreamMemory) {
+        Task {
+            await dataHandler?.delete(dreamMemory: memory)
+        }
+    }
+
+    // функция если захочется добавить превращение воспоминания в мечту
     private func unarchive(dream: Dream) {
         Task {
             await dataHandler?.unarchive(dream: dream)
         }
     }
 }
+
 
 #Preview {
     struct PreviewWrapper: View {
