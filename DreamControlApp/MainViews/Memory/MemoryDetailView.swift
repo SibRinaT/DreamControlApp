@@ -11,16 +11,19 @@ import DataProvider
 struct MemoryDetailView: View {
     @State var title = "Воспоминание"
     @State var storyContent = ""
-    @Binding var isPresented: Bool
+    var dismiss: () -> Void
+    private let characterLimit = 400
+
+    @Environment(\.dataHandler) private var dataHandler
+
     var onSave: (String, String) -> Void
     let memory: DreamMemory
-    private let characterLimit = 400
-    init(isPresented: Binding<Bool>, onSave: @escaping (String, String) -> Void, memory: DreamMemory) {
-          self._isPresented = isPresented
-          self.onSave = onSave
-          self.memory = memory
-          _title = State(initialValue: memory.dream.name)
-          _storyContent = State(initialValue: memory.text)
+    init(onSave: @escaping (String, String) -> Void, memory: DreamMemory, dismiss: @escaping () -> Void) {
+        self.onSave = onSave
+        self.memory = memory
+        self.dismiss = dismiss
+        _title = State(initialValue: memory.dream.name)
+        _storyContent = State(initialValue: memory.text)
     }
     
     var body: some View {
@@ -174,7 +177,7 @@ struct MemoryDetailView: View {
                     .padding(.horizontal, 40)
                     .padding(.bottom, 50)
                     Button(action: {
-                        // сделать сохраение воспоминания
+                        saveMemory()
                     }) {
                         Rectangle()
                             .foregroundColor(Color("PrimaryColor"))
@@ -195,7 +198,27 @@ struct MemoryDetailView: View {
                     .padding(.horizontal)
         }
     }
+    
+    private func saveMemory() {
+        Task {
+            // Обновляем значения
+            memory.text = storyContent
+            memory.photoNames = [] // <- сюда добавь имена фото, если у тебя есть механизм их выбора
+
+            // Сохраняем через modelContext
+            try? await dataHandler?.save()
+
+            // Вызываем callback, если нужно
+            onSave(storyContent, memory.dream.name)
+
+            // Закрываем вью
+            dismiss()
+
+        }
+    }
 }
+
+
 
 //#Preview {
 //    MemoryDetailView(isPresented: .constant(true)) {_, _ in}

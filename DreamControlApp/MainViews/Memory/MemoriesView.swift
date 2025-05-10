@@ -75,9 +75,11 @@ struct MemoriesView: View {
             .padding(.horizontal)
             .sheet(item: $selectedMemory) { memory in
                 MemoryDetailView(
-                    isPresented: .constant(true),
                     onSave: { _, _ in },
-                    memory: memory
+                    memory: memory,
+                    dismiss: {
+                           selectedMemory = nil
+                       }
                 )
             }
         }
