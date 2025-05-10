@@ -116,9 +116,10 @@ struct MemoryDetailView: View {
                                             ),
                                             lineWidth: 3
                                         )
-                                    Text("Фото 1")
+                                    Text("Добавить фото")
                                         .foregroundColor(Color("TextColor"))
                                         .font(.custom("MontserratAlternates-Regular", size: 16))
+                                        .multilineTextAlignment(.center)
                                 }
                                 
                                 ZStack {
@@ -132,9 +133,10 @@ struct MemoryDetailView: View {
                                             ),
                                             lineWidth: 3
                                         )
-                                    Text("Фото 2")
+                                    Text("Добавить фото")
                                         .foregroundColor(Color("TextColor"))
                                         .font(.custom("MontserratAlternates-Regular", size: 16))
+                                        .multilineTextAlignment(.center)
                                 }
                             }
                             .frame(height: 150)
@@ -151,9 +153,10 @@ struct MemoryDetailView: View {
                                             ),
                                             lineWidth: 3
                                         )
-                                    Text("Фото 3")
+                                    Text("Добавить фото")
                                         .foregroundColor(Color("TextColor"))
                                         .font(.custom("MontserratAlternates-Regular", size: 16))
+                                        .multilineTextAlignment(.center)
                                 }
                                 ZStack {
                                     // Контейнер с рамкой
@@ -166,9 +169,10 @@ struct MemoryDetailView: View {
                                             ),
                                             lineWidth: 3
                                         )
-                                    Text("Фото 4")
+                                    Text("Добавить фото")
                                         .foregroundColor(Color("TextColor"))
                                         .font(.custom("MontserratAlternates-Regular", size: 16))
+                                        .multilineTextAlignment(.center)
                                 }
                             }
                             .frame(height: 150)
