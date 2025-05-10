@@ -10,8 +10,8 @@ import DataProvider
 import SwiftData
 
 struct IdeasView: View {
-    @State private var idea: String = "Выучить новый язык"
-    @EnvironmentObject var ideasViewModel: IdeasViewModel  // Инициализируем и используем @StateObject
+    @State private var currentIdea: IdeasViewModel.IdeaItem = .init(text: "", category: "")
+    @EnvironmentObject var ideasViewModel: IdeasViewModel
     @State private var dragOffset: CGSize = .zero
     @State private var rectangleColor: Color = .white
     @State private var showFavorites = false
@@ -38,9 +38,9 @@ struct IdeasView: View {
                     .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                     .frame(height: 300)
                     .padding(.horizontal)
-                    .offset(x: dragOffset.width, y: dragOffset.height * 0.1) // небольшое смещение по y
+                    .offset(x: dragOffset.width, y: dragOffset.height * 0.1)
                     .rotationEffect(.degrees(Double(dragOffset.width) / 15))
-                    .animation(.easeInOut(duration: 0.6), value: rectangleColor) // Плавный переход цвета
+                    .animation(.easeInOut(duration: 0.6), value: rectangleColor)
                     .gesture(
                         DragGesture()
                             .onChanged { value in
@@ -53,9 +53,9 @@ struct IdeasView: View {
                             }
                             .onEnded { value in
                                 if value.translation.width > 100 {
-                                    ideasViewModel.saveIdea(idea, isRightSwipe: true)
+                                    ideasViewModel.saveIdea(currentIdea.text, isRightSwipe: true)
                                 } else if value.translation.width < -100 {
-                                    ideasViewModel.saveIdea(idea, isRightSwipe: false)
+                                    ideasViewModel.saveIdea(currentIdea.text, isRightSwipe: false)
                                 }
                                 dragOffset = .zero
                                 generateIdea()
@@ -63,22 +63,20 @@ struct IdeasView: View {
                             }
                     )
                     .overlay(
-                        VStack {
-//                            Text("Название")
-//                                .bold()
-//                                .font(.title2)
-//                                .padding(.bottom, 60)
-//                                .offset(x: dragOffset.width, y: dragOffset.height * 0.1)
-//                                .rotationEffect(.degrees(Double(dragOffset.width) / 15))
-                            Text(idea)
-                                .offset(x: dragOffset.width, y: dragOffset.height * 0.1)
-                                .rotationEffect(.degrees(Double(dragOffset.width) / 15))
+                        VStack(spacing: 12) {
+                            Text(currentIdea.text)
                                 .font(.custom("MontserratAlternates-Regular", size: 24))
                                 .padding(.horizontal, 30)
                                 .foregroundColor(.black)
                                 .multilineTextAlignment(.center)
-//                                .padding(.bottom, 100)
+
+                            Text(currentIdea.category)
+                                .font(.custom("MontserratAlternates-Regular", size: 14))
+                                .foregroundColor(.gray)
+                                .padding(.top, 8)
                         }
+                            .offset(x: dragOffset.width, y: dragOffset.height * 0.1)
+                            .rotationEffect(.degrees(Double(dragOffset.width) / 15))
                     )
                 VStack {
                     Button(action: {
@@ -99,21 +97,21 @@ struct IdeasView: View {
                                 }
                             }
                     }
-                    
+                    .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                     .sheet(isPresented: $showCategorySheet) {
                         CategoryFilterView(
                             selectedCategories: $selectedCategories,
                             allCategories: ideasViewModel.ideas.map { $0.category }.uniqued(),
                             onDismiss: {
                                 showCategorySheet = false
-                                generateIdea() // Обновить идею после выбора
+                                generateIdea()
                             }
                         )
                     }
                 }
                 .padding()
                 Spacer()
-                
+
                 VStack {
                     Button(action: {
                         showFavorites = true
@@ -134,24 +132,22 @@ struct IdeasView: View {
                 }
                 .padding(.horizontal)
                 .sheet(isPresented: $showFavorites) {
-                    FavoritesIdeasView(ideasViewModel: ideasViewModel) // Открытие избранных идей
+                    FavoritesIdeasView(ideasViewModel: ideasViewModel)
                 }
             }
         }
         .padding(.horizontal)
         .onAppear {
-            generateIdea() // При загрузке представления получаем случайную идею
+            generateIdea()
         }
     }
+
     private func generateIdea() {
-        idea = ideasViewModel.getRandomIdea(from: Array(selectedCategories)).text
+        currentIdea = ideasViewModel.getRandomIdea(from: Array(selectedCategories))
     }
 }
 
-
-
-
 #Preview {
     IdeasView(selectedTab: .constant(0))
-        .environmentObject(IdeasViewModel()) // Замените на мок если нужно
+        .environmentObject(IdeasViewModel())
 }
