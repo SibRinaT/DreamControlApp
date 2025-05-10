@@ -165,7 +165,7 @@ struct MemoryDetailView: View {
                                         )
                                     Text("Фото 4")
                                         .foregroundColor(Color("TextColor"))
-                                        .font(.title3)
+                                        .font(.custom("MontserratAlternates-Regular", size: 16))
                                 }
                             }
                             .frame(height: 150)
