@@ -24,7 +24,7 @@ struct DreamView: View {
     @EnvironmentObject var userManager: UserManager
     
     @State private var showCustomDialog = false
-    @State private var showDeleteConfirmation = true
+    @AppStorage("showDeleteConfirmations") private var showDeleteConfirmation: Bool = true
     @State private var showArchiveConfirmation = true
     
     @State private var confirmationType: ConfirmationType? = nil
