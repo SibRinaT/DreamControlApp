@@ -13,6 +13,16 @@ struct MemoryDetailView: View {
     @State var title = "Воспоминание"
     @State var storyContent = ""
 
+    @EnvironmentObject private var userManager: UserManager
+    @State private var showSubscription = false
+    private var maxPhotoAllowed: Int {
+        userManager.isSubscriptionEnabled ? 4 : 2
+    }
+    
+    let maxImages = 4
+    private var showSubscriptionPrompt: Bool {
+        maxPhotoAllowed < maxImages
+    }
     var dismiss: () -> Void
     private let characterLimit = 400
 
@@ -45,83 +55,82 @@ struct MemoryDetailView: View {
 
 
     var body: some View {
-        VStack {
-            Rectangle()
-                .foregroundColor(Color("PrimaryColor"))
-                .frame(height: 100)
-                .overlay(
-                    HStack {
-                        Image("CloudForDream")
-                        VStack {
-                            Text("Воспоминание")
-                                .foregroundColor(Color("InactiveColor2"))
-                                .bold()
-                                .font(.custom("MontserratAlternates-Regular", size: 16))
-                            Text(title)
-                                .foregroundColor(.white)
-                                .bold()
-                                .font(.custom("MontserratAlternates-Regular", size: 28))
-                        }
-                        .padding(.horizontal)
-                        .multilineTextAlignment(.leading)
-                    }
-                )
-
-            RoundedRectangle(cornerRadius: 20)
-                .shadow(color: Color.black.opacity(0.15), radius: 10)
-                .foregroundColor(.white)
-                .ignoresSafeArea()
-                .overlay(
-                    ScrollView {
-                        VStack(spacing: 16) {
-                            HStack {
-                                Spacer()
-                                Button(action: {
-                                    dismiss()
-                                }) {
-                                    Image(systemName: "xmark")
-                                        .foregroundColor(Color("PrimaryColor"))
-                                        .padding(8)
-                                        .background(Color.white)
-                                        .clipShape(Circle())
-                                }
-                                .padding(.trailing)
-                            }
-
-                            Text("Воспоминания о вашей мечте")
-                                .foregroundColor(Color("TextColor"))
-                                .bold()
-                                .font(.custom("MontserratAlternates-Regular", size: 16))
-
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 25)
-                                    .stroke(LinearGradient(
-                                        gradient: Gradient(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")]),
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    ), lineWidth: 3)
-
-                                TextField("Напишите воспоминания о мечте...", text: $storyContent, axis: .vertical)
+        NavigationStack {
+            VStack {
+                Rectangle()
+                    .foregroundColor(Color("PrimaryColor"))
+                    .frame(height: 100)
+                    .overlay(
+                        HStack {
+                            Image("CloudForDream")
+                            VStack {
+                                Text("Воспоминание")
+                                    .foregroundColor(Color("InactiveColor2"))
+                                    .bold()
                                     .font(.custom("MontserratAlternates-Regular", size: 16))
-                                    .padding(16)
-                                    .background(Color.clear)
-                                    .onChange(of: storyContent) { newValue in
-                                        if newValue.count > characterLimit {
-                                            storyContent = String(newValue.prefix(characterLimit))
-                                        }
-                                    }
+                                Text(title)
+                                    .foregroundColor(.white)
+                                    .bold()
+                                    .font(.custom("MontserratAlternates-Regular", size: 28))
                             }
-                            .padding(.bottom)
-
-                            Text("Фото на память")
-                                .foregroundColor(Color("TextColor"))
-                                .bold()
-                                .font(.custom("MontserratAlternates-Regular", size: 16))
-
-                            ForEach(0..<2) { row in
-                                VStack {
-                                    ForEach(0..<2) { col in
-                                        let index = row * 2 + col
+                            .padding(.horizontal)
+                            .multilineTextAlignment(.leading)
+                        }
+                    )
+                
+                RoundedRectangle(cornerRadius: 20)
+                    .shadow(color: Color.black.opacity(0.15), radius: 10)
+                    .foregroundColor(.white)
+                    .ignoresSafeArea()
+                    .overlay(
+                        ScrollView {
+                            VStack(spacing: 16) {
+                                HStack {
+                                    Spacer()
+                                    Button(action: {
+                                        dismiss()
+                                    }) {
+                                        Image(systemName: "xmark")
+                                            .foregroundColor(Color("PrimaryColor"))
+                                            .padding(8)
+                                            .background(Color.white)
+                                            .clipShape(Circle())
+                                    }
+                                    .padding(.trailing)
+                                }
+                                
+                                Text("Воспоминания о вашей мечте")
+                                    .foregroundColor(Color("TextColor"))
+                                    .bold()
+                                    .font(.custom("MontserratAlternates-Regular", size: 16))
+                                
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .stroke(LinearGradient(
+                                            gradient: Gradient(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")]),
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        ), lineWidth: 3)
+                                    
+                                    TextField("Напишите воспоминания о мечте...", text: $storyContent, axis: .vertical)
+                                        .font(.custom("MontserratAlternates-Regular", size: 16))
+                                        .padding(16)
+                                        .background(Color.clear)
+                                        .onChange(of: storyContent) { newValue in
+                                            if newValue.count > characterLimit {
+                                                storyContent = String(newValue.prefix(characterLimit))
+                                            }
+                                        }
+                                }
+                                .padding(.bottom)
+                                
+                                Text("Фото на память")
+                                    .foregroundColor(Color("TextColor"))
+                                    .bold()
+                                    .font(.custom("MontserratAlternates-Regular", size: 16))
+                                
+                                VStack(spacing: 16) {
+                                    ForEach(0..<maxPhotoAllowed, id: \.self) { index in
                                         PhotosPicker(
                                             selection: Binding(get: {
                                                 selectedPhotos[index]
@@ -150,7 +159,7 @@ struct MemoryDetailView: View {
                                                         lineWidth: 3
                                                     )
                                                     .background(Color.white)
-
+                                                
                                                 if let image = selectedUIImages[index] {
                                                     Image(uiImage: image)
                                                         .resizable()
@@ -167,33 +176,43 @@ struct MemoryDetailView: View {
                                         }
                                         .frame(height: 150)
                                     }
+                                    
+                                    if showSubscriptionPrompt {
+                                        SubscriptionButton(text: "фотографий")
+                                            .frame(height: 150)
+                                    }
                                 }
+                                
+                                
+                                Button(action: {
+                                    saveMemory()
+                                }) {
+                                    Rectangle()
+                                        .foregroundColor(Color("PrimaryColor"))
+                                        .cornerRadius(100)
+                                        .frame(height: 50)
+                                        .shadow(color: Color.black.opacity(0.15), radius: 10)
+                                        .overlay(
+                                            Text("Сохранить")
+                                                .font(.custom("MontserratAlternates-Regular", size: 22))
+                                                .foregroundColor(.white)
+                                                .bold()
+                                        )
+                                }
+                                .padding(.top)
                             }
-
-                            Button(action: {
-                                saveMemory()
-                            }) {
-                                Rectangle()
-                                    .foregroundColor(Color("PrimaryColor"))
-                                    .cornerRadius(100)
-                                    .frame(height: 50)
-                                    .shadow(color: Color.black.opacity(0.15), radius: 10)
-                                    .overlay(
-                                        Text("Сохранить")
-                                            .font(.custom("MontserratAlternates-Regular", size: 22))
-                                            .foregroundColor(.white)
-                                            .bold()
-                                    )
-                            }
-                            .padding(.top)
+                            .padding(.horizontal, 40)
+                            .padding(.bottom, 50)
                         }
-                        .padding(.horizontal, 40)
-                        .padding(.bottom, 50)
-                    }
-                    .padding()
-                )
+                            .padding()
+                    )
+            }
+            .navigationDestination(isPresented: $showSubscription) {
+                SubscriptionView()
+            }
         }
     }
+    
 
     private func saveMemory() {
         Task {
