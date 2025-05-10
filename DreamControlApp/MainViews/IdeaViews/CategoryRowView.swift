@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct CategoryRowView: View {
     let title: String
     let isSelected: Bool

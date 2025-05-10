@@ -139,11 +139,14 @@ import Foundation
     func saveIdea(_ idea: String, isRightSwipe: Bool) {
         if isRightSwipe {
             rightSwipedIdeas.append(idea)
-            favoriteIdeas.append(idea) // Добавляем идею в избранные
+            if !favoriteIdeas.contains(idea) {
+                favoriteIdeas.append(idea)
+            }
         } else {
             leftSwipedIdeas.append(idea)
         }
     }
+
     
     private func saveFavoriteIdeas() {
         do {
