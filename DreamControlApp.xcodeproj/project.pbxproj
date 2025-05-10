@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E0CA59F2DCFDCFE00CFDCF1 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0CA59E2DCFDCFD00CFDCF1 /* WidgetKit.framework */; };
+		2E0CA5A12DCFDCFE00CFDCF1 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0CA5A02DCFDCFE00CFDCF1 /* SwiftUI.framework */; };
+		2E0CA5B22DCFDD0600CFDCF1 /* QuotesWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2E0CA59C2DCFDCFC00CFDCF1 /* QuotesWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2E0CA5B82DCFDE4000CFDCF1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34CBB22C881F970063F57F /* Model.swift */; };
 		2E12B5312BA2152800F44234 /* InputFieldViewPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E12B5302BA2152800F44234 /* InputFieldViewPassword.swift */; };
 		2E19785B2BD3DEED000AD527 /* HelpProfileRectangleDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E19785A2BD3DEED000AD527 /* HelpProfileRectangleDay.swift */; };
 		2E19785E2BD3E5E7000AD527 /* OtherViewsRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E19785D2BD3E5E7000AD527 /* OtherViewsRectangle.swift */; };
@@ -111,7 +115,28 @@
 		ACE72F9A2CFEDC3300733B54 /* ideas.json in Resources */ = {isa = PBXBuildFile; fileRef = ACE72F992CFEDC3300733B54 /* ideas.json */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2E0CA5B02DCFDD0600CFDCF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E61244C2B9025B100494DF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E0CA59B2DCFDCFC00CFDCF1;
+			remoteInfo = QuotesWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		2E0CA5B72DCFDD0600CFDCF1 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2E0CA5B22DCFDD0600CFDCF1 /* QuotesWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ACB4DADF2CEDE22E003A9B90 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -125,6 +150,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E0CA59C2DCFDCFC00CFDCF1 /* QuotesWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QuotesWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E0CA59E2DCFDCFD00CFDCF1 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		2E0CA5A02DCFDCFE00CFDCF1 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		2E12B5302BA2152800F44234 /* InputFieldViewPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldViewPassword.swift; sourceTree = "<group>"; };
 		2E19785A2BD3DEED000AD527 /* HelpProfileRectangleDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpProfileRectangleDay.swift; sourceTree = "<group>"; };
 		2E19785D2BD3E5E7000AD527 /* OtherViewsRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewsRectangle.swift; sourceTree = "<group>"; };
@@ -230,7 +258,30 @@
 		ACE72F992CFEDC3300733B54 /* ideas.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ideas.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2E0CA5B32DCFDD0600CFDCF1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 2E0CA59B2DCFDCFC00CFDCF1 /* QuotesWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		2E0CA5A22DCFDCFE00CFDCF1 /* QuotesWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (2E0CA5B32DCFDD0600CFDCF1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = QuotesWidget; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		2E0CA5992DCFDCFC00CFDCF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E0CA5A12DCFDCFE00CFDCF1 /* SwiftUI.framework in Frameworks */,
+				2E0CA59F2DCFDCFE00CFDCF1 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2E6124512B9025B100494DF6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,6 +293,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E0CA5952DCFDB4D00CFDCF1 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		2E0CA59D2DCFDCFD00CFDCF1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E0CA59E2DCFDCFD00CFDCF1 /* WidgetKit.framework */,
+				2E0CA5A02DCFDCFE00CFDCF1 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2E12B52F2BA2150800F44234 /* HelpViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +397,8 @@
 			isa = PBXGroup;
 			children = (
 				2E6124562B9025B100494DF6 /* DreamControlApp */,
+				2E0CA5A22DCFDCFE00CFDCF1 /* QuotesWidget */,
+				2E0CA59D2DCFDCFD00CFDCF1 /* Frameworks */,
 				2E6124552B9025B100494DF6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -338,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				2E6124542B9025B100494DF6 /* DreamControlApp.app */,
+				2E0CA59C2DCFDCFC00CFDCF1 /* QuotesWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -347,6 +417,7 @@
 			children = (
 				AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */,
 				AC7E33842DC39A13002E1F59 /* UserManager.swift */,
+				2E0CA5952DCFDB4D00CFDCF1 /* Widgets */,
 				2E2ACFE32CF1D0D500A55886 /* Unit Test */,
 				2E8C614C2CE8A97500A61DA4 /* Notification */,
 				AC3213622C9519F5006D4399 /* Services */,
@@ -642,6 +713,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2E0CA59B2DCFDCFC00CFDCF1 /* QuotesWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E0CA5B42DCFDD0600CFDCF1 /* Build configuration list for PBXNativeTarget "QuotesWidgetExtension" */;
+			buildPhases = (
+				2E0CA5982DCFDCFC00CFDCF1 /* Sources */,
+				2E0CA5992DCFDCFC00CFDCF1 /* Frameworks */,
+				2E0CA59A2DCFDCFC00CFDCF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				2E0CA5A22DCFDCFE00CFDCF1 /* QuotesWidget */,
+			);
+			name = QuotesWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = QuotesWidgetExtension;
+			productReference = 2E0CA59C2DCFDCFC00CFDCF1 /* QuotesWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		2E6124532B9025B100494DF6 /* DreamControlApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2E6124622B9025B300494DF6 /* Build configuration list for PBXNativeTarget "DreamControlApp" */;
@@ -650,10 +743,12 @@
 				2E6124512B9025B100494DF6 /* Frameworks */,
 				2E6124522B9025B100494DF6 /* Resources */,
 				ACB4DADF2CEDE22E003A9B90 /* Embed Frameworks */,
+				2E0CA5B72DCFDD0600CFDCF1 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2E0CA5B12DCFDD0600CFDCF1 /* PBXTargetDependency */,
 			);
 			name = DreamControlApp;
 			productName = DreamControlApp;
@@ -666,10 +761,13 @@
 		2E61244C2B9025B100494DF6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				BuildIndependentTargetsInParallel = NO;
+				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					2E0CA59B2DCFDCFC00CFDCF1 = {
+						CreatedOnToolsVersion = 16.1;
+					};
 					2E6124532B9025B100494DF6 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -692,11 +790,19 @@
 			projectRoot = "";
 			targets = (
 				2E6124532B9025B100494DF6 /* DreamControlApp */,
+				2E0CA59B2DCFDCFC00CFDCF1 /* QuotesWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2E0CA59A2DCFDCFC00CFDCF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2E6124522B9025B100494DF6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -734,6 +840,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2E0CA5982DCFDCFC00CFDCF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E0CA5B82DCFDE4000CFDCF1 /* Model.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2E6124502B9025B100494DF6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -817,7 +931,71 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		2E0CA5B12DCFDD0600CFDCF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E0CA59B2DCFDCFC00CFDCF1 /* QuotesWidgetExtension */;
+			targetProxy = 2E0CA5B02DCFDD0600CFDCF1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		2E0CA5B52DCFDD0600CFDCF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 26BAG468M4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QuotesWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = QuotesWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DreamControlApp.QuotesWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2E0CA5B62DCFDD0600CFDCF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 26BAG468M4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QuotesWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = QuotesWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DreamControlApp.QuotesWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		2E6124602B9025B300494DF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1002,6 +1180,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2E0CA5B42DCFDD0600CFDCF1 /* Build configuration list for PBXNativeTarget "QuotesWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E0CA5B52DCFDD0600CFDCF1 /* Debug */,
+				2E0CA5B62DCFDD0600CFDCF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2E61244F2B9025B100494DF6 /* Build configuration list for PBXProject "DreamControlApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
