@@ -16,68 +16,73 @@ struct MemoriesView: View {
     
     @Query private var allMemories: [DreamMemory]
     @State private var selectedMemory: DreamMemory?
-
+    
     var body: some View {
         NavigationStack {
-               VStack {
-                   HStack {
-                       Image("DCIcon")
-                       Text("Воспоминания")
-                           .font(.largeTitle)
-                           .foregroundColor(Color("PrimaryColor"))
-                           .bold()
-                       Spacer()
-                   }
-                   .padding()
+            VStack {
+                HStack {
+                    Image("DCIcon")
+                    Text("Воспоминания")
+                        .font(.largeTitle)
+                        .foregroundColor(Color("PrimaryColor"))
+                        .bold()
+                    Spacer()
+                }
+                .padding()
 
-                   let memories = allMemories.filter { $0.dream.isArchived }
+                let memories = allMemories.filter { $0.dream.isArchived }
 
-                   if memories.isEmpty {
-                       Spacer()
-                       Text("Вы пока не добавили воспоминания")
-                           .foregroundColor(.gray)
-                           .font(.title3)
-                       Spacer()
-                   } else {
-                       List {
-                           ForEach(memories) { memory in
-                               NavigationLink(value: memory) {
-                                   ZStack(alignment: .leading) {
-                                       HStack {
-                                           Image(memory.dream.image)
-                                           VStack(alignment: .leading) {
-                                               Text("Мечта")
-                                                   .foregroundColor(Color("InactiveColor2"))
-                                                   .font(.subheadline)
-                                               Text(memory.dream.name)
-                                                   .font(.title)
-                                           }
-                                           .bold()
-                                           Spacer()
-                                       }
-                                       .padding()
-                                       .frame(height: 85)
-                                       .background(Color("PrimaryColor"))
-                                       .foregroundColor(.white)
-                                       .cornerRadius(20)
-                                   }
-                                   .shadow(color: Color.black.opacity(0.15), radius: 10)
-                               }
-                           }
-                       }
-                       .listStyle(.plain)
-                   }
-               }
-               .padding(.horizontal)
-               .navigationDestination(for: DreamMemory.self) { memory in
-                   MemoryDetailView(
-                       isPresented: .constant(true),
-                       onSave: { _, _ in },
-                       memory: memory
-                   )
-               }
-           }
-       }
+                if memories.isEmpty {
+                    Spacer()
+                    Text("Вы пока не добавили воспоминания")
+                        .foregroundColor(.gray)
+                        .font(.title3)
+                    Spacer()
+                } else {
+                    List {
+                        ForEach(memories) { memory in
+                            Button {
+                                selectedMemory = memory
+                            } label: {
+                                HStack {
+                                    Image(memory.dream.image)
+                                    VStack(alignment: .leading) {
+                                        Text("Мечта")
+                                            .foregroundColor(Color("InactiveColor2"))
+                                            .font(.subheadline)
+                                        Text(memory.dream.name)
+                                            .font(.title)
+                                            .foregroundColor(.white)
+                                    }
+                                    .bold()
+                                    Spacer()
+                                }
+                                .padding()
+                                .frame(height: 85)
+                                .background(Color("PrimaryColor"))
+                                .cornerRadius(20)
+                                .shadow(color: Color.black.opacity(0.15), radius: 10)
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .listRowSeparator(.hidden)
+                            .listRowBackground(Color.clear)
+                        }
+                    }
+                    .listStyle(.plain)
+                    .scrollContentBackground(.hidden)
+                }
+            }
+            .padding(.horizontal)
+            .sheet(item: $selectedMemory) { memory in
+                MemoryDetailView(
+                    isPresented: .constant(true),
+                    onSave: { _, _ in },
+                    memory: memory
+                )
+            }
+        }
+    }
+
 
     // функция если захочется добавить прерващение воспоминания в мечту 
     private func unarchive(dream: Dream) {
