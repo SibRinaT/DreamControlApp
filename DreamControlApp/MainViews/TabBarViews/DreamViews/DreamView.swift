@@ -20,7 +20,6 @@ struct DreamView: View {
     @Binding var selectedTab: Int
     
     @Query(filter: #Predicate<Dream> { !$0.isArchived }) private var dreams: [Dream]
-    
     @EnvironmentObject var userManager: UserManager
     
     @State private var showCustomDialog = false

@@ -13,6 +13,10 @@ struct FavoritesIdeasView: View {
     @Environment(\.dataHandler) private var dataHandler
     @ObservedObject var ideasViewModel: IdeasViewModel
     
+    @EnvironmentObject var userManager: UserManager
+    @State private var showLimitAlert = false
+    @State private var showSubscription = false
+
 //    @Query(filter: #Predicate<Idea> {
 //        $0.status == IdeaShowStatus.green.rawValue
 //    })
@@ -20,63 +24,78 @@ struct FavoritesIdeasView: View {
     
     
     var body: some View {
-        VStack {
-            Rectangle()
-                .foregroundColor(Color("PrimaryColor"))
-                .frame(height: 100)
-                .overlay(
-                    HStack {
-                        Image("CloudForDream")
-                        VStack {
-                            Text("Избранные идеи") // change need
-                                .foregroundColor(.white)
-                                .bold()
-                                .font(.custom("MontserratAlternates-Regular", size: 32))
+        NavigationStack {
+            VStack {
+                Rectangle()
+                    .foregroundColor(Color("PrimaryColor"))
+                    .frame(height: 100)
+                    .overlay(
+                        HStack {
+                            Image("CloudForDream")
+                            VStack {
+                                Text("Избранные идеи") // change need
+                                    .foregroundColor(.white)
+                                    .bold()
+                                    .font(.custom("MontserratAlternates-Regular", size: 32))
+                            }
+                            .multilineTextAlignment(.leading)
                         }
-                        .multilineTextAlignment(.leading)
-                    }
-                )
-            
-            List {
-                ForEach(ideasViewModel.favoriteIdeas, id: \.self) { idea in
-                    RoundedRectangle(cornerRadius: 20)
-                        .frame(height: 100)
-                        .foregroundColor(Color("PrimaryColor"))
-                        .overlay(
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text("Идея")
-                                        .foregroundColor(Color("InactiveColor2"))
-                                        .font(.custom("MontserratAlternates-Regular", size: 14))
-                                        .bold()
-                                    Text(idea)
-                                        .bold()
-                                        .font(.custom("MontserratAlternates-Regular", size: 18))
-                                        .multilineTextAlignment(.leading)
-                                        .foregroundColor(.white)
+                    )
+                
+                List {
+                    ForEach(ideasViewModel.favoriteIdeas, id: \.self) { idea in
+                        RoundedRectangle(cornerRadius: 20)
+                            .frame(height: 100)
+                            .foregroundColor(Color("PrimaryColor"))
+                            .overlay(
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text("Идея")
+                                            .foregroundColor(Color("InactiveColor2"))
+                                            .font(.custom("MontserratAlternates-Regular", size: 14))
+                                            .bold()
+                                        Text(idea)
+                                            .bold()
+                                            .font(.custom("MontserratAlternates-Regular", size: 18))
+                                            .multilineTextAlignment(.leading)
+                                            .foregroundColor(.white)
+                                    }
+                                    .padding(.leading)
+                                    Spacer()
                                 }
-                                .padding(.leading)
-                                Spacer()
+                            )
+                            .swipeActions(edge: .trailing) {
+                                Button(role: .destructive) {
+                                    deleteIdea(idea)
+                                } label: {
+                                    Label("Удалить", systemImage: "trash")
+                                }
                             }
-                        )
-                        .swipeActions(edge: .trailing) {
-                            Button(role: .destructive) {
-                                deleteIdea(idea)
-                            } label: {
-                                Label("Удалить", systemImage: "trash")
+                            .swipeActions(edge: .leading) {
+                                Button {
+                                    createDreamFromIdea(idea: idea)
+                                } label: {
+                                    Label("Создать мечту", systemImage: "plus")
+                                }
                             }
-                        }
-                        .swipeActions(edge: .leading) {
-                            Button {
-                                createDreamFromIdea(idea: idea)
-                            } label: {
-                                Label("Создать мечту", systemImage: "plus")
-                            }
-                        }
-                        .listRowSeparator(.hidden)
+                            .listRowSeparator(.hidden)
+                    }
                 }
+                .listStyle(.plain)
+                
+                NavigationLink(destination: SubscriptionView(), isActive: $showSubscription) {
+                    EmptyView()
+                }
+                .hidden()
             }
-            .listStyle(.plain)
+            .alert("Лимит мечт исчерпан", isPresented: $showLimitAlert) {
+                Button("ОК", role: .cancel) {}
+                Button("Оформить подписку") {
+                    showSubscription = true
+                }
+            } message: {
+                Text("Чтобы добавить больше мечт, оформите подписку")
+            }
         }
     }
     private func deleteIdea(_ idea: String) {
@@ -87,6 +106,15 @@ struct FavoritesIdeasView: View {
     
     private func createDreamFromIdea(idea: String) {
         Task {
+            guard let count = try? await dataHandler?.getDreamsCount() else { return }
+
+            let maxAllowed = userManager.isSubscriptionEnabled ? 10 : 3
+
+            if count >= maxAllowed {
+                showLimitAlert = true
+                return
+            }
+
             let dream = Dream(name: idea, image: "StarForDream", stories: [])
             await dataHandler?.new(dream: dream)
             deleteIdea(idea)
