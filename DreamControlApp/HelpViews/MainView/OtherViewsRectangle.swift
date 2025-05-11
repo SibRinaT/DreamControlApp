@@ -20,20 +20,23 @@ struct OtherViewsRectangle: View {
             .frame(width: 159, height: 130)
             .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
             .overlay(
-                HStack {
-                    VStack(alignment: .leading, spacing: 5){
-                        Image(image)
-                        Text(title)
-                            .bold()
-                            .font(.custom("MontserratAlternates-Regular", size: 14))
-                            .foregroundColor(Color("TextColor"))
-                            .bold()
-                        Text(text)
-                            .foregroundColor(Color("TextColor"))
-                            .font(.custom("MontserratAlternates-Regular", size: 12))
-                            .multilineTextAlignment(.leading)
+                VStack {
+                    HStack {
+                        VStack(alignment: .leading, spacing: 5){
+                            Image(image)
+                            Text(title)
+                                .bold()
+                                .font(.custom("MontserratAlternates-Regular", size: 14))
+                                .foregroundColor(Color("TextColor"))
+                                .bold()
+                            Text(text)
+                                .foregroundColor(Color("TextColor"))
+                                .font(.custom("MontserratAlternates-Regular", size: 12))
+                                .multilineTextAlignment(.leading)
+                        }
+                        Spacer()
                     }
-                   Spacer()
+                    Spacer()
                 }
                     .padding(.horizontal)
                     .padding(.vertical)

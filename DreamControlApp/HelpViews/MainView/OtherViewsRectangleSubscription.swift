@@ -19,17 +19,20 @@ struct OtherViewsRectangleSubscription: View {
             .frame(width: 159, height: 130)
             .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
             .overlay(
-                HStack {
-                    VStack(alignment: .leading, spacing: 5){
-                        Image("SubIcon")
-                        Text("Подписка")
-                            .bold()
-                            .font(.custom("MontserratAlternates-Regular", size: 14))
-                            .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
-                        Text("Позвольте себе больше")
-                            .foregroundColor(Color("TextColor"))
-                            .font(.custom("MontserratAlternates-Regular", size: 12))
-                            .multilineTextAlignment(.leading)
+                VStack {
+                    HStack {
+                        VStack(alignment: .leading, spacing: 5){
+                            Image("SubIcon")
+                            Text("Подписка")
+                                .bold()
+                                .font(.custom("MontserratAlternates-Regular", size: 14))
+                                .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
+                            Text("Позвольте себе больше")
+                                .foregroundColor(Color("TextColor"))
+                                .font(.custom("MontserratAlternates-Regular", size: 12))
+                                .multilineTextAlignment(.leading)
+                        }
+                        Spacer()
                     }
                     Spacer()
                 }

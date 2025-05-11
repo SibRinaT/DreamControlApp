@@ -62,7 +62,7 @@ struct MainView: View {
                     .padding(.horizontal)
 
                     OtherViewsRectangle(
-                        image: "IconSettings",
+                        image: "MemoryCloud",
                         title: "Воспоминания",
                         text: "Настройся на нужный лад"
                     ) {

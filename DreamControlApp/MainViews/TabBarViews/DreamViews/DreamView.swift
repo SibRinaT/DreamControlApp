@@ -103,18 +103,13 @@ struct DreamView: View {
                         showingSheet = true
                     }, label: {
                         Rectangle()
-                            .foregroundColor(.clear) // Прозрачный фон
+                            .foregroundColor(.clear)
                             .frame(height: 85)
                             .cornerRadius(20)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 20)
-                                    .stroke(
-                                        style: StrokeStyle(
-                                            lineWidth: 2,
-                                            dash: [15] // Длина штрихов и пробелов в пунктирной линии
-                                        )
-                                    )
-                                    .foregroundColor(Color("PrimaryColor")) // Цвет обводки
+                                    .stroke(style: StrokeStyle(lineWidth: 2, dash: [15]))
+                                    .foregroundColor(Color("PrimaryColor"))
                             )
                             .overlay(
                                 Text("Добавить мечту")
@@ -126,7 +121,8 @@ struct DreamView: View {
                     .buttonStyle(.plain)
                     .listRowSeparator(.hidden)
                     .listRowBackground(Color.clear)
-                } else {
+                } else if !userManager.isSubscriptionEnabled {
+                    // Только если НЕТ подписки, показываем SubscriptionButton
                     SubscriptionButton(text: "мечтаний")
                 }
             }
