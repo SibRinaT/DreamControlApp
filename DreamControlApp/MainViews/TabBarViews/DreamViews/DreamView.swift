@@ -61,7 +61,7 @@ struct DreamView: View {
                                     .foregroundColor(Color("InactiveColor2"))
                                     .font(.custom("MontserratAlternates-Regular", size: 14))
                                 Text(dream.name)
-                                    .font(.custom("MontserratAlternates-Regular", size: 24))
+                                    .font(.custom("MontserratAlternates-Regular", size: 22))
                             }
                             .bold()
                             Spacer()
@@ -197,13 +197,13 @@ struct DreamView: View {
         Task {
             // Архивируем мечту
             dream.isArchived = true
-            
+
             // Создаём воспоминание на основе мечты
             let memory = DreamMemory(
                 text: "",
                 photoNames: [],
-                dreamDate: Date(),
-                dream: dream
+                dream: dream,
+                convertedAt: Date()
             )
             
             // Сохраняем изменения

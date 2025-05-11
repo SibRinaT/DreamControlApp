@@ -17,23 +17,23 @@ extension SchemaV1 {
         public let createdAt: Date
         public var text: String
         public var photoNames: [String]?
-        public var dreamDate: Date
         public var dream: Dream
-        
+        public let convertedAt: Date
+
         public init(
             id: UUID = UUID(),
             createdAt: Date = .now,
             text: String,
             photoNames: [String]? = nil,
-            dreamDate: Date = .now,
-            dream: Dream
+            dream: Dream,
+            convertedAt: Date
         ) {
             self.id = id
             self.createdAt = createdAt
             self.text = text
             self.photoNames = photoNames
-            self.dreamDate = dreamDate
             self.dream = dream
+            self.convertedAt = convertedAt
         }
     }
 }

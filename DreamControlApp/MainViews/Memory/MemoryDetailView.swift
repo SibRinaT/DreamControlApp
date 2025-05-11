@@ -34,26 +34,6 @@ struct MemoryDetailView: View {
     var onSave: (String, String) -> Void
     let memory: DreamMemory
 
-    init(onSave: @escaping (String, String) -> Void, memory: DreamMemory, dismiss: @escaping () -> Void) {
-        self.onSave = onSave
-        self.memory = memory
-        self.dismiss = dismiss
-        _title = State(initialValue: memory.dream.name)
-        _storyContent = State(initialValue: memory.text)
-
-        // Загружаем ранее сохранённые фото
-        var loadedImages: [UIImage?] = [nil, nil, nil, nil]
-        for i in 0..<4 {
-            let key = "\(memory.id.uuidString)_img\(i)"
-            if let data = UserDefaults.standard.data(forKey: key),
-               let img = UIImage(data: data) {
-                loadedImages[i] = img
-            }
-        }
-        _selectedUIImages = State(initialValue: loadedImages)
-    }
-
-
     var body: some View {
         NavigationStack {
             VStack {
@@ -71,7 +51,7 @@ struct MemoryDetailView: View {
                                 Text(title)
                                     .foregroundColor(.white)
                                     .bold()
-                                    .font(.custom("MontserratAlternates-Regular", size: 28))
+                                    .font(.custom("MontserratAlternates-Regular", size: 22))
                             }
                             .padding(.horizontal)
                             .multilineTextAlignment(.leading)
@@ -213,6 +193,25 @@ struct MemoryDetailView: View {
         }
     }
     
+    init(onSave: @escaping (String, String) -> Void, memory: DreamMemory, dismiss: @escaping () -> Void) {
+        self.onSave = onSave
+        self.memory = memory
+        self.dismiss = dismiss
+        _title = State(initialValue: memory.dream.name)
+        _storyContent = State(initialValue: memory.text)
+
+        // Загружаем ранее сохранённые фото
+        var loadedImages: [UIImage?] = [nil, nil, nil, nil]
+        for i in 0..<4 {
+            let key = "\(memory.id.uuidString)_img\(i)"
+            if let data = UserDefaults.standard.data(forKey: key),
+               let img = UIImage(data: data) {
+                loadedImages[i] = img
+            }
+        }
+        _selectedUIImages = State(initialValue: loadedImages)
+    }
+
 
     private func saveMemory() {
         Task {

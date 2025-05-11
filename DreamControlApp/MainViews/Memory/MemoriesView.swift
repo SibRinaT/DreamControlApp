@@ -54,6 +54,9 @@ struct MemoriesView: View {
                                     Text(memory.dream.name)
                                         .font(.custom("MontserratAlternates-Regular", size: 24))
                                         .foregroundColor(.white)
+                                    Text("Дата: \(formattedDate(memory.convertedAt))")
+                                          .font(.custom("MontserratAlternates-Regular", size: 12))
+                                          .foregroundColor(.white.opacity(0.7))
                                 }
                                 .bold()
                                 Spacer()
@@ -114,6 +117,14 @@ struct MemoriesView: View {
                 )
             }
         }
+    }
+    // для даты добавления воспоминания
+    func formattedDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        formatter.locale = Locale(identifier: "ru_RU")
+        return formatter.string(from: date)
     }
 
     // Запрос подтверждения

@@ -44,8 +44,8 @@ public actor DataHandler {
         let memory = DreamMemory(
             text: "",
             photoNames: [],
-            dreamDate: Date(),
-            dream: dream
+            dream: dream,
+            convertedAt: Date()
         )
 
         modelContext.insert(memory)
