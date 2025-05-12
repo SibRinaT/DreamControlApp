@@ -14,6 +14,8 @@ struct StoryTextView: View {
     var onSave: (String, String) -> Void
 
     private let characterLimit = 2000
+    
+    @State private var isRegeneratePresented = false
 
     var body: some View {
         VStack {
@@ -81,6 +83,25 @@ struct StoryTextView: View {
                                             .foregroundColor(Color("TextColor"))
 
                                 .padding(.bottom)
+                                
+                                Button(action: {
+                                    isRegeneratePresented = true
+                                }, label: {
+                                    Text("Регенерировать историю")
+                                        .font(.custom("MontserratAlternates-Regular", size: 16))
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .frame(maxWidth: .infinity)
+                                        .background(LinearGradient(
+                                            gradient: Gradient(colors: [Color("Prem1"), Color("Prem2"), Color("Prem3")]),
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing)
+                                        )
+                                        .cornerRadius(100)
+                                        .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+                                })
+                                .padding(.horizontal)
+
                                 VStack {
                                     Button(action: {
                                         // Логика для сохранения истории
@@ -106,6 +127,13 @@ struct StoryTextView: View {
                         }
                     )
                     .padding(.horizontal)
+                    .sheet(isPresented: $isRegeneratePresented) {
+                        NewStoryView { title, newStory in
+                            self.title = title
+                            self.storyContent = newStory
+                            self.isRegeneratePresented = false
+                        }
+                    }
         }
     }
 }
