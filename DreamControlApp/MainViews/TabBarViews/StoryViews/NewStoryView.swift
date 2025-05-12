@@ -63,14 +63,22 @@ struct NewStoryView: View {
                                 .padding(.trailing)
                             }
                             
-                            InputFieldView(title: "Название истории", placeholder: "Введите название", text: $storyTitle)
-                                .font(.custom("MontserratAlternates-Regular", size: 16))
-                                .onChange(of: storyTitle) { newValue in
-                                    // Ограничиваем количество символов в названии
-                                    if newValue.count > titleLimit {
-                                        storyTitle = String(newValue.prefix(titleLimit))
+                            VStack(alignment: .leading, spacing: 4) {
+                                InputFieldView(title: "Название истории", placeholder: "Введите название", text: $storyTitle)
+                                    .font(.custom("MontserratAlternates-Regular", size: 16))
+                                    .onChange(of: storyTitle) { newValue in
+                                        if newValue.count > titleLimit {
+                                            storyTitle = String(newValue.prefix(titleLimit))
+                                        }
                                     }
+                                
+                                HStack {
+                                    Text("Символов:")
+                                    Text("\(storyTitle.count)")
+                                        .foregroundColor(storyTitle.count > titleLimit ? Color.red : Color("PrimaryColor"))
                                 }
+                                .font(.custom("MontserratAlternates-Regular", size: 14))
+                            }
                             if autoStory {
                                 VStack(spacing: 8) {
                                     HStack {
