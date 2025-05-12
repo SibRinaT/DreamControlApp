@@ -17,6 +17,7 @@ struct NewStoryView: View {
     @State private var warningMessage: String? = nil
     var onSave: (String, String) -> Void
     
+    @State private var showingTip = false
     @AppStorage("userName") private var savedName: String = ""
     
     var body: some View {
@@ -87,7 +88,7 @@ struct NewStoryView: View {
                                             .font(.custom("MontserratAlternates-Regular", size: 16))
                                     }
                                     
-                                    ZStack {
+                                    ZStack(alignment: .topTrailing) {
                                         RoundedRectangle(cornerRadius: 25)
                                             .stroke(
                                                 LinearGradient(
@@ -99,7 +100,7 @@ struct NewStoryView: View {
                                             )
                                             .background(Color.clear)
                                             .frame(width: 300, height: 200)
-                                        
+
                                         ScrollView {
                                             TextField("Введите описание истории", text: $description, axis: .vertical)
                                                 .font(.custom("MontserratAlternates-Regular", size: 14))
@@ -111,6 +112,31 @@ struct NewStoryView: View {
                                                 }
                                         }
                                         .frame(width: 280, height: 180)
+                                        
+                                        Button(action: {
+                                            showingTip.toggle()
+                                        }) {
+                                            Image("moreInfo")
+                                                .padding(10)
+                                        }
+                                        .popover(isPresented: $showingTip) {
+                                            VStack(alignment: .leading, spacing: 10) {
+                                                Text("Как написать хорошее описание:")
+                                                    .font(.custom("MontserratAlternates-Regular", size: 24))
+                                                Text("• Представьте, как выглядит ваша мечта.")
+                                                    .font(.custom("MontserratAlternates-Regular", size: 14))
+                                                Text("• Добавьте эмоции: что вы чувствуете?")
+                                                    .font(.custom("MontserratAlternates-Regular", size: 14))
+                                                Text("• Какие шаги ведут к ней?")
+                                                    .font(.custom("MontserratAlternates-Regular", size: 14))
+                                                Text("• Что вы увидите, услышите, ощутите?")
+                                                    .font(.custom("MontserratAlternates-Regular", size: 14))
+                                                Text("• Напишите дополнительную информацию о себе: кто вы сейчас, пол, возраст, интересы, и т.д.")
+                                                    .font(.custom("MontserratAlternates-Regular", size: 14))
+                                            }
+                                            .padding()
+                                            .frame(width: 250)
+                                        }
                                     }
                                     .transition(.opacity.combined(with: .move(edge: .top)))
                                     Text("Количество символов: \(description.count)/\(characterLimit)")
