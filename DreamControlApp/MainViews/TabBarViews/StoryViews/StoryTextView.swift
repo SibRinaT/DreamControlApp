@@ -16,6 +16,9 @@ struct StoryTextView: View {
     private let characterLimit = 2000
     
     @State private var isRegeneratePresented = false
+    @State private var tempTitle = ""
+    @State private var tempDescription = ""
+
 
     var body: some View {
         VStack {
@@ -85,6 +88,8 @@ struct StoryTextView: View {
                                 .padding(.bottom)
                                 
                                 Button(action: {
+                                    tempTitle = title
+                                    tempDescription = storyContent
                                     isRegeneratePresented = true
                                 }, label: {
                                     Text("Регенерировать историю")
@@ -128,8 +133,11 @@ struct StoryTextView: View {
                     )
                     .padding(.horizontal)
                     .sheet(isPresented: $isRegeneratePresented) {
-                        NewStoryView { title, newStory in
-                            self.title = title
+                        NewStoryView(
+                            storyTitle: tempTitle,
+                            storyDescription: tempDescription
+                        ) { newTitle, newStory in
+                            self.title = newTitle
                             self.storyContent = newStory
                             self.isRegeneratePresented = false
                         }

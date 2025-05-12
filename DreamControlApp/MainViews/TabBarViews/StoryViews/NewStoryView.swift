@@ -211,6 +211,16 @@ struct NewStoryView: View {
         }
     }
     
+    init(
+        storyTitle: String = "",
+        storyDescription: String = "",
+        onSave: @escaping (String, String) -> Void
+    ) {
+        self._storyTitle = State(initialValue: storyTitle)
+        self._description = State(initialValue: storyDescription)
+        self.onSave = onSave
+    }
+
     private var isFormValid: Bool {
         let trimmedTitle = storyTitle.trimmingCharacters(in: .whitespacesAndNewlines)
         if trimmedTitle.isEmpty { return false }
