@@ -44,9 +44,16 @@ struct LastOnboarding: View {
                         
                         InputFieldView(title: "Email", placeholder: "DreamControl@gmail.com", text: $email)
                             .font(.custom("MontserratAlternates-Regular", size: 14))
-                        InputFieldView(title: "Имя", placeholder: "Dream", text: $name)
-                            .font(.custom("MontserratAlternates-Regular", size: 14))
-
+                        InputFieldView(title: "Имя", placeholder: "Dream", text: Binding(
+                            get: { name },
+                            set: { newValue in
+                                if newValue.count <= 10 {
+                                    name = newValue
+                                } else {
+                                    name = String(newValue.prefix(10))
+                                }
+                            }
+                        ))
                         
                         NavigationLink(destination: CustomTabBar(), isActive: $navigateToTabBar) {
                             EmptyView()
