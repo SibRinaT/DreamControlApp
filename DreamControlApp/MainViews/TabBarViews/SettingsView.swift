@@ -46,7 +46,7 @@ struct SettingsView: View {
                             Capsule()
                                 .stroke(Color("PrimaryColor"), lineWidth: 1)
                                 .background(Color.clear)
-                                .frame(width: 302, height: 40)
+                                .frame(height: 40)
                             TextField("Введите имя", text: Binding(
                                 get: { savedName },
                                 set: { newValue in
@@ -59,7 +59,7 @@ struct SettingsView: View {
                             ))
                             .foregroundColor(Color("TextColor"))
                             .font(.custom("MontserratAlternates-Regular", size: 16))
-                            .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                            .padding(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5))
                             .textFieldStyle(PlainTextFieldStyle())
                             .autocapitalization(.none) // Отключить автоматическое изменение раскладки
                             .frame(width: 302, height: 40)
