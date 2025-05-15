@@ -65,4 +65,36 @@ final class UserManager: ObservableObject {
     private func saveSubscription() {
         defaults.set(isSubscriptionEnabled, forKey: userDefaultsSubscriptionKey)
     }
+
+    func checkSubscriptionStatus(completion: @escaping (Bool) -> Void) {
+        guard let telegramId = user?.telegramUserId else {
+            completion(false)
+            return
+        }
+
+        guard let url = URL(string: "http://192.168.1.10:3000/api/integrations/v1/users/1645257568/check_subscription") else {
+            completion(false)
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+
+        URLSession.shared.dataTask(with: request) { _, response, error in
+            DispatchQueue.main.async {
+                guard error == nil, let httpResponse = response as? HTTPURLResponse else {
+                    completion(false)
+                    return
+                }
+
+                if httpResponse.statusCode == 200 {
+                    self.isSubscriptionEnabled = true
+                    completion(true)
+                } else {
+                    self.isSubscriptionEnabled = false
+                    completion(false)
+                }
+            }
+        }.resume()
+    }
 }

@@ -26,7 +26,8 @@ struct User: Codable {
     let id: String
     let name: String
     let isAdmin: Bool
-//    
+    let telegramUserId: String = "1645257568"
+
 //    mutating func enableSubscription() {
 //        isSubscriptionEnabled = true
 //    }

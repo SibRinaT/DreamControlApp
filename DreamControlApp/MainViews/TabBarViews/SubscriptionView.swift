@@ -10,6 +10,7 @@ import SwiftUI
 struct SubscriptionView: View {
     @EnvironmentObject var userManager: UserManager
     @State private var showConfirmation = false
+    @State private var showFailureAlert = false
     
     var body: some View {
         VStack {
@@ -68,27 +69,41 @@ struct SubscriptionView: View {
                 .cornerRadius(8)
                 .foregroundColor(.white)
             Button(action: {
-                userManager.activateSubscription()
-                showConfirmation = true
-            }) {
-                Rectangle()
-                    .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
-                    .frame(height: 60)
-                    .cornerRadius(100)
-                    .overlay(
-                        Text("Попробовать")
-                            .foregroundColor(.white)
-                            .font(.custom("MontserratAlternates-Regular", size: 28))
-                            .bold()
-                    )
-            }
-            .alert("Подписка активирована!", isPresented: $showConfirmation) {
-                        Button("ОК", role: .cancel) {}
-                    }
-            
-            Text("7 дней бесплатно, далее 299 руб в месяц")
-                .foregroundColor(Color("InactiveColor2"))
-                .font(.custom("MontserratAlternates-Regular", size: 14))
+                          userManager.checkSubscriptionStatus { success in
+                              if success {
+                                  showConfirmation = true
+                              } else {
+                                  showFailureAlert = true
+                              }
+                          }
+                      }) {
+                          Rectangle()
+                              .fill(Color.green)
+                              .frame(height: 50)
+                              .cornerRadius(12)
+                              .overlay(
+                                  Text("Проверить оплату")
+                                      .foregroundColor(.white)
+                                      .bold()
+                              )
+                      }
+                      .padding(.top, 10)
+
+                      .alert("Подписка активирована!", isPresented: $showConfirmation) {
+                          Button("ОК", role: .cancel) {}
+                      }
+
+                      .alert("Оплата не найдена", isPresented: $showFailureAlert) {
+                          Button("Повторить", role: .cancel) {}
+                      }
+
+                      // Пример: отображение текущего статуса подписки
+                      Text(userManager.isSubscriptionEnabled ? "Подписка активна" : "Подписка неактивна")
+                          .foregroundColor(.gray)
+                          .padding(.top)
+                    Text("7 дней бесплатно, далее 299 руб в месяц")
+                        .foregroundColor(Color("InactiveColor2"))
+                        .font(.custom("MontserratAlternates-Regular", size: 14))
 
         }
         .padding(.horizontal, 33)
