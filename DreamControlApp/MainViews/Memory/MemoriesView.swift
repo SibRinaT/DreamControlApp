@@ -11,6 +11,7 @@ import DataProvider
 
 struct MemoriesView: View {
     @Environment(\.dataHandler) private var dataHandler
+    @EnvironmentObject var userManager: UserManager
     @Query(filter: #Predicate<DreamMemory> { $0.dream.isArchived }) private var memories: [DreamMemory]
     @AppStorage("showConfirmations") private var showConfirmations: Bool = true
     @Binding var selectedTab: Int
@@ -80,7 +81,35 @@ struct MemoriesView: View {
                             }
                         }
                         .listRowSeparator(.hidden)
+                        
+                        if memories.count < (userManager.isSubscriptionEnabled ? 10 : 3) {
+                            Button(action: {
+                                // сюда можно вставить нужное действие, например показать форму создания воспоминания
+                            }, label: {
+                                Rectangle()
+                                    .foregroundColor(.clear)
+                                    .frame(height: 85)
+                                    .cornerRadius(20)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .stroke(style: StrokeStyle(lineWidth: 2, dash: [15]))
+                                            .foregroundColor(Color("PrimaryColor"))
+                                    )
+                                    .overlay(
+                                        Text("Добавить воспоминание")
+                                            .foregroundColor(Color("PrimaryColor"))
+                                            .font(.custom("MontserratAlternates-Regular", size: 24))
+                                            .bold()
+                                    )
+                            })
+                            .buttonStyle(.plain)
+                            .listRowSeparator(.hidden)
+                            .listRowBackground(Color.clear)
+                        } else if !userManager.isSubscriptionEnabled {
+                            SubscriptionButton(text: "воспоминаний")
+                        }
                     }
+                    
                     .listRowSeparator(.hidden)
                     .listStyle(.plain)
                     .scrollContentBackground(.hidden)

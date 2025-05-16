@@ -22,13 +22,16 @@ struct DreamView: View {
     @Query(filter: #Predicate<Dream> { !$0.isArchived }) private var dreams: [Dream]
     @EnvironmentObject var userManager: UserManager
     
-    @State private var showCustomDialog = false
+    @State private var showCustomDialog = false // во время удаления или архивирования
+    @State private var showLimitDialog = false // для memories
     @AppStorage("showConfirmations") private var showConfirmations: Bool = true
 
     @State private var confirmationType: ConfirmationType? = nil
     @State private var dreamToDelete: Dream? = nil
     @State private var dreamToArchive: Dream? = nil
     
+    @Query private var allMemories: [DreamMemory]
+
     enum ConfirmationType {
         case delete
         case archive
@@ -126,6 +129,11 @@ struct DreamView: View {
                 }
             }
             .listStyle(.plain)
+            .alert("Лимит воспоминаний достигнут", isPresented: $showLimitDialog) {
+                Button("Ок", role: .cancel) {}
+            } message: {
+                Text("Вы достигли лимита на количество воспоминаний. Оформите подписку, чтобы добавить больше.")
+            }
         }
         //        .toolbar {
         //            ToolbarItem(placement: .navigationBarLeading) {
@@ -192,22 +200,23 @@ struct DreamView: View {
     }
     
     private func archive(dream: Dream) {
+        let currentMemoryCount = allMemories.count
+        let maxMemoriesAllowed = userManager.isSubscriptionEnabled ? 10 : 3
+
+        if currentMemoryCount >= maxMemoriesAllowed {
+            showLimitDialog = true
+            return
+        }
+
         Task {
             // Архивируем мечту
             dream.isArchived = true
 
-            // Создаём воспоминание на основе мечты
-            let memory = DreamMemory(
-                text: "",
-                photoNames: [],
-                dream: dream,
-                convertedAt: Date()
-            )
-            
-            // Сохраняем изменения
+            // Сохраняем как воспоминание
             await dataHandler?.archiveAsMemory(dream: dream)
         }
     }
+
     
     private func requestDeleteConfirmation(for dream: Dream) {
         if showConfirmations {
