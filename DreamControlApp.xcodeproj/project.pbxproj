@@ -295,13 +295,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E0CA5952DCFDB4D00CFDCF1 /* Widgets */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Widgets;
-			sourceTree = "<group>";
-		};
 		2E0CA59D2DCFDCFD00CFDCF1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +365,7 @@
 		2E34CBB12C881F850063F57F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AC7E33842DC39A13002E1F59 /* UserManager.swift */,
 				2E34CBB22C881F970063F57F /* Model.swift */,
 			);
 			path = Models;
@@ -417,9 +411,7 @@
 		2E6124562B9025B100494DF6 /* DreamControlApp */ = {
 			isa = PBXGroup;
 			children = (
-				AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */,
-				AC7E33842DC39A13002E1F59 /* UserManager.swift */,
-				2E0CA5952DCFDB4D00CFDCF1 /* Widgets */,
+				2E9CF2672DD717D400B89374 /* AppFiles */,
 				2E2ACFE32CF1D0D500A55886 /* Unit Test */,
 				2E8C614C2CE8A97500A61DA4 /* Notification */,
 				AC3213622C9519F5006D4399 /* Services */,
@@ -571,6 +563,14 @@
 				2EDE21082C20BE23006951E7 /* SubscriptionView.swift */,
 			);
 			path = Subscription;
+			sourceTree = "<group>";
+		};
+		2E9CF2672DD717D400B89374 /* AppFiles */ = {
+			isa = PBXGroup;
+			children = (
+				AC32135F2C9519DE006D4399 /* DreamControlAppApp.swift */,
+			);
+			path = AppFiles;
 			sourceTree = "<group>";
 		};
 		2EA06B9B2BD18F720056E9F7 /* TabBarViews */ = {

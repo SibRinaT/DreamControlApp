@@ -26,16 +26,18 @@ struct User: Codable {
     let id: String
     let name: String
     let isAdmin: Bool
-    let telegramUserId: String = "1645257568"
+//    let telegramUserId: String = "1645257568" // сейчас не используется никак
+    let email: String
 
 //    mutating func enableSubscription() {
 //        isSubscriptionEnabled = true
 //    }
     
-    init(id: String, name: String, isAdmin: Bool) {
+    init(id: String, name: String, isAdmin: Bool, email: String) {
         self.id = id
         self.name = name
         self.isAdmin = isAdmin
+        self.email = email
 //        self.isSubscriptionEnabled = false
     }
 //    

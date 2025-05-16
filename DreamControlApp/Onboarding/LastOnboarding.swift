@@ -66,7 +66,13 @@ struct LastOnboarding: View {
                                 UserDefaults.standard.set(true, forKey: "onboardingCompleted")
                                 savedName = name // Сохранение имени в UserDefaults через @AppStorage
                                 navigateToTabBar = true // Активируем навигацию
-                                userManager.saveUser(User(id: "1", name: name, isAdmin: false))
+                                let newUser = User(
+                                    id: UUID().uuidString,
+                                    name: name,
+                                    isAdmin: false,
+                                    email: email
+                                )
+                                userManager.saveUser(newUser)
                             }
                         }
                         

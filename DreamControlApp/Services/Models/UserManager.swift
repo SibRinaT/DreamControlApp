@@ -102,35 +102,34 @@ final class UserManager: ObservableObject {
     }
 
     // функция для подписок, если делать с сервером + ботом в тг
-    func checkSubscriptionStatus(completion: @escaping (Bool) -> Void) {
-        guard let telegramId = user?.telegramUserId else {
-            completion(false)
-            return
-        }
-
-        guard let url = URL(string: "http://localhost:3000/api/integrations/v1/users/1645257568/check_subscription") else {
-            completion(false)
-            return
-        }
-
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-
-        URLSession.shared.dataTask(with: request) { _, response, error in
-            DispatchQueue.main.async {
-                guard error == nil, let httpResponse = response as? HTTPURLResponse else {
-                    completion(false)
-                    return
-                }
-
-                if httpResponse.statusCode == 200 {
-                    self.isSubscriptionEnabled = true
-                    completion(true)
-                } else {
-                    self.isSubscriptionEnabled = false
-                    completion(false)
-                }
-            }
-        }.resume()
-    }
+//    func checkSubscriptionStatus(completion: @escaping (Bool) -> Void) {
+//        guard let telegramId = user?.telegramUserId else {
+//            completion(false)
+//            return
+//        }
+//
+//        guard let url = URL(string: "http://localhost:3000/api/integrations/v1/users/1645257568/check_subscription") else {
+//            completion(false)
+//            return
+//        }
+//
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "GET"
+//
+//        URLSession.shared.dataTask(with: request) { _, response, error in
+//            DispatchQueue.main.async {
+//                guard error == nil, let httpResponse = response as? HTTPURLResponse else {
+//                    completion(false)
+//                    return
+//                }
+//
+//                if httpResponse.statusCode == 200 {
+//                    self.isSubscriptionEnabled = true
+//                    completion(true)
+//                } else {
+//                    self.isSubscriptionEnabled = false
+//                    completion(false)
+//                }
+//            }
+//        }.resume()
 }
