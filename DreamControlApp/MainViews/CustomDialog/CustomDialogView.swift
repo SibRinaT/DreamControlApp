@@ -11,7 +11,6 @@ import DataProvider
 struct CustomDialogView: View {
     let title: String
     let message: String
-    let confirmationType: DreamView.ConfirmationType?
     let onConfirm: () -> Void
     let onCancel: () -> Void
     let onDisablePrompt: () -> Void
@@ -50,16 +49,18 @@ struct CustomDialogView: View {
                     }
 
                     Button(action: {
-                                       isChecked.toggle()
-                                       onDisablePrompt()
-                                   }) {
-                                       Label(
-                                           "Больше не спрашивать",
-                                           systemImage: isChecked ? "checkmark.square.fill" : "square"
-                                       )
-                                       .foregroundColor(.yellow)
-                                       .font(.custom("MontserratAlternates-Regular", size: 14))
-                                   }
+                        isChecked.toggle()
+                        if isChecked {
+                            onDisablePrompt()
+                        }
+                    }) {
+                        Label(
+                            "Больше не спрашивать",
+                            systemImage: isChecked ? "checkmark.square.fill" : "square"
+                        )
+                        .foregroundColor(.yellow)
+                        .font(.custom("MontserratAlternates-Regular", size: 14))
+                    }
                 }
                 .padding()
                 .background(Color.white)

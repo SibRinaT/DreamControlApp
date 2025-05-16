@@ -12,7 +12,7 @@ import DataProvider
 struct MemoriesView: View {
     @Environment(\.dataHandler) private var dataHandler
     @Query(filter: #Predicate<DreamMemory> { $0.dream.isArchived }) private var memories: [DreamMemory]
-    @AppStorage("showDeleteConfirmations") private var showDeleteConfirmations: Bool = true
+    @AppStorage("showConfirmations") private var showConfirmations: Bool = true
     @Binding var selectedTab: Int
     
     @Query private var allMemories: [DreamMemory]
@@ -101,7 +101,6 @@ struct MemoriesView: View {
                 CustomDialogView(
                     title: "Удалить воспоминание?",
                     message: "Вы уверены, что хотите удалить это воспоминание? Это действие необратимо.",
-                    confirmationType: nil,
                     onConfirm: {
                         showCustomDialog = false
                         if let memory = memoryToDelete {
@@ -112,7 +111,7 @@ struct MemoriesView: View {
                         showCustomDialog = false
                     },
                     onDisablePrompt: {
-                        showDeleteConfirmations = false
+                        showConfirmations = false
                     }
                 )
             }
@@ -129,7 +128,7 @@ struct MemoriesView: View {
 
     // Запрос подтверждения
     private func requestDeleteConfirmation(memory: DreamMemory) {
-        if showDeleteConfirmations {
+        if showConfirmations {
             memoryToDelete = memory
             showCustomDialog = true
         } else {

@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @AppStorage("isAnimating") private var isAnimating: Bool = false
     @Binding var selectedTab: Int
-    @AppStorage("showDeleteConfirmations") private var showDeleteConfirmations: Bool = true
+    @AppStorage("showConfirmations") private var showConfirmations: Bool = true
     @AppStorage("userName") private var savedName: String = ""
 
     var body: some View {
@@ -31,7 +31,7 @@ struct SettingsView: View {
                 }
                 .toggleStyle(YellowToggle())
 
-                Toggle(isOn: $showDeleteConfirmations) {
+                Toggle(isOn: $showConfirmations) {
                     Text("Показывать окно подтверждения")
                         .font(.custom("MontserratAlternates-Regular", size: 14))
                 }

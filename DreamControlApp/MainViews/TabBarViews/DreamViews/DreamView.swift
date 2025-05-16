@@ -23,8 +23,7 @@ struct DreamView: View {
     @EnvironmentObject var userManager: UserManager
     
     @State private var showCustomDialog = false
-    @AppStorage("showDeleteConfirmations") private var showDeleteConfirmations: Bool = true
-    @AppStorage("showArchiveConfirmations") private var showArchiveConfirmations: Bool = true
+    @AppStorage("showConfirmations") private var showConfirmations: Bool = true
 
     @State private var confirmationType: ConfirmationType? = nil
     @State private var dreamToDelete: Dream? = nil
@@ -156,7 +155,6 @@ struct DreamView: View {
             CustomDialogView(
                 title: "Вы уверены, что хотите продолжить?",
                 message: "Все связанные с мечтой истории будут удалены.",
-                confirmationType: confirmationType,
                 onConfirm: {
                     showCustomDialog = false
                     switch confirmationType {
@@ -177,9 +175,9 @@ struct DreamView: View {
                 },
                 onDisablePrompt: {
                     if confirmationType == .delete {
-                        showDeleteConfirmations = false
+                        showConfirmations = false
                     } else if confirmationType == .archive {
-                        showArchiveConfirmations = false
+                        showConfirmations = false
                     }
                 }
             )
@@ -212,7 +210,7 @@ struct DreamView: View {
     }
     
     private func requestDeleteConfirmation(for dream: Dream) {
-        if showDeleteConfirmations {
+        if showConfirmations {
             dreamToDelete = dream
             confirmationType = .delete
             showCustomDialog = true
@@ -222,7 +220,7 @@ struct DreamView: View {
     }
 
     private func requestArchiveConfirmation(for dream: Dream) {
-        if showArchiveConfirmations {
+        if showConfirmations {
             dreamToArchive = dream
             confirmationType = .archive
             showCustomDialog = true

@@ -22,7 +22,7 @@ struct StoryView: View {
     @EnvironmentObject var userManager: UserManager
     
     @State private var showCustomDialog = false
-    @AppStorage("showDeleteConfirmations") private var showDeleteConfirmations: Bool = true
+    @AppStorage("showConfirmations") private var showConfirmations: Bool = true
     @State private var storyToDelete: DreamStory?
     @State private var isDeletePromptDisabled = false
 
@@ -155,7 +155,6 @@ struct StoryView: View {
             CustomDialogView(
                 title: "Удалить историю?",
                 message: "Вы уверены, что хотите удалить эту историю? Это действие необратимо",
-                confirmationType: nil,
                 onConfirm: {
                     showCustomDialog = false
                     if let story = storyToDelete {
@@ -166,14 +165,14 @@ struct StoryView: View {
                     showCustomDialog = false
                 },
                 onDisablePrompt: {
-                    showDeleteConfirmations = false
+                    showConfirmations = false
                 }
             )
         }
     }
     
     private func requestDeleteConfirmation(story: DreamStory) {
-        if showDeleteConfirmations {
+        if showConfirmations {
             storyToDelete = story
             showCustomDialog = true
         } else {
