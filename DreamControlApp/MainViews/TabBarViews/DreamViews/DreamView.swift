@@ -24,8 +24,8 @@ struct DreamView: View {
     
     @State private var showCustomDialog = false
     @AppStorage("showDeleteConfirmations") private var showDeleteConfirmations: Bool = true
-    @State private var showArchiveConfirmation = true
-    
+    @AppStorage("showArchiveConfirmations") private var showArchiveConfirmations: Bool = true
+
     @State private var confirmationType: ConfirmationType? = nil
     @State private var dreamToDelete: Dream? = nil
     @State private var dreamToArchive: Dream? = nil
@@ -178,8 +178,8 @@ struct DreamView: View {
                 onDisablePrompt: {
                     if confirmationType == .delete {
                         showDeleteConfirmations = false
-                    } else {
-                        showArchiveConfirmation = false
+                    } else if confirmationType == .archive {
+                        showArchiveConfirmations = false
                     }
                 }
             )
@@ -222,7 +222,7 @@ struct DreamView: View {
     }
 
     private func requestArchiveConfirmation(for dream: Dream) {
-        if showArchiveConfirmation {
+        if showArchiveConfirmations {
             dreamToArchive = dream
             confirmationType = .archive
             showCustomDialog = true
