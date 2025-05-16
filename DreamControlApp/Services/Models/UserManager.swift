@@ -78,7 +78,7 @@ final class UserManager: ObservableObject {
     var isLoggedIn: Bool {
         user != nil
     }
-
+    // для вью тестов кнопки активации подписки
     func activateSubscription() {
         isSubscriptionEnabled = true
     }

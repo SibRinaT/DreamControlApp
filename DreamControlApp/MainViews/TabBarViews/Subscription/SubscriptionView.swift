@@ -74,14 +74,15 @@ struct SubscriptionView: View {
                 }
             }) {
                 Rectangle()
-                    .fill(Color.blue)
-                    .frame(height: 50)
-                    .cornerRadius(12)
-                    .overlay(
-                        Text("Активировать подписку")
-                            .foregroundColor(.white)
-                            .bold()
-                    )
+                      .gradientForeground(colors: [Color("Prem1"),Color("Prem2"),Color("Prem3")])
+                      .frame(height: 60)
+                      .cornerRadius(100)
+                      .overlay(
+                          Text("Оформить")
+                              .foregroundColor(.white)
+                              .font(.custom("MontserratAlternates-Regular", size: 28))
+                              .bold()
+                      )
             }
             .padding(.top, 10)
             
@@ -97,7 +98,7 @@ struct SubscriptionView: View {
             Text(userManager.isSubscriptionEnabled ? "Подписка активна" : "Подписка неактивна")
                 .foregroundColor(.gray)
                 .padding(.top)
-            Text("7 дней бесплатно, далее 299 руб в месяц")
+            Text("7 дней бесплатно, далее 249 руб в месяц")
                 .foregroundColor(Color("InactiveColor2"))
                 .font(.custom("MontserratAlternates-Regular", size: 14))
             
