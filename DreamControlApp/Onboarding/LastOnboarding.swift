@@ -11,7 +11,8 @@ struct LastOnboarding: View {
     @State private var email = ""
     @State private var name = ""
     @State private var navigateToTabBar = false
-    
+    @EnvironmentObject var userManager: UserManager
+
     @AppStorage("userName") private var savedName: String = ""
 
     private var isButtonActive: Bool {
@@ -65,6 +66,7 @@ struct LastOnboarding: View {
                                 UserDefaults.standard.set(true, forKey: "onboardingCompleted")
                                 savedName = name // Сохранение имени в UserDefaults через @AppStorage
                                 navigateToTabBar = true // Активируем навигацию
+                                userManager.saveUser(User(id: "1", name: name, isAdmin: false))
                             }
                         }
                         

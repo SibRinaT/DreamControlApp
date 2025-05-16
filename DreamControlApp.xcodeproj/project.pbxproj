@@ -59,6 +59,7 @@
 		2E92C9262BC04DA7005E4DB9 /* CreateNewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E92C9252BC04DA7005E4DB9 /* CreateNewPasswordView.swift */; };
 		2E92C9282BC04EBA005E4DB9 /* PasswordCreatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E92C9272BC04EBA005E4DB9 /* PasswordCreatedView.swift */; };
 		2E9BD10F2BA35DDF0055566F /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9BD10E2BA35DDF0055566F /* InputFieldView.swift */; };
+		2E9CF2662DD7055B00B89374 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9CF2652DD7055B00B89374 /* SubscriptionManager.swift */; };
 		2EA06B9D2BD18F880056E9F7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA06B9C2BD18F880056E9F7 /* MainView.swift */; };
 		2EA06B9F2BD18F9A0056E9F7 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA06B9E2BD18F9A0056E9F7 /* CustomTabBar.swift */; };
 		2EA20C832B908FC2000AAEC2 /* OnboardingView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA20C822B908FC2000AAEC2 /* OnboardingView2.swift */; };
@@ -207,6 +208,7 @@
 		2E92C9252BC04DA7005E4DB9 /* CreateNewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordView.swift; sourceTree = "<group>"; };
 		2E92C9272BC04EBA005E4DB9 /* PasswordCreatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCreatedView.swift; sourceTree = "<group>"; };
 		2E9BD10E2BA35DDF0055566F /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
+		2E9CF2652DD7055B00B89374 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		2EA06B9C2BD18F880056E9F7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2EA06B9E2BD18F9A0056E9F7 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		2EA20C822B908FC2000AAEC2 /* OnboardingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView2.swift; sourceTree = "<group>"; };
@@ -562,6 +564,15 @@
 			path = Password;
 			sourceTree = "<group>";
 		};
+		2E9CF2642DD7054600B89374 /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				2E9CF2652DD7055B00B89374 /* SubscriptionManager.swift */,
+				2EDE21082C20BE23006951E7 /* SubscriptionView.swift */,
+			);
+			path = Subscription;
+			sourceTree = "<group>";
+		};
 		2EA06B9B2BD18F720056E9F7 /* TabBarViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -569,7 +580,7 @@
 				2EED37C72DCD137900E71584 /* DreamViews */,
 				2EED37C62DCD134F00E71584 /* StoryViews */,
 				2EA06B9C2BD18F880056E9F7 /* MainView.swift */,
-				2EDE21082C20BE23006951E7 /* SubscriptionView.swift */,
+				2E9CF2642DD7054600B89374 /* Subscription */,
 				2E23AE422C24B604003FCCC1 /* SettingsView.swift */,
 			);
 			path = TabBarViews;
@@ -878,6 +889,7 @@
 				2EED37B82DCA2E6C00E71584 /* CategoryRowView.swift in Sources */,
 				AC3213602C9519DE006D4399 /* DreamControlAppApp.swift in Sources */,
 				2EA20C832B908FC2000AAEC2 /* OnboardingView2.swift in Sources */,
+				2E9CF2662DD7055B00B89374 /* SubscriptionManager.swift in Sources */,
 				2E8578822BBBF07300BEA1ED /* YellowButton.swift in Sources */,
 				2E34CBB52C8833700063F57F /* StoryView.swift in Sources */,
 				2EA20C882B919B24000AAEC2 /* SplashView.swift in Sources */,
