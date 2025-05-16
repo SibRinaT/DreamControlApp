@@ -40,7 +40,7 @@ struct MemoriesView: View {
                     Spacer()
                     Text("Вы пока не добавили воспоминания")
                         .foregroundColor(.gray)
-                        .font(.title3)
+                        .font(.custom("MontserratAlternates-Regular", size: 14))
                     Spacer()
                 } else {
                     List {
