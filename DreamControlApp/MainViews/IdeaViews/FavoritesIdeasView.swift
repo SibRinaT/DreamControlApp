@@ -16,7 +16,7 @@ struct FavoritesIdeasView: View {
     @EnvironmentObject var userManager: UserManager
     @State private var showLimitAlert = false
     @State private var showSubscription = false
-
+    
 //    @Query(filter: #Predicate<Idea> {
 //        $0.status == IdeaShowStatus.green.rawValue
 //    })
@@ -106,17 +106,15 @@ struct FavoritesIdeasView: View {
     
     private func createDreamFromIdea(idea: String) {
         Task {
-            guard let count = try? await dataHandler?.getDreamsCount() else { return }
-
             let maxAllowed = userManager.isSubscriptionEnabled ? 10 : 3
-
-            if count >= maxAllowed {
+            let currentCount = (try? await dataHandler?.getActiveDreamsCount()) ?? 0
+            
+            if currentCount >= maxAllowed {
                 showLimitAlert = true
                 return
             }
 
-            let dream = Dream(name: idea, image: "StarForDream", stories: [])
-            await dataHandler?.new(dream: dream)
+            let newCount = await dataHandler?.new(dream: Dream(name: idea, image: "StarForDream", stories: []))
             deleteIdea(idea)
         }
     }

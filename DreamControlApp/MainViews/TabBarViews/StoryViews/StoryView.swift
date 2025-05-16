@@ -22,7 +22,7 @@ struct StoryView: View {
     @EnvironmentObject var userManager: UserManager
     
     @State private var showCustomDialog = false
-    @AppStorage("showDeleteConfirmations") private var showDeleteConfirmation: Bool = true
+    @AppStorage("showDeleteConfirmations") private var showDeleteConfirmations: Bool = true
     @State private var storyToDelete: DreamStory?
     @State private var isDeletePromptDisabled = false
 
@@ -166,14 +166,14 @@ struct StoryView: View {
                     showCustomDialog = false
                 },
                 onDisablePrompt: {
-                    showDeleteConfirmation = false
+                    showDeleteConfirmations = false
                 }
             )
         }
     }
     
     private func requestDeleteConfirmation(story: DreamStory) {
-        if showDeleteConfirmation {
+        if showDeleteConfirmations {
             storyToDelete = story
             showCustomDialog = true
         } else {

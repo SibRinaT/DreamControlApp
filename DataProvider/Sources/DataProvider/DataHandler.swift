@@ -16,17 +16,20 @@ public actor DataHandler {
     }
     
     @discardableResult
-    public func new(dream: Dream) -> PersistentIdentifier {
+    public func new(dream: Dream) -> Int {
         modelContext.insert(dream)
         try! modelContext.save()
-        return dream.persistentModelID
+        let count = try! getActiveDreamsCount()
+        return count
     }
-    
-    public func delete(dream: Dream) {
+
+    public func delete(dream: Dream) -> Int {
         modelContext.delete(dream)
         try! modelContext.save()
+        let count = try! getActiveDreamsCount()
+        return count
     }
-    
+
     public func delete(dreamMemory: DreamMemory) {
         modelContext.delete(dreamMemory)
         try! modelContext.save()
@@ -69,9 +72,16 @@ public actor DataHandler {
         var desc = FetchDescriptor<Dream>()
         return try modelContext.fetch(desc)
     }
-
-    public func getDreamsCount() throws -> Int {
-        var desc = FetchDescriptor<Dream>()
+    //только активные мечты 
+    public func getActiveDreamsCount() throws -> Int {
+        let descriptor = FetchDescriptor<Dream>(
+            predicate: #Predicate { !$0.isArchived }
+        )
+        return try modelContext.fetchCount(descriptor)
+    }
+    //все мечты включая архивированные
+    public func getAllDreamsCount() throws -> Int {
+        let desc = FetchDescriptor<Dream>()
         return try modelContext.fetchCount(desc)
     }
     
