@@ -9,7 +9,8 @@ import SwiftUI
 struct OnboardingView3: View {
     @State private var offset: CGSize = .zero
     @State private var isSwiped: Bool = false
-    
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
         VStack {
             Spacer()
@@ -53,18 +54,20 @@ struct OnboardingView3: View {
         .padding(.horizontal, 30)
         .offset(x: offset.width)
         .gesture(
-            DragGesture()
-                .onChanged { gesture in
-                    offset = gesture.translation
-                }
-                .onEnded { _ in
-                    if offset.width < -100 { // Если свайп был влево
-                        isSwiped = true
-                    } else {
-                        offset = .zero // Возвращаем обратно, если свайп слабый
-                    }
-                }
-        )
+              DragGesture()
+                  .onChanged { gesture in
+                      offset = gesture.translation
+                  }
+                  .onEnded { _ in
+                      if offset.width < -100 {
+                          isSwiped = true
+                      } else if offset.width > 100 {
+                          dismiss() // Вернуться на предыдущий экран
+                      } else {
+                          offset = .zero
+                      }
+                  }
+          )
         .background(
             NavigationLink(destination: LastOnboarding(), isActive: $isSwiped) {
                 EmptyView()

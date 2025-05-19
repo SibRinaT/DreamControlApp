@@ -35,7 +35,7 @@ struct LastOnboarding: View {
                 .shadow(radius: 30, y: -4)
                 .overlay(
                     VStack {
-                        Text("Регистрация")
+                        Text("Вход")
                             .padding(.top, 30)
                             .font(.custom("MontserratAlternates-Regular", size: 32))
                             .bold()

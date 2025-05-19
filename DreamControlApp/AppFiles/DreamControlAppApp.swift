@@ -92,6 +92,7 @@ struct DreamControlAppApp: App {
                     getTimeBasedSplashView()
                 }
             }
+            .preferredColorScheme(.light)
         }
         .environment(\.dynamicTypeSize, .xxLarge)
         .environment(ideasViewModel)
