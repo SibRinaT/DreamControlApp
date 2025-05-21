@@ -15,7 +15,7 @@ struct DreamsCountView: View {
     @State private var showFavorites = false
     @Binding var isAnimating: Bool
     @State private var rotateAmount: CGFloat = 5
-    @Query private var dreams: [Dream]
+    @Query(filter: #Predicate<Dream> { !$0.isArchived }) private var dreams: [Dream]
     @Binding var selectedTab: Int
 
     // Состояния для анимации
