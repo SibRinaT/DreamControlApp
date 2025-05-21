@@ -86,9 +86,31 @@ struct NewStoryView: View {
                                         Text("Описание")
                                             .foregroundColor(Color("TextColor"))
                                             .font(.custom("MontserratAlternates-Regular", size: 16))
+                                        Button(action: {
+                                            showingTip.toggle()
+                                        }) {
+                                            Image("moreInfo")
+                                                .resizable()
+                                                .frame(width: 24, height: 24)
+                                        }
+                                        .popover(isPresented: $showingTip) {
+                                            VStack(alignment: .leading, spacing: 10) {
+                                                Text("Как написать хорошее описание:")
+                                                    .font(.custom("MontserratAlternates-Regular", size: 24))
+                                                Text("• Представьте, как выглядит ваша мечта.")
+                                                Text("• Добавьте эмоции: что вы чувствуете?")
+                                                Text("• Какие шаги ведут к ней?")
+                                                Text("• Что вы увидите, услышите, ощутите?")
+                                                Text("• Напишите дополнительную информацию о себе: кто вы сейчас, пол, возраст, интересы, и т.д.")
+                                            }
+                                            .font(.custom("MontserratAlternates-Regular", size: 14))
+                                            .padding()
+                                            .frame(width: 250)
+                                        }
                                     }
-                                    
-                                    ZStack(alignment: .topTrailing) {
+                                    .padding(.horizontal, 12)
+
+                                    ZStack(alignment: .topLeading) {
                                         RoundedRectangle(cornerRadius: 25)
                                             .stroke(
                                                 LinearGradient(
@@ -112,39 +134,15 @@ struct NewStoryView: View {
                                                 }
                                         }
                                         .frame(width: 280, height: 180)
-                                        
-                                        Button(action: {
-                                            showingTip.toggle()
-                                        }) {
-                                            Image("moreInfo")
-                                                .padding(10)
-                                        }
-                                        .popover(isPresented: $showingTip) {
-                                            VStack(alignment: .leading, spacing: 10) {
-                                                Text("Как написать хорошее описание:")
-                                                    .font(.custom("MontserratAlternates-Regular", size: 24))
-                                                Text("• Представьте, как выглядит ваша мечта.")
-                                                    .font(.custom("MontserratAlternates-Regular", size: 14))
-                                                Text("• Добавьте эмоции: что вы чувствуете?")
-                                                    .font(.custom("MontserratAlternates-Regular", size: 14))
-                                                Text("• Какие шаги ведут к ней?")
-                                                    .font(.custom("MontserratAlternates-Regular", size: 14))
-                                                Text("• Что вы увидите, услышите, ощутите?")
-                                                    .font(.custom("MontserratAlternates-Regular", size: 14))
-                                                Text("• Напишите дополнительную информацию о себе: кто вы сейчас, пол, возраст, интересы, и т.д.")
-                                                    .font(.custom("MontserratAlternates-Regular", size: 14))
-                                            }
-                                            .padding()
-                                            .frame(width: 250)
-                                        }
                                     }
                                     .transition(.opacity.combined(with: .move(edge: .top)))
+
                                     Text("Количество символов: \(description.count)/\(characterLimit)")
                                         .font(.custom("MontserratAlternates-Regular", size: 14))
                                         .foregroundColor(.gray)
                                 }
                             }
-                            
+
                             HStack {
                                 Spacer()
                                 Button(action: {
