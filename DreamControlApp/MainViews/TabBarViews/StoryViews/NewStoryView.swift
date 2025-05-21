@@ -64,7 +64,7 @@ struct NewStoryView: View {
                                 .padding(.trailing)
                             }
                             
-                            VStack(alignment: .leading, spacing: 4) {
+                            VStack {
                                 InputFieldView(title: "Название истории", placeholder: "Введите название", text: $storyTitle)
                                     .font(.custom("MontserratAlternates-Regular", size: 16))
                                     .onChange(of: storyTitle) { newValue in
@@ -74,11 +74,12 @@ struct NewStoryView: View {
                                     }
                                 
                                 HStack {
-                                    Text("Символов:")
-                                    Text("\(storyTitle.count)")
-                                        .foregroundColor(storyTitle.count > titleLimit ? Color.red : Color("PrimaryColor"))
+                                    Spacer()
+                                    Text("Символов:\(storyTitle.count)/16")
+                                    Spacer()
                                 }
                                 .font(.custom("MontserratAlternates-Regular", size: 14))
+                                .foregroundColor(.gray)
                             }
                             if autoStory {
                                 VStack(spacing: 8) {
@@ -188,7 +189,7 @@ struct NewStoryView: View {
                             
                             if isLoading {
                                 ProgressView("Генерация истории...")
-                                    .font(.custom("MontserratAlternates-Regular", size: 22))
+                                    .font(.custom("MontserratAlternates-Regular", size: 20))
                                     .padding()
                             }
                             
