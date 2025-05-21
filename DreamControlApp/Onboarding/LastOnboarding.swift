@@ -16,8 +16,22 @@ struct LastOnboarding: View {
     @AppStorage("userName") private var savedName: String = ""
 
     private var isButtonActive: Bool {
-        !email.isEmpty && !name.isEmpty
+        isInputValid
     }
+    
+    private var isInputValid: Bool {
+        let trimmedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines) // обрезка пробелов 
+        let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        // проверка email-формата
+        let emailRegex = #"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"#
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        
+        return !trimmedEmail.isEmpty &&
+               !trimmedName.isEmpty &&
+               emailPredicate.evaluate(with: trimmedEmail)
+    }
+
 
     var body: some View {
         ZStack {
