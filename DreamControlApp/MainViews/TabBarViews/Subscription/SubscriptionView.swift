@@ -24,7 +24,7 @@ struct SubscriptionView: View {
                         .resizable()
                         .frame(width: 100, height: 110)
                     VStack(alignment: .leading) {
-                        Text("Неограниченное количество цитат:")
+                        Text("Расширенное количество цитат:")
                             .font(.custom("MontserratAlternates-Regular", size: 16))
                             .bold()
                         Text("читайте и делитесь вдохновляющими цитатами без ограничений.")
@@ -38,7 +38,7 @@ struct SubscriptionView: View {
                         .frame(width: 100, height: 100)
                     Spacer()
                     VStack(alignment: .leading) {
-                        Text("Неограниченное количество мечт:")
+                        Text("Расширенное количество мечт:")
                             .font(.custom("MontserratAlternates-Regular", size: 16))
                             .bold()
                         Text("ставьте новые цели и визуализируйте их без ограничений.")
@@ -51,7 +51,7 @@ struct SubscriptionView: View {
                         .resizable()
                         .frame(width: 100, height: 80)
                     VStack(alignment: .leading) {
-                        Text("Неограниченное количество автоисторий:")
+                        Text("Расширенное количество автоисторий:")
                             .font(.custom("MontserratAlternates-Regular", size: 16))
                             .bold()
                         Text("создавайте и делитесь своими историями о путешествиях на автомобиле.")
@@ -61,13 +61,14 @@ struct SubscriptionView: View {
                 }
             }
             .padding(.leading)
-            Button("Отключить подписку") {
-                userManager.deactivateSubscription()
-            }
-            .padding()
-            .background(Color.red)
-            .cornerRadius(8)
-            .foregroundColor(.white)
+            // for testing
+//            Button("Отключить подписку") {
+//                userManager.deactivateSubscription()
+//            }
+//            .padding()
+//            .background(Color.red)
+//            .cornerRadius(8)
+//            .foregroundColor(.white)
             Button(action: {
                 Task {
                     await userManager.purchaseSubscription()
