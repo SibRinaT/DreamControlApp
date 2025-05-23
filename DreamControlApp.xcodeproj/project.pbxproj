@@ -124,6 +124,20 @@
 			remoteGlobalIDString = 2E0CA59B2DCFDCFC00CFDCF1;
 			remoteInfo = QuotesWidgetExtension;
 		};
+		2EA216F12DDF7E9900F10EE5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E61244C2B9025B100494DF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E6124532B9025B100494DF6;
+			remoteInfo = DreamControlApp;
+		};
+		2EA217022DE0A65A00F10EE5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E61244C2B9025B100494DF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E6124532B9025B100494DF6;
+			remoteInfo = DreamControlApp;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -212,6 +226,8 @@
 		2EA06B9C2BD18F880056E9F7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2EA06B9E2BD18F9A0056E9F7 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		2EA20C822B908FC2000AAEC2 /* OnboardingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView2.swift; sourceTree = "<group>"; };
+		2EA216ED2DDF7E9900F10EE5 /* DreamControlAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DreamControlAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EA216FE2DE0A65A00F10EE5 /* DataHandlerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataHandlerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EA84E1B2C901BBD00C74160 /* NewStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStoryView.swift; sourceTree = "<group>"; };
 		2EAA26662CFEF6EB00EC5997 /* FavoritesIdeasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesIdeasView.swift; sourceTree = "<group>"; };
 		2EAA26682D00193D00EC5997 /* OtherViewsRectangleSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewsRectangleSubscription.swift; sourceTree = "<group>"; };
@@ -272,6 +288,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2E0CA5A22DCFDCFE00CFDCF1 /* QuotesWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (2E0CA5B32DCFDD0600CFDCF1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = QuotesWidget; sourceTree = "<group>"; };
+		2EA216FF2DE0A65A00F10EE5 /* DataHandlerTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DataHandlerTests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +306,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACB4DAE62CEDE2BB003A9B90 /* DataProvider in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EA216EA2DDF7E9900F10EE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EA216FB2DE0A65A00F10EE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +425,7 @@
 			children = (
 				2E6124562B9025B100494DF6 /* DreamControlApp */,
 				2E0CA5A22DCFDCFE00CFDCF1 /* QuotesWidget */,
+				2EA216FF2DE0A65A00F10EE5 /* DataHandlerTests */,
 				2E0CA59D2DCFDCFD00CFDCF1 /* Frameworks */,
 				2E6124552B9025B100494DF6 /* Products */,
 			);
@@ -404,6 +436,8 @@
 			children = (
 				2E6124542B9025B100494DF6 /* DreamControlApp.app */,
 				2E0CA59C2DCFDCFC00CFDCF1 /* QuotesWidgetExtension.appex */,
+				2EA216ED2DDF7E9900F10EE5 /* DreamControlAppTests.xctest */,
+				2EA216FE2DE0A65A00F10EE5 /* DataHandlerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -766,6 +800,49 @@
 			productReference = 2E6124542B9025B100494DF6 /* DreamControlApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		2EA216EC2DDF7E9900F10EE5 /* DreamControlAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EA216F52DDF7E9A00F10EE5 /* Build configuration list for PBXNativeTarget "DreamControlAppTests" */;
+			buildPhases = (
+				2EA216E92DDF7E9900F10EE5 /* Sources */,
+				2EA216EA2DDF7E9900F10EE5 /* Frameworks */,
+				2EA216EB2DDF7E9900F10EE5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2EA216F22DDF7E9900F10EE5 /* PBXTargetDependency */,
+			);
+			name = DreamControlAppTests;
+			packageProductDependencies = (
+			);
+			productName = DreamControlAppTests;
+			productReference = 2EA216ED2DDF7E9900F10EE5 /* DreamControlAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2EA216FD2DE0A65A00F10EE5 /* DataHandlerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EA217042DE0A65A00F10EE5 /* Build configuration list for PBXNativeTarget "DataHandlerTests" */;
+			buildPhases = (
+				2EA216FA2DE0A65A00F10EE5 /* Sources */,
+				2EA216FB2DE0A65A00F10EE5 /* Frameworks */,
+				2EA216FC2DE0A65A00F10EE5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2EA217032DE0A65A00F10EE5 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2EA216FF2DE0A65A00F10EE5 /* DataHandlerTests */,
+			);
+			name = DataHandlerTests;
+			packageProductDependencies = (
+			);
+			productName = DataHandlerTests;
+			productReference = 2EA216FE2DE0A65A00F10EE5 /* DataHandlerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -781,6 +858,14 @@
 					};
 					2E6124532B9025B100494DF6 = {
 						CreatedOnToolsVersion = 15.0.1;
+					};
+					2EA216EC2DDF7E9900F10EE5 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 2E6124532B9025B100494DF6;
+					};
+					2EA216FD2DE0A65A00F10EE5 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 2E6124532B9025B100494DF6;
 					};
 				};
 			};
@@ -802,6 +887,8 @@
 			targets = (
 				2E6124532B9025B100494DF6 /* DreamControlApp */,
 				2E0CA59B2DCFDCFC00CFDCF1 /* QuotesWidgetExtension */,
+				2EA216EC2DDF7E9900F10EE5 /* DreamControlAppTests */,
+				2EA216FD2DE0A65A00F10EE5 /* DataHandlerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -845,6 +932,20 @@
 				2EEABE462DCDEE39000CC705 /* MontserratAlternates-SemiBold.ttf in Resources */,
 				2EEABE472DCDEE39000CC705 /* MontserratAlternates-ExtraBoldItalic.ttf in Resources */,
 				2E61245F2B9025B300494DF6 /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EA216EB2DDF7E9900F10EE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EA216FC2DE0A65A00F10EE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -941,6 +1042,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2EA216E92DDF7E9900F10EE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EA216FA2DE0A65A00F10EE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -948,6 +1063,16 @@
 			isa = PBXTargetDependency;
 			target = 2E0CA59B2DCFDCFC00CFDCF1 /* QuotesWidgetExtension */;
 			targetProxy = 2E0CA5B02DCFDD0600CFDCF1 /* PBXContainerItemProxy */;
+		};
+		2EA216F22DDF7E9900F10EE5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E6124532B9025B100494DF6 /* DreamControlApp */;
+			targetProxy = 2EA216F12DDF7E9900F10EE5 /* PBXContainerItemProxy */;
+		};
+		2EA217032DE0A65A00F10EE5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E6124532B9025B100494DF6 /* DreamControlApp */;
+			targetProxy = 2EA217022DE0A65A00F10EE5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1189,6 +1314,82 @@
 			};
 			name = Release;
 		};
+		2EA216F32DDF7E9900F10EE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 26BAG468M4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DreamControlAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DreamControlApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DreamControlApp";
+			};
+			name = Debug;
+		};
+		2EA216F42DDF7E9900F10EE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 26BAG468M4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DreamControlAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DreamControlApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DreamControlApp";
+			};
+			name = Release;
+		};
+		2EA217052DE0A65A00F10EE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 26BAG468M4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DataHandlerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DreamControlApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DreamControlApp";
+			};
+			name = Debug;
+		};
+		2EA217062DE0A65A00F10EE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 26BAG468M4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DataHandlerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DreamControlApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DreamControlApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1215,6 +1416,24 @@
 			buildConfigurations = (
 				2E6124632B9025B300494DF6 /* Debug */,
 				2E6124642B9025B300494DF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2EA216F52DDF7E9A00F10EE5 /* Build configuration list for PBXNativeTarget "DreamControlAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EA216F32DDF7E9900F10EE5 /* Debug */,
+				2EA216F42DDF7E9900F10EE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2EA217042DE0A65A00F10EE5 /* Build configuration list for PBXNativeTarget "DataHandlerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EA217052DE0A65A00F10EE5 /* Debug */,
+				2EA217062DE0A65A00F10EE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

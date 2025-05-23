@@ -44,6 +44,30 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2EA216EC2DDF7E9900F10EE5"
+               BuildableName = "DreamControlAppTests.xctest"
+               BlueprintName = "DreamControlAppTests"
+               ReferencedContainer = "container:DreamControlApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2EA216FD2DE0A65A00F10EE5"
+               BuildableName = "DataHandlerTests.xctest"
+               BlueprintName = "DataHandlerTests"
+               ReferencedContainer = "container:DreamControlApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"

@@ -7,12 +7,30 @@
 
 
 //import Foundation
-//class MockDataHandler: DataHandler {
-//    override init(modelContainer: ModelContainer = try! ModelContainer(for: Dream.self)) {
-//        super.init(modelContainer: modelContainer)
+//import DataProvider
+//import SwiftData
+//
+//final class MockDataHandler: DataHandlerProtocol {
+//    var deleteCalled = false
+//    var deletedDream: Dream?
+//    
+//    var archiveCalled = false
+//    var archivedDream: Dream?
+//    
+//    var archiveAsMemoryCalled = false
+//    
+//    func delete(dream: Dream) {
+//        deleteCalled = true
+//        deletedDream = dream
 //    }
 //
-//    override func unarchive(dream: Dream) {
-//        print("Unarchive called for \(dream.name)")
+//    func archive(dream: Dream) {
+//        archiveCalled = true
+//        archivedDream = dream
+//    }
+//
+//    func archiveAsMemory(dream: Dream) -> PersistentIdentifier {
+//        archiveAsMemoryCalled = true
+//        return dream.persistentModelID
 //    }
 //}
