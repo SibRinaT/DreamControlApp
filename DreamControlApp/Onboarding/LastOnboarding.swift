@@ -10,9 +10,10 @@ import SwiftUI
 struct LastOnboarding: View {
     @State private var email = ""
     @State private var name = ""
-    @State private var navigateToTabBar = false
+//    @State private var navigateToTabBar = false
     @EnvironmentObject var userManager: UserManager
-
+    @Environment(AppRootManager.self) private var appRootManager
+    
     @AppStorage("userName") private var savedName: String = ""
 
     private var isButtonActive: Bool {
@@ -70,16 +71,17 @@ struct LastOnboarding: View {
                             }
                         ))
                         
-                        NavigationLink(destination: CustomTabBar(), isActive: $navigateToTabBar) {
-                            EmptyView()
-                        }
-                        .navigationBarHidden(true)
+//                        NavigationLink(destination: CustomTabBar(), isActive: $navigateToTabBar) {
+//                            EmptyView()
+//                        }
+//                        .navigationBarHidden(true)
                         
                         YellowButtonLastOnboard(isActive: isButtonActive, text: "Войти") {
                             if isButtonActive {
                                 UserDefaults.standard.set(true, forKey: "onboardingCompleted")
                                 savedName = name // Сохранение имени в UserDefaults через @AppStorage
-                                navigateToTabBar = true // Активируем навигацию
+                                appRootManager.currentRoot = .timeBasedSplashView
+//                                navigateToTabBar = true // Активируем навигацию
                                 let newUser = User(
                                     id: UUID().uuidString,
                                     name: name,

@@ -23,10 +23,10 @@ import DataProvider
 @main
 struct DreamControlAppApp: App {
     private let ideasViewModel: IdeasViewModel
-    @State private var hasCompletedOnboarding: Bool
-    @State private var isFirstLaunch: Bool
     private let userManager = UserManager()
     @MainActor private let dataHandler: DataHandler
+    
+    @State private var appRootManager: AppRootManager
     
     init() {
         // для проверки имеющихся шрифтов в проекте
@@ -34,22 +34,12 @@ struct DreamControlAppApp: App {
 //                      let names = UIFont.fontNames(forFamilyName: family)
 //                      print("Family: \(family) Font names: \(names)")
 //                  }
+        appRootManager = AppRootManager()
         ideasViewModel = IdeasViewModel()
         dataHandler = DataHandler(modelContainer: DataProvider.shared.sharedModelContainer,
                                   mainActor: true)
         
-        // Проверяем, первый ли это запуск и завершен ли онбординг
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        let completedOnboarding = UserDefaults.standard.bool(forKey: "onboardingCompleted")
-        
-        if !launchedBefore {
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
-            _isFirstLaunch = State(initialValue: true)
-            _hasCompletedOnboarding = State(initialValue: false)
-        } else {
-            _isFirstLaunch = State(initialValue: false)
-            _hasCompletedOnboarding = State(initialValue: completedOnboarding)
-        }
+
         
         //        Task {
         //            do {
@@ -86,9 +76,10 @@ struct DreamControlAppApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                if isFirstLaunch || !hasCompletedOnboarding {
+                switch appRootManager.currentRoot {
+                case .splashView:
                     SplashView()
-                } else {
+                case .timeBasedSplashView:
                     getTimeBasedSplashView()
                 }
             }
@@ -99,6 +90,7 @@ struct DreamControlAppApp: App {
         .environment(\.dataHandler, dataHandler)
         .environment(\.modelContext, dataHandler.modelContainer.mainContext)
         .environmentObject(userManager)
+        .environment(appRootManager)
     }
     
     // Метод для выбора нужного Splash экрана в зависимости от времени суток
