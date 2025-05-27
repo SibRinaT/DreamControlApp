@@ -50,7 +50,6 @@ class TokenManager: NSObject, URLSessionDelegate {
             if let token = json["access_token"] as? String, let expiresAt = json["expires_at"] as? Double {
                 self.accessToken = token
                 self.tokenExpirationDate = Date(timeIntervalSince1970: expiresAt / 1000) // Преобразуем из миллисекунд в дату
-                print(token)
                 return token
             } else {
                 throw GigaChatManagerError.customError("❌ Ошибка при парсинге токена")

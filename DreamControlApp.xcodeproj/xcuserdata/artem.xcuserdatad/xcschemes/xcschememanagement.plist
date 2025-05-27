@@ -12,7 +12,25 @@
 		<key>DreamControlApp.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>2</integer>
+		</dict>
+		<key>QuotesWidgetExtension.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>2E0CA59B2DCFDCFC00CFDCF1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2E6124532B9025B100494DF6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

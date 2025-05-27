@@ -14,8 +14,12 @@ class APIService: ObservableObject  {
     func sendPrompt(_ prompt: String) async throws -> String {
         
         let token = try await TokenManager.shared.getToken()
-        
+        return try await send(prompt: prompt, with: token)
             
+    }
+    
+    
+    internal func send(prompt: String, with token: String) async throws -> String {
         let url = URL(string: "https://gigachat.devices.sberbank.ru/api/v1/chat/completions")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -42,8 +46,5 @@ class APIService: ObservableObject  {
         } else {
             throw GigaChatManagerError.customError("❌ Ошибка ответа: не удалось распарсить ответ сервера")
         }
-
-    
-        
     }
 }

@@ -35,7 +35,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2EA216EC2DDF7E9900F10EE5"
+               BlueprintIdentifier = "AC8142B92DE5656A00881707"
                BuildableName = "DreamControlAppTests.xctest"
                BlueprintName = "DreamControlAppTests"
                ReferencedContainer = "container:DreamControlApp.xcodeproj">
