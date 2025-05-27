@@ -17,19 +17,9 @@ class InsecureNetworkManager: NSObject {
         session = URLSession(configuration: config, delegate: self, delegateQueue: nil)
     }
     
-    func fetchData(for request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
-        let task = session.dataTask(with: request) { data, _, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            guard let data = data else {
-                completion(.failure(URLError(.cannotParseResponse)))
-                return
-            }
-            completion(.success(data))
-        }
-        task.resume()
+    func fetchData(for request: URLRequest) async throws -> Data {
+        let (data, res) = try await session.data(for: request) // session.dataTask(with: request) { data, _, error in
+        return data
     }
 }
 

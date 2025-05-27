@@ -50,7 +50,6 @@ final class UserManager: ObservableObject {
                 print("Продукт не найден")
                 return
             }
-
             let result = try await product.purchase()
 
             switch result {

@@ -20,10 +20,16 @@ struct GigaChatView: View {
                 .padding()
             
             Button("Отправить") {
-                responseText = "⏳ Загружается..."
-                api.sendPrompt(inputText) { result in
-                    responseText = result ?? "❌ Ошибка получения ответа"
+                Task {
+                    do {
+                        responseText = "⏳ Загружается..."
+                        responseText = try await api.sendPrompt(inputText)                        
+                    } catch {
+                        responseText = "❌ Ошибка получения ответа"
+                    }
                 }
+                responseText = "⏳ Загружается..."
+                
             }
             .buttonStyle(.borderedProminent)
             

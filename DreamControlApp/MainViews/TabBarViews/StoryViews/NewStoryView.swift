@@ -254,30 +254,32 @@ struct NewStoryView: View {
     }
     
     private func createStory() {
-        triedToSubmit = true
-        errorMessage = ""
-        
-        guard isFormValid else {
-              return // Не продолжаем, если форма недействительна
-          }
-        
-        if autoStory {
-            isLoading = true
-            let finalPrompt = "Используя это описание: \"\(description)\", создай вдохновляющую историю, чтобы человек мог визуализировать свой успех. В качестве имени применяй имя: \"\(savedName)\". История не должна вызывать никаких негативных эмоций. Не превышай количество в 1800 букв, нельзя! Не пиши никаких обращений к пользователю, он не должен знать что ты ии"
-            apiService.sendPrompt(finalPrompt) { result in
-                DispatchQueue.main.async {
-                    isLoading = false
-                    if let generatedText = result {
-                        onSave(storyTitle, generatedText)
+        Task {
+            do {
+                triedToSubmit = true
+                errorMessage = ""
+                
+                guard isFormValid else {
+                      return // Не продолжаем, если форма недействительна
+                  }
+                
+                if autoStory {
+                    isLoading = true
+                    let finalPrompt = "Используя это описание: \"\(description)\", создай вдохновляющую историю, чтобы человек мог визуализировать свой успех. В качестве имени применяй имя: \"\(savedName)\". История не должна вызывать никаких негативных эмоций. Не превышай количество в 1800 букв, нельзя! Не пиши никаких обращений к пользователю, он не должен знать что ты ии"
+                    let result = try await apiService.sendPrompt(finalPrompt)
+                    DispatchQueue.main.async {
+                        isLoading = false
+                        onSave(storyTitle, result)
                         dismiss()
-                    } else {
-                        errorMessage = "Не удалось сгенерировать историю. Попробуйте позже."
                     }
+                } else {
+                    onSave(storyTitle, description)
+                    dismiss()
                 }
             }
-        } else {
-            onSave(storyTitle, description)
-            dismiss()
+            catch {
+                errorMessage = "Не удалось сгенерировать историю. Попробуйте позже."
+            }
         }
     }
 }
