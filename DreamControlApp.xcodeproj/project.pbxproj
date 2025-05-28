@@ -60,6 +60,8 @@
 		2E92C9282BC04EBA005E4DB9 /* PasswordCreatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E92C9272BC04EBA005E4DB9 /* PasswordCreatedView.swift */; };
 		2E93BF792DE6E61D00E78774 /* TEST_TEST.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 2E93BF782DE6E61D00E78774 /* TEST_TEST.storekit */; };
 		2E93BF7A2DE6E61D00E78774 /* TEST_TEST.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 2E93BF782DE6E61D00E78774 /* TEST_TEST.storekit */; };
+		2E93BF7C2DE6ED9500E78774 /* DreamControlStoreKit.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 2E93BF7B2DE6ED9500E78774 /* DreamControlStoreKit.storekit */; };
+		2E93BF7D2DE6ED9500E78774 /* DreamControlStoreKit.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 2E93BF7B2DE6ED9500E78774 /* DreamControlStoreKit.storekit */; };
 		2E9BD10F2BA35DDF0055566F /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9BD10E2BA35DDF0055566F /* InputFieldView.swift */; };
 		2E9CF2662DD7055B00B89374 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9CF2652DD7055B00B89374 /* SubscriptionManager.swift */; };
 		2EA06B9D2BD18F880056E9F7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA06B9C2BD18F880056E9F7 /* MainView.swift */; };
@@ -227,6 +229,7 @@
 		2E92C9252BC04DA7005E4DB9 /* CreateNewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordView.swift; sourceTree = "<group>"; };
 		2E92C9272BC04EBA005E4DB9 /* PasswordCreatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCreatedView.swift; sourceTree = "<group>"; };
 		2E93BF782DE6E61D00E78774 /* TEST_TEST.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = TEST_TEST.storekit; sourceTree = "<group>"; };
+		2E93BF7B2DE6ED9500E78774 /* DreamControlStoreKit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = DreamControlStoreKit.storekit; sourceTree = "<group>"; };
 		2E9BD10E2BA35DDF0055566F /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
 		2E9CF2652DD7055B00B89374 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		2EA06B9C2BD18F880056E9F7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -433,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				2E93BF782DE6E61D00E78774 /* TEST_TEST.storekit */,
+				2E93BF7B2DE6ED9500E78774 /* DreamControlStoreKit.storekit */,
 				2EA217072DE0ABDD00F10EE5 /* DCStoreKit.storekit */,
 				2E6124562B9025B100494DF6 /* DreamControlApp */,
 				2E0CA5A22DCFDCFE00CFDCF1 /* QuotesWidget */,
@@ -924,6 +928,7 @@
 				ACE72F9A2CFEDC3300733B54 /* ideas.json in Resources */,
 				2E60923C2CBE80A400081545 /* AmericanTypewriter.ttc in Resources */,
 				2EA20C852B919924000AAEC2 /* Assets.xcassets in Resources */,
+				2E93BF7C2DE6ED9500E78774 /* DreamControlStoreKit.storekit in Resources */,
 				2E60923A2CBE800800081545 /* ArialRoundedBold.ttf in Resources */,
 				2E8578802BBAB44900BEA1ED /* MontserratAlternates.ttf in Resources */,
 				2EAA266B2D0037A500EC5997 /* Arial RoundedBold.ttf in Resources */,
@@ -957,6 +962,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E93BF7D2DE6ED9500E78774 /* DreamControlStoreKit.storekit in Resources */,
 				2E93BF792DE6E61D00E78774 /* TEST_TEST.storekit in Resources */,
 				2EA217082DE0ABDD00F10EE5 /* DCStoreKit.storekit in Resources */,
 			);

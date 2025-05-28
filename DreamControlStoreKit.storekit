@@ -9,7 +9,7 @@
       }
     ]
   },
-  "identifier" : "845C62B3",
+  "identifier" : "D5CF3DB5",
   "nonRenewingSubscriptions" : [
 
   ],
@@ -17,10 +17,9 @@
 
   ],
   "settings" : {
-    "_applicationInternalID" : "6745964318",
-    "_developerTeamID" : "YZ7WQPG9RM",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 770108691.72953498,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
     "_storeKitErrors" : [
       {
         "current" : null,
@@ -70,7 +69,43 @@
     ]
   },
   "subscriptionGroups" : [
+    {
+      "id" : "A9BDE337",
+      "localizations" : [
 
+      ],
+      "name" : "DreamControlSub",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "5",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "A8F8D3FB",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "",
+              "displayName" : "",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "DreamControlPremium",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Premium",
+          "subscriptionGroupID" : "A9BDE337",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        }
+      ]
+    }
   ],
   "version" : {
     "major" : 4,
