@@ -75,7 +75,7 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <StoreKitConfigurationFileReference
-         identifier = "../../DCStoreKit.storekit">
+         identifier = "../../TEST_TEST.storekit">
       </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction

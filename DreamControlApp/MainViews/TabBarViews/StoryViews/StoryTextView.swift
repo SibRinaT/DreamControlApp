@@ -135,7 +135,7 @@ struct StoryTextView: View {
                     .sheet(isPresented: $isRegeneratePresented) {
                         NewStoryView(
                             storyTitle: tempTitle,
-                            storyDescription: tempDescription
+                            storyDescription: ""
                         ) { newTitle, newStory in
                             self.title = newTitle
                             self.storyContent = newStory

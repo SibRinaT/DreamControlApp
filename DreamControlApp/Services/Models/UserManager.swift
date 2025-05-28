@@ -15,7 +15,7 @@ final class UserManager: ObservableObject {
     private let userDefaultsUserKey = "userDefaultsUserKey"
     private let userDefaultsSubscriptionKey = "subscriptionEnabled"
     private let defaults = UserDefaults.standard
-    private let subscriptionProductId = "DreamControl.Premium.Monthly" // AppStore подписки
+    private let subscriptionProductId = "testid" // AppStore подписки
 
     @Published private(set) var user: User? {
         didSet {
