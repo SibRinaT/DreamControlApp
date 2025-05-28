@@ -28,7 +28,7 @@ struct MemoriesView: View {
                 HStack {
                     Image("DCIcon")
                     Text("Воспоминания")
-                        .font(.custom("MontserratAlternates-Regular", size: 32))
+                        .font(.custom("MontserratAlternates-Regular", size: 30))
                         .foregroundColor(Color("PrimaryColor"))
                         .bold()
                     Spacer()
