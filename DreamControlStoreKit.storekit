@@ -11,7 +11,21 @@
   },
   "identifier" : "D5CF3DB5",
   "nonRenewingSubscriptions" : [
-
+    {
+      "displayPrice" : "5",
+      "familyShareable" : false,
+      "internalID" : "9AA768DD",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "DreamControlSub2",
+      "referenceName" : "DreamControlSub2",
+      "type" : "NonRenewingSubscription"
+    }
   ],
   "products" : [
 
