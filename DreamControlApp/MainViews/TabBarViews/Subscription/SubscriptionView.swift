@@ -99,7 +99,7 @@ struct SubscriptionView: View {
             Text(userManager.isSubscriptionEnabled ? "Подписка активна" : "Подписка неактивна")
                 .foregroundColor(.gray)
                 .padding(.top)
-            Text("7 дней бесплатно, далее 249 руб в месяц")
+            Text("249 руб в месяц ради мечты")
                 .foregroundColor(Color("InactiveColor2"))
                 .font(.custom("MontserratAlternates-Regular", size: 14))
             
